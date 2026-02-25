@@ -6,20 +6,41 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = 'AI Agent 工程化实践者的个人价值名片' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://personal-card.vercel.app');
+const { title, description = 'AI Agent 工程化实践者的个人价值名片', ogImage = '/og-image.png' } = Astro.props;
+const ogImageURL = new URL(ogImage, canonicalURL.origin).href;
 ---
 
 <!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
     <meta name="description" content={description} />
+    <meta name="author" content="Archer Yu" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="Archer Yu - Personal Card" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

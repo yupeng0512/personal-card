@@ -15,7 +15,7 @@ const navItems = [
         Archer Yu
       </a>
 
-      <div class="hidden sm:flex items-center gap-6">
+      <div class="hidden md:flex items-center gap-6">
         {navItems.map(item => (
           <a
             href={item.href}
@@ -27,7 +27,7 @@ const navItems = [
         <ThemeToggle client:load />
       </div>
 
-      <div class="sm:hidden flex items-center gap-2">
+      <div class="md:hidden flex items-center gap-2">
         <ThemeToggle client:load />
         <button id="mobile-menu-btn" class="p-2 rounded-lg hover:bg-surface-100 dark:hover:bg-surface-800" aria-label="Menu">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +38,7 @@ const navItems = [
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden sm:hidden border-t border-surface-200 dark:border-surface-700">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-surface-200 dark:border-surface-700">
     <div class="px-4 py-3 space-y-2">
       {navItems.map(item => (
         <a
