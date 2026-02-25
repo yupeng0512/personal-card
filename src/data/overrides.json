@@ -1,0 +1,223 @@
+{
+  "profile": {
+    "name": "Archer Yu",
+    "title": "AI Agent 工程化实践者 | 全栈独立开发者",
+    "tagline": "27 个项目 · 12 个生产级系统 · 22 个 AI Agent · 124 篇学习笔记",
+    "bio": "专注于 AI Agent 工程化落地，构建了从信息监控、量化交易到知识管理的完整技术体系。擅长将 AI 能力系统化、工程化，形成可复用的工具链和方法论。",
+    "contact": {
+      "github": "https://github.com/yupeng0512",
+      "email": ""
+    }
+  },
+  "projects": [
+    {
+      "slug": "infohunter",
+      "name": "InfoHunter",
+      "description": "AI 驱动的社交媒体智能订阅监控系统，支持 Twitter、YouTube、RSS 等多平台内容抓取、AI 分析和智能推送。",
+      "category": "info-monitoring",
+      "status": "production",
+      "techStack": ["Python", "FastAPI", "MySQL", "SQLAlchemy", "APScheduler", "httpx", "Docker"],
+      "highlights": ["三阶段解耦架构（抓取→AI分析→推送）", "AG-UI 协议集成", "多平台内容源支持"],
+      "valueStory": {
+        "problem": "社交媒体信息分散，手动跟踪效率低，错过关键信息",
+        "solution": "三阶段解耦架构自动抓取、AI 分析、智能推送，支持 Twitter/YouTube/RSS",
+        "result": "实现信息零遗漏，节省 90% 手动筛选时间"
+      }
+    },
+    {
+      "slug": "infohunter-client",
+      "name": "InfoHunter Client",
+      "description": "InfoHunter 双端客户端 Monorepo，包含 React Native + Expo 移动端和 React + Vite Web 管理端。",
+      "category": "info-monitoring",
+      "status": "production",
+      "techStack": ["React Native", "Expo", "React", "Vite", "Tailwind CSS", "TypeScript", "TanStack Query", "Zustand"]
+    },
+    {
+      "slug": "TrendRadar",
+      "name": "TrendRadar",
+      "description": "全网热点聚合与智能推送系统 v6.0，支持 11+ 平台热点监控、AI 分析和多渠道推送。",
+      "category": "info-monitoring",
+      "status": "production",
+      "techStack": ["Python", "SQLite", "LiteLLM", "Docker"],
+      "hasDocker": true,
+      "highlights": ["11+ 平台热点聚合", "AI 智能分析与摘要", "RSS/飞书/企微多渠道推送", "MCP 服务集成"],
+      "valueStory": {
+        "problem": "热点信息分散在 11+ 平台，人工跟踪耗时且延迟",
+        "solution": "全网热点自动聚合 + AI 分析 + 多渠道推送，支持 MCP 服务",
+        "result": "v6.0 生产级系统，GitHub Actions 自动化部署，热点零延迟感知"
+      }
+    },
+    {
+      "slug": "truthsocial-trump-monitor",
+      "name": "TruthSocial Monitor",
+      "description": "Trump Truth Social 监控系统，AI 驱动的宏观分析与投资洞察，支持实时推送、日报和周报。",
+      "category": "info-monitoring",
+      "status": "production",
+      "techStack": ["Python", "FastAPI", "MySQL", "Docker"],
+      "highlights": ["实时推送 Trump 发言", "AI 宏观经济影响分析", "日报/周报自动生成"],
+      "valueStory": {
+        "problem": "Trump 社交媒体发言对金融市场有即时影响，需要实时监控和分析",
+        "solution": "AI 驱动的实时监控 + 宏观分析 + 投资洞察推送",
+        "result": "实现发言秒级推送，AI 自动生成市场影响分析"
+      }
+    },
+    {
+      "slug": "github-sentinel",
+      "name": "GitHub Sentinel",
+      "description": "GitHub 热门项目监控与订阅系统，追踪开源项目热度变化。",
+      "category": "info-monitoring",
+      "status": "production",
+      "techStack": ["Python", "FastAPI", "MySQL", "SQLAlchemy", "React", "Tailwind CSS", "Docker"]
+    },
+    {
+      "slug": "digital-twin",
+      "name": "Digital Twin",
+      "description": "数字分身记忆系统，基于 Graphiti 知识图谱的智能记忆管理平台。",
+      "category": "knowledge",
+      "status": "production",
+      "techStack": ["Python", "Graphiti", "Neo4j", "PostgreSQL", "Docker"],
+      "highlights": ["基于 Graphiti 知识图谱", "时序实体关系自动提取", "Joplin 笔记集成"]
+    },
+    {
+      "slug": "engineering-playbook",
+      "name": "Engineering Playbook",
+      "description": "个人工程经验知识库，结构化、可检索、跨项目复用。包含 10 个经验档案、8 个 Pattern、25 个 Skills。",
+      "category": "knowledge",
+      "status": "production",
+      "techStack": ["Markdown", "Shell"]
+    },
+    {
+      "slug": "agentstudio-study",
+      "name": "AgentStudio",
+      "description": "本地 AI Agent 工作平台，基于 Claude Agent SDK，包含 React 前端和 Node.js 后端。",
+      "category": "ai-agent",
+      "status": "production",
+      "techStack": ["React", "TypeScript", "Vite", "Tailwind CSS", "Express.js", "Docker"]
+    },
+    {
+      "slug": "next-ai-draw-io",
+      "name": "Next AI Draw.io",
+      "description": "AI 驱动的图表创建工具，集成 draw.io 编辑器，支持多 AI 提供商和 MCP Server。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel AI SDK"],
+      "hasMCP": true
+    },
+    {
+      "slug": "mcp_excalidraw",
+      "name": "MCP Excalidraw",
+      "description": "AI 驱动的实时图表绘制系统，通过 MCP 协议让 AI 直接操作 Excalidraw。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["TypeScript", "Express.js", "React", "WebSocket", "Docker"],
+      "hasMCP": true
+    },
+    {
+      "slug": "pinme-mcp",
+      "name": "PinMe MCP",
+      "description": "通过 AI Agent 将静态文件部署到 IPFS 的 MCP 服务。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["Node.js", "MCP SDK", "Express.js", "Docker"],
+      "hasMCP": true
+    },
+    {
+      "slug": "bk-sap-api",
+      "name": "BK-SAP API",
+      "description": "蓝鲸 PaaS 平台上的 Django RESTful API 服务。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["Python", "Django", "MySQL", "Redis", "Celery"]
+    },
+    {
+      "slug": "bk-sap-mcp",
+      "name": "BK-SAP MCP",
+      "description": "bk-sap 的 MCP 服务，通过 MCP 协议暴露 SAP API 能力。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["Python", "MCP SDK"],
+      "hasMCP": true
+    },
+    {
+      "slug": "Quantify-Binance-Test",
+      "name": "Quantify Trading",
+      "description": "量化交易测试项目，基于 Binance 交易所 API。",
+      "category": "trading",
+      "status": "learning",
+      "techStack": ["Python", "Redis", "APScheduler", "Docker"]
+    },
+    {
+      "slug": "trading-learning",
+      "name": "Trading Learning",
+      "description": "量化交易学习项目，包含策略研究和回测代码。",
+      "category": "trading",
+      "status": "learning",
+      "techStack": ["Python"]
+    },
+    {
+      "slug": "qinyuanqiao-miniprogram",
+      "name": "亲缘桥小程序",
+      "description": "面向中老年父母群体的相亲微信小程序，支持双角色账号、智能推荐和微信支付。",
+      "category": "product",
+      "status": "production",
+      "techStack": ["WeChat Mini Program", "CloudBase", "Node.js"]
+    },
+    {
+      "slug": "fantasy-shooter",
+      "name": "Fantasy Shooter",
+      "description": "基于 Phaser 游戏引擎的幻想射击游戏。",
+      "category": "game",
+      "status": "learning",
+      "techStack": ["Phaser", "TypeScript", "Vite"]
+    },
+    {
+      "slug": "saas-landing",
+      "name": "SaaS Landing Page",
+      "description": "现代 SaaS 落地页模板，包含完整的产品展示组件。",
+      "category": "tooling",
+      "status": "learning",
+      "techStack": ["React", "Vite", "Tailwind CSS"]
+    },
+    {
+      "slug": "slidev-remotion-lab",
+      "name": "Slidev + Remotion Lab",
+      "description": "用代码写 PPT 和视频的实验室，Slidev 做演示文稿 + Remotion 做编程视频。",
+      "category": "tooling",
+      "status": "learning",
+      "techStack": ["TypeScript", "React"]
+    },
+    {
+      "slug": "mcp-gateway",
+      "name": "MCP Gateway",
+      "description": "MCP 网关服务，统一管理多个 MCP Server 的路由和认证。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["Docker"],
+      "hasMCP": true
+    },
+    {
+      "slug": "agents",
+      "name": "Agent Prompts Library",
+      "description": "22 个 AI Agent 提示词和资源库，覆盖代码审查、市场分析、OKR 管理等多个场景。",
+      "category": "ai-agent",
+      "status": "production",
+      "techStack": ["Markdown"]
+    }
+  ],
+  "categories": {
+    "info-monitoring": { "label": "信息监控", "icon": "radar", "color": "blue" },
+    "ai-agent": { "label": "AI Agent", "icon": "bot", "color": "purple" },
+    "knowledge": { "label": "知识管理", "icon": "book", "color": "green" },
+    "trading": { "label": "量化交易", "icon": "chart", "color": "orange" },
+    "tooling": { "label": "工具链", "icon": "wrench", "color": "gray" },
+    "product": { "label": "产品", "icon": "smartphone", "color": "pink" },
+    "game": { "label": "游戏", "icon": "gamepad", "color": "red" }
+  },
+  "skillRadar": [
+    { "axis": "AI Agent", "value": 92 },
+    { "axis": "全栈开发", "value": 88 },
+    { "axis": "知识管理", "value": 85 },
+    { "axis": "架构设计", "value": 82 },
+    { "axis": "产品思维", "value": 75 }
+  ]
+}

@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import workspaceData from '../../data/workspace-data.json';
+import overrides from '../../data/overrides.json';
+
+const categories = overrides.categories as Record<string, { label: string }>;
+const projects = workspaceData.projects;
+
+const projectsByCategory: Record<string, typeof projects> = {};
+for (const project of projects) {
+  const cat = project.category || 'uncategorized';
+  if (!projectsByCategory[cat]) projectsByCategory[cat] = [];
+  projectsByCategory[cat].push(project);
+}
+
+const sortedCategories = Object.entries(projectsByCategory)
+  .filter(([cat]) => cat !== 'uncategorized')
+  .sort((a, b) => b[1].length - a[1].length);
+
+const uncategorized = projectsByCategory['uncategorized'] || [];
+---
+
+<BaseLayout title="项目列表 - Archer Yu" description="全部项目一览">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <h1 class="text-4xl font-bold mb-2">
+      <span class="gradient-text">全部项目</span>
+    </h1>
+    <p class="text-surface-500 mb-10">
+      共 {projects.length} 个项目，{projects.filter(p => p.status === 'production').length} 个生产级系统
+    </p>
+
+    {sortedCategories.map(([cat, catProjects]) => {
+      const catMeta = categories[cat];
+      return (
+        <div class="mb-10">
+          <h2 class="text-xl font-bold text-surface-800 dark:text-surface-200 mb-4">
+            {catMeta?.label || cat}
+            <span class="text-sm font-normal text-surface-400 ml-2">({catProjects.length})</span>
+          </h2>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {catProjects.map(project => (
+              <ProjectCard {...project} />
+            ))}
+          </div>
+        </div>
+      );
+    })}
+
+    {uncategorized.length > 0 && (
+      <div class="mb-10">
+        <h2 class="text-xl font-bold text-surface-800 dark:text-surface-200 mb-4">
+          其他 <span class="text-sm font-normal text-surface-400 ml-2">({uncategorized.length})</span>
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {uncategorized.map(project => (
+            <ProjectCard {...project} />
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</BaseLayout>

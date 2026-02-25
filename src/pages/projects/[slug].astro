@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import workspaceData from '../../data/workspace-data.json';
+import overrides from '../../data/overrides.json';
+
+export function getStaticPaths() {
+  const projects = workspaceData.projects;
+  return projects.map(project => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const categories = overrides.categories as Record<string, { label: string; color: string }>;
+const catMeta = categories[project.category];
+
+const override = overrides.projects.find((p: any) => p.slug === project.slug) as any;
+const highlights = override?.highlights || [];
+const valueStory = override?.valueStory;
+
+const relatedProjects = workspaceData.projects
+  .filter(p => p.slug !== project.slug && p.category === project.category)
+  .slice(0, 3);
+
+const statusLabels: Record<string, string> = {
+  production: '生产级',
+  learning: '学习中',
+  tool: '工具',
+  docs: '文档',
+};
+
+const statusColors: Record<string, string> = {
+  production: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300',
+  learning: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300',
+  tool: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+  docs: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
+};
+---
+
+<BaseLayout title={`${project.name} - Archer Yu`} description={project.description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+    <a href="/projects" class="inline-flex items-center gap-1 text-sm text-surface-500 hover:text-primary-600 mb-6">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      返回项目列表
+    </a>
+
+    <div class="flex items-start gap-3 mb-6">
+      <h1 class="text-3xl sm:text-4xl font-bold text-surface-900 dark:text-white">
+        {project.name}
+      </h1>
+      <span class={`mt-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium shrink-0 ${statusColors[project.status] || statusColors.learning}`}>
+        {statusLabels[project.status] || project.status}
+      </span>
+    </div>
+
+    {catMeta && (
+      <div class="mb-6">
+        <span class="text-sm text-surface-500">领域：</span>
+        <span class="text-sm font-medium text-surface-700 dark:text-surface-300">{catMeta.label}</span>
+      </div>
+    )}
+
+    <p class="text-lg text-surface-600 dark:text-surface-400 mb-8 leading-relaxed">
+      {project.description}
+    </p>
+
+    <!-- 技术栈 -->
+    <div class="mb-8">
+      <h2 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-3">技术栈</h2>
+      <div class="flex flex-wrap gap-2">
+        {project.techStack.map((tech: string) => (
+          <span class="px-3 py-1 bg-surface-100 dark:bg-surface-800 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- 亮点 -->
+    {highlights.length > 0 && (
+      <div class="mb-8">
+        <h2 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-3">核心亮点</h2>
+        <ul class="space-y-2">
+          {highlights.map((h: string) => (
+            <li class="flex items-start gap-2 text-surface-600 dark:text-surface-400">
+              <svg class="w-5 h-5 text-green-500 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {h}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- 价值叙事 -->
+    {valueStory && (
+      <div class="glass rounded-2xl p-6 mb-8">
+        <h2 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">价值创造</h2>
+        <div class="space-y-4">
+          <div>
+            <span class="text-xs font-semibold text-red-600 dark:text-red-400 uppercase tracking-wide">痛点</span>
+            <p class="text-surface-600 dark:text-surface-400 mt-1">{valueStory.problem}</p>
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide">方案</span>
+            <p class="text-surface-600 dark:text-surface-400 mt-1">{valueStory.solution}</p>
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-green-600 dark:text-green-400 uppercase tracking-wide">成果</span>
+            <p class="text-surface-600 dark:text-surface-400 mt-1">{valueStory.result}</p>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- 标签 -->
+    <div class="flex items-center gap-3 mb-8">
+      {project.hasDocker && (
+        <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg text-sm">
+          🐳 Docker 部署
+        </span>
+      )}
+      {project.hasMCP && (
+        <span class="inline-flex items-center gap-1 px-3 py-1 bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 rounded-lg text-sm">
+          🔌 MCP 服务
+        </span>
+      )}
+    </div>
+
+    <!-- 相关项目 -->
+    {relatedProjects.length > 0 && (
+      <div>
+        <h2 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">相关项目</h2>
+        <div class="grid gap-4 sm:grid-cols-3">
+          {relatedProjects.map(rp => (
+            <a href={`/projects/${rp.slug}`} class="glass rounded-xl p-4 card-hover block">
+              <h3 class="font-bold text-sm text-surface-800 dark:text-surface-200 mb-1">{rp.name}</h3>
+              <p class="text-xs text-surface-500 line-clamp-2">{rp.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</BaseLayout>

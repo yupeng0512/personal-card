@@ -1,0 +1,65 @@
+---
+interface Props {
+  slug: string;
+  name: string;
+  description: string;
+  techStack: string[];
+  category: string;
+  status: string;
+  hasDocker: boolean;
+  hasMCP: boolean;
+}
+
+const { slug, name, description, techStack, category, status, hasDocker, hasMCP } = Astro.props;
+
+const statusColors: Record<string, string> = {
+  production: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300',
+  learning: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300',
+  tool: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+  docs: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
+};
+
+const statusLabels: Record<string, string> = {
+  production: '生产级',
+  learning: '学习中',
+  tool: '工具',
+  docs: '文档',
+};
+---
+
+<a href={`/projects/${slug}`} class="block glass rounded-2xl p-5 card-hover group">
+  <div class="flex items-start justify-between mb-3">
+    <h3 class="font-bold text-surface-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+      {name}
+    </h3>
+    <span class={`px-2 py-0.5 rounded-full text-xs font-medium shrink-0 ${statusColors[status] || statusColors.learning}`}>
+      {statusLabels[status] || status}
+    </span>
+  </div>
+
+  <p class="text-sm text-surface-500 dark:text-surface-400 mb-4 line-clamp-2">
+    {description}
+  </p>
+
+  <div class="flex flex-wrap gap-1.5">
+    {techStack.slice(0, 5).map(tech => (
+      <span class="px-2 py-0.5 bg-surface-100 dark:bg-surface-800 rounded text-xs text-surface-600 dark:text-surface-400">
+        {tech}
+      </span>
+    ))}
+    {techStack.length > 5 && (
+      <span class="px-2 py-0.5 text-xs text-surface-400">
+        +{techStack.length - 5}
+      </span>
+    )}
+  </div>
+
+  <div class="flex items-center gap-2 mt-3">
+    {hasDocker && (
+      <span class="text-xs text-surface-400" title="Docker 部署">🐳</span>
+    )}
+    {hasMCP && (
+      <span class="text-xs text-surface-400" title="MCP 服务">🔌</span>
+    )}
+  </div>
+</a>

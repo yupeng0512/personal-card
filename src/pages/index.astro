@@ -1,17 +1,91 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import StatsPanel from '../components/StatsPanel.astro';
+import ValueStory from '../components/ValueStory.astro';
+import AgentEcosystem from '../components/AgentEcosystem.astro';
+import TechStackCloud from '../components/TechStackCloud.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SkillRadar from '../islands/SkillRadar.tsx';
+import overrides from '../data/overrides.json';
+import workspaceData from '../data/workspace-data.json';
 
+const categories = overrides.categories as Record<string, { label: string }>;
+
+const projectsByCategory: Record<string, typeof workspaceData.projects> = {};
+for (const project of workspaceData.projects) {
+  const cat = project.category || 'uncategorized';
+  if (!projectsByCategory[cat]) projectsByCategory[cat] = [];
+  projectsByCategory[cat].push(project);
+}
+
+const sortedCategories = Object.entries(projectsByCategory)
+  .filter(([cat]) => cat !== 'uncategorized')
+  .sort((a, b) => b[1].length - a[1].length);
+
+const uncategorized = projectsByCategory['uncategorized'] || [];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Archer Yu - 个人价值名片">
+  <Hero />
+  <StatsPanel />
+
+  <!-- 技能雷达图 -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold mb-3">
+        <span class="gradient-text">能力画像</span>
+      </h2>
+      <p class="text-surface-500">五维能力模型</p>
+    </div>
+    <SkillRadar data={overrides.skillRadar} client:visible />
+  </section>
+
+  <ValueStory />
+  <AgentEcosystem />
+
+  <!-- 项目矩阵 -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-3">
+        <span class="gradient-text">项目矩阵</span>
+      </h2>
+      <p class="text-surface-500 max-w-lg mx-auto">
+        {workspaceData.stats.totalProjects} 个项目，覆盖 AI Agent、信息监控、量化交易等多个领域
+      </p>
+    </div>
+
+    {sortedCategories.map(([cat, projects]) => {
+      const catMeta = categories[cat];
+      return (
+        <div class="mb-10">
+          <h3 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">
+            {catMeta?.label || cat}
+            <span class="text-sm font-normal text-surface-400 ml-2">({projects.length})</span>
+          </h3>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.map(project => (
+              <ProjectCard {...project} />
+            ))}
+          </div>
+        </div>
+      );
+    })}
+
+    {uncategorized.length > 0 && (
+      <div class="mb-10">
+        <h3 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">
+          其他
+          <span class="text-sm font-normal text-surface-400 ml-2">({uncategorized.length})</span>
+        </h3>
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {uncategorized.map(project => (
+            <ProjectCard {...project} />
+          ))}
+        </div>
+      </div>
+    )}
+  </section>
+
+  <TechStackCloud />
+</BaseLayout>

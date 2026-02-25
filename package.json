@@ -7,7 +7,7 @@
     "dev": "astro dev --host 0.0.0.0",
     "build": "npm run extract && astro build",
     "preview": "astro preview --host 0.0.0.0",
-    "extract": "node --loader ts-node/esm scripts/extract-workspace-data.ts",
+    "extract": "npx tsx scripts/extract-workspace-data.ts",
     "astro": "astro"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

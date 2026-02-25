@@ -1,0 +1,61 @@
+---
+import workspaceData from '../data/workspace-data.json';
+
+const agentsByType: Record<string, typeof workspaceData.agents> = {};
+for (const agent of workspaceData.agents) {
+  const type = agent.type || 'other';
+  if (!agentsByType[type]) agentsByType[type] = [];
+  agentsByType[type].push(agent);
+}
+
+const typeLabels: Record<string, { label: string; color: string }> = {
+  development: { label: '开发辅助', color: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300' },
+  analysis: { label: '分析工具', color: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300' },
+  efficiency: { label: '效率工具', color: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' },
+  'meta-tool': { label: '元工具', color: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300' },
+  tooling: { label: '基础设施', color: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300' },
+  learning: { label: '学习教学', color: 'bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300' },
+  other: { label: '其他', color: 'bg-surface-100 text-surface-700 dark:bg-surface-800 dark:text-surface-300' },
+};
+
+const sortedTypes = Object.entries(agentsByType).sort((a, b) => b[1].length - a[1].length);
+---
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl font-bold mb-3">
+      <span class="gradient-text">AI Agent 生态</span>
+    </h2>
+    <p class="text-surface-500 max-w-lg mx-auto">
+      用 AI 构建 AI 工具链 — {workspaceData.agents.length} 个专用 Agent 覆盖开发全流程
+    </p>
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {sortedTypes.map(([type, agents]) => {
+      const meta = typeLabels[type] || typeLabels.other;
+      return (
+        <div class="glass rounded-2xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <span class={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${meta.color}`}>
+              {meta.label}
+            </span>
+            <span class="text-xs text-surface-400">{agents.length} 个</span>
+          </div>
+          <div class="space-y-2">
+            {agents.map(agent => (
+              <div class="flex items-start gap-2 text-sm">
+                <span class="text-surface-400 mt-0.5 shrink-0">•</span>
+                <div>
+                  <span class="font-medium text-surface-800 dark:text-surface-200">
+                    {agent.name.replace(/-/g, ' ')}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</section>
