@@ -1,0 +1,30 @@
+{
+  "name": "personal-card",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "个人价值名片 - AI Agent 工程化实践者的可视化展示平台",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "npm run extract && astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "extract": "node --loader ts-node/esm scripts/extract-workspace-data.ts",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/react": "^4.4.2",
+    "@tailwindcss/vite": "^4.2.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.17.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-force-graph-2d": "^1.29.1",
+    "recharts": "^3.7.0",
+    "tailwindcss": "^4.2.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

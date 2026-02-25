@@ -1,0 +1,58 @@
+---
+description: Personal Card 项目架构与开发指南
+alwaysApply: true
+---
+
+# Personal Card - 个人价值名片
+
+向投资人和技术合作伙伴展示全方位技术价值的可视化平台。双模式浏览：30 秒快速概览 + 5-10 分钟深度探索。
+
+## 架构
+
+```
+personal-card/
+├── scripts/                     数据抽取脚本（扫描 Workspace 生成 JSON）
+├── src/
+│   ├── data/
+│   │   ├── workspace-data.json  [自动生成] 从 Workspace 抽取的结构化数据
+│   │   └── overrides.json       [手动维护] 补充/覆盖数据（分类、叙事文案等）
+│   ├── layouts/                 Astro 布局组件
+│   ├── pages/                   页面路由
+│   ├── components/              Astro 静态组件（零 JS）
+│   ├── islands/                 React 交互组件（按需水合）
+│   └── styles/                  全局样式
+└── public/                      静态资源（截图、OG 图片等）
+```
+
+## 技术栈
+
+- **框架**: Astro 5 + React 19 Islands 架构
+- **样式**: Tailwind CSS v4
+- **内容**: MDX
+- **可视化**: Recharts（雷达图/统计图表）+ react-force-graph-2d（知识图谱，可选）
+- **部署**: Vercel + Cloudflare CDN
+- **降级方案**: 如 Astro 学习成本超预期，切换 Next.js 16 SSG
+
+## 常用命令
+
+| 命令 | 说明 |
+|------|------|
+| `npm run dev` | 启动开发服务器 |
+| `npm run extract` | 从 Workspace 抽取数据生成 workspace-data.json |
+| `npm run build` | 抽取数据 + 构建静态站点 |
+| `npm run preview` | 预览构建产物 |
+
+## 数据流
+
+1. `npm run extract` 扫描 `/data/workspace` 下的项目目录
+2. 解析 package.json / requirements.txt / README.md 第一段
+3. 合并 `overrides.json` 中的手动数据
+4. 输出 `src/data/workspace-data.json`
+5. Astro 构建时读取 JSON 生成静态页面
+
+## 设计原则
+
+- **投资人视角优先**：不只展示技术细节，更要展示价值创造能力
+- **内容为王**：静态内容零 JS，交互组件用 `client:visible` 按需加载
+- **数据驱动**：所有展示内容来自 workspace-data.json，一处修改全站更新
+- **移动端友好**：投资人可能在微信中打开，必须适配移动端
