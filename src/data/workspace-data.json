@@ -85,6 +85,39 @@
       "dependencies": {}
     },
     {
+      "slug": "alpha-radar",
+      "name": "alpha-radar",
+      "description": "Multi-Agent Investment Research System — AI-powered global market analysis.",
+      "techStack": [],
+      "category": "uncategorized",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "bk-sap-api-mr-1158",
+      "name": "bk-sap-api-mr-1158",
+      "description": "可以使用 [docker compose](dev) 快速初始化 MySQL 与 Redis 依赖",
+      "techStack": [
+        "MySQL",
+        "aiohttp",
+        "Django",
+        "Redis",
+        "Celery",
+        "Python"
+      ],
+      "category": "uncategorized",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {}
+    },
+    {
       "slug": "digital-twin",
       "name": "Digital Twin",
       "description": "数字分身记忆系统，基于 Graphiti 知识图谱的智能记忆管理平台。",
@@ -222,7 +255,7 @@
     {
       "slug": "learning-notes",
       "name": "learning-notes",
-      "description": "> 最后更新：2026-02-21",
+      "description": "> 最后更新：2026-02-25",
       "techStack": [],
       "category": "uncategorized",
       "status": "learning",
@@ -435,6 +468,29 @@
       "dependencies": {}
     },
     {
+      "slug": "stagehand-lab",
+      "name": "stagehand-lab",
+      "description": "stagehand-lab project",
+      "techStack": [
+        "TypeScript",
+        "Zod"
+      ],
+      "category": "uncategorized",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {
+        "@browserbasehq/stagehand": "^3.1.0",
+        "dotenv": "^17.3.1",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3",
+        "zod": "^4.3.6"
+      }
+    },
+    {
       "slug": "truthsocial-trump-monitor",
       "name": "TruthSocial Monitor",
       "description": "Trump Truth Social 监控系统，AI 驱动的宏观分析与投资洞察，支持实时推送、日报和周报。",
@@ -613,6 +669,11 @@
       "path": "/data/home/archerpyu/.cursor/skills/skill-from-masters/SKILL.md"
     },
     {
+      "name": "stagehand-automation",
+      "description": "name: stagehand-automation",
+      "path": "/data/home/archerpyu/.cursor/skills/stagehand-automation/SKILL.md"
+    },
+    {
       "name": "tech-review",
       "description": "> 融合 ATAM、AWS Well-Architected Framework、Martin Fowler 架构原则的专业评审助手",
       "path": "/data/home/archerpyu/.cursor/skills/tech-review/SKILL.md"
@@ -653,23 +714,6 @@
       "slug": "voidzero-unified-js-toolchain",
       "path": "dev-tools/2026-02-15-voidzero-unified-js-toolchain.md",
       "summary": "JavaScript 工具链的碎片化是一个「共享基础设施缺失」问题 —— 当 parser、resolver、transformer、bundler、minifier 由同一团队用同一语言（Rust）构建并共享同一 AST 时，工具间的不一致性归零，性能提升 10-100x，开发者的认知负担和配置成本趋近于零。"
-    },
-    {
-      "title": "tmux - 终端复用器完全精读",
-      "date": "2026-02-15",
-      "category": "tools",
-      "subcategory": "",
-      "tags": [
-        "tmux",
-        "terminal",
-        "multiplexer",
-        "cli",
-        "devops",
-        "remote"
-      ],
-      "slug": "tmux-terminal-multiplexer",
-      "path": "tools/2026-02-15-tmux-terminal-multiplexer.md",
-      "summary": "终端复用的本质 = 将「终端」从「物理连接」中解耦，实现 Session ↔ Client 的 N:M 映射"
     },
     {
       "title": "SOUL.md：AI 通过文本构建身份认同的哲学思考",
@@ -1322,33 +1366,6 @@
       "summary": "LLM 是「只能向前看」的因果模型，重复 Prompt 等于给它一次「回头看」的机会"
     },
     {
-      "title": "Skill 生态全攻略：从发现到构建，把开源智慧变成你的 AI 弹药库",
-      "date": "2026-01-22",
-      "category": "shares",
-      "subcategory": "",
-      "tags": [
-        "分享"
-      ],
-      "slug": "skill-building-guide-share",
-      "path": "shares/2026-01-22-skill-building-guide-share.md",
-      "summary": "团队周会分享 | 2026-01-22"
-    },
-    {
-      "title": "WeTERM AI 架构总览",
-      "date": "2026-01-22",
-      "category": "weterm-ai-architecture",
-      "subcategory": "",
-      "tags": [
-        "AI Agent",
-        "终端",
-        "架构设计",
-        "Shell Hook"
-      ],
-      "slug": "00-architecture-overview",
-      "path": "weterm-ai-architecture/00-architecture-overview.md",
-      "summary": "在远程环境零依赖的约束下，通过 Shell Hook + 客户端增强实现完整 AI Agent 能力"
-    },
-    {
       "title": "Frontend Design Skill 深度解析",
       "date": "2026-01-20",
       "category": "ai-tools",
@@ -1935,34 +1952,6 @@
       "summary": ""
     },
     {
-      "title": "Memos - 注重隐私的轻量级笔记工具",
-      "date": "2026-01-16",
-      "category": "tools",
-      "subcategory": "",
-      "tags": [
-        "笔记工具",
-        "自托管",
-        "开源",
-        "Docker",
-        "隐私"
-      ],
-      "slug": "memos-lightweight-notes",
-      "path": "tools/2026-01-16-memos-lightweight-notes.md",
-      "summary": "💡 **一句话总结**：Memos 是一个可自托管的\"私密微博\"，用 Markdown 记录碎片化想法，完全掌握数据所有权，Docker 一键部署，资源占用极低。"
-    },
-    {
-      "title": "微信公众号文章导出器 - 批量下载神器精读",
-      "date": "2026-01-16",
-      "category": "tools",
-      "subcategory": "",
-      "tags": [
-        "命令行工具"
-      ],
-      "slug": "wechat-article-exporter",
-      "path": "tools/2026-01-16-wechat-article-exporter.md",
-      "summary": "**项目地址**：https://github.com/wechat-article/wechat-article-exporter"
-    },
-    {
       "title": "2025年AI技术回顾：暴力美学时代的终结",
       "date": "2026-01-14",
       "category": "ai-research",
@@ -2252,30 +2241,6 @@
       "summary": ""
     },
     {
-      "title": "《Privilege Lost》精读笔记",
-      "date": "2026-01-06",
-      "category": "sociology",
-      "subcategory": "",
-      "tags": [
-        "社会学"
-      ],
-      "slug": "privilege-lost-book-notes",
-      "path": "sociology/2026-01-06-privilege-lost-book-notes.md",
-      "summary": "📚 书名：Privilege Lost: Who Leaves the Upper Middle Class and How They Fall"
-    },
-    {
-      "title": "飞书 MCP 接入与使用指南",
-      "date": "2026-01-06",
-      "category": "tools",
-      "subcategory": "",
-      "tags": [
-        "命令行工具"
-      ],
-      "slug": "feishu-lark-mcp-integration",
-      "path": "tools/2026-01-06-feishu-lark-mcp-integration.md",
-      "summary": ""
-    },
-    {
       "title": "Vibe Kanban - AI 编程代理的\"赛博包工头\"",
       "date": "2026-01-05",
       "category": "ai-tools",
@@ -2339,18 +2304,6 @@
       "slug": "mcp-server-client-concepts",
       "path": "ai-tools/mcp/2026-01-05-mcp-server-client-concepts.md",
       "summary": "- https://modelcontextprotocol.io/docs/learn/server-concepts"
-    },
-    {
-      "title": "fzf - 命令行模糊查找器精读笔记",
-      "date": "2026-01-05",
-      "category": "tools",
-      "subcategory": "",
-      "tags": [
-        "命令行工具"
-      ],
-      "slug": "fzf-command-line-fuzzy-finder",
-      "path": "tools/2025-01-05-fzf-command-line-fuzzy-finder.md",
-      "summary": ""
     },
     {
       "title": "Agentic Patterns - AI Agent 设计模式原理",
@@ -2489,22 +2442,6 @@
       "summary": ""
     },
     {
-      "title": "Celery 任务调度机制深度解析",
-      "date": "2026-01-04",
-      "category": "programming",
-      "subcategory": "",
-      "tags": [
-        "celery",
-        "python",
-        "分布式",
-        "任务调度",
-        "异步处理"
-      ],
-      "slug": "celery-task-scheduling-design",
-      "path": "programming/2026-01-04-celery-task-scheduling-design.md",
-      "summary": ""
-    },
-    {
       "title": "UI/UX Pro Max Skill - AI 助手的设计大脑",
       "date": "2026-01-02",
       "category": "ai-tools",
@@ -2536,53 +2473,25 @@
       "slug": "claude-code-guide",
       "path": "ai-tools/ai-ide/2025-12-29-claude-code-guide.md",
       "summary": "📖 原文：[A Guide to Claude Code 2.0](https://sankalp.bearblog.dev/my-experience-with-claude-code-20-and-how-to-get-better-at-using-coding-agents/)"
-    },
-    {
-      "title": "Clean Code Python 版 - 代码整洁之道",
-      "date": "2025-12-29",
-      "category": "programming",
-      "subcategory": "",
-      "tags": [
-        "clean-code",
-        "python",
-        "best-practices",
-        "code-quality",
-        "solid"
-      ],
-      "slug": "clean-code-python",
-      "path": "programming/2025-12-29-clean-code-python.md",
-      "summary": "📖 原文：[clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)"
-    },
-    {
-      "title": "Python 设计模式完全指南",
-      "date": "2025-12-29",
-      "category": "programming",
-      "subcategory": "",
-      "tags": [
-        "design-patterns",
-        "python",
-        "gof",
-        "creational",
-        "structural",
-        "behavioral"
-      ],
-      "slug": "python-design-patterns",
-      "path": "programming/2025-12-29-python-design-patterns.md",
-      "summary": "📖 原文：[faif/python-patterns](https://github.com/faif/python-patterns)"
     }
   ],
   "stats": {
-    "totalProjects": 19,
-    "productionProjects": 9,
+    "totalProjects": 22,
+    "productionProjects": 10,
     "totalAgents": 21,
     "totalNotes": 124,
-    "totalPatterns": 8,
-    "totalSkills": 13,
+    "totalPatterns": 9,
+    "totalSkills": 14,
     "totalExperienceArchives": 11
   },
   "techStack": [
     {
       "name": "Python",
+      "count": 6,
+      "category": "Language"
+    },
+    {
+      "name": "TypeScript",
       "count": 5,
       "category": "Language"
     },
@@ -2592,9 +2501,14 @@
       "category": "Scheduler"
     },
     {
-      "name": "TypeScript",
+      "name": "MySQL",
       "count": 4,
-      "category": "Language"
+      "category": "Database"
+    },
+    {
+      "name": "Zod",
+      "count": 4,
+      "category": "Validation"
     },
     {
       "name": "Vite",
@@ -2608,11 +2522,6 @@
     },
     {
       "name": "SQLAlchemy",
-      "count": 3,
-      "category": "Database"
-    },
-    {
-      "name": "MySQL",
       "count": 3,
       "category": "Database"
     },
@@ -2637,9 +2546,9 @@
       "category": "Frontend"
     },
     {
-      "name": "Zod",
-      "count": 3,
-      "category": "Validation"
+      "name": "Redis",
+      "count": 2,
+      "category": "Database"
     },
     {
       "name": "Express.js",
@@ -2652,14 +2561,24 @@
       "category": "Frontend"
     },
     {
-      "name": "Redis",
-      "count": 1,
-      "category": "Database"
-    },
-    {
       "name": "LiteLLM",
       "count": 1,
       "category": "AI/Agent"
+    },
+    {
+      "name": "aiohttp",
+      "count": 1,
+      "category": "Other"
+    },
+    {
+      "name": "Django",
+      "count": 1,
+      "category": "Backend"
+    },
+    {
+      "name": "Celery",
+      "count": 1,
+      "category": "Scheduler"
     },
     {
       "name": "Phaser",
@@ -2688,6 +2607,46 @@
     }
   ],
   "timeline": [
+    {
+      "date": "2026-02-26",
+      "message": "feat: implement Phase 4 — backtest parser, strategy evaluation, experience store",
+      "project": "alpha-radar"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "feat: implement Phase 3 — TradingView Pine Scripts + signal-to-agent loop",
+      "project": "alpha-radar"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "feat: implement Phase 2 — Agent team, orchestrator, and Feishu push",
+      "project": "alpha-radar"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "feat: initialize AlphaRadar project skeleton (Phase 1 foundation)",
+      "project": "alpha-radar"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "feat: 新增 5 张判断力卡片，总计 8 张",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "feat: 新增判断力锻造 Skill + 判断力卡片精华库",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "feat: 新增判断力自进化索引 (judgment-index.md)",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "feat: 新增 slidev-presentation + slidev-pitch-deck Skill，更新 README 资产一览",
+      "project": "engineering-playbook"
+    },
     {
       "date": "2026-02-25",
       "message": "feat: 批量经验沉淀 + 门控审核",
@@ -2721,21 +2680,6 @@
     {
       "date": "2026-02-25",
       "message": "Merge remote-tracking branch 'origin/main'",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "security: sanitize sensitive info + add repo secret hygiene pattern",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "refactor: 资产评估修复 — 消除冗余+补齐短板，C级清零",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "feat: 新增资产评估模板 + 全量资产 Review 报告",
       "project": "engineering-playbook"
     },
     {
@@ -2835,6 +2779,11 @@
     },
     {
       "date": "2026-02-21",
+      "message": "cursor: empty commit to allow worktree creation",
+      "project": "bk-sap-api-mr-1158"
+    },
+    {
+      "date": "2026-02-21",
       "message": "docs: update README with transcript_service and youtube-transcript-api",
       "project": "infohunter"
     },
@@ -2907,37 +2856,7 @@
       "date": "2026-02-09",
       "message": "feat: 引入统一时间线调度系统，优化 AI 分析稳定性，mcp 支持 AI 对话内容直推多渠道",
       "project": "TrendRadar"
-    },
-    {
-      "date": "2026-02-07",
-      "message": "docs: reflexion update - Dan Koe 一日重整笔记深度补充",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-07",
-      "message": "docs: rename files and add new notes",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-04",
-      "message": "feat: add RSS to Feishu n8n workflow",
-      "project": "n8n-workflows"
-    },
-    {
-      "date": "2026-02-02",
-      "message": "feat: mcp 可读取整篇新闻内容",
-      "project": "TrendRadar"
-    },
-    {
-      "date": "2026-02-02",
-      "message": "refactor: 优化时间管理功能和用户体验",
-      "project": "TrendRadar"
-    },
-    {
-      "date": "2026-02-02",
-      "message": "🧹 删除过时的 feature-gap 文档",
-      "project": "digital-twin"
     }
   ],
-  "extractedAt": "2026-02-26T03:55:22.998Z"
+  "extractedAt": "2026-02-26T11:50:32.425Z"
 }

@@ -18,21 +18,24 @@ const { stats } = workspaceData;
       <div class="space-y-4 text-lg text-surface-600 dark:text-surface-400 leading-relaxed">
         <p>
           我是 <strong class="text-surface-900 dark:text-white">{profile.name}</strong>，一个相信
-          <strong class="text-surface-900 dark:text-white">「AI 应该被工程化」</strong>的全栈开发者。
+          <strong class="text-surface-900 dark:text-white">「AI 应该被工程化」</strong>的开发者。
         </p>
         <p>
-          过去一年多，我从零构建了 {stats.totalProjects} 个项目，覆盖信息监控、量化交易、知识管理等领域。
-          其中 {stats.productionProjects} 个已在生产环境运行，{stats.totalAgents} 个 AI Agent 在帮我处理
-          从社交媒体追踪到热点分析的各种任务。
+          从百度智能云的数据库治理，到微派网络的效率工程，再到腾讯 IEG 蓝鲸体系的游戏运营平台 ——
+          我始终在做同一件事：<em class="text-surface-800 dark:text-surface-200">用工程手段把复杂的系统变简单，
+          让技术真正为业务创造杠杆效应。</em>
+        </p>
+        <p>
+          工作中，我负责支撑《王者荣耀》《和平精英》等头部游戏的运营业务受理平台，
+          在高并发批量执行、全链路可观测性等领域积累了扎实的后端架构经验。
+          工作之余，我从零构建了 {stats.totalProjects} 个个人项目，覆盖 AI Agent、信息监控、量化交易、知识管理等方向，
+          其中 {stats.productionProjects} 个已在生产环境运行。
         </p>
         <p>
           驱动我的不是技术本身，而是一个简单的问题：<em class="text-surface-800 dark:text-surface-200">如何让 AI 不只是聊天框里的玩具，
-          而是真正能帮人做事的工具？</em> 我的答案是工程化 —— 把 AI 能力拆解、组合、部署到具体的业务场景中，
-          形成可复用的模式和方法论。
-        </p>
-        <p>
-          工作之余，我保持着 <a href="/blog" class="text-primary-600 dark:text-primary-400 hover:underline">持续学习</a> 的习惯，
-          到目前为止写了 {stats.totalNotes} 篇精读笔记，涵盖 AI Agent 架构、MCP 协议、Prompt 工程等前沿领域。
+          而是真正能帮人做事的工具？</em> 我的答案是工程化 —— 把 AI 能力拆解、组合、部署到具体的业务场景中。
+          截至目前，我保持着 <a href="/blog" class="text-primary-600 dark:text-primary-400 hover:underline">持续学习</a> 的习惯，
+          写了 {stats.totalNotes} 篇精读笔记，涵盖 AI Agent 架构、MCP 协议、Prompt 工程等前沿领域。
         </p>
       </div>
     </section>
@@ -42,19 +45,27 @@ const { stats } = workspaceData;
       <section class="mb-16">
         <h2 class="text-2xl font-bold text-surface-800 dark:text-surface-200 mb-8">职业经历</h2>
         <div class="relative pl-8 border-l-2 border-surface-200 dark:border-surface-700 space-y-8">
-          {career.map((job: any) => (
+          {career.map((job: any, i: number) => (
             <div class="relative">
-              <div class="absolute -left-[2.3rem] top-1 w-4 h-4 rounded-full bg-primary-500 border-2 border-white dark:border-surface-900"></div>
+              <div class={`absolute -left-[2.3rem] top-1 w-4 h-4 rounded-full border-2 border-white dark:border-surface-900 ${i === 0 ? 'bg-primary-500 ring-4 ring-primary-500/20' : 'bg-surface-400 dark:bg-surface-500'}`}></div>
               <div class="glass rounded-xl p-5">
-                <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
                   <h3 class="text-lg font-bold text-surface-900 dark:text-white">{job.company}</h3>
-                  <span class="text-sm text-surface-500 dark:text-surface-400">{job.period}</span>
+                  {job.department && (
+                    <span class="text-xs text-surface-400 dark:text-surface-500">{job.department}</span>
+                  )}
                 </div>
-                <p class="text-primary-600 dark:text-primary-400 text-sm font-medium mb-3">{job.role}</p>
-                <ul class="space-y-1">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
+                  <span class="text-primary-600 dark:text-primary-400 text-sm font-medium">{job.role}</span>
+                  <span class="text-xs text-surface-400 dark:text-surface-500">{job.period}</span>
+                </div>
+                {job.description && (
+                  <p class="text-sm text-surface-500 dark:text-surface-400 mb-3 leading-relaxed">{job.description}</p>
+                )}
+                <ul class="space-y-1.5">
                   {job.highlights.map((h: string) => (
                     <li class="text-sm text-surface-600 dark:text-surface-400 flex items-start gap-2">
-                      <span class="text-primary-500 mt-1 shrink-0">&#8227;</span>
+                      <span class="text-primary-500 mt-0.5 shrink-0">▸</span>
                       <span>{h}</span>
                     </li>
                   ))}
@@ -63,9 +74,6 @@ const { stats } = workspaceData;
             </div>
           ))}
         </div>
-        <p class="mt-4 text-xs text-surface-400 dark:text-surface-500 italic">
-          * 职业经历详情待补充，请编辑 overrides.json 中的 career 字段
-        </p>
       </section>
     )}
 
