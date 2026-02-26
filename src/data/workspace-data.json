@@ -1,0 +1,1055 @@
+{
+  "projects": [
+    {
+      "slug": "Quantify-Binance-Test",
+      "name": "Quantify Trading",
+      "description": "量化交易测试项目，基于 Binance 交易所 API。",
+      "techStack": [
+        "Python",
+        "Redis",
+        "APScheduler",
+        "Docker"
+      ],
+      "category": "trading",
+      "status": "learning",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {}
+    },
+    {
+      "slug": "TrendRadar",
+      "name": "TrendRadar",
+      "description": "全网热点聚合与智能推送系统 v6.0，支持 11+ 平台热点监控、AI 分析和多渠道推送。",
+      "techStack": [
+        "Python",
+        "SQLite",
+        "LiteLLM",
+        "Docker"
+      ],
+      "category": "info-monitoring",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {},
+      "highlights": [
+        "11+ 平台热点聚合",
+        "AI 智能分析与摘要",
+        "RSS/飞书/企微多渠道推送",
+        "MCP 服务集成"
+      ],
+      "valueStory": {
+        "problem": "热点信息分散在 11+ 平台，人工跟踪耗时且延迟",
+        "solution": "全网热点自动聚合 + AI 分析 + 多渠道推送，支持 MCP 服务",
+        "result": "v6.0 生产级系统，GitHub Actions 自动化部署，热点零延迟感知"
+      }
+    },
+    {
+      "slug": "agents",
+      "name": "Agent Prompts Library",
+      "description": "22 个 AI Agent 提示词和资源库，覆盖代码审查、市场分析、OKR 管理等多个场景。",
+      "techStack": [
+        "Markdown"
+      ],
+      "category": "ai-agent",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "agentstudio-study",
+      "name": "AgentStudio",
+      "description": "本地 AI Agent 工作平台，基于 Claude Agent SDK，包含 React 前端和 Node.js 后端。",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Express.js",
+        "Docker"
+      ],
+      "category": "ai-agent",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {}
+    },
+    {
+      "slug": "bk-sap-api",
+      "name": "BK-SAP API",
+      "description": "蓝鲸 PaaS 平台上的 Django RESTful API 服务。",
+      "techStack": [
+        "Python",
+        "Django",
+        "MySQL",
+        "Redis",
+        "Celery"
+      ],
+      "category": "tooling",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {}
+    },
+    {
+      "slug": "bk-sap-mcp",
+      "name": "BK-SAP MCP",
+      "description": "bk-sap 的 MCP 服务，通过 MCP 协议暴露 SAP API 能力。",
+      "techStack": [
+        "Python",
+        "MCP SDK"
+      ],
+      "category": "tooling",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": true,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "digital-twin",
+      "name": "Digital Twin",
+      "description": "数字分身记忆系统，基于 Graphiti 知识图谱的智能记忆管理平台。",
+      "techStack": [
+        "Python",
+        "Graphiti",
+        "Neo4j",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "category": "knowledge",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {},
+      "highlights": [
+        "基于 Graphiti 知识图谱",
+        "时序实体关系自动提取",
+        "Joplin 笔记集成"
+      ]
+    },
+    {
+      "slug": "engineering-playbook",
+      "name": "Engineering Playbook",
+      "description": "个人工程经验知识库，结构化、可检索、跨项目复用。包含 10 个经验档案、8 个 Pattern、25 个 Skills。",
+      "techStack": [
+        "Markdown",
+        "Shell"
+      ],
+      "category": "knowledge",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "fantasy-shooter",
+      "name": "Fantasy Shooter",
+      "description": "基于 Phaser 游戏引擎的幻想射击游戏。",
+      "techStack": [
+        "Phaser",
+        "TypeScript",
+        "Vite"
+      ],
+      "category": "game",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {
+        "phaser": "^3.80.0"
+      }
+    },
+    {
+      "slug": "github-sentinel",
+      "name": "GitHub Sentinel",
+      "description": "GitHub 热门项目监控与订阅系统，追踪开源项目热度变化。",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "MySQL",
+        "SQLAlchemy",
+        "React",
+        "Tailwind CSS",
+        "Docker"
+      ],
+      "category": "info-monitoring",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {}
+    },
+    {
+      "slug": "infohunter",
+      "name": "InfoHunter",
+      "description": "AI 驱动的社交媒体智能订阅监控系统，支持 Twitter、YouTube、RSS 等多平台内容抓取、AI 分析和智能推送。",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "MySQL",
+        "SQLAlchemy",
+        "APScheduler",
+        "httpx",
+        "Docker"
+      ],
+      "category": "info-monitoring",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": true,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {},
+      "highlights": [
+        "三阶段解耦架构（抓取→AI分析→推送）",
+        "AG-UI 协议集成",
+        "多平台内容源支持"
+      ],
+      "valueStory": {
+        "problem": "社交媒体信息分散，手动跟踪效率低，错过关键信息",
+        "solution": "三阶段解耦架构自动抓取、AI 分析、智能推送，支持 Twitter/YouTube/RSS",
+        "result": "实现信息零遗漏，节省 90% 手动筛选时间"
+      }
+    },
+    {
+      "slug": "infohunter-client",
+      "name": "InfoHunter Client",
+      "description": "InfoHunter 双端客户端 Monorepo，包含 React Native + Expo 移动端和 React + Vite Web 管理端。",
+      "techStack": [
+        "React Native",
+        "Expo",
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "TypeScript",
+        "TanStack Query",
+        "Zustand"
+      ],
+      "category": "info-monitoring",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {}
+    },
+    {
+      "slug": "learning-notes",
+      "name": "learning-notes",
+      "description": "> 最后更新：2026-02-21",
+      "techStack": [],
+      "category": "uncategorized",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "mcp_excalidraw",
+      "name": "MCP Excalidraw",
+      "description": "AI 驱动的实时图表绘制系统，通过 MCP 协议让 AI 直接操作 Excalidraw。",
+      "techStack": [
+        "TypeScript",
+        "Express.js",
+        "React",
+        "WebSocket",
+        "Docker"
+      ],
+      "category": "tooling",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": true,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {
+        "@excalidraw/excalidraw": "^0.18.0",
+        "@excalidraw/mermaid-to-excalidraw": "^1.1.3",
+        "@modelcontextprotocol/sdk": "latest",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "mermaid": "^11.12.1",
+        "node-fetch": "^3.3.2",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "winston": "^3.11.0",
+        "ws": "^8.14.2",
+        "zod": "^3.22.4",
+        "zod-to-json-schema": "^3.22.3"
+      }
+    },
+    {
+      "slug": "n8n-workflows",
+      "name": "n8n-workflows",
+      "description": "本目录包含可直接导入 n8n 的工作流 JSON 文件。",
+      "techStack": [],
+      "category": "uncategorized",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "next-ai-draw-io",
+      "name": "Next AI Draw.io",
+      "description": "AI 驱动的图表创建工具，集成 draw.io 编辑器，支持多 AI 提供商和 MCP Server。",
+      "techStack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel AI SDK"
+      ],
+      "category": "tooling",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": true,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {
+        "@ai-sdk/amazon-bedrock": "^4.0.1",
+        "@ai-sdk/anthropic": "^3.0.0",
+        "@ai-sdk/azure": "^3.0.0",
+        "@ai-sdk/deepseek": "^2.0.0",
+        "@ai-sdk/gateway": "^3.0.0",
+        "@ai-sdk/google": "^3.0.0",
+        "@ai-sdk/openai": "^3.0.0",
+        "@ai-sdk/react": "^3.0.1",
+        "@aws-sdk/client-dynamodb": "^3.957.0",
+        "@aws-sdk/credential-providers": "^3.943.0",
+        "@formatjs/intl-localematcher": "^0.7.2",
+        "@langfuse/client": "^4.4.9",
+        "@langfuse/otel": "^4.4.4",
+        "@langfuse/tracing": "^4.4.9",
+        "@next/third-parties": "^16.0.6",
+        "@opennextjs/cloudflare": "1.14.7",
+        "@openrouter/ai-sdk-provider": "^1.5.4",
+        "@opentelemetry/exporter-trace-otlp-http": "^0.208.0",
+        "@opentelemetry/sdk-trace-node": "^2.2.0",
+        "@radix-ui/react-alert-dialog": "^1.1.15",
+        "@radix-ui/react-collapsible": "^1.1.12",
+        "@radix-ui/react-dialog": "^1.1.15",
+        "@radix-ui/react-label": "^2.1.8",
+        "@radix-ui/react-popover": "^1.1.15",
+        "@radix-ui/react-scroll-area": "^1.2.3",
+        "@radix-ui/react-select": "^2.2.6",
+        "@radix-ui/react-slot": "^1.2.4",
+        "@radix-ui/react-switch": "^1.2.6",
+        "@radix-ui/react-tooltip": "^1.1.8",
+        "@radix-ui/react-use-controllable-state": "^1.2.2",
+        "@xmldom/xmldom": "^0.9.8",
+        "ai": "^6.0.1",
+        "base-64": "^1.0.0",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "cmdk": "^1.1.1",
+        "js-tiktoken": "^1.0.21",
+        "jsdom": "^27.0.0",
+        "jsonrepair": "^3.13.1",
+        "lucide-react": "^0.562.0",
+        "motion": "^12.23.25",
+        "negotiator": "^1.0.0",
+        "next": "^16.0.7",
+        "ollama-ai-provider-v2": "^1.5.4",
+        "pako": "^2.1.0",
+        "prism-react-renderer": "^2.4.1",
+        "react": "^19.1.2",
+        "react-dom": "^19.1.2",
+        "react-drawio": "^1.0.3",
+        "react-icons": "^5.5.0",
+        "react-markdown": "^10.1.0",
+        "react-resizable-panels": "^3.0.6",
+        "remark-gfm": "^4.0.1",
+        "server-only": "^0.0.1",
+        "sonner": "^2.0.7",
+        "tailwind-merge": "^3.0.2",
+        "tailwindcss-animate": "^1.0.7",
+        "unpdf": "^1.4.0",
+        "zod": "^4.1.12"
+      }
+    },
+    {
+      "slug": "pinme-mcp",
+      "name": "PinMe MCP",
+      "description": "通过 AI Agent 将静态文件部署到 IPFS 的 MCP 服务。",
+      "techStack": [
+        "Node.js",
+        "MCP SDK",
+        "Express.js",
+        "Docker"
+      ],
+      "category": "tooling",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": true,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.0",
+        "express": "^4.18.2",
+        "zod": "^3.25.0"
+      }
+    },
+    {
+      "slug": "qinyuanqiao-miniprogram",
+      "name": "亲缘桥小程序",
+      "description": "面向中老年父母群体的相亲微信小程序，支持双角色账号、智能推荐和微信支付。",
+      "techStack": [
+        "WeChat Mini Program",
+        "CloudBase",
+        "Node.js"
+      ],
+      "category": "product",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "saas-landing",
+      "name": "SaaS Landing Page",
+      "description": "现代 SaaS 落地页模板，包含完整的产品展示组件。",
+      "techStack": [
+        "React",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "category": "tooling",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "lucide-react": "^0.294.0"
+      }
+    },
+    {
+      "slug": "slidev-remotion-lab",
+      "name": "Slidev + Remotion Lab",
+      "description": "用代码写 PPT 和视频的实验室，Slidev 做演示文稿 + Remotion 做编程视频。",
+      "techStack": [
+        "TypeScript",
+        "React"
+      ],
+      "category": "tooling",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "truthsocial-trump-monitor",
+      "name": "TruthSocial Monitor",
+      "description": "Trump Truth Social 监控系统，AI 驱动的宏观分析与投资洞察，支持实时推送、日报和周报。",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "MySQL",
+        "Docker"
+      ],
+      "category": "info-monitoring",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {},
+      "highlights": [
+        "实时推送 Trump 发言",
+        "AI 宏观经济影响分析",
+        "日报/周报自动生成"
+      ],
+      "valueStory": {
+        "problem": "Trump 社交媒体发言对金融市场有即时影响，需要实时监控和分析",
+        "solution": "AI 驱动的实时监控 + 宏观分析 + 投资洞察推送",
+        "result": "实现发言秒级推送，AI 自动生成市场影响分析"
+      }
+    }
+  ],
+  "agents": [
+    {
+      "name": "analyst",
+      "description": "analyst Agent",
+      "type": "analysis"
+    },
+    {
+      "name": "article-tutor",
+      "description": "article-tutor Agent",
+      "type": "learning"
+    },
+    {
+      "name": "code-writer",
+      "description": "code-writer Agent",
+      "type": "development"
+    },
+    {
+      "name": "command-creator",
+      "description": "command-creator Agent",
+      "type": "meta-tool"
+    },
+    {
+      "name": "github-project-analyst",
+      "description": "github-project-analyst Agent",
+      "type": "analysis"
+    },
+    {
+      "name": "knowledge-base",
+      "description": "knowledge-base Agent",
+      "type": "other"
+    },
+    {
+      "name": "lawyer",
+      "description": "lawyer Agent",
+      "type": "other"
+    },
+    {
+      "name": "market-radar",
+      "description": "market-radar Agent",
+      "type": "analysis"
+    },
+    {
+      "name": "mcp-builder",
+      "description": "MCP 服务构建专家 Agent 集合，支持多种编程语言构建符合 Model Context Protocol 规范的 MCP 服务。",
+      "type": "tooling"
+    },
+    {
+      "name": "mr-review",
+      "description": "mr-review Agent",
+      "type": "development"
+    },
+    {
+      "name": "next-ai-draw-io",
+      "description": "next-ai-draw-io Agent",
+      "type": "tooling"
+    },
+    {
+      "name": "okr-assistant",
+      "description": "okr-assistant Agent",
+      "type": "efficiency"
+    },
+    {
+      "name": "prompt-writer",
+      "description": "prompt-writer Agent",
+      "type": "development"
+    },
+    {
+      "name": "report-master",
+      "description": "report-master Agent",
+      "type": "efficiency"
+    },
+    {
+      "name": "resume-optimizer",
+      "description": "resume-optimizer Agent",
+      "type": "efficiency"
+    },
+    {
+      "name": "review-evaluator",
+      "description": "review-evaluator Agent",
+      "type": "development"
+    },
+    {
+      "name": "review-retrospective",
+      "description": "review-retrospective Agent",
+      "type": "development"
+    },
+    {
+      "name": "skill-generator",
+      "description": "skill-generator Agent",
+      "type": "meta-tool"
+    },
+    {
+      "name": "tapd-tracker",
+      "description": "tapd-tracker Agent",
+      "type": "efficiency"
+    },
+    {
+      "name": "trump-post-analyst",
+      "description": "trump-post-analyst Agent",
+      "type": "analysis"
+    },
+    {
+      "name": "tutor",
+      "description": "tutor Agent",
+      "type": "learning"
+    }
+  ],
+  "skills": [
+    {
+      "name": "article-tutor",
+      "description": "name: article-tutor",
+      "path": "/data/home/archerpyu/.cursor/skills/article-tutor/SKILL.md"
+    },
+    {
+      "name": "command-creator",
+      "description": "name: command-creator",
+      "path": "/data/home/archerpyu/.cursor/skills/command-creator/SKILL.md"
+    },
+    {
+      "name": "cybernetics-loop",
+      "description": "name: cybernetics-loop",
+      "path": "/data/home/archerpyu/.cursor/skills/cybernetics-loop/SKILL.md"
+    },
+    {
+      "name": "frontend-design",
+      "description": "name: frontend-design",
+      "path": "/data/home/archerpyu/.cursor/skills/frontend-design/SKILL.md"
+    },
+    {
+      "name": "gongfeng-mr",
+      "description": "name: gongfeng-mr",
+      "path": "/data/home/archerpyu/.cursor/skills/gongfeng-mr/SKILL.md"
+    },
+    {
+      "name": "project-retrospective",
+      "description": "name: project-retrospective",
+      "path": "/data/home/archerpyu/.cursor/skills/project-retrospective/SKILL.md"
+    },
+    {
+      "name": "share-writer",
+      "description": "name: share-writer",
+      "path": "/data/home/archerpyu/.cursor/skills/share-writer/SKILL.md"
+    },
+    {
+      "name": "skill-from-masters",
+      "description": "name: skill-from-masters",
+      "path": "/data/home/archerpyu/.cursor/skills/skill-from-masters/SKILL.md"
+    },
+    {
+      "name": "tech-review",
+      "description": "> 融合 ATAM、AWS Well-Architected Framework、Martin Fowler 架构原则的专业评审助手",
+      "path": "/data/home/archerpyu/.cursor/skills/tech-review/SKILL.md"
+    },
+    {
+      "name": "ui-ux-pro-max",
+      "description": "name: ui-ux-pro-max",
+      "path": "/data/home/archerpyu/.cursor/skills/ui-ux-pro-max/SKILL.md"
+    },
+    {
+      "name": "ui-ux-pro-max.bak",
+      "description": "name: ui-ux-pro-max",
+      "path": "/data/home/archerpyu/.cursor/skills/ui-ux-pro-max.bak/SKILL.md"
+    },
+    {
+      "name": "yt-dlp",
+      "description": "name: yt-dlp",
+      "path": "/data/home/archerpyu/.cursor/skills/yt-dlp/SKILL.md"
+    }
+  ],
+  "stats": {
+    "totalProjects": 21,
+    "productionProjects": 9,
+    "totalAgents": 21,
+    "totalNotes": 124,
+    "totalPatterns": 8,
+    "totalSkills": 13,
+    "totalExperienceArchives": 11
+  },
+  "techStack": [
+    {
+      "name": "Python",
+      "count": 6,
+      "category": "Language"
+    },
+    {
+      "name": "APScheduler",
+      "count": 4,
+      "category": "Scheduler"
+    },
+    {
+      "name": "TypeScript",
+      "count": 4,
+      "category": "Language"
+    },
+    {
+      "name": "MySQL",
+      "count": 4,
+      "category": "Database"
+    },
+    {
+      "name": "Vite",
+      "count": 3,
+      "category": "Build Tool"
+    },
+    {
+      "name": "FastAPI",
+      "count": 3,
+      "category": "Backend"
+    },
+    {
+      "name": "SQLAlchemy",
+      "count": 3,
+      "category": "Database"
+    },
+    {
+      "name": "Pydantic",
+      "count": 3,
+      "category": "Validation"
+    },
+    {
+      "name": "httpx",
+      "count": 3,
+      "category": "Other"
+    },
+    {
+      "name": "MCP SDK",
+      "count": 3,
+      "category": "AI/Agent"
+    },
+    {
+      "name": "React",
+      "count": 3,
+      "category": "Frontend"
+    },
+    {
+      "name": "Zod",
+      "count": 3,
+      "category": "Validation"
+    },
+    {
+      "name": "Redis",
+      "count": 2,
+      "category": "Database"
+    },
+    {
+      "name": "Express.js",
+      "count": 2,
+      "category": "Backend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "count": 2,
+      "category": "Frontend"
+    },
+    {
+      "name": "LiteLLM",
+      "count": 1,
+      "category": "AI/Agent"
+    },
+    {
+      "name": "aiohttp",
+      "count": 1,
+      "category": "Other"
+    },
+    {
+      "name": "Django",
+      "count": 1,
+      "category": "Backend"
+    },
+    {
+      "name": "Celery",
+      "count": 1,
+      "category": "Scheduler"
+    },
+    {
+      "name": "Phaser",
+      "count": 1,
+      "category": "Game"
+    },
+    {
+      "name": "Vercel AI SDK",
+      "count": 1,
+      "category": "AI/Agent"
+    },
+    {
+      "name": "Next.js",
+      "count": 1,
+      "category": "Frontend"
+    },
+    {
+      "name": "Electron",
+      "count": 1,
+      "category": "Desktop"
+    },
+    {
+      "name": "OpenAI SDK",
+      "count": 1,
+      "category": "AI/Agent"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-02-25",
+      "message": "feat: 批量经验沉淀 + 门控审核",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "fix(md2deck): 修复 compact 模式空模块 bug — 预检查子章节可见性",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "feat(md2deck): v3.0 — compact 模式 + 混合图表引擎 + PPT 评估标准",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "feat(md2deck): v2.0 — 三套风格主题 + 完整数据呈现 + python-pptx 增强解析",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "feat: 新增 md2deck Skill — 投研报告 Markdown → PPT 双引擎",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "docs: rewrite README — accurate data, half the length, double the density",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "Merge remote-tracking branch 'origin/main'",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "security: sanitize sensitive info + add repo secret hygiene pattern",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "refactor: 资产评估修复 — 消除冗余+补齐短板，C级清零",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-25",
+      "message": "feat: 新增资产评估模板 + 全量资产 Review 报告",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "docs: update security rules with react-dom and canary fix details",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "security: fix CVE-2025-55182 — pin react-dom 19.1.4 and patch expo canary",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "fix: harden iOS rebuild scripts with verification steps",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "fix: configure Metro for pnpm monorepo module resolution",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "fix: code review 修复 - 择偶年龄范围、冗余组件声明、缓存清理、额度重置分页",
+      "project": "qinyuanqiao-miniprogram"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "docs: 更新 .context 文件索引，添加 PLAN.md",
+      "project": "qinyuanqiao-miniprogram"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "docs: 将开发计划迁移到 .context/PLAN.md",
+      "project": "qinyuanqiao-miniprogram"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "docs: 添加 README、完善 .gitignore、创建 .context 上下文记忆文件夹",
+      "project": "qinyuanqiao-miniprogram"
+    },
+    {
+      "date": "2026-02-24",
+      "message": "feat: 亲缘桥微信小程序 MVP 完整实现",
+      "project": "qinyuanqiao-miniprogram"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "fix: bcrypt compatibility and add scope/owner_id to SubscriptionResponse",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "feat: Phase 3 — dual-mode subscriptions, Expo Push, and user-level feed",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "feat: add user authentication system with JWT tokens",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "fix: allow HTTP requests on iOS via NSAppTransportSecurity",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "fix: full frontend-backend contract alignment and auth improvements",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "fix: remove reactCanary flag that conflicts with patched renderer",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "fix: patch react-native renderer for react 19.1.4 (CVE-2025-55182)",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "security: upgrade react 19.1.0 → 19.1.4 (CVE-2025-55182)",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-23",
+      "message": "chore: pin pnpm version and add lockfile merge strategy",
+      "project": "infohunter-client"
+    },
+    {
+      "date": "2026-02-22",
+      "message": "feat: paginated content list, tab filters, and robust AI JSON parsing",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-21",
+      "message": "docs: update README with transcript_service and youtube-transcript-api",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-21",
+      "message": "fix: resolve daily report missing AI analysis due to undefined _fix_json_value",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-21",
+      "message": "fix: use hunter.dynamic_notify_schedule in /api/stats",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-21",
+      "message": "fix: notify schedule display, timezone normalization, RSS SSL",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-21",
+      "message": "feat: three-stage decoupled architecture + AI agent prompt optimization",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-21",
+      "message": "docs: reflexion update 人体系统调优不完全指南",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-21",
+      "message": "docs: add 人体系统调优不完全指南 精读笔记",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-17",
+      "message": "feat: comprehensive system optimization and credit control",
+      "project": "infohunter"
+    },
+    {
+      "date": "2026-02-16",
+      "message": "docs: reflexion update VoidZero 补充竞品对比",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-16",
+      "message": "docs: add VoidZero - 下一代统一 JavaScript 工具链",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-15",
+      "message": "docs: reflexion update tmux 终端复用器完全精读",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-15",
+      "message": "docs: add tmux 终端复用器完全精读",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-12",
+      "message": "feat:--story=129125124 API组件-支持QPS的配置 # Reviewed, transaction id: 74210",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-12",
+      "message": "Merge branch 'szh_dev_accounts' into 'v3_dev' (merge request !1157)",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-12",
+      "message": "feature: --story=130198773 --story=130198839 账号管理-黑白名单 # Reviewed, transaction id: 74194",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-11",
+      "message": "Merge branch 'todo_add_frontend_url' into 'v3_dev' (merge request !1156)",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-11",
+      "message": "feature: --story=130198773 --story=130198839 账号管理-黑白名单 # Reviewed, transaction id: 74182",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-11",
+      "message": "feature: --story=130198773 --story=130198839 账号管理-黑白名单 # Reviewed, transaction id: 74180",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-11",
+      "message": "feature: --story=130198773 --story=130198839 账号管理-黑白名单 # Reviewed, transaction id: 74174",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-11",
+      "message": "feature: --story=130198773 --story=130198839 账号管理-黑白名单 # Reviewed, transaction id: 74170",
+      "project": "bk-sap-api"
+    },
+    {
+      "date": "2026-02-11",
+      "message": "docs: reflexion - 补充 TrendPublish 工作流细节、Jina集成、部署实践",
+      "project": "learning-notes"
+    }
+  ],
+  "extractedAt": "2026-02-26T02:08:58.695Z"
+}

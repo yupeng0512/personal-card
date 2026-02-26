@@ -13,9 +13,6 @@ yarn-error.log*
 pnpm-debug.log*
 
 
-# auto-generated data (rebuild with npm run extract)
-src/data/workspace-data.json
-
 # environment variables
 .env
 .env.production
