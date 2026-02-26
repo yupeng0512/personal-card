@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import workspaceData from '../../data/workspace-data.json';
 import overrides from '../../data/overrides.json';
+import fs from 'node:fs';
 
 export function getStaticPaths() {
   const projects = workspaceData.projects;
@@ -18,6 +19,9 @@ const catMeta = categories[project.category];
 const override = overrides.projects.find((p: any) => p.slug === project.slug) as any;
 const highlights = override?.highlights || [];
 const valueStory = override?.valueStory;
+
+const screenshotPath = `/screenshots/${project.slug}.png`;
+const hasScreenshot = fs.existsSync(`public/screenshots/${project.slug}.png`);
 
 const relatedProjects = workspaceData.projects
   .filter(p => p.slug !== project.slug && p.category === project.category)
@@ -66,6 +70,12 @@ const statusColors: Record<string, string> = {
     <p class="text-lg text-surface-600 dark:text-surface-400 mb-8 leading-relaxed">
       {project.description}
     </p>
+
+    {hasScreenshot && (
+      <div class="mb-8 rounded-2xl overflow-hidden border border-surface-200 dark:border-surface-700/50 shadow-lg">
+        <img src={screenshotPath} alt={`${project.name} 项目预览`} class="w-full h-auto" loading="lazy" />
+      </div>
+    )}
 
     <!-- 技术栈 -->
     <div class="mb-8">
