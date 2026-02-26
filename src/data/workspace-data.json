@@ -86,15 +86,30 @@
     },
     {
       "slug": "alpha-radar",
-      "name": "alpha-radar",
-      "description": "Multi-Agent Investment Research System — AI-powered global market analysis.",
-      "techStack": [],
-      "category": "uncategorized",
+      "name": "AlphaRadar",
+      "description": "Multi-Agent 投研系统，通过宏观指标、基本面、情绪面、技术面四维分析，生成带置信度评分的投资洞察。",
+      "techStack": [
+        "Python",
+        "yfinance",
+        "TradingView",
+        "Docker"
+      ],
+      "category": "trading",
       "status": "production",
       "hasDocker": true,
       "hasMCP": false,
       "languages": [],
-      "dependencies": {}
+      "dependencies": {},
+      "highlights": [
+        "6 个专业 Agent 协作分析",
+        "多数据源融合（FMP/FX/TradingView）",
+        "量化置信度评分体系"
+      ],
+      "valueStory": {
+        "problem": "全球市场信息维度复杂，人工分析耗时且容易遗漏关键信号",
+        "solution": "6 个专业 AI Agent 分工协作，覆盖宏观/基本面/情绪/技术四维度",
+        "result": "自动生成带置信度评分的投资研报，覆盖全球主要市场"
+      }
     },
     {
       "slug": "bk-sap-api-mr-1158",
@@ -469,13 +484,14 @@
     },
     {
       "slug": "stagehand-lab",
-      "name": "stagehand-lab",
-      "description": "stagehand-lab project",
+      "name": "Stagehand Lab",
+      "description": "基于 Stagehand 的浏览器自动化实验，探索 AI 驱动的 Web 自动化最佳实践。",
       "techStack": [
         "TypeScript",
-        "Zod"
+        "Stagehand",
+        "Playwright"
       ],
-      "category": "uncategorized",
+      "category": "tooling",
       "status": "learning",
       "hasDocker": false,
       "hasMCP": false,
@@ -2858,5 +2874,5 @@
       "project": "TrendRadar"
     }
   ],
-  "extractedAt": "2026-02-26T11:50:32.425Z"
+  "extractedAt": "2026-02-26T11:58:21.944Z"
 }

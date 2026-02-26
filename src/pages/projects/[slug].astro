@@ -5,8 +5,24 @@ import overrides from '../../data/overrides.json';
 import fs from 'node:fs';
 
 export function getStaticPaths() {
-  const projects = workspaceData.projects;
-  return projects.map(project => ({
+  const wsProjects = workspaceData.projects;
+  const wsSlugs = new Set(wsProjects.map((p: any) => p.slug));
+  const overrideOnly = (overrides.projects as any[])
+    .filter((p: any) => !wsSlugs.has(p.slug))
+    .map((p: any) => ({
+      slug: p.slug,
+      name: p.name || p.slug,
+      description: p.description || '',
+      techStack: p.techStack || [],
+      category: p.category || 'uncategorized',
+      status: p.status || 'production',
+      hasDocker: p.hasDocker || false,
+      hasMCP: p.hasMCP || false,
+      languages: [],
+      dependencies: {},
+    }));
+  const allProjects = [...wsProjects, ...overrideOnly];
+  return allProjects.map(project => ({
     params: { slug: project.slug },
     props: { project },
   }));

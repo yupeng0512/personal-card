@@ -5,7 +5,23 @@ import workspaceData from '../../data/workspace-data.json';
 import overrides from '../../data/overrides.json';
 
 const categories = overrides.categories as Record<string, { label: string }>;
-const projects = workspaceData.projects;
+const wsProjects = workspaceData.projects;
+const wsSlugs = new Set(wsProjects.map((p: any) => p.slug));
+const overrideOnly = (overrides.projects as any[])
+  .filter((p: any) => !wsSlugs.has(p.slug))
+  .map((p: any) => ({
+    slug: p.slug,
+    name: p.name || p.slug,
+    description: p.description || '',
+    techStack: p.techStack || [],
+    category: p.category || 'uncategorized',
+    status: p.status || 'production',
+    hasDocker: p.hasDocker || false,
+    hasMCP: p.hasMCP || false,
+    languages: [],
+    dependencies: {},
+  }));
+const projects = [...wsProjects, ...overrideOnly];
 
 const projectsByCategory: Record<string, typeof projects> = {};
 for (const project of projects) {

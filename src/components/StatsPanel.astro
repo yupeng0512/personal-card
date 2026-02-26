@@ -1,11 +1,17 @@
 ---
 import workspaceData from '../data/workspace-data.json';
+import overrides from '../data/overrides.json';
 
 const { stats } = workspaceData;
+const wsSlugs = new Set(workspaceData.projects.map((p: any) => p.slug));
+const overrideOnlyProjects = (overrides.projects as any[]).filter((p: any) => !wsSlugs.has(p.slug));
+const totalProjects = workspaceData.projects.length + overrideOnlyProjects.length;
+const productionProjects = workspaceData.projects.filter((p: any) => p.status === 'production').length
+  + overrideOnlyProjects.filter((p: any) => p.status === 'production').length;
 
 const statItems = [
-  { label: '项目总数', value: stats.totalProjects, icon: '📦' },
-  { label: '生产级系统', value: stats.productionProjects, icon: '🚀' },
+  { label: '项目总数', value: totalProjects, icon: '📦' },
+  { label: '生产级系统', value: productionProjects, icon: '🚀' },
   { label: 'AI Agent', value: stats.totalAgents, icon: '🤖' },
   { label: '学习笔记', value: stats.totalNotes, icon: '📝' },
   { label: '可复用 Pattern', value: stats.totalPatterns, icon: '🧩' },

@@ -12,8 +12,25 @@ import workspaceData from '../data/workspace-data.json';
 
 const categories = overrides.categories as Record<string, { label: string }>;
 
+const wsSlugs = new Set(workspaceData.projects.map((p: any) => p.slug));
+const overrideOnly = (overrides.projects as any[])
+  .filter((p: any) => !wsSlugs.has(p.slug))
+  .map((p: any) => ({
+    slug: p.slug,
+    name: p.name || p.slug,
+    description: p.description || '',
+    techStack: p.techStack || [],
+    category: p.category || 'uncategorized',
+    status: p.status || 'production',
+    hasDocker: p.hasDocker || false,
+    hasMCP: p.hasMCP || false,
+    languages: [],
+    dependencies: {},
+  }));
+const allProjects = [...workspaceData.projects, ...overrideOnly];
+
 const projectsByCategory: Record<string, typeof workspaceData.projects> = {};
-for (const project of workspaceData.projects) {
+for (const project of allProjects) {
   const cat = project.category || 'uncategorized';
   if (!projectsByCategory[cat]) projectsByCategory[cat] = [];
   projectsByCategory[cat].push(project);
