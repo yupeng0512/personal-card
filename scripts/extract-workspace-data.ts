@@ -11,7 +11,7 @@ const SKIP_DIRS = new Set([
   'dist', 'build', '__pycache__', '.next', '.astro',
   'node-v18.20.3-linux-x64', 'node-v20.18.1-linux-x64',
   'output', 'logs', '.openclaw', '.tapd-tracker', '.mr-review',
-  'personal-card',
+  'personal-card', 'bk-sap-api', 'bk-sap-mcp',
 ]);
 
 interface ProjectInfo {
@@ -33,10 +33,22 @@ interface AgentInfo {
   type: string;
 }
 
+interface NoteInfo {
+  title: string;
+  date: string;
+  category: string;
+  subcategory: string;
+  tags: string[];
+  slug: string;
+  path: string;
+  summary: string;
+}
+
 interface WorkspaceData {
   projects: ProjectInfo[];
   agents: AgentInfo[];
   skills: { name: string; description: string; path: string }[];
+  notes: NoteInfo[];
   stats: {
     totalProjects: number;
     productionProjects: number;
@@ -350,6 +362,178 @@ function aggregateTechStack(projects: ProjectInfo[]): { name: string; count: num
     .sort((a, b) => b.count - a.count);
 }
 
+const CATEGORY_LABELS: Record<string, string> = {
+  'ai-tools': 'AI 工具与效率',
+  'ai-agent': 'AI Agent',
+  'ai-ml': 'AI/ML 技术',
+  'ai-research': 'AI 研究',
+  'programming': '编程技术',
+  'dev-tools': '开发工具',
+  'tools': '命令行工具',
+  'self-growth': '自我成长',
+  'sociology': '社会学',
+  'weterm-ai-architecture': 'AI 架构',
+  'shares': '分享',
+  'learning-notes': '学习笔记',
+};
+
+const SUBCATEGORY_LABELS: Record<string, string> = {
+  'ai-ide': 'AI IDE',
+  'claude-code': 'Claude Code',
+  'mcp': 'MCP 工具',
+  'agent-skill': 'Agent & Skill',
+  'agent-architecture': 'Agent 架构',
+  'ai-model': 'AI 模型应用',
+  'ai-video': 'AI 视频生成',
+  'browser-automation': '浏览器自动化',
+  'productivity': '效率工具',
+  'ai-productivity': 'AI 生产力',
+  'writing': 'AI 写作',
+  'case-study': '开发案例',
+  'industry': '行业洞察',
+  'osint-tools': 'OSINT 工具',
+  'career-development': '职业发展',
+  'prompt-engineering': 'Prompt 工程',
+  'vibe-engineering': 'Vibe Engineering',
+  'team-collaboration': '团队协作',
+  'web-scraping': 'Web Scraping',
+  'deep-research': '深度研究',
+  'translation': '翻译模型',
+  'models': '模型',
+  'behavior-change': '行为改变',
+  'health-optimization': '健康优化',
+};
+
+function parseNoteFrontmatter(content: string): { title?: string; date?: string; category?: string; subcategory?: string; tags?: string[] } {
+  const result: { title?: string; date?: string; category?: string; subcategory?: string; tags?: string[] } = {};
+
+  if (content.startsWith('---')) {
+    const endIdx = content.indexOf('---', 3);
+    if (endIdx > 0) {
+      const fm = content.slice(3, endIdx);
+      const titleMatch = fm.match(/^title:\s*(.+)$/m);
+      if (titleMatch) result.title = titleMatch[1].trim().replace(/^["']|["']$/g, '');
+
+      const dateMatch = fm.match(/^date:\s*(\d{4}-\d{2}-\d{2})/m);
+      if (dateMatch) result.date = dateMatch[1];
+
+      const catMatch = fm.match(/^category:\s*(.+)$/m);
+      if (catMatch) result.category = catMatch[1].trim();
+
+      const subMatch = fm.match(/^subcategory:\s*(.+)$/m);
+      if (subMatch) result.subcategory = subMatch[1].trim();
+
+      const tagsMatch = fm.match(/^tags:\s*\[([^\]]+)\]/m);
+      if (tagsMatch) {
+        result.tags = tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, ''));
+      } else {
+        const yamlTags: string[] = [];
+        const tagLines = fm.match(/^tags:\s*\n((?:\s+-\s+.+\n?)+)/m);
+        if (tagLines) {
+          for (const line of tagLines[1].split('\n')) {
+            const m = line.match(/^\s+-\s+(.+)/);
+            if (m) yamlTags.push(m[1].trim().replace(/^["']|["']$/g, ''));
+          }
+          if (yamlTags.length) result.tags = yamlTags;
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+function parseNoteInlineMetadata(content: string): { title?: string; date?: string; summary?: string } {
+  const result: { title?: string; date?: string; summary?: string } = {};
+  const lines = content.split('\n');
+
+  for (const line of lines) {
+    if (!result.title && line.startsWith('# ')) {
+      result.title = line.slice(2).trim();
+    }
+    if (!result.date) {
+      const dateMatch = line.match(/学习日期[：:]\s*(\d{4}-\d{2}-\d{2})/);
+      if (dateMatch) result.date = dateMatch[1];
+    }
+    if (!result.summary) {
+      const summaryMatch = line.match(/一句话总结[》】]*[：:]\s*(.+)/);
+      if (summaryMatch) result.summary = summaryMatch[1].trim().replace(/^["'「]|["'」]$/g, '');
+    }
+  }
+
+  return result;
+}
+
+function extractNoteSummary(content: string): string {
+  const bodyStart = content.startsWith('---')
+    ? content.indexOf('---', 3) + 3
+    : 0;
+  const body = content.slice(bodyStart);
+
+  const summaryMatch = body.match(/一句话(?:总结|概括)[》】]*[：:]\s*(.+)/);
+  if (summaryMatch) return summaryMatch[1].trim().replace(/^["'「]|["'」]$/g, '').slice(0, 200);
+
+  const rootMatch = body.match(/根节点命题[》】]*\s*\n+>\s*\*\*(.+?)\*\*/);
+  if (rootMatch) return rootMatch[1].trim().slice(0, 200);
+
+  const blockquoteMatch = body.match(/^>\s*(.{20,})/m);
+  if (blockquoteMatch) {
+    const q = blockquoteMatch[1].trim();
+    if (!q.match(/学习日期|来源|分类|标签|📅|🔗|📂|🏷️/)) return q.slice(0, 200);
+  }
+
+  return '';
+}
+
+function extractNotes(notesDir: string): NoteInfo[] {
+  if (!existsSync(notesDir)) return [];
+  const notes: NoteInfo[] = [];
+
+  function walk(dir: string, relDir: string) {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'skill-from-masters-docs') continue;
+      const fullPath = join(dir, entry.name);
+      const relPath = relDir ? `${relDir}/${entry.name}` : entry.name;
+
+      if (entry.isDirectory()) {
+        walk(fullPath, relPath);
+      } else if (entry.name.endsWith('.md') && entry.name !== 'README.md' && entry.name !== 'INDEX.md' && entry.name !== 'CLEANUP-REPORT.md' && entry.name !== 'DEPLOYMENT.md') {
+        try {
+          const content = readFileSync(fullPath, 'utf-8');
+          const fm = parseNoteFrontmatter(content);
+          const inline = parseNoteInlineMetadata(content);
+
+          const title = fm.title || inline.title || entry.name.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+          const dateFromFilename = entry.name.match(/^(\d{4}-\d{2}-\d{2})/)?.[1];
+          const date = fm.date || inline.date || dateFromFilename || '';
+
+          if (!date) return;
+
+          const pathParts = relPath.split('/');
+          const category = pathParts.length > 1 ? pathParts[0] : 'uncategorized';
+          const subcategory = pathParts.length > 2 ? pathParts[1] : '';
+
+          const slug = entry.name.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+          const summary = extractNoteSummary(content) || inline.summary || '';
+
+          const tags: string[] = fm.tags || [];
+          if (!tags.length) {
+            const catLabel = CATEGORY_LABELS[category];
+            if (catLabel) tags.push(catLabel);
+            const subLabel = SUBCATEGORY_LABELS[subcategory];
+            if (subLabel) tags.push(subLabel);
+          }
+
+          notes.push({ title, date, category, subcategory, tags, slug, path: relPath, summary });
+        } catch {}
+      }
+    }
+  }
+
+  walk(notesDir, '');
+  return notes.sort((a, b) => b.date.localeCompare(a.date));
+}
+
 function extractRecentCommits(workspaceRoot: string, limit = 50): { date: string; message: string; project: string }[] {
   const timeline: { date: string; message: string; project: string }[] = [];
 
@@ -398,6 +582,8 @@ function main() {
   const playbookStats = extractPlaybookStats(join(WORKSPACE_ROOT, 'engineering-playbook'));
   const totalNotes = countNotes(join(WORKSPACE_ROOT, 'learning-notes'));
   const cursorSkills = extractCursorSkills('/data/home/archerpyu/.cursor/skills');
+  const notes = extractNotes(join(WORKSPACE_ROOT, 'learning-notes'));
+  console.log(`Found ${notes.length} notes`);
 
   const techStack = aggregateTechStack(projects);
   const timeline = extractRecentCommits(WORKSPACE_ROOT);
@@ -422,6 +608,7 @@ function main() {
     projects,
     agents,
     skills: cursorSkills,
+    notes,
     stats: {
       totalProjects: projects.length,
       productionProjects,

@@ -11,27 +11,47 @@ alwaysApply: true
 
 ```
 personal-card/
-├── scripts/                     数据抽取脚本（扫描 Workspace 生成 JSON）
+├── scripts/
+│   ├── extract-workspace-data.ts  数据抽取脚本（扫描 Workspace + learning-notes 生成 JSON）
+│   └── gen-og-image.py            OG 分享图生成
 ├── src/
 │   ├── data/
-│   │   ├── workspace-data.json  [自动生成] 从 Workspace 抽取的结构化数据
-│   │   └── overrides.json       [手动维护] 补充/覆盖数据（分类、叙事文案等）
-│   ├── layouts/                 Astro 布局组件
-│   ├── pages/                   页面路由
-│   ├── components/              Astro 静态组件（零 JS）
-│   ├── islands/                 React 交互组件（按需水合）
-│   └── styles/                  全局样式
-└── public/                      静态资源（截图、OG 图片等）
+│   │   ├── workspace-data.json    [自动生成] 项目、Agent、笔记、统计、时间线
+│   │   └── overrides.json         [手动维护] 项目覆盖、分类、career 时间线、skillRadar
+│   ├── layouts/                   Astro 布局组件
+│   ├── pages/
+│   │   ├── index.astro            首页（Hero + 统计 + 雷达图 + 项目矩阵）
+│   │   ├── about.astro            关于（叙事简介 + 职业时间线 + Playbook + 学习）
+│   │   ├── blog/index.astro       笔记（按年份分组 + 金句摘要 + 分类标签）
+│   │   └── projects/              项目列表 + 项目详情（[slug].astro）
+│   ├── components/                Astro 静态组件（零 JS）
+│   ├── islands/                   React 交互组件（按需水合）
+│   │   ├── SkillRadar.tsx         五维能力雷达图（Recharts，client:load）
+│   │   └── ThemeToggle.tsx        主题切换（client:load）
+│   └── styles/global.css          全局样式（Tailwind v4 主题变量）
+└── public/
+    ├── screenshots/               项目截图（Playwright 自动生成）
+    ├── og-image.png               微信/社交分享图
+    └── favicon.svg
 ```
+
+## 页面导航
+
+| 路径 | 页面 | 说明 |
+|------|------|------|
+| `/` | 首页 | Hero + StatsPanel + SkillRadar + ValueStory + AgentEcosystem + 项目矩阵 + TechStackCloud |
+| `/projects` | 项目列表 | 全部项目卡片 |
+| `/projects/[slug]` | 项目详情 | 描述 + 截图 + 技术栈 + highlights + valueStory |
+| `/blog` | 学习笔记 | 130 篇笔记按年份分组，金句摘要 + 分类标签 |
+| `/about` | 关于 | 叙事式简介 + 职业经历时间线 + Playbook 统计 + 持续学习 + 联系方式 |
 
 ## 技术栈
 
 - **框架**: Astro 5 + React 19 Islands 架构
 - **样式**: Tailwind CSS v4
 - **内容**: MDX
-- **可视化**: Recharts（雷达图/统计图表）+ react-force-graph-2d（知识图谱，可选）
-- **部署**: Vercel + Cloudflare CDN
-- **降级方案**: 如 Astro 学习成本超预期，切换 Next.js 16 SSG
+- **可视化**: Recharts（雷达图）
+- **部署**: Vercel（GitHub 自动部署）
 
 ## 常用命令
 
@@ -46,13 +66,28 @@ personal-card/
 
 1. `npm run extract` 扫描 `/data/workspace` 下的项目目录
 2. 解析 package.json / requirements.txt / README.md 第一段
-3. 合并 `overrides.json` 中的手动数据
-4. 输出 `src/data/workspace-data.json`
-5. Astro 构建时读取 JSON 生成静态页面
+3. 扫描 `/data/workspace/learning-notes/` 提取笔记元数据（frontmatter/行内）
+4. 合并 `overrides.json` 中的手动数据（projects、career、skillRadar）
+5. 输出 `src/data/workspace-data.json`（projects + agents + skills + notes + stats + techStack + timeline）
+6. Astro 构建时读取 JSON 生成静态页面
+
+## 关键数据
+
+| 指标 | 数值 |
+|------|------|
+| 项目总数 | 19 |
+| 生产级系统 | 9 |
+| AI Agent | 21 |
+| 学习笔记 | 130 篇（124 篇统计口径） |
+| 经验档案 | 11 |
+| 可复用 Pattern | 8 |
+| Skills | 13 |
 
 ## 设计原则
 
 - **投资人视角优先**：不只展示技术细节，更要展示价值创造能力
-- **内容为王**：静态内容零 JS，交互组件用 `client:visible` 按需加载
+- **叙事优于堆数据**：About 页用故事连接，不用数据墙
+- **极简清爽**：笔记页参考 antfu.me + overreacted.io 的年份分组列表设计
+- **内容为王**：静态内容零 JS，交互组件用 `client:load` 按需加载
 - **数据驱动**：所有展示内容来自 workspace-data.json，一处修改全站更新
 - **移动端友好**：投资人可能在微信中打开，必须适配移动端

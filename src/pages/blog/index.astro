@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import workspaceData from '../../data/workspace-data.json';
+
+const CATEGORY_LABELS: Record<string, string> = {
+  'ai-tools': 'AI 工具',
+  'ai-agent': 'AI Agent',
+  'ai-ml': 'AI/ML',
+  'ai-research': 'AI 研究',
+  'programming': '编程',
+  'dev-tools': '开发工具',
+  'tools': '命令行',
+  'self-growth': '自我成长',
+  'sociology': '社会学',
+  'weterm-ai-architecture': 'AI 架构',
+  'shares': '分享',
+};
+
+const SUBCATEGORY_LABELS: Record<string, string> = {
+  'ai-ide': 'AI IDE',
+  'claude-code': 'Claude Code',
+  'mcp': 'MCP',
+  'agent-skill': 'Agent & Skill',
+  'agent-architecture': 'Agent 架构',
+  'ai-model': '模型应用',
+  'ai-video': '视频生成',
+  'browser-automation': '浏览器自动化',
+  'productivity': '效率工具',
+  'ai-productivity': 'AI 生产力',
+  'writing': '写作',
+  'case-study': '案例',
+  'industry': '行业洞察',
+  'osint-tools': 'OSINT',
+  'career-development': '职业发展',
+  'prompt-engineering': 'Prompt',
+  'vibe-engineering': 'Vibe Engineering',
+  'team-collaboration': '协作',
+  'web-scraping': 'Web Scraping',
+  'deep-research': '深度研究',
+  'translation': '翻译',
+  'models': '模型',
+  'behavior-change': '行为改变',
+  'health-optimization': '健康',
+};
+
+interface Note {
+  title: string;
+  date: string;
+  category: string;
+  subcategory: string;
+  tags: string[];
+  slug: string;
+  path: string;
+  summary: string;
+}
+
+const notes: Note[] = (workspaceData as any).notes || [];
+
+const notesByYear: Record<string, Note[]> = {};
+for (const note of notes) {
+  const year = note.date.slice(0, 4);
+  if (!notesByYear[year]) notesByYear[year] = [];
+  notesByYear[year].push(note);
+}
+
+const sortedYears = Object.keys(notesByYear).sort((a, b) => b.localeCompare(a));
+const uniqueCategories = [...new Set(notes.map(n => n.category))];
+
+function getCategoryLabel(cat: string): string {
+  return CATEGORY_LABELS[cat] || cat;
+}
+
+function getSubcategoryLabel(sub: string): string {
+  return SUBCATEGORY_LABELS[sub] || sub;
+}
+
+function formatDate(date: string): string {
+  return date.slice(5);
+}
+---
+
+<BaseLayout title="学习笔记 - Archer Yu" description="结构化学习笔记，涵盖 AI Agent、MCP 协议、全栈开发等领域">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+
+    <!-- Header -->
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold mb-3">
+        <span class="gradient-text">学习笔记</span>
+      </h1>
+      <p class="text-surface-500 dark:text-surface-400">
+        {notes.length} 篇 · {uniqueCategories.length} 个主题 · 苏格拉底式精读
+      </p>
+    </header>
+
+    <!-- Notes by Year -->
+    {sortedYears.map(year => (
+      <section class="mb-12">
+        <h2 class="text-lg font-bold text-surface-400 dark:text-surface-500 mb-6 sticky top-16 bg-white/90 dark:bg-surface-950/90 backdrop-blur-sm py-2 z-10">
+          {year}
+        </h2>
+        <div class="space-y-1">
+          {notesByYear[year].map(note => (
+            <article class="group py-3 -mx-3 px-3 rounded-lg hover:bg-surface-50 dark:hover:bg-surface-800/50 transition-colors">
+              <div class="flex items-start gap-4">
+                <time class="text-sm text-surface-400 dark:text-surface-500 font-mono shrink-0 pt-0.5 w-12">
+                  {formatDate(note.date)}
+                </time>
+                <div class="min-w-0 flex-1">
+                  <h3 class="text-base font-medium text-surface-800 dark:text-surface-200 leading-snug">
+                    {note.title}
+                  </h3>
+                  {note.summary && (
+                    <p class="mt-1 text-sm text-surface-500 dark:text-surface-400 leading-relaxed line-clamp-2">
+                      {note.summary}
+                    </p>
+                  )}
+                  <div class="mt-1.5 flex flex-wrap gap-1.5">
+                    <span class="text-xs text-surface-400 dark:text-surface-500">
+                      {getCategoryLabel(note.category)}
+                    </span>
+                    {note.subcategory && (
+                      <>
+                        <span class="text-xs text-surface-300 dark:text-surface-600">/</span>
+                        <span class="text-xs text-surface-400 dark:text-surface-500">
+                          {getSubcategoryLabel(note.subcategory)}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+
+  </div>
+</BaseLayout>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

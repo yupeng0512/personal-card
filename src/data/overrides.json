@@ -122,23 +122,6 @@
       "hasMCP": true
     },
     {
-      "slug": "bk-sap-api",
-      "name": "BK-SAP API",
-      "description": "蓝鲸 PaaS 平台上的 Django RESTful API 服务。",
-      "category": "tooling",
-      "status": "production",
-      "techStack": ["Python", "Django", "MySQL", "Redis", "Celery"]
-    },
-    {
-      "slug": "bk-sap-mcp",
-      "name": "BK-SAP MCP",
-      "description": "bk-sap 的 MCP 服务，通过 MCP 协议暴露 SAP API 能力。",
-      "category": "tooling",
-      "status": "production",
-      "techStack": ["Python", "MCP SDK"],
-      "hasMCP": true
-    },
-    {
       "slug": "Quantify-Binance-Test",
       "name": "Quantify Trading",
       "description": "量化交易测试项目，基于 Binance 交易所 API。",
@@ -219,5 +202,25 @@
     { "axis": "知识管理", "value": 85 },
     { "axis": "架构设计", "value": 82 },
     { "axis": "产品思维", "value": 75 }
+  ],
+  "career": [
+    {
+      "company": "腾讯",
+      "role": "（请填写职位）",
+      "period": "20XX - 至今",
+      "highlights": ["（请填写核心成果 1）", "（请填写核心成果 2）"]
+    },
+    {
+      "company": "微拍",
+      "role": "（请填写职位）",
+      "period": "20XX - 20XX",
+      "highlights": ["（请填写核心成果 1）"]
+    },
+    {
+      "company": "百度",
+      "role": "（请填写职位）",
+      "period": "20XX - 20XX",
+      "highlights": ["（请填写核心成果 1）"]
+    }
   ]
 }
