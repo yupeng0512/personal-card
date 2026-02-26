@@ -36,7 +36,7 @@ const uncategorized = projectsByCategory['uncategorized'] || [];
       <h2 class="text-3xl font-bold mb-3">
         <span class="gradient-text">能力画像</span>
       </h2>
-      <p class="text-surface-500">五维能力模型</p>
+      <p class="text-surface-500 dark:text-surface-400">五维能力模型</p>
     </div>
     <SkillRadar data={overrides.skillRadar} client:load />
   </section>
@@ -50,7 +50,7 @@ const uncategorized = projectsByCategory['uncategorized'] || [];
       <h2 class="text-3xl font-bold mb-3">
         <span class="gradient-text">项目矩阵</span>
       </h2>
-      <p class="text-surface-500 max-w-lg mx-auto">
+      <p class="text-surface-500 dark:text-surface-400 max-w-lg mx-auto">
         {workspaceData.stats.totalProjects} 个项目，覆盖 AI Agent、信息监控、量化交易等多个领域
       </p>
     </div>

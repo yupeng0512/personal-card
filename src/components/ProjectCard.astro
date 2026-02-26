@@ -43,12 +43,12 @@ const statusLabels: Record<string, string> = {
 
   <div class="flex flex-wrap gap-1.5">
     {techStack.slice(0, 5).map(tech => (
-      <span class="px-2 py-0.5 bg-surface-100 dark:bg-surface-800 rounded text-xs text-surface-600 dark:text-surface-400">
+      <span class="px-2 py-0.5 bg-surface-100 dark:bg-surface-800 rounded text-xs text-surface-600 dark:text-surface-300">
         {tech}
       </span>
     ))}
     {techStack.length > 5 && (
-      <span class="px-2 py-0.5 text-xs text-surface-400">
+      <span class="px-2 py-0.5 text-xs text-surface-400 dark:text-surface-400">
         +{techStack.length - 5}
       </span>
     )}

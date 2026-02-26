@@ -20,9 +20,12 @@
   --color-surface-100: #f1f3f5;
   --color-surface-200: #e9ecef;
   --color-surface-300: #dee2e6;
-  --color-surface-700: #495057;
-  --color-surface-800: #343a40;
-  --color-surface-900: #212529;
+  --color-surface-400: #adb5bd;
+  --color-surface-500: #868e96;
+  --color-surface-600: #495057;
+  --color-surface-700: #343a40;
+  --color-surface-800: #1e2228;
+  --color-surface-900: #161b22;
   --color-surface-950: #0d1117;
 }
 
@@ -32,26 +35,30 @@
   }
 
   body {
-    @apply text-surface-800 bg-white antialiased;
+    @apply text-surface-700 bg-white antialiased;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   .dark body {
-    @apply text-surface-100 bg-surface-950;
+    @apply text-surface-200 bg-surface-950;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20;
+    @apply bg-white/80 backdrop-blur-xl border border-surface-200/60;
   }
 
   .dark .glass {
-    @apply bg-surface-900/70 border-surface-700/30;
+    @apply bg-surface-800/80 backdrop-blur-xl border border-surface-700/40;
   }
 
   .gradient-text {
     @apply bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent;
+  }
+
+  .dark .gradient-text {
+    @apply from-primary-400 to-accent-400;
   }
 
   .card-hover {

@@ -25,25 +25,25 @@ const { stats } = workspaceData;
     <!-- Engineering Playbook -->
     <div class="mb-10">
       <h2 class="text-2xl font-bold text-surface-800 dark:text-surface-200 mb-4">Engineering Playbook</h2>
-      <p class="text-surface-500 mb-6">
+      <p class="text-surface-500 dark:text-surface-400 mb-6">
         结构化、可检索、跨项目复用的工程经验知识库。新项目 60-70% 技术决策来自历史沉淀。
       </p>
 
       <div class="grid gap-4 sm:grid-cols-3">
         <div class="glass rounded-xl p-5 text-center">
-          <div class="text-3xl font-bold text-surface-900 dark:text-white">{stats.totalExperienceArchives}</div>
-          <div class="text-sm text-surface-500 mt-1">经验档案</div>
-          <p class="text-xs text-surface-400 mt-2">InfoHunter、TrendRadar、Digital Twin 等完整项目复盘</p>
+          <div class="text-3xl font-bold text-surface-700 dark:text-white">{stats.totalExperienceArchives}</div>
+          <div class="text-sm text-surface-500 dark:text-surface-400 mt-1">经验档案</div>
+          <p class="text-xs text-surface-400 dark:text-surface-400 mt-2">InfoHunter、TrendRadar、Digital Twin 等完整项目复盘</p>
         </div>
         <div class="glass rounded-xl p-5 text-center">
-          <div class="text-3xl font-bold text-surface-900 dark:text-white">{stats.totalPatterns}</div>
-          <div class="text-sm text-surface-500 mt-1">可复用 Pattern</div>
-          <p class="text-xs text-surface-400 mt-2">动态配置串联、LLM JSON 清洗、MCP Server 开发等</p>
+          <div class="text-3xl font-bold text-surface-700 dark:text-white">{stats.totalPatterns}</div>
+          <div class="text-sm text-surface-500 dark:text-surface-400 mt-1">可复用 Pattern</div>
+          <p class="text-xs text-surface-400 dark:text-surface-400 mt-2">动态配置串联、LLM JSON 清洗、MCP Server 开发等</p>
         </div>
         <div class="glass rounded-xl p-5 text-center">
-          <div class="text-3xl font-bold text-surface-900 dark:text-white">{stats.totalSkills}</div>
-          <div class="text-sm text-surface-500 mt-1">Skills</div>
-          <p class="text-xs text-surface-400 mt-2">AI 工作流、TDD 测试、投研报告、系统调试等</p>
+          <div class="text-3xl font-bold text-surface-700 dark:text-white">{stats.totalSkills}</div>
+          <div class="text-sm text-surface-500 dark:text-surface-400 mt-1">Skills</div>
+          <p class="text-xs text-surface-400 dark:text-surface-400 mt-2">AI 工作流、TDD 测试、投研报告、系统调试等</p>
         </div>
       </div>
     </div>
@@ -54,9 +54,9 @@ const { stats } = workspaceData;
       <div class="glass rounded-xl p-6">
         <div class="flex items-baseline gap-3 mb-3">
           <span class="text-4xl font-bold text-surface-900 dark:text-white">{stats.totalNotes}</span>
-          <span class="text-surface-500">篇结构化学习笔记</span>
+          <span class="text-surface-500 dark:text-surface-400">篇结构化学习笔记</span>
         </div>
-        <p class="text-surface-500 text-sm mb-4">
+        <p class="text-surface-500 dark:text-surface-400 text-sm mb-4">
           采用苏格拉底式教学方法，提炼根节点命题，构建知识网络。
         </p>
         <div class="flex flex-wrap gap-2">
