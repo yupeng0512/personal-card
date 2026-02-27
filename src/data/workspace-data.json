@@ -133,6 +133,21 @@
       "dependencies": {}
     },
     {
+      "slug": "cursor-skills",
+      "name": "Cursor Skills",
+      "description": "个人 Cursor Agent Skills 集合，涵盖文章精读、项目复盘、分享写作等 14+ 个 AI 工作流技能。",
+      "techStack": [
+        "Markdown",
+        "TypeScript"
+      ],
+      "category": "ai-agent",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
       "slug": "digital-twin",
       "name": "Digital Twin",
       "description": "数字分身记忆系统，基于 Graphiti 知识图谱的智能记忆管理平台。",
@@ -270,7 +285,7 @@
     {
       "slug": "learning-notes",
       "name": "learning-notes",
-      "description": "> 最后更新：2026-02-25",
+      "description": "> 最后更新：2026-02-27",
       "techStack": [],
       "category": "uncategorized",
       "status": "learning",
@@ -404,6 +419,60 @@
         "tailwindcss-animate": "^1.0.7",
         "unpdf": "^1.4.0",
         "zod": "^4.1.12"
+      }
+    },
+    {
+      "slug": "openclaw-playbook",
+      "name": "OpenClaw Playbook",
+      "description": "OpenClaw AI Agent 框架高价值使用场景与商业化落地方案手册，基于 Discord 922 位开发者实战数据 + ClawHub 5705 个技能生态调研，覆盖 12 大场景分类与优先级矩阵。",
+      "techStack": [
+        "Markdown"
+      ],
+      "category": "ai-agent",
+      "status": "production",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {},
+      "highlights": [
+        "12 大落地场景分类 + 优先级矩阵",
+        "5705 个 Skill 生态安全审计（48.2% 过滤率）",
+        "P0-P3 四级优先级落地指南"
+      ],
+      "valueStory": {
+        "problem": "OpenClaw 234k+ Stars 但缺少系统化的商业落地方案参考",
+        "solution": "基于 Discord 社区 + ClawHub 技能市场 + 技术博客等多源数据，输出标准化调研报告",
+        "result": "12 大场景分类，覆盖个人助理、开发者工作流、企业自动化等核心赛道"
+      }
+    },
+    {
+      "slug": "ops-dashboard",
+      "name": "Ops Dashboard",
+      "description": "轻量级统一运维告警面板，收敛所有 Docker 项目中需要人工介入的事件。Push 优先 + Pull 兜底架构。",
+      "techStack": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "Alpine.js",
+        "Docker"
+      ],
+      "category": "tooling",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [
+        "Python"
+      ],
+      "dependencies": {},
+      "highlights": [
+        "Push 主动上报 + Pull 兜底探测",
+        "24 小时去重 + 自动飞书/企微告警",
+        "单容器部署，零外部依赖"
+      ],
+      "valueStory": {
+        "problem": "多个 Docker 项目的告警分散，需要逐个检查容器日志才能发现问题",
+        "solution": "统一告警面板 + SDK 主动上报 + 定时健康探测，收敛所有告警至单一界面",
+        "result": "一目了然掌握所有项目运行状态，critical 事件秒级推送"
       }
     },
     {
@@ -660,6 +729,11 @@
       "path": "/data/home/archerpyu/.cursor/skills/cybernetics-loop/SKILL.md"
     },
     {
+      "name": "expert-skill-extractor",
+      "description": "name: expert-skill-extractor",
+      "path": "/data/home/archerpyu/.cursor/skills/expert-skill-extractor/SKILL.md"
+    },
+    {
       "name": "frontend-design",
       "description": "name: frontend-design",
       "path": "/data/home/archerpyu/.cursor/skills/frontend-design/SKILL.md"
@@ -691,7 +765,7 @@
     },
     {
       "name": "tech-review",
-      "description": "> 融合 ATAM、AWS Well-Architected Framework、Martin Fowler 架构原则的专业评审助手",
+      "description": "name: tech-review",
       "path": "/data/home/archerpyu/.cursor/skills/tech-review/SKILL.md"
     },
     {
@@ -700,17 +774,47 @@
       "path": "/data/home/archerpyu/.cursor/skills/ui-ux-pro-max/SKILL.md"
     },
     {
-      "name": "ui-ux-pro-max.bak",
-      "description": "name: ui-ux-pro-max",
-      "path": "/data/home/archerpyu/.cursor/skills/ui-ux-pro-max.bak/SKILL.md"
-    },
-    {
       "name": "yt-dlp",
       "description": "name: yt-dlp",
       "path": "/data/home/archerpyu/.cursor/skills/yt-dlp/SKILL.md"
     }
   ],
   "notes": [
+    {
+      "title": "SkillsBench: 首个量化测试 Agent Skills 工程价值的基准框架",
+      "date": "2026-02-27",
+      "category": "ai-research",
+      "subcategory": "deep-research",
+      "tags": [
+        "SkillsBench",
+        "Agent Skills",
+        "基准测试",
+        "量化评估",
+        "Skill 设计原则",
+        "Token 经济学",
+        "失败分类学"
+      ],
+      "slug": "skillsbench-benchmarking-agent-skills",
+      "path": "ai-research/deep-research/2026-02-27-skillsbench-benchmarking-agent-skills.md",
+      "summary": "Skill 的工程价值 = f(领域稀缺度 × 结构精简度) — 超过阈值则产生负增益"
+    },
+    {
+      "title": "EvoMap - AI 自进化基础设施",
+      "date": "2026-02-26",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "Self-Evolution",
+        "GEP Protocol",
+        "A2A",
+        "Swarm Intelligence",
+        "Carbon-Silicon Symbiosis"
+      ],
+      "slug": "evomap-ai-self-evolution-infrastructure",
+      "path": "ai-tools/agent-architecture/2026-02-26-evomap-ai-self-evolution-infrastructure.md",
+      "summary": "AI Agent 的能力进化应该像生物基因一样：可编码、可验证、可遗传、可自然选择。"
+    },
     {
       "title": "VoidZero - 下一代统一 JavaScript 工具链",
       "date": "2026-02-15",
@@ -2492,18 +2596,18 @@
     }
   ],
   "stats": {
-    "totalProjects": 22,
-    "productionProjects": 10,
+    "totalProjects": 25,
+    "productionProjects": 11,
     "totalAgents": 21,
-    "totalNotes": 124,
-    "totalPatterns": 9,
+    "totalNotes": 126,
+    "totalPatterns": 11,
     "totalSkills": 14,
     "totalExperienceArchives": 11
   },
   "techStack": [
     {
       "name": "Python",
-      "count": 6,
+      "count": 7,
       "category": "Language"
     },
     {
@@ -2522,6 +2626,11 @@
       "category": "Database"
     },
     {
+      "name": "FastAPI",
+      "count": 4,
+      "category": "Backend"
+    },
+    {
       "name": "Zod",
       "count": 4,
       "category": "Validation"
@@ -2530,11 +2639,6 @@
       "name": "Vite",
       "count": 3,
       "category": "Build Tool"
-    },
-    {
-      "name": "FastAPI",
-      "count": 3,
-      "category": "Backend"
     },
     {
       "name": "SQLAlchemy",
@@ -2624,6 +2728,46 @@
   ],
   "timeline": [
     {
+      "date": "2026-02-27",
+      "message": "feat: sync all skills with local, major optimization pass",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-02-27",
+      "message": "feat: 新增 Skill 注入倒 U 型增益法则判断力卡片 + 增强 2 张已有卡片",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-27",
+      "message": "feat(pattern): 新增安全漏洞修复全系统扫描思维 pattern",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-27",
+      "message": "feat: 更新 judgment-index - 新增 Skill 注入倒 U 型增益法则卡片索引",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-27",
+      "message": "docs: reflexion update SkillsBench 笔记 - 补充架构对比图和实验矩阵",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-27",
+      "message": "docs: add SkillsBench 论文精读笔记 - 首个量化测试 Agent Skills 工程价值的基准框架",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-27",
+      "message": "enrich: 融合 awesome-openclaw-usecases 和 awesome-openclaw-skills 数据",
+      "project": "openclaw-playbook"
+    },
+    {
+      "date": "2026-02-27",
+      "message": "init: OpenClaw 高价值使用场景与落地方案调研",
+      "project": "openclaw-playbook"
+    },
+    {
       "date": "2026-02-26",
       "message": "feat: implement Phase 4 — backtest parser, strategy evaluation, experience store",
       "project": "alpha-radar"
@@ -2645,6 +2789,11 @@
     },
     {
       "date": "2026-02-26",
+      "message": "feat(pattern): 新增 Token 效率优先的工具选择 pattern",
+      "project": "engineering-playbook"
+    },
+    {
+      "date": "2026-02-26",
       "message": "feat: 新增 5 张判断力卡片，总计 8 张",
       "project": "engineering-playbook"
     },
@@ -2655,8 +2804,28 @@
     },
     {
       "date": "2026-02-26",
+      "message": "fix: 修复飞书推送榜单固定不变的三个关联问题",
+      "project": "github-sentinel"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "docs: reflexion update EvoMap - 补充 TTT 理论基础和 Recipes & Organisms",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "docs: add EvoMap - AI 自进化基础设施",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-26",
       "message": "feat: 新增判断力自进化索引 (judgment-index.md)",
       "project": "learning-notes"
+    },
+    {
+      "date": "2026-02-26",
+      "message": "feat: init ops-dashboard - 轻量级统一运维告警面板",
+      "project": "ops-dashboard"
     },
     {
       "date": "2026-02-25",
@@ -2681,21 +2850,6 @@
     {
       "date": "2026-02-25",
       "message": "feat(md2deck): v2.0 — 三套风格主题 + 完整数据呈现 + python-pptx 增强解析",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "feat: 新增 md2deck Skill — 投研报告 Markdown → PPT 双引擎",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "docs: rewrite README — accurate data, half the length, double the density",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "Merge remote-tracking branch 'origin/main'",
       "project": "engineering-playbook"
     },
     {
@@ -2822,57 +2976,7 @@
       "date": "2026-02-21",
       "message": "feat: three-stage decoupled architecture + AI agent prompt optimization",
       "project": "infohunter"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "docs: reflexion update 人体系统调优不完全指南",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "docs: add 人体系统调优不完全指南 精读笔记",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-17",
-      "message": "feat: comprehensive system optimization and credit control",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-16",
-      "message": "docs: reflexion update VoidZero 补充竞品对比",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-16",
-      "message": "docs: add VoidZero - 下一代统一 JavaScript 工具链",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-15",
-      "message": "docs: reflexion update tmux 终端复用器完全精读",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-15",
-      "message": "docs: add tmux 终端复用器完全精读",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-11",
-      "message": "docs: reflexion - 补充 TrendPublish 工作流细节、Jina集成、部署实践",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-11",
-      "message": "docs: add TrendPublish AI 内容工厂流水线深度精读",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-02-09",
-      "message": "feat: 引入统一时间线调度系统，优化 AI 分析稳定性，mcp 支持 AI 对话内容直推多渠道",
-      "project": "TrendRadar"
     }
   ],
-  "extractedAt": "2026-02-26T11:58:21.944Z"
+  "extractedAt": "2026-02-27T13:47:55.378Z"
 }

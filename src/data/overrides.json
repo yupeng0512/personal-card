@@ -2,7 +2,7 @@
   "profile": {
     "name": "Archer Yu",
     "title": "AI Agent 工程化实践者 | 全栈独立开发者",
-    "tagline": "28 个项目 · 19 个生产级系统 · 22 个 AI Agent · 124 篇学习笔记",
+    "tagline": "32 个项目 · 23 个生产级系统 · 22 个 AI Agent · 126 篇学习笔记",
     "bio": "专注于 AI Agent 工程化落地，构建了从信息监控、量化交易到知识管理的完整技术体系。擅长将 AI 能力系统化、工程化，形成可复用的工具链和方法论。",
     "contact": {
       "github": "https://github.com/yupeng0512",
@@ -251,6 +251,57 @@
       "category": "tooling",
       "status": "learning",
       "techStack": ["TypeScript", "Stagehand", "Playwright"]
+    },
+    {
+      "slug": "openclaw-playbook",
+      "name": "OpenClaw Playbook",
+      "description": "OpenClaw AI Agent 框架高价值使用场景与商业化落地方案手册，基于 Discord 922 位开发者实战数据 + ClawHub 5705 个技能生态调研，覆盖 12 大场景分类与优先级矩阵。",
+      "category": "ai-agent",
+      "status": "production",
+      "techStack": ["Markdown"],
+      "highlights": ["12 大落地场景分类 + 优先级矩阵", "5705 个 Skill 生态安全审计（48.2% 过滤率）", "P0-P3 四级优先级落地指南"],
+      "valueStory": {
+        "problem": "OpenClaw 234k+ Stars 但缺少系统化的商业落地方案参考",
+        "solution": "基于 Discord 社区 + ClawHub 技能市场 + 技术博客等多源数据，输出标准化调研报告",
+        "result": "12 大场景分类，覆盖个人助理、开发者工作流、企业自动化等核心赛道"
+      }
+    },
+    {
+      "slug": "ai-landing-research",
+      "name": "AI Landing Research",
+      "description": "AI 商业化落地垂直领域调研库，持续追踪客服、销售、视频生成、短剧等方向，输出标准化八段式调研报告。",
+      "category": "knowledge",
+      "status": "production",
+      "techStack": ["Markdown"],
+      "highlights": ["5 份深度调研报告（客服/销售/视频/短剧）", "统一八段式调研结构", "商业产品 vs 开源方案对比矩阵"],
+      "valueStory": {
+        "problem": "AI 落地路径碎片化，缺少跨领域的结构化决策参考",
+        "solution": "标准化八段式调研框架，覆盖市场全景、商业/开源方案、技术架构、选型建议",
+        "result": "已覆盖客服/销售/视频/短剧 4 大垂直场景，持续扩展中"
+      }
+    },
+    {
+      "slug": "ops-dashboard",
+      "name": "Ops Dashboard",
+      "description": "轻量级统一运维告警面板，收敛所有 Docker 项目中需要人工介入的事件。Push 优先 + Pull 兜底架构。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["Python", "FastAPI", "SQLite", "Alpine.js", "Docker"],
+      "highlights": ["Push 主动上报 + Pull 兜底探测", "24 小时去重 + 自动飞书/企微告警", "单容器部署，零外部依赖"],
+      "valueStory": {
+        "problem": "多个 Docker 项目的告警分散，需要逐个检查容器日志才能发现问题",
+        "solution": "统一告警面板 + SDK 主动上报 + 定时健康探测，收敛所有告警至单一界面",
+        "result": "一目了然掌握所有项目运行状态，critical 事件秒级推送"
+      }
+    },
+    {
+      "slug": "archerpyu-pages-mcp",
+      "name": "Pages MCP",
+      "description": "自托管 MCP 方案，让 AI 助手直接部署和管理静态网站，开箱即用。",
+      "category": "tooling",
+      "status": "production",
+      "techStack": ["Node.js", "MCP SDK", "Express.js"],
+      "hasMCP": true
     }
   ],
   "categories": {
