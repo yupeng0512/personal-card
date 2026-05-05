@@ -1,136 +1,65 @@
 {
   "projects": [
     {
-      "slug": "Quantify-Binance-Test",
-      "name": "Quantify Trading",
-      "description": "量化交易测试项目，基于 Binance 交易所 API。",
+      "slug": "ai-auto-publisher",
+      "name": "AI Auto Publisher",
+      "description": "多平台内容发布中间件，提供 REST/MCP 接口、任务状态、去重、重试和 API/Playwright 发布适配。",
       "techStack": [
         "Python",
-        "Redis",
-        "APScheduler",
+        "FastAPI",
+        "MCP",
+        "Playwright",
         "Docker"
       ],
-      "category": "trading",
-      "status": "learning",
-      "hasDocker": true,
-      "hasMCP": false,
-      "languages": [
-        "Python"
-      ],
-      "dependencies": {}
-    },
-    {
-      "slug": "TrendRadar",
-      "name": "TrendRadar",
-      "description": "全网热点聚合与智能推送系统 v6.0，支持 11+ 平台热点监控、AI 分析和多渠道推送。",
-      "techStack": [
-        "Python",
-        "SQLite",
-        "LiteLLM",
-        "Docker"
-      ],
-      "category": "info-monitoring",
-      "status": "production",
-      "hasDocker": true,
-      "hasMCP": false,
-      "languages": [
-        "Python"
-      ],
-      "dependencies": {},
-      "highlights": [
-        "11+ 平台热点聚合",
-        "AI 智能分析与摘要",
-        "RSS/飞书/企微多渠道推送",
-        "MCP 服务集成"
-      ],
-      "valueStory": {
-        "problem": "热点信息分散在 11+ 平台，人工跟踪耗时且延迟",
-        "solution": "全网热点自动聚合 + AI 分析 + 多渠道推送，支持 MCP 服务",
-        "result": "v6.0 生产级系统，GitHub Actions 自动化部署，热点零延迟感知"
-      }
-    },
-    {
-      "slug": "agents",
-      "name": "Agent Prompts Library",
-      "description": "22 个 AI Agent 提示词和资源库，覆盖代码审查、市场分析、OKR 管理等多个场景。",
-      "techStack": [
-        "Markdown"
-      ],
-      "category": "ai-agent",
+      "category": "tooling",
       "status": "production",
       "hasDocker": false,
       "hasMCP": false,
       "languages": [],
-      "dependencies": {}
+      "dependencies": {},
+      "featured": true,
+      "featuredOrder": 2,
+      "highlights": [
+        "REST + MCP 双入口",
+        "统一任务状态、去重、重试和发布历史",
+        "通过 API / Playwright 适配多平台发布链路"
+      ],
+      "valueStory": {
+        "problem": "多平台发布链路重复、状态分散、失败重试和格式适配成本高。",
+        "solution": "抽象统一发布任务模型，把平台差异封装在适配层，并对外暴露 REST/MCP 能力。",
+        "result": "形成可接入 AI 工作流的发布执行层，支撑内容生产后的自动分发。"
+      }
     },
     {
-      "slug": "agentstudio-study",
-      "name": "AgentStudio",
-      "description": "本地 AI Agent 工作平台，基于 Claude Agent SDK，包含 React 前端和 Node.js 后端。",
-      "techStack": [
-        "React",
-        "TypeScript",
-        "Vite",
-        "Tailwind CSS",
-        "Express.js",
-        "Docker"
-      ],
-      "category": "ai-agent",
-      "status": "production",
-      "hasDocker": true,
-      "hasMCP": false,
-      "languages": [
-        "JavaScript/TypeScript"
-      ],
-      "dependencies": {}
-    },
-    {
-      "slug": "alpha-radar",
-      "name": "AlphaRadar",
-      "description": "Multi-Agent 投研系统，通过宏观指标、基本面、情绪面、技术面四维分析，生成带置信度评分的投资洞察。",
+      "slug": "ai-video-matrix",
+      "name": "AI Video Matrix",
+      "description": "AI 视频矩阵运营自动化管线，覆盖内容规划、视频生成、素材变体、队列调度和多账号发布。",
       "techStack": [
         "Python",
-        "yfinance",
-        "TradingView",
+        "Redis",
+        "PostgreSQL",
+        "FFmpeg",
+        "Playwright",
         "Docker"
       ],
-      "category": "trading",
+      "category": "tooling",
       "status": "production",
       "hasDocker": true,
       "hasMCP": false,
       "languages": [],
       "dependencies": {},
+      "featured": true,
+      "featuredOrder": 4,
       "highlights": [
-        "6 个专业 Agent 协作分析",
-        "多数据源融合（FMP/FX/TradingView）",
-        "量化置信度评分体系"
+        "n8n 编排到发布 Worker 的异步管线",
+        "FFmpeg 素材变体与多账号任务路由",
+        "Redis Queue + 状态库管理发布任务"
       ],
       "valueStory": {
-        "problem": "全球市场信息维度复杂，人工分析耗时且容易遗漏关键信号",
-        "solution": "6 个专业 AI Agent 分工协作，覆盖宏观/基本面/情绪/技术四维度",
-        "result": "自动生成带置信度评分的投资研报，覆盖全球主要市场"
+        "problem": "视频矩阵运营需要跨内容生成、素材处理、账号路由和发布执行多个环节，人工操作链路长。",
+        "solution": "用队列化、任务化的方式串联规划、生成、处理和发布执行。",
+        "result": "把分散操作收敛为可监控的自动化流水线。"
       }
-    },
-    {
-      "slug": "bk-sap-api-mr-1158",
-      "name": "bk-sap-api-mr-1158",
-      "description": "可以使用 [docker compose](dev) 快速初始化 MySQL 与 Redis 依赖",
-      "techStack": [
-        "MySQL",
-        "aiohttp",
-        "Django",
-        "Redis",
-        "Celery",
-        "Python"
-      ],
-      "category": "uncategorized",
-      "status": "learning",
-      "hasDocker": false,
-      "hasMCP": false,
-      "languages": [
-        "Python"
-      ],
-      "dependencies": {}
     },
     {
       "slug": "cursor-skills",
@@ -148,32 +77,9 @@
       "dependencies": {}
     },
     {
-      "slug": "digital-twin",
-      "name": "Digital Twin",
-      "description": "数字分身记忆系统，基于 Graphiti 知识图谱的智能记忆管理平台。",
-      "techStack": [
-        "Python",
-        "Graphiti",
-        "Neo4j",
-        "PostgreSQL",
-        "Docker"
-      ],
-      "category": "knowledge",
-      "status": "production",
-      "hasDocker": true,
-      "hasMCP": false,
-      "languages": [],
-      "dependencies": {},
-      "highlights": [
-        "基于 Graphiti 知识图谱",
-        "时序实体关系自动提取",
-        "Joplin 笔记集成"
-      ]
-    },
-    {
       "slug": "engineering-playbook",
       "name": "Engineering Playbook",
-      "description": "个人工程经验知识库，结构化、可检索、跨项目复用。包含 10 个经验档案、8 个 Pattern、25 个 Skills。",
+      "description": "个人工程经验知识库，沉淀项目复盘、可复用 Pattern、Skills、Rules、检查清单和技术决策记录。",
       "techStack": [
         "Markdown",
         "Shell"
@@ -183,32 +89,36 @@
       "hasDocker": false,
       "hasMCP": false,
       "languages": [],
-      "dependencies": {}
+      "dependencies": {},
+      "featured": true,
+      "featuredOrder": 1,
+      "highlights": [
+        "项目经验归档与跨项目复用",
+        "工程规则、Review 清单和 Prompt 模板沉淀",
+        "面向 Codex / CodeBuddy 的项目级知识库"
+      ],
+      "valueStory": {
+        "problem": "AI 辅助研发容易丢上下文、重复踩坑、浪费 token，历史经验难以在新项目中复用。",
+        "solution": "把项目复盘、技术决策、常见问题和工作流固化成可检索、可复用的工程知识库。",
+        "result": "在新任务中快速复用历史判断，降低幻觉风险，让 AI 协作从临场对话变成可积累系统。"
+      }
     },
     {
-      "slug": "fantasy-shooter",
-      "name": "Fantasy Shooter",
-      "description": "基于 Phaser 游戏引擎的幻想射击游戏。",
-      "techStack": [
-        "Phaser",
-        "TypeScript",
-        "Vite"
-      ],
-      "category": "game",
+      "slug": "follow-builders-intel",
+      "name": "follow-builders-intel",
+      "description": "Runtime project for the `follow-builders-feishu-report` Codex automations.",
+      "techStack": [],
+      "category": "uncategorized",
       "status": "learning",
       "hasDocker": false,
       "hasMCP": false,
-      "languages": [
-        "JavaScript/TypeScript"
-      ],
-      "dependencies": {
-        "phaser": "^3.80.0"
-      }
+      "languages": [],
+      "dependencies": {}
     },
     {
       "slug": "github-sentinel",
       "name": "GitHub Sentinel",
-      "description": "GitHub 热门项目监控与订阅系统，追踪开源项目热度变化。",
+      "description": "GitHub 趋势项目监控与订阅系统，追踪 Star 增长、项目热度和开源技术机会。",
       "techStack": [
         "Python",
         "FastAPI",
@@ -225,12 +135,24 @@
       "languages": [
         "Python"
       ],
-      "dependencies": {}
+      "dependencies": {},
+      "featured": true,
+      "featuredOrder": 5,
+      "highlights": [
+        "按时间窗口追踪开源项目增长趋势",
+        "FastAPI 后端 + React Dashboard",
+        "支持调度任务、订阅配置和 MCP 集成"
+      ],
+      "valueStory": {
+        "problem": "高价值开源项目出现早期信号时容易被动错过，人工筛选 Trending 噪音较大。",
+        "solution": "通过定时抓取、增长指标和订阅规则把项目发现流程系统化。",
+        "result": "沉淀为 AI Native 研发中的开源雷达，辅助技术选型和趋势判断。"
+      }
     },
     {
       "slug": "infohunter",
       "name": "InfoHunter",
-      "description": "AI 驱动的社交媒体智能订阅监控系统，支持 Twitter、YouTube、RSS 等多平台内容抓取、AI 分析和智能推送。",
+      "description": "AI 驱动的信息监控与情报分析系统，支持多源抓取、异步分析、趋势报告、飞书推送和 MCP 集成。",
       "techStack": [
         "Python",
         "FastAPI",
@@ -248,15 +170,17 @@
         "Python"
       ],
       "dependencies": {},
+      "featured": true,
+      "featuredOrder": 3,
       "highlights": [
-        "三阶段解耦架构（抓取→AI分析→推送）",
-        "AG-UI 协议集成",
-        "多平台内容源支持"
+        "抓取、存储、AI 分析、摘要推送分层解耦",
+        "支持多内容源订阅与趋势报告生成",
+        "集成 Feishu、MCP 和 Web Dashboard"
       ],
       "valueStory": {
-        "problem": "社交媒体信息分散，手动跟踪效率低，错过关键信息",
-        "solution": "三阶段解耦架构自动抓取、AI 分析、智能推送，支持 Twitter/YouTube/RSS",
-        "result": "实现信息零遗漏，节省 90% 手动筛选时间"
+        "problem": "技术趋势、社媒内容和行业信号分散在多个平台，人工跟踪容易遗漏关键变化。",
+        "solution": "构建多源采集、异步分析、结构化摘要和主动推送链路，让信息监控变成可配置的后台系统。",
+        "result": "把信息获取从人工刷新转为自动订阅和摘要消费，适合作为个人研发情报中枢。"
       }
     },
     {
@@ -285,7 +209,7 @@
     {
       "slug": "learning-notes",
       "name": "learning-notes",
-      "description": "> 最后更新：2026-02-27",
+      "description": "> 最后更新：2026-04-16",
       "techStack": [],
       "category": "uncategorized",
       "status": "learning",
@@ -295,44 +219,9 @@
       "dependencies": {}
     },
     {
-      "slug": "mcp_excalidraw",
-      "name": "MCP Excalidraw",
-      "description": "AI 驱动的实时图表绘制系统，通过 MCP 协议让 AI 直接操作 Excalidraw。",
-      "techStack": [
-        "TypeScript",
-        "Express.js",
-        "React",
-        "WebSocket",
-        "Docker"
-      ],
-      "category": "tooling",
-      "status": "production",
-      "hasDocker": true,
-      "hasMCP": true,
-      "languages": [
-        "JavaScript/TypeScript"
-      ],
-      "dependencies": {
-        "@excalidraw/excalidraw": "^0.18.0",
-        "@excalidraw/mermaid-to-excalidraw": "^1.1.3",
-        "@modelcontextprotocol/sdk": "latest",
-        "cors": "^2.8.5",
-        "dotenv": "^16.3.1",
-        "express": "^4.18.2",
-        "mermaid": "^11.12.1",
-        "node-fetch": "^3.3.2",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "winston": "^3.11.0",
-        "ws": "^8.14.2",
-        "zod": "^3.22.4",
-        "zod-to-json-schema": "^3.22.3"
-      }
-    },
-    {
-      "slug": "n8n-workflows",
-      "name": "n8n-workflows",
-      "description": "本目录包含可直接导入 n8n 的工作流 JSON 文件。",
+      "slug": "market-radar-automation",
+      "name": "market-radar-automation",
+      "description": "`market-radar-automation` is the cross-market risk, event, macro, and crypto orchestration layer for the Market Intelligence Lab.",
       "techStack": [],
       "category": "uncategorized",
       "status": "learning",
@@ -342,209 +231,11 @@
       "dependencies": {}
     },
     {
-      "slug": "next-ai-draw-io",
-      "name": "Next AI Draw.io",
-      "description": "AI 驱动的图表创建工具，集成 draw.io 编辑器，支持多 AI 提供商和 MCP Server。",
-      "techStack": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Vercel AI SDK"
-      ],
-      "category": "tooling",
-      "status": "production",
-      "hasDocker": true,
-      "hasMCP": true,
-      "languages": [
-        "JavaScript/TypeScript"
-      ],
-      "dependencies": {
-        "@ai-sdk/amazon-bedrock": "^4.0.1",
-        "@ai-sdk/anthropic": "^3.0.0",
-        "@ai-sdk/azure": "^3.0.0",
-        "@ai-sdk/deepseek": "^2.0.0",
-        "@ai-sdk/gateway": "^3.0.0",
-        "@ai-sdk/google": "^3.0.0",
-        "@ai-sdk/openai": "^3.0.0",
-        "@ai-sdk/react": "^3.0.1",
-        "@aws-sdk/client-dynamodb": "^3.957.0",
-        "@aws-sdk/credential-providers": "^3.943.0",
-        "@formatjs/intl-localematcher": "^0.7.2",
-        "@langfuse/client": "^4.4.9",
-        "@langfuse/otel": "^4.4.4",
-        "@langfuse/tracing": "^4.4.9",
-        "@next/third-parties": "^16.0.6",
-        "@opennextjs/cloudflare": "1.14.7",
-        "@openrouter/ai-sdk-provider": "^1.5.4",
-        "@opentelemetry/exporter-trace-otlp-http": "^0.208.0",
-        "@opentelemetry/sdk-trace-node": "^2.2.0",
-        "@radix-ui/react-alert-dialog": "^1.1.15",
-        "@radix-ui/react-collapsible": "^1.1.12",
-        "@radix-ui/react-dialog": "^1.1.15",
-        "@radix-ui/react-label": "^2.1.8",
-        "@radix-ui/react-popover": "^1.1.15",
-        "@radix-ui/react-scroll-area": "^1.2.3",
-        "@radix-ui/react-select": "^2.2.6",
-        "@radix-ui/react-slot": "^1.2.4",
-        "@radix-ui/react-switch": "^1.2.6",
-        "@radix-ui/react-tooltip": "^1.1.8",
-        "@radix-ui/react-use-controllable-state": "^1.2.2",
-        "@xmldom/xmldom": "^0.9.8",
-        "ai": "^6.0.1",
-        "base-64": "^1.0.0",
-        "class-variance-authority": "^0.7.1",
-        "clsx": "^2.1.1",
-        "cmdk": "^1.1.1",
-        "js-tiktoken": "^1.0.21",
-        "jsdom": "^27.0.0",
-        "jsonrepair": "^3.13.1",
-        "lucide-react": "^0.562.0",
-        "motion": "^12.23.25",
-        "negotiator": "^1.0.0",
-        "next": "^16.0.7",
-        "ollama-ai-provider-v2": "^1.5.4",
-        "pako": "^2.1.0",
-        "prism-react-renderer": "^2.4.1",
-        "react": "^19.1.2",
-        "react-dom": "^19.1.2",
-        "react-drawio": "^1.0.3",
-        "react-icons": "^5.5.0",
-        "react-markdown": "^10.1.0",
-        "react-resizable-panels": "^3.0.6",
-        "remark-gfm": "^4.0.1",
-        "server-only": "^0.0.1",
-        "sonner": "^2.0.7",
-        "tailwind-merge": "^3.0.2",
-        "tailwindcss-animate": "^1.0.7",
-        "unpdf": "^1.4.0",
-        "zod": "^4.1.12"
-      }
-    },
-    {
-      "slug": "openclaw-playbook",
-      "name": "OpenClaw Playbook",
-      "description": "OpenClaw AI Agent 框架高价值使用场景与商业化落地方案手册，基于 Discord 922 位开发者实战数据 + ClawHub 5705 个技能生态调研，覆盖 12 大场景分类与优先级矩阵。",
-      "techStack": [
-        "Markdown"
-      ],
-      "category": "ai-agent",
-      "status": "production",
-      "hasDocker": false,
-      "hasMCP": false,
-      "languages": [],
-      "dependencies": {},
-      "highlights": [
-        "12 大落地场景分类 + 优先级矩阵",
-        "5705 个 Skill 生态安全审计（48.2% 过滤率）",
-        "P0-P3 四级优先级落地指南"
-      ],
-      "valueStory": {
-        "problem": "OpenClaw 234k+ Stars 但缺少系统化的商业落地方案参考",
-        "solution": "基于 Discord 社区 + ClawHub 技能市场 + 技术博客等多源数据，输出标准化调研报告",
-        "result": "12 大场景分类，覆盖个人助理、开发者工作流、企业自动化等核心赛道"
-      }
-    },
-    {
-      "slug": "ops-dashboard",
-      "name": "Ops Dashboard",
-      "description": "轻量级统一运维告警面板，收敛所有 Docker 项目中需要人工介入的事件。Push 优先 + Pull 兜底架构。",
-      "techStack": [
-        "Python",
-        "FastAPI",
-        "SQLite",
-        "Alpine.js",
-        "Docker"
-      ],
-      "category": "tooling",
-      "status": "production",
-      "hasDocker": true,
-      "hasMCP": false,
-      "languages": [
-        "Python"
-      ],
-      "dependencies": {},
-      "highlights": [
-        "Push 主动上报 + Pull 兜底探测",
-        "24 小时去重 + 自动飞书/企微告警",
-        "单容器部署，零外部依赖"
-      ],
-      "valueStory": {
-        "problem": "多个 Docker 项目的告警分散，需要逐个检查容器日志才能发现问题",
-        "solution": "统一告警面板 + SDK 主动上报 + 定时健康探测，收敛所有告警至单一界面",
-        "result": "一目了然掌握所有项目运行状态，critical 事件秒级推送"
-      }
-    },
-    {
-      "slug": "pinme-mcp",
-      "name": "PinMe MCP",
-      "description": "通过 AI Agent 将静态文件部署到 IPFS 的 MCP 服务。",
-      "techStack": [
-        "Node.js",
-        "MCP SDK",
-        "Express.js",
-        "Docker"
-      ],
-      "category": "tooling",
-      "status": "production",
-      "hasDocker": true,
-      "hasMCP": true,
-      "languages": [
-        "JavaScript/TypeScript"
-      ],
-      "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.0.0",
-        "express": "^4.18.2",
-        "zod": "^3.25.0"
-      }
-    },
-    {
-      "slug": "qinyuanqiao-miniprogram",
-      "name": "亲缘桥小程序",
-      "description": "面向中老年父母群体的相亲微信小程序，支持双角色账号、智能推荐和微信支付。",
-      "techStack": [
-        "WeChat Mini Program",
-        "CloudBase",
-        "Node.js"
-      ],
-      "category": "product",
-      "status": "production",
-      "hasDocker": false,
-      "hasMCP": false,
-      "languages": [],
-      "dependencies": {}
-    },
-    {
-      "slug": "saas-landing",
-      "name": "SaaS Landing Page",
-      "description": "现代 SaaS 落地页模板，包含完整的产品展示组件。",
-      "techStack": [
-        "React",
-        "Vite",
-        "Tailwind CSS"
-      ],
-      "category": "tooling",
-      "status": "learning",
-      "hasDocker": false,
-      "hasMCP": false,
-      "languages": [
-        "JavaScript/TypeScript"
-      ],
-      "dependencies": {
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "lucide-react": "^0.294.0"
-      }
-    },
-    {
-      "slug": "slidev-remotion-lab",
-      "name": "Slidev + Remotion Lab",
-      "description": "用代码写 PPT 和视频的实验室，Slidev 做演示文稿 + Remotion 做编程视频。",
-      "techStack": [
-        "TypeScript",
-        "React"
-      ],
-      "category": "tooling",
+      "slug": "pine-quant-lab",
+      "name": "pine-quant-lab",
+      "description": "Private research workspace for TradingView Pine indicators, strategy adapters, and repeatable validation.",
+      "techStack": [],
+      "category": "uncategorized",
       "status": "learning",
       "hasDocker": false,
       "hasMCP": false,
@@ -552,28 +243,28 @@
       "dependencies": {}
     },
     {
-      "slug": "stagehand-lab",
-      "name": "Stagehand Lab",
-      "description": "基于 Stagehand 的浏览器自动化实验，探索 AI 驱动的 Web 自动化最佳实践。",
-      "techStack": [
-        "TypeScript",
-        "Stagehand",
-        "Playwright"
-      ],
-      "category": "tooling",
-      "status": "learning",
-      "hasDocker": false,
+      "slug": "trade-radar",
+      "name": "trade-radar",
+      "description": "AI-powered customer discovery & outreach platform for international trade.",
+      "techStack": [],
+      "category": "uncategorized",
+      "status": "production",
+      "hasDocker": true,
       "hasMCP": false,
-      "languages": [
-        "JavaScript/TypeScript"
-      ],
-      "dependencies": {
-        "@browserbasehq/stagehand": "^3.1.0",
-        "dotenv": "^17.3.1",
-        "tsx": "^4.21.0",
-        "typescript": "^5.9.3",
-        "zod": "^4.3.6"
-      }
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "trading-system",
+      "name": "trading-system",
+      "description": "AI-powered multi-asset trading system with Polymarket, US equities, and options support.",
+      "techStack": [],
+      "category": "uncategorized",
+      "status": "production",
+      "hasDocker": true,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
     },
     {
       "slug": "truthsocial-trump-monitor",
@@ -603,183 +294,1212 @@
         "solution": "AI 驱动的实时监控 + 宏观分析 + 投资洞察推送",
         "result": "实现发言秒级推送，AI 自动生成市场影响分析"
       }
+    },
+    {
+      "slug": "wechat-moments-ops",
+      "name": "wechat-moments-ops",
+      "description": "这个项目承接朋友圈内容运营资产。",
+      "techStack": [],
+      "category": "uncategorized",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [],
+      "dependencies": {}
+    },
+    {
+      "slug": "yinglit-ev",
+      "name": "yinglit-ev",
+      "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+      "techStack": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "category": "uncategorized",
+      "status": "learning",
+      "hasDocker": false,
+      "hasMCP": false,
+      "languages": [
+        "JavaScript/TypeScript"
+      ],
+      "dependencies": {
+        "@base-ui/react": "^1.2.0",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.577.0",
+        "next": "16.1.6",
+        "next-intl": "^4.8.3",
+        "next-sitemap": "^4.2.3",
+        "react": "19.2.3",
+        "react-dom": "19.2.3",
+        "shadcn": "^4.0.2",
+        "tailwind-merge": "^3.5.0",
+        "tw-animate-css": "^1.4.0"
+      }
     }
   ],
   "agents": [
     {
-      "name": "analyst",
-      "description": "analyst Agent",
-      "type": "analysis"
-    },
-    {
-      "name": "article-tutor",
-      "description": "article-tutor Agent",
-      "type": "learning"
-    },
-    {
-      "name": "code-writer",
-      "description": "code-writer Agent",
-      "type": "development"
-    },
-    {
-      "name": "command-creator",
-      "description": "command-creator Agent",
-      "type": "meta-tool"
-    },
-    {
-      "name": "github-project-analyst",
-      "description": "github-project-analyst Agent",
-      "type": "analysis"
-    },
-    {
-      "name": "knowledge-base",
-      "description": "knowledge-base Agent",
+      "name": "content-publisher",
+      "description": "content-publisher Agent",
       "type": "other"
     },
     {
-      "name": "lawyer",
-      "description": "lawyer Agent",
+      "name": "contrarian",
+      "description": "contrarian Agent",
       "type": "other"
     },
     {
-      "name": "market-radar",
-      "description": "market-radar Agent",
-      "type": "analysis"
+      "name": "news",
+      "description": "news Agent",
+      "type": "other"
     },
     {
-      "name": "mcp-builder",
-      "description": "MCP 服务构建专家 Agent 集合，支持多种编程语言构建符合 Model Context Protocol 规范的 MCP 服务。",
-      "type": "tooling"
+      "name": "probability",
+      "description": "probability Agent",
+      "type": "other"
     },
     {
-      "name": "mr-review",
-      "description": "mr-review Agent",
-      "type": "development"
-    },
-    {
-      "name": "next-ai-draw-io",
-      "description": "next-ai-draw-io Agent",
-      "type": "tooling"
-    },
-    {
-      "name": "okr-assistant",
-      "description": "okr-assistant Agent",
-      "type": "efficiency"
-    },
-    {
-      "name": "prompt-writer",
-      "description": "prompt-writer Agent",
-      "type": "development"
-    },
-    {
-      "name": "report-master",
-      "description": "report-master Agent",
-      "type": "efficiency"
-    },
-    {
-      "name": "resume-optimizer",
-      "description": "resume-optimizer Agent",
-      "type": "efficiency"
-    },
-    {
-      "name": "review-evaluator",
-      "description": "review-evaluator Agent",
-      "type": "development"
-    },
-    {
-      "name": "review-retrospective",
-      "description": "review-retrospective Agent",
-      "type": "development"
-    },
-    {
-      "name": "skill-generator",
-      "description": "skill-generator Agent",
-      "type": "meta-tool"
-    },
-    {
-      "name": "tapd-tracker",
-      "description": "tapd-tracker Agent",
-      "type": "efficiency"
-    },
-    {
-      "name": "trump-post-analyst",
-      "description": "trump-post-analyst Agent",
-      "type": "analysis"
-    },
-    {
-      "name": "tutor",
-      "description": "tutor Agent",
-      "type": "learning"
+      "name": "risk",
+      "description": "risk Agent",
+      "type": "other"
     }
   ],
   "skills": [
     {
+      "name": "ai-auto-publisher",
+      "description": "name: ai-auto-publisher",
+      "path": "/Users/yupeng/cursor-skills/ai-auto-publisher/SKILL.md"
+    },
+    {
       "name": "article-tutor",
       "description": "name: article-tutor",
-      "path": "/data/home/archerpyu/.cursor/skills/article-tutor/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/article-tutor/SKILL.md"
+    },
+    {
+      "name": "brainstorming",
+      "description": "name: brainstorming",
+      "path": "/Users/yupeng/cursor-skills/brainstorming/SKILL.md"
+    },
+    {
+      "name": "brand-frontend-slides",
+      "description": "name: brand-frontend-slides",
+      "path": "/Users/yupeng/cursor-skills/brand-frontend-slides/SKILL.md"
+    },
+    {
+      "name": "codex-automation-sop",
+      "description": "name: codex-automation-sop",
+      "path": "/Users/yupeng/cursor-skills/codex-automation-sop/SKILL.md"
     },
     {
       "name": "command-creator",
       "description": "name: command-creator",
-      "path": "/data/home/archerpyu/.cursor/skills/command-creator/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/command-creator/SKILL.md"
+    },
+    {
+      "name": "content-publisher",
+      "description": "name: content-publisher",
+      "path": "/Users/yupeng/cursor-skills/content-publisher/SKILL.md"
     },
     {
       "name": "cybernetics-loop",
       "description": "name: cybernetics-loop",
-      "path": "/data/home/archerpyu/.cursor/skills/cybernetics-loop/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/cybernetics-loop/SKILL.md"
+    },
+    {
+      "name": "decision-framing-loop",
+      "description": "name: decision-framing-loop",
+      "path": "/Users/yupeng/cursor-skills/decision-framing-loop/SKILL.md"
+    },
+    {
+      "name": "engineering-quality-loop",
+      "description": "name: engineering-quality-loop",
+      "path": "/Users/yupeng/cursor-skills/engineering-quality-loop/SKILL.md"
+    },
+    {
+      "name": "expert-andy-lee",
+      "description": "name: expert-andy-lee",
+      "path": "/Users/yupeng/cursor-skills/expert-andy-lee/SKILL.md"
     },
     {
       "name": "expert-skill-extractor",
       "description": "name: expert-skill-extractor",
-      "path": "/data/home/archerpyu/.cursor/skills/expert-skill-extractor/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/expert-skill-extractor/SKILL.md"
+    },
+    {
+      "name": "follow-builders-feishu-report",
+      "description": "name: follow-builders-feishu-report",
+      "path": "/Users/yupeng/cursor-skills/follow-builders-feishu-report/SKILL.md"
     },
     {
       "name": "frontend-design",
       "description": "name: frontend-design",
-      "path": "/data/home/archerpyu/.cursor/skills/frontend-design/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/frontend-design/SKILL.md"
     },
     {
       "name": "gongfeng-mr",
       "description": "name: gongfeng-mr",
-      "path": "/data/home/archerpyu/.cursor/skills/gongfeng-mr/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/gongfeng-mr/SKILL.md"
+    },
+    {
+      "name": "hyperframes-video-studio",
+      "description": "name: hyperframes-video-studio",
+      "path": "/Users/yupeng/cursor-skills/hyperframes-video-studio/SKILL.md"
+    },
+    {
+      "name": "market-intelligence-agents",
+      "description": "name: market-intelligence-agents",
+      "path": "/Users/yupeng/cursor-skills/market-intelligence-agents/SKILL.md"
+    },
+    {
+      "name": "media-watermark-studio",
+      "description": "name: media-watermark-studio",
+      "path": "/Users/yupeng/cursor-skills/media-watermark-studio/SKILL.md"
+    },
+    {
+      "name": "okr-assistant",
+      "description": "name: okr-assistant",
+      "path": "/Users/yupeng/cursor-skills/okr-assistant/SKILL.md"
+    },
+    {
+      "name": "openai-agents-sdk-builder",
+      "description": "name: openai-agents-sdk-builder",
+      "path": "/Users/yupeng/cursor-skills/openai-agents-sdk-builder/SKILL.md"
+    },
+    {
+      "name": "optimize-short-video-prompts",
+      "description": "name: optimize-short-video-prompts",
+      "path": "/Users/yupeng/cursor-skills/optimize-short-video-prompts/SKILL.md"
+    },
+    {
+      "name": "outcome-first-product-shaping",
+      "description": "name: outcome-first-product-shaping",
+      "path": "/Users/yupeng/cursor-skills/outcome-first-product-shaping/SKILL.md"
+    },
+    {
+      "name": "persistent-execution-loop",
+      "description": "name: persistent-execution-loop",
+      "path": "/Users/yupeng/cursor-skills/persistent-execution-loop/SKILL.md"
+    },
+    {
+      "name": "pine-quant-engineer",
+      "description": "name: pine-quant-engineer",
+      "path": "/Users/yupeng/cursor-skills/pine-quant-engineer/SKILL.md"
+    },
+    {
+      "name": "ppt-image-workflow",
+      "description": "name: ppt-image-workflow",
+      "path": "/Users/yupeng/cursor-skills/ppt-image-workflow/SKILL.md"
+    },
+    {
+      "name": "private-domain-growth-system",
+      "description": "name: private-domain-growth-system",
+      "path": "/Users/yupeng/cursor-skills/private-domain-growth-system/SKILL.md"
     },
     {
       "name": "project-retrospective",
       "description": "name: project-retrospective",
-      "path": "/data/home/archerpyu/.cursor/skills/project-retrospective/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/project-retrospective/SKILL.md"
+    },
+    {
+      "name": "research-driven-planner",
+      "description": "name: research-driven-planner",
+      "path": "/Users/yupeng/cursor-skills/research-driven-planner/SKILL.md"
     },
     {
       "name": "share-writer",
       "description": "name: share-writer",
-      "path": "/data/home/archerpyu/.cursor/skills/share-writer/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/share-writer/SKILL.md"
+    },
+    {
+      "name": "site-builder",
+      "description": "name: site-builder",
+      "path": "/Users/yupeng/cursor-skills/site-builder/SKILL.md"
     },
     {
       "name": "skill-from-masters",
       "description": "name: skill-from-masters",
-      "path": "/data/home/archerpyu/.cursor/skills/skill-from-masters/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/skill-from-masters/SKILL.md"
     },
     {
       "name": "stagehand-automation",
       "description": "name: stagehand-automation",
-      "path": "/data/home/archerpyu/.cursor/skills/stagehand-automation/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/stagehand-automation/SKILL.md"
     },
     {
       "name": "tech-review",
       "description": "name: tech-review",
-      "path": "/data/home/archerpyu/.cursor/skills/tech-review/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/tech-review/SKILL.md"
+    },
+    {
+      "name": "tradingview-signal-monitor",
+      "description": "name: tradingview-signal-monitor",
+      "path": "/Users/yupeng/cursor-skills/tradingview-signal-monitor/SKILL.md"
     },
     {
       "name": "ui-ux-pro-max",
       "description": "name: ui-ux-pro-max",
-      "path": "/data/home/archerpyu/.cursor/skills/ui-ux-pro-max/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/ui-ux-pro-max/SKILL.md"
+    },
+    {
+      "name": "web-design-spec",
+      "description": "name: web-design-spec",
+      "path": "/Users/yupeng/cursor-skills/web-design-spec/SKILL.md"
+    },
+    {
+      "name": "wechat-moments-operator",
+      "description": "name: wechat-moments-operator",
+      "path": "/Users/yupeng/cursor-skills/wechat-moments-operator/SKILL.md"
+    },
+    {
+      "name": "writing-plans",
+      "description": "name: writing-plans",
+      "path": "/Users/yupeng/cursor-skills/writing-plans/SKILL.md"
     },
     {
       "name": "yt-dlp",
       "description": "name: yt-dlp",
-      "path": "/data/home/archerpyu/.cursor/skills/yt-dlp/SKILL.md"
+      "path": "/Users/yupeng/cursor-skills/yt-dlp/SKILL.md"
+    },
+    {
+      "name": "anygen-suite",
+      "description": "name: anygen",
+      "path": "/Users/yupeng/.codex/skills/anygen-suite/SKILL.md"
+    },
+    {
+      "name": "chatgpt-apps",
+      "description": "name: chatgpt-apps",
+      "path": "/Users/yupeng/.codex/skills/chatgpt-apps/SKILL.md"
+    },
+    {
+      "name": "dbs-ai-check",
+      "description": "name: dbs-ai-check",
+      "path": "/Users/yupeng/.codex/skills/dbs-ai-check/SKILL.md"
+    },
+    {
+      "name": "dbs-benchmark",
+      "description": "name: dbs-benchmark",
+      "path": "/Users/yupeng/.codex/skills/dbs-benchmark/SKILL.md"
+    },
+    {
+      "name": "dbs-content",
+      "description": "name: dbs-content",
+      "path": "/Users/yupeng/.codex/skills/dbs-content/SKILL.md"
+    },
+    {
+      "name": "dbs-deconstruct",
+      "description": "name: dbs-deconstruct",
+      "path": "/Users/yupeng/.codex/skills/dbs-deconstruct/SKILL.md"
+    },
+    {
+      "name": "dbs-diagnosis",
+      "description": "name: dbs-diagnosis",
+      "path": "/Users/yupeng/.codex/skills/dbs-diagnosis/SKILL.md"
+    },
+    {
+      "name": "dbs-hook",
+      "description": "name: dbs-hook",
+      "path": "/Users/yupeng/.codex/skills/dbs-hook/SKILL.md"
+    },
+    {
+      "name": "dbs-slowisfast",
+      "description": "name: dbs-slowisfast",
+      "path": "/Users/yupeng/.codex/skills/dbs-slowisfast/SKILL.md"
+    },
+    {
+      "name": "dbs-xhs-title",
+      "description": "name: dbs-xhs-title",
+      "path": "/Users/yupeng/.codex/skills/dbs-xhs-title/SKILL.md"
+    },
+    {
+      "name": "dreamina-cli",
+      "description": "name: dreamina-cli",
+      "path": "/Users/yupeng/.codex/skills/dreamina-cli/SKILL.md"
+    },
+    {
+      "name": "figma",
+      "description": "name: figma",
+      "path": "/Users/yupeng/.codex/skills/figma/SKILL.md"
+    },
+    {
+      "name": "figma-implement-design",
+      "description": "name: \"figma-implement-design\"",
+      "path": "/Users/yupeng/.codex/skills/figma-implement-design/SKILL.md"
+    },
+    {
+      "name": "gh-address-comments",
+      "description": "name: gh-address-comments",
+      "path": "/Users/yupeng/.codex/skills/gh-address-comments/SKILL.md"
+    },
+    {
+      "name": "gh-fix-ci",
+      "description": "name: \"gh-fix-ci\"",
+      "path": "/Users/yupeng/.codex/skills/gh-fix-ci/SKILL.md"
+    },
+    {
+      "name": "imagegen",
+      "description": "name: \"imagegen\"",
+      "path": "/Users/yupeng/.codex/skills/imagegen/SKILL.md"
+    },
+    {
+      "name": "jupyter-notebook",
+      "description": "name: \"jupyter-notebook\"",
+      "path": "/Users/yupeng/.codex/skills/jupyter-notebook/SKILL.md"
+    },
+    {
+      "name": "playwright",
+      "description": "name: \"playwright\"",
+      "path": "/Users/yupeng/.codex/skills/playwright/SKILL.md"
+    },
+    {
+      "name": "playwright-interactive",
+      "description": "name: \"playwright-interactive\"",
+      "path": "/Users/yupeng/.codex/skills/playwright-interactive/SKILL.md"
+    },
+    {
+      "name": "render-deploy",
+      "description": "name: render-deploy",
+      "path": "/Users/yupeng/.codex/skills/render-deploy/SKILL.md"
+    },
+    {
+      "name": "screenshot",
+      "description": "name: \"screenshot\"",
+      "path": "/Users/yupeng/.codex/skills/screenshot/SKILL.md"
+    },
+    {
+      "name": "sora",
+      "description": "name: \"sora\"",
+      "path": "/Users/yupeng/.codex/skills/sora/SKILL.md"
+    },
+    {
+      "name": "speech",
+      "description": "name: \"speech\"",
+      "path": "/Users/yupeng/.codex/skills/speech/SKILL.md"
+    },
+    {
+      "name": "transcribe",
+      "description": "name: \"transcribe\"",
+      "path": "/Users/yupeng/.codex/skills/transcribe/SKILL.md"
+    },
+    {
+      "name": "vercel-deploy",
+      "description": "name: vercel-deploy",
+      "path": "/Users/yupeng/.codex/skills/vercel-deploy/SKILL.md"
+    },
+    {
+      "name": "agent-reach",
+      "description": "name: agent-reach",
+      "path": "/Users/yupeng/.agents/skills/agent-reach/SKILL.md"
+    },
+    {
+      "name": "algorithmic-art",
+      "description": "name: algorithmic-art",
+      "path": "/Users/yupeng/.agents/skills/algorithmic-art/SKILL.md"
+    },
+    {
+      "name": "dbs-ai-check",
+      "description": "name: dbs-ai-check",
+      "path": "/Users/yupeng/.agents/skills/dbs-ai-check/SKILL.md"
+    },
+    {
+      "name": "dbs-benchmark",
+      "description": "name: dbs-benchmark",
+      "path": "/Users/yupeng/.agents/skills/dbs-benchmark/SKILL.md"
+    },
+    {
+      "name": "dbs-content",
+      "description": "name: dbs-content",
+      "path": "/Users/yupeng/.agents/skills/dbs-content/SKILL.md"
+    },
+    {
+      "name": "dbs-deconstruct",
+      "description": "name: dbs-deconstruct",
+      "path": "/Users/yupeng/.agents/skills/dbs-deconstruct/SKILL.md"
+    },
+    {
+      "name": "dbs-diagnosis",
+      "description": "name: dbs-diagnosis",
+      "path": "/Users/yupeng/.agents/skills/dbs-diagnosis/SKILL.md"
+    },
+    {
+      "name": "dbs-hook",
+      "description": "name: dbs-hook",
+      "path": "/Users/yupeng/.agents/skills/dbs-hook/SKILL.md"
+    },
+    {
+      "name": "dbs-slowisfast",
+      "description": "name: dbs-slowisfast",
+      "path": "/Users/yupeng/.agents/skills/dbs-slowisfast/SKILL.md"
+    },
+    {
+      "name": "dbs-xhs-title",
+      "description": "name: dbs-xhs-title",
+      "path": "/Users/yupeng/.agents/skills/dbs-xhs-title/SKILL.md"
+    },
+    {
+      "name": "iwiki-doc",
+      "description": "name: iwiki-doc",
+      "path": "/Users/yupeng/.agents/skills/iwiki-doc/SKILL.md"
+    },
+    {
+      "name": "km",
+      "description": "name: km",
+      "path": "/Users/yupeng/.agents/skills/km/SKILL.md"
+    },
+    {
+      "name": "lark-approval",
+      "description": "name: lark-approval",
+      "path": "/Users/yupeng/.agents/skills/lark-approval/SKILL.md"
+    },
+    {
+      "name": "lark-attendance",
+      "description": "name: lark-attendance",
+      "path": "/Users/yupeng/.agents/skills/lark-attendance/SKILL.md"
+    },
+    {
+      "name": "lark-base",
+      "description": "name: lark-base",
+      "path": "/Users/yupeng/.agents/skills/lark-base/SKILL.md"
+    },
+    {
+      "name": "lark-calendar",
+      "description": "name: lark-calendar",
+      "path": "/Users/yupeng/.agents/skills/lark-calendar/SKILL.md"
+    },
+    {
+      "name": "lark-contact",
+      "description": "name: lark-contact",
+      "path": "/Users/yupeng/.agents/skills/lark-contact/SKILL.md"
+    },
+    {
+      "name": "lark-doc",
+      "description": "name: lark-doc",
+      "path": "/Users/yupeng/.agents/skills/lark-doc/SKILL.md"
+    },
+    {
+      "name": "lark-drive",
+      "description": "name: lark-drive",
+      "path": "/Users/yupeng/.agents/skills/lark-drive/SKILL.md"
+    },
+    {
+      "name": "lark-event",
+      "description": "name: lark-event",
+      "path": "/Users/yupeng/.agents/skills/lark-event/SKILL.md"
+    },
+    {
+      "name": "lark-im",
+      "description": "name: lark-im",
+      "path": "/Users/yupeng/.agents/skills/lark-im/SKILL.md"
+    },
+    {
+      "name": "lark-mail",
+      "description": "name: lark-mail",
+      "path": "/Users/yupeng/.agents/skills/lark-mail/SKILL.md"
+    },
+    {
+      "name": "lark-markdown",
+      "description": "name: lark-markdown",
+      "path": "/Users/yupeng/.agents/skills/lark-markdown/SKILL.md"
+    },
+    {
+      "name": "lark-minutes",
+      "description": "name: lark-minutes",
+      "path": "/Users/yupeng/.agents/skills/lark-minutes/SKILL.md"
+    },
+    {
+      "name": "lark-okr",
+      "description": "name: lark-okr",
+      "path": "/Users/yupeng/.agents/skills/lark-okr/SKILL.md"
+    },
+    {
+      "name": "lark-openapi-explorer",
+      "description": "name: lark-openapi-explorer",
+      "path": "/Users/yupeng/.agents/skills/lark-openapi-explorer/SKILL.md"
+    },
+    {
+      "name": "lark-shared",
+      "description": "name: lark-shared",
+      "path": "/Users/yupeng/.agents/skills/lark-shared/SKILL.md"
+    },
+    {
+      "name": "lark-sheets",
+      "description": "name: lark-sheets",
+      "path": "/Users/yupeng/.agents/skills/lark-sheets/SKILL.md"
+    },
+    {
+      "name": "lark-skill-maker",
+      "description": "name: lark-skill-maker",
+      "path": "/Users/yupeng/.agents/skills/lark-skill-maker/SKILL.md"
+    },
+    {
+      "name": "lark-slides",
+      "description": "name: lark-slides",
+      "path": "/Users/yupeng/.agents/skills/lark-slides/SKILL.md"
+    },
+    {
+      "name": "lark-task",
+      "description": "name: lark-task",
+      "path": "/Users/yupeng/.agents/skills/lark-task/SKILL.md"
+    },
+    {
+      "name": "lark-vc",
+      "description": "name: lark-vc",
+      "path": "/Users/yupeng/.agents/skills/lark-vc/SKILL.md"
+    },
+    {
+      "name": "lark-whiteboard",
+      "description": "name: lark-whiteboard",
+      "path": "/Users/yupeng/.agents/skills/lark-whiteboard/SKILL.md"
+    },
+    {
+      "name": "lark-whiteboard-cli",
+      "description": "name: lark-whiteboard-cli",
+      "path": "/Users/yupeng/.agents/skills/lark-whiteboard-cli/SKILL.md"
+    },
+    {
+      "name": "lark-wiki",
+      "description": "name: lark-wiki",
+      "path": "/Users/yupeng/.agents/skills/lark-wiki/SKILL.md"
+    },
+    {
+      "name": "lark-workflow-meeting-summary",
+      "description": "name: lark-workflow-meeting-summary",
+      "path": "/Users/yupeng/.agents/skills/lark-workflow-meeting-summary/SKILL.md"
+    },
+    {
+      "name": "lark-workflow-standup-report",
+      "description": "name: lark-workflow-standup-report",
+      "path": "/Users/yupeng/.agents/skills/lark-workflow-standup-report/SKILL.md"
+    },
+    {
+      "name": "longbridge",
+      "description": "name: longbridge",
+      "path": "/Users/yupeng/.agents/skills/longbridge/SKILL.md"
     }
   ],
   "notes": [
+    {
+      "title": "Seedance 2.0 AI 短片创作 SOP：分镜、运镜、参考、剪辑与补帧",
+      "date": "2026-04-16",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "Seedance 2.0",
+        "AI 短片",
+        "文生视频",
+        "分镜脚本",
+        "运镜控制",
+        "多模态参考",
+        "剪辑节奏"
+      ],
+      "slug": "seedance-ai-short-film-sop",
+      "path": "ai-tools/ai-video/2026-04-16-seedance-ai-short-film-sop.md",
+      "summary": "AI 短片质量 = 分镜颗粒度 x 运镜明确度 x 参考素材职责清晰度 x 防崩坏约束 x 剪辑节奏 x 后期增强"
+    },
+    {
+      "title": "软件工程 3.0：从人用工具到人管理数字员工",
+      "date": "2026-04-16",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "软件工程 3.0",
+        "数字员工",
+        "Agent 协作",
+        "Architecture-as-Code",
+        "AI-Ops",
+        "One Person Company",
+        "Vibe Engineering"
+      ],
+      "slug": "software-engineering-3-digital-employees",
+      "path": "ai-tools/vibe-engineering/2026-04-16-software-engineering-3-digital-employees.md",
+      "summary": "软件工程 3.0 = 业务复杂度不变 x 实现层自动化 x 架构治理机器可读 x 人类判断力放大"
+    },
+    {
+      "title": "VibeFlow：把 AI Coding 从代码生成升级为可治理研发流水线",
+      "date": "2026-04-16",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "VibeFlow",
+        "Harness Engineering",
+        "Vibe Coding",
+        "AI Coding",
+        "Context Engineering",
+        "SDD",
+        "研发流程"
+      ],
+      "slug": "vibeflow-governed-ai-rd-harness",
+      "path": "ai-tools/vibe-engineering/2026-04-16-vibeflow-governed-ai-rd-harness.md",
+      "summary": "可交付 AI 研发 = 结构化输入 x 领域上下文 x 分层规格 x 运行时验证 x 反馈回写"
+    },
+    {
+      "title": "GBrain：把个人长期知识编译成 Agent 可检索的第二大脑",
+      "date": "2026-04-15",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "gbrain",
+        "ai-memory",
+        "second-brain",
+        "mcp",
+        "openclaw",
+        "codex"
+      ],
+      "slug": "gbrain-compiled-truth-timeline-second-brain",
+      "path": "ai-tools/agent-architecture/2026-04-15-gbrain-compiled-truth-timeline-second-brain.md",
+      "summary": ""
+    },
+    {
+      "title": "GSD / Get Shit Done：把 context rot 外包给阶段化 AI 开发流水线",
+      "date": "2026-04-15",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "GSD",
+        "Get Shit Done",
+        "Context Engineering",
+        "Spec-Driven Development",
+        "Claude Code",
+        "Codex",
+        "AI IDE"
+      ],
+      "slug": "gsd-get-shit-done-context-rot-workflow",
+      "path": "ai-tools/ai-ide/2026-04-15-gsd-get-shit-done-context-rot-workflow.md",
+      "summary": "GSD 的根节点，不是“又一个 AI 编程工具”，而是把长项目里最容易在对话中腐烂的上下文，外包给阶段化文件系统和可回放的执行流水线。"
+    },
+    {
+      "title": "SeeDance 2.0 提示词精华：把视频生成写成导演分镜脚本",
+      "date": "2026-04-10",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "SeeDance 2.0",
+        "Video Generation",
+        "Prompt Engineering",
+        "Multimodal Reference",
+        "Storyboard"
+      ],
+      "slug": "seedance-video-prompt-patterns",
+      "path": "ai-tools/ai-video/2026-04-10-seedance-video-prompt-patterns.md",
+      "summary": "视频生成 prompt 的本质，不是“描述一张会动的图”，而是把导演脑中的镜头规划、素材分工和时序逻辑，翻译成模型能执行的分镜脚本。"
+    },
+    {
+      "title": "MemPalace × Harness Engineering：让 AI 团队拥有持续记忆",
+      "date": "2026-04-10",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "mempalace",
+        "harness-engineering",
+        "ai-memory",
+        "content-ops",
+        "case-study"
+      ],
+      "slug": "mempalace-harness-engineering-ai-team-memory",
+      "path": "ai-tools/case-study/2026-04-10-mempalace-harness-engineering-ai-team-memory.md",
+      "summary": "这篇不是纯概念稿，它已经给出了可以直接改进现有 AI 团队工作流的最小落地路径。"
+    },
+    {
+      "title": "awesome-design-md：把设计系统降成 AI 可读的单文件协议",
+      "date": "2026-04-07",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "design-md",
+        "design-system",
+        "ui",
+        "ai-coding",
+        "ai-productivity",
+        "google-stitch",
+        "frontend",
+        "voltagent"
+      ],
+      "slug": "awesome-design-md-design-system-for-coding-agents",
+      "path": "ai-tools/ai-productivity/2026-04-07-awesome-design-md-design-system-for-coding-agents.md",
+      "summary": "AI 生成 UI 的真正瓶颈，不是它不会写 CSS，而是它没有稳定的设计约束。`awesome-design-md` 的价值，在于把“设计系统”降成一份 repo 根目录里的纯文本合同，让 AI 从“自由发挥的 UI 生成器”变成“按指定审美和规则施工的前端执行器”。"
+    },
+    {
+      "title": "Claude 使用限额：真正限制你的不是消息数，而是无效上下文重读",
+      "date": "2026-04-07",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "claude",
+        "token",
+        "usage-limit",
+        "context-engineering",
+        "projects",
+        "memory",
+        "ai-productivity",
+        "workflow"
+      ],
+      "slug": "claude-usage-limit-token-governance-habits",
+      "path": "ai-tools/ai-productivity/2026-04-07-claude-usage-limit-token-governance-habits.md",
+      "summary": "Claude 的限额管理，本质上不是“控制消息条数”，而是治理每一轮会被重新读取的上下文、被重复注入的设定、以及被默认打开的高成本能力。"
+    },
+    {
+      "title": "Khazix Writer：把内容创作 Skill 从“文风 Prompt”升级成“人机共创协议”",
+      "date": "2026-04-07",
+      "category": "ai-tools",
+      "subcategory": "writing",
+      "tags": [
+        "writing",
+        "skill",
+        "ai-writing",
+        "human-in-the-loop",
+        "style",
+        "self-review",
+        "khazix",
+        "taste"
+      ],
+      "slug": "khazix-writer-human-first-creative-skill",
+      "path": "ai-tools/writing/2026-04-07-khazix-writer-human-first-creative-skill.md",
+      "summary": "一个真正有用的创作 Skill，不是把过去文章喂给 AI 让它总结“你像什么”，而是把你自己对好内容的判断、你不愿放弃的人类部分、你和 AI 的协作边界、你修改初稿时反复出现的差异模式，以及你的质检方法，逐轮蒸馏成一个会跟你一起成长的协议系统。"
+    },
+    {
+      "title": "Anthropic：构建 Claude 应用的 3 个减法原则",
+      "date": "2026-04-06",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "anthropic",
+        "claude",
+        "agent-harness",
+        "context-engineering",
+        "skills",
+        "memory",
+        "subagents",
+        "cache",
+        "tool-use"
+      ],
+      "slug": "anthropic-harnessing-claudes-intelligence",
+      "path": "ai-tools/agent-architecture/2026-04-06-anthropic-harnessing-claudes-intelligence.md",
+      "summary": "Claude 应用的最佳框架，不是替模型做越来越多的编排，而是随着模型能力上升，持续把工具编排、上下文管理和记忆选择权还给模型；框架自己只保留缓存、审批、安全、审计这类必须由系统承担的边界。"
+    },
+    {
+      "title": "Karpathy 风格 AI 知识库：用文件系统 + Schema + AI 维护一座个人维基",
+      "date": "2026-04-06",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "knowledge-base",
+        "karpathy",
+        "second-brain",
+        "local-first",
+        "schema",
+        "markdown",
+        "agent-browser",
+        "ai-productivity"
+      ],
+      "slug": "karpathy-local-ai-knowledge-base-filesystem-schema-workflow",
+      "path": "ai-tools/ai-productivity/2026-04-06-karpathy-local-ai-knowledge-base-filesystem-schema-workflow.md",
+      "summary": "AI 知识库的根节点，不是“找一个更好的笔记工具”，而是把个人知识系统重构成 `文件系统真相层 + AI 编译层 + 产物沉淀层 + schema 协议层`。一旦真相回到文件和目录，AI 就可以持续整理、关联、回答和审计，而知识库也不再被某个 App 绑架。"
+    },
+    {
+      "title": "HappyCapy：从 Claude Code 套壳走向 Agent-Native Computer",
+      "date": "2026-04-05",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "happycapy",
+        "claude-code",
+        "agent-native-computer",
+        "ai-native-organization",
+        "cloud-sandbox",
+        "skills",
+        "browser-agent",
+        "product-strategy"
+      ],
+      "slug": "happycapy-agent-native-computer-ai-native-organization",
+      "path": "ai-tools/case-study/2026-04-05-happycapy-agent-native-computer-ai-native-organization.md",
+      "summary": "HappyCapy 的根节点，不是“把 Claude Code 搬上云”，而是把 `Agent 住进计算机里` 这件事产品化：用浏览器壳降低非技术用户门槛，用云端沙箱接管本地环境摩擦，用预置的 Skills / CLI / MCP / 调度来对端到端体验负责，再把这一切建立在一个已经 AI Native 化的组织之上。"
+    },
+    {
+      "title": "Auto Research：把测试验证重构成 AI 自主研究闭环",
+      "date": "2026-04-02",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "auto-research",
+        "auto-test",
+        "ai-agent",
+        "harness-engineering",
+        "software-testing",
+        "ooda",
+        "ams",
+        "engineering-workflow"
+      ],
+      "slug": "auto-research-ams-auto-test-skill",
+      "path": "ai-tools/case-study/2026-04-02-auto-research-ams-auto-test-skill.md",
+      "summary": "Auto Research 的根节点，不是“让 AI 帮你跑测试”，而是把测试验证、告警分析、故障定位这类工程任务重新定义为“研究型问题”，再把 `观测目标、诊断路径、自主边界、退出条件` 这四个要素编码进系统，让 AI 能自主推进整个闭环，而人只在不可逆决策点介入。"
+    },
+    {
+      "title": "SmartPerfetto：把 Perfetto Trace 分析做成可验证的 Harnessed Agent",
+      "date": "2026-04-01",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "smartperfetto",
+        "perfetto",
+        "android-performance",
+        "harness-engineering",
+        "mcp",
+        "yaml-skills",
+        "artifact-store",
+        "trace-analysis"
+      ],
+      "slug": "smartperfetto-harnessed-agent-for-perfetto-trace-analysis",
+      "path": "ai-tools/case-study/2026-04-01-smartperfetto-harnessed-agent-for-perfetto-trace-analysis.md",
+      "summary": "SmartPerfetto 的根节点，不是“让 Claude 替你看 Perfetto”，而是把 Perfetto Trace 这种超大规模、强数值、强领域约束的问题，重构成一个工具驱动、策略约束、结果压缩、可验证纠偏的 Harnessed Agent 环境，让 LLM 只做它最擅长的规划、因果推理与自然语言结论。"
+    },
+    {
+      "title": "daVinci-MagiHuman：用单流架构把人像音视频生成收束成一条速度系统",
+      "date": "2026-03-31",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "daVinci-MagiHuman",
+        "Audio-Video Generation",
+        "Avatar Video",
+        "Talking Head",
+        "Single-Stream Transformer",
+        "Lip Sync",
+        "Super Resolution"
+      ],
+      "slug": "davinci-magihuman-single-stream-avatar-foundation-model",
+      "path": "ai-tools/ai-video/2026-03-31-davinci-magihuman-single-stream-avatar-foundation-model.md",
+      "summary": "daVinci-MagiHuman 的根节点，不是“把视频生成做得更通用”，而是用 single-stream Transformer + 强约束 Enhanced Prompt + 低清生成后超分，把“高质量人像音视频生成”收束成一条足够简单、足够快、还能开源落地的统一系统。"
+    },
+    {
+      "title": "深入 Claude Code 源码：从 Agent Loop 到工业级 Coding Agent Runtime",
+      "date": "2026-03-31",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "Claude Code",
+        "Source Reading",
+        "Agent Runtime",
+        "QueryEngine",
+        "MCP",
+        "Skills",
+        "Context Engineering",
+        "Permissions"
+      ],
+      "slug": "learn-claude-source-source-reading-map",
+      "path": "ai-tools/claude-code/2026-03-31-learn-claude-source-source-reading-map.md",
+      "summary": "Claude Code 的根节点，不是“一个会写代码的聊天 CLI”，而是一个以 `Agent Loop` 为内核、以统一 `Tool` 接口为能力边界、以 `Permission + Context` 为硬约束、以 `MCP + Skills + State + CLI` 为扩展和运行层的工业级 coding agent runtime。"
+    },
+    {
+      "title": "Cat Wu：AI 指数时代的产品管理，从路线图到持续实验",
+      "date": "2026-03-28",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "Claude-Code",
+        "Anthropic",
+        "Product-Management",
+        "AI-Exponential",
+        "Cat-Wu",
+        "Cowork",
+        "Demo-First"
+      ],
+      "slug": "cat-wu-product-management-ai-exponential",
+      "path": "ai-tools/claude-code/2026-03-28-cat-wu-product-management-ai-exponential.md",
+      "summary": "AI 指数时代的 PM，不再主要负责在既有技术约束里规划路线图，而是负责搭一套能持续吸收模型跃迁的实验系统。"
+    },
+    {
+      "title": "DeerFlow：从 Deep Research 到 Super Agent Harness 的执行底座",
+      "date": "2026-03-26",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "Super Agent Harness",
+        "LangGraph",
+        "Skills",
+        "Sandbox",
+        "Subagents",
+        "Memory",
+        "ByteDance"
+      ],
+      "slug": "deer-flow-super-agent-harness",
+      "path": "ai-tools/agent-architecture/2026-03-26-deer-flow-super-agent-harness.md",
+      "summary": "DeerFlow 2.0 的根节点不是“做 Deep Research”，而是把模型、工具、技能、记忆、子 Agent、沙箱和交互入口统一收束到同一套 Agent Harness 上，让同一执行底座既能做短链任务，也能承载分钟到小时级的长流程任务。"
+    },
+    {
+      "title": "prompts.chat：从 Prompt Library 到开放上下文资产网络",
+      "date": "2026-03-26",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "prompts.chat",
+        "Prompt Library",
+        "Agent Skills",
+        "MCP",
+        "Self-Hosting",
+        "Workflow",
+        "Taste",
+        "Context Engineering"
+      ],
+      "slug": "prompts-chat-open-context-asset-network",
+      "path": "ai-tools/agent-skill/2026-03-26-prompts-chat-open-context-asset-network.md",
+      "summary": "prompts.chat 的根节点不是“最大的 prompt 库”，而是把 prompt、skill、taste、workflow 统一成可发现、可复用、可分发、可自托管的开放上下文资产网络。"
+    },
+    {
+      "title": "Harness Engineering 一线落地：从验证脚本到无人值守修复 MR",
+      "date": "2026-03-18",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "harness-engineering",
+        "ai-coding",
+        "e2e",
+        "feedback-loop",
+        "case-study"
+      ],
+      "slug": "harness-engineering-practice-autonomous-repair-pipeline",
+      "path": "ai-tools/case-study/2026-03-18-harness-engineering-practice-autonomous-repair-pipeline.md",
+      "summary": ""
+    },
+    {
+      "title": "基于 verl 框架的 Agentic RAG GRPO 训练实践",
+      "date": "2026-03-12",
+      "category": "ai-research",
+      "subcategory": "deep-research",
+      "tags": [
+        "agentic-rag",
+        "grpo",
+        "verl",
+        "reinforcement-learning",
+        "search-r1",
+        "multi-turn-rollout",
+        "deep-search"
+      ],
+      "slug": "agentic-rag-grpo-training-with-verl",
+      "path": "ai-research/deep-research/2026-03-12-agentic-rag-grpo-training-with-verl.md",
+      "summary": "Agentic RAG 的本质是将 RAG 中的「检索策略」从人工编排的固定流水线，变为模型自身通过强化学习习得的可学习能力——用 RL 奖励信号替代人工 pipeline 设计，让模型自主决定「何时搜、搜什么、搜几轮、何时停」。"
+    },
+    {
+      "title": "7万行代码100%由AI生成后，我实践出的5个技巧",
+      "date": "2026-03-11",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "claude-code",
+        "ai-coding",
+        "probability-machine",
+        "context-engineering",
+        "unit-testing"
+      ],
+      "slug": "7wan-lines-ai-coding-5-tips",
+      "path": "ai-tools/ai-ide/2026-03-11-7wan-lines-ai-coding-5-tips.md",
+      "summary": "AI 编码的一切问题和技巧，都是\"概率预测机 + 有限窗口\"这一本质的自然推论。"
+    },
+    {
+      "title": "OpenClaw 中国 IM 全平台接入 - 企微/钉钉/飞书/QQ",
+      "date": "2026-03-10",
+      "category": "ai-tools",
+      "subcategory": "mcp",
+      "tags": [
+        "OpenClaw",
+        "企业微信",
+        "钉钉",
+        "飞书",
+        "QQ",
+        "AI-Agent",
+        "Bot",
+        "WebSocket",
+        "Plugin",
+        "IM"
+      ],
+      "slug": "openclaw-wechat",
+      "path": "ai-tools/mcp/2026-03-10-openclaw-wechat.md",
+      "summary": "AI 的战场已从\"谁的模型更强\"转向\"谁能更好地融入用户的工作流\""
+    },
+    {
+      "title": "PUA Debugging Motivator - 用大厂 PUA 话术驱动 AI 不放弃",
+      "date": "2026-03-09",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "claude-code",
+        "prompt-engineering",
+        "debugging",
+        "ai-agent",
+        "skill-plugin"
+      ],
+      "slug": "pua-debugging-motivator",
+      "path": "ai-tools/agent-skill/2026-03-09-pua-debugging-motivator.md",
+      "summary": "AI Agent 的失败模式本质上是「优化目标错位」—— 默认优化「快速给出响应」而非「穷尽可能解决问题」。PUA Skill 通过注入「社会压力模拟 + 结构化方法论 + 能动性标尺」三重机制，将 Agent 的优化目标从「体面地放弃」重新校准到「端到端交付结果」。"
+    },
+    {
+      "title": "用 OpenClaw 搭建股票日报分析 Agent",
+      "date": "2026-03-06",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "OpenClaw",
+        "Agent",
+        "股票分析",
+        "Finnhub",
+        "Skills",
+        "量化分析",
+        "盘前报告"
+      ],
+      "slug": "openclaw-stock-analysis-agent",
+      "path": "ai-tools/case-study/2026-03-06-openclaw-stock-analysis-agent.md",
+      "summary": "投资决策质量 = f(信息密度 × 流程稳定性 × 可追溯性) — 而非分析师的个人经验或直觉"
+    },
+    {
+      "title": "GPT-5.4 原生电脑操控能力与 OpenClaw Agent 革命",
+      "date": "2026-03-06",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "GPT-5.4",
+        "OpenAI",
+        "Agent",
+        "OpenClaw",
+        "原生电脑操控",
+        "AI智能体"
+      ],
+      "slug": "gpt54-native-computer-control-openclaw",
+      "path": "ai-tools/industry/2026-03-06-gpt54-native-computer-control-openclaw.md",
+      "summary": "AI 的核心价值跃迁 = 从「能回答什么」到「能做什么」，而「原生操控能力」是这个跃迁的技术奇点。"
+    },
+    {
+      "title": "我的第二大脑 Moos — 自建知识中枢实践",
+      "date": "2026-03-05",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "knowledge-management",
+        "MCP",
+        "obsidian",
+        "personal-knowledge-hub",
+        "context-engineering",
+        "vibe-coding",
+        "second-brain"
+      ],
+      "slug": "moos-personal-knowledge-hub",
+      "path": "ai-tools/ai-productivity/2026-03-05-moos-personal-knowledge-hub.md",
+      "summary": "知识管理的本质不是「存储信息」，而是「构建 Context」— 让你和 AI 共享同一套持续演化的认知系统。"
+    },
+    {
+      "title": "NoizAI Skills - 让 AI Agent 开口说话的语音技能集",
+      "date": "2026-03-04",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "TTS",
+        "voice-cloning",
+        "AI-Agent",
+        "OpenClaw",
+        "Skill",
+        "Kokoro",
+        "Noiz-API"
+      ],
+      "slug": "noizai-skills-voice-for-ai-agent",
+      "path": "ai-tools/agent-skill/2026-03-04-noizai-skills-voice-for-ai-agent.md",
+      "summary": "AI Agent 的「拟人感」= 文本智能 + 声音具身化。当 Agent 从纯文字跃迁到拥有独特音色的语音输出时，用户从「工具使用」心智模型切换为「与人对话」心智模型，心理依附感指数级增长。"
+    },
+    {
+      "title": "OpenClaw 真让我挣到第一桶金！AI 时代的\"玩具\"变现实战指南",
+      "date": "2026-03-04",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "OpenClaw",
+        "Vibe Coding",
+        "本地大模型",
+        "超级个体",
+        "变现",
+        "自动化",
+        "小红书",
+        "闲鱼",
+        "indie-hacking"
+      ],
+      "slug": "openclaw-vibe-coding-toy-monetization",
+      "path": "ai-tools/case-study/2026-03-04-openclaw-vibe-coding-toy-monetization.md",
+      "summary": "AI 时代的个体变现 = 信息差红利 × 近零边际成本 × Interface 质量"
+    },
+    {
+      "title": "IM 的「第二春」：AI Agent 时代的开放性天平",
+      "date": "2026-03-03",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "IM平台",
+        "AI-Agent",
+        "Telegram",
+        "Slack",
+        "Discord",
+        "飞书",
+        "开放性",
+        "平台治理",
+        "super-app"
+      ],
+      "slug": "im-second-spring-agent-openness-spectrum",
+      "path": "ai-tools/industry/2026-03-03-im-second-spring-agent-openness-spectrum.md",
+      "summary": "平台开放性是 AI Agent 生态繁荣速度的决定性变量，但开放性与安全性构成不可调和的零和博弈——每个 IM 平台都必须在这条光谱上选择自己的位置，而这个选择将决定谁能定义「AI 时代通用交互层」这个新物种。"
+    },
+    {
+      "title": "OpenClaw + Codex/CC 双层 AI Agent 系统：一人 94 次提交的实战架构",
+      "date": "2026-03-02",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "OpenClaw",
+        "Codex",
+        "Claude Code",
+        "Agent 编排",
+        "双层架构",
+        "独立开发者",
+        "B2B SaaS",
+        "Ralph Loop"
+      ],
+      "slug": "openclaw-codex-dual-layer-agent-system",
+      "path": "ai-tools/case-study/2026-03-02-openclaw-codex-dual-layer-agent-system.md",
+      "summary": "上下文的专业化分层（Context Specialization Layering），而非更强的模型，是让 AI Agent 系统从\"能用\"到\"自动化生产力\"的关键跃迁。"
+    },
+    {
+      "title": "Claude「记忆搬家」：60 秒搬空 ChatGPT 灵魂，AI 数字主权革命",
+      "date": "2026-03-02",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "Claude",
+        "ChatGPT",
+        "记忆迁移",
+        "数字主权",
+        "用户留存",
+        "切换成本",
+        "Anthropic",
+        "OpenAI"
+      ],
+      "slug": "claude-import-memory-digital-sovereignty",
+      "path": "ai-tools/industry/2026-03-02-claude-import-memory-digital-sovereignty.md",
+      "summary": "AI 产品的竞争壁垒正从「谁记住了你」转向「谁值得你托付」—— 当用户记忆变为可携带资产，切换成本趋零，AI 平台将被迫从锁定用户转向赢得用户。"
+    },
+    {
+      "title": "AI Native 时代的 Side Projects —— 一个人的全栈提效实践",
+      "date": "2026-03-02",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "AI Native",
+        "Side Projects",
+        "LLM",
+        "Yak Shaving",
+        "Prompt Engineering",
+        "全栈开发"
+      ],
+      "slug": "ai-native-side-projects-kelvin",
+      "path": "ai-tools/vibe-engineering/2026-03-02-ai-native-side-projects-kelvin.md",
+      "summary": "AI 将软件开发的边际成本压缩到趋近于零，使得过去\"ROI 不值得做\"的痛点变成了\"值得做\"的工具——个人生产力上限不再由技术栈壁垒决定，而由痛点识别能力决定。"
+    },
     {
       "title": "SkillsBench: 首个量化测试 Agent Skills 工程价值的基准框架",
       "date": "2026-02-27",
@@ -814,26 +1534,6 @@
       "slug": "evomap-ai-self-evolution-infrastructure",
       "path": "ai-tools/agent-architecture/2026-02-26-evomap-ai-self-evolution-infrastructure.md",
       "summary": "AI Agent 的能力进化应该像生物基因一样：可编码、可验证、可遗传、可自然选择。"
-    },
-    {
-      "title": "VoidZero - 下一代统一 JavaScript 工具链",
-      "date": "2026-02-15",
-      "category": "dev-tools",
-      "subcategory": "",
-      "tags": [
-        "voidzero",
-        "vite",
-        "rolldown",
-        "oxc",
-        "vitest",
-        "rust",
-        "javascript",
-        "toolchain",
-        "bundler"
-      ],
-      "slug": "voidzero-unified-js-toolchain",
-      "path": "dev-tools/2026-02-15-voidzero-unified-js-toolchain.md",
-      "summary": "JavaScript 工具链的碎片化是一个「共享基础设施缺失」问题 —— 当 parser、resolver、transformer、bundler、minifier 由同一团队用同一语言（Rust）构建并共享同一 AST 时，工具间的不一致性归零，性能提升 10-100x，开发者的认知负担和配置成本趋近于零。"
     },
     {
       "title": "SOUL.md：AI 通过文本构建身份认同的哲学思考",
@@ -2349,18 +3049,6 @@
       "summary": "\"声明式 JSON + 组件白名单 + 客户端原生渲染\"：将 AI 的\"执行权\"转移到客户端，从架构层面消除安全风险"
     },
     {
-      "title": "Remotion：用 React 写视频的开源框架",
-      "date": "2026-01-06",
-      "category": "dev-tools",
-      "subcategory": "",
-      "tags": [
-        "开发工具"
-      ],
-      "slug": "remotion-react-video-framework",
-      "path": "dev-tools/2026-01-06-remotion-react-video-framework.md",
-      "summary": ""
-    },
-    {
       "title": "Vibe Kanban - AI 编程代理的\"赛博包工头\"",
       "date": "2026-01-05",
       "category": "ai-tools",
@@ -2596,52 +3284,27 @@
     }
   ],
   "stats": {
-    "totalProjects": 25,
-    "productionProjects": 11,
-    "totalAgents": 21,
-    "totalNotes": 126,
-    "totalPatterns": 11,
-    "totalSkills": 14,
+    "totalProjects": 16,
+    "productionProjects": 6,
+    "totalAgents": 5,
+    "totalNotes": 185,
+    "totalPatterns": 8,
+    "totalSkills": 103,
     "totalExperienceArchives": 11
   },
   "techStack": [
     {
-      "name": "Python",
-      "count": 7,
-      "category": "Language"
-    },
-    {
-      "name": "TypeScript",
-      "count": 5,
-      "category": "Language"
-    },
-    {
-      "name": "APScheduler",
-      "count": 4,
-      "category": "Scheduler"
-    },
-    {
-      "name": "MySQL",
-      "count": 4,
-      "category": "Database"
-    },
-    {
       "name": "FastAPI",
-      "count": 4,
+      "count": 3,
       "category": "Backend"
     },
     {
-      "name": "Zod",
-      "count": 4,
-      "category": "Validation"
-    },
-    {
-      "name": "Vite",
-      "count": 3,
-      "category": "Build Tool"
-    },
-    {
       "name": "SQLAlchemy",
+      "count": 3,
+      "category": "Database"
+    },
+    {
+      "name": "MySQL",
       "count": 3,
       "category": "Database"
     },
@@ -2656,57 +3319,22 @@
       "category": "Other"
     },
     {
-      "name": "MCP SDK",
+      "name": "APScheduler",
       "count": 3,
-      "category": "AI/Agent"
-    },
-    {
-      "name": "React",
-      "count": 3,
-      "category": "Frontend"
-    },
-    {
-      "name": "Redis",
-      "count": 2,
-      "category": "Database"
-    },
-    {
-      "name": "Express.js",
-      "count": 2,
-      "category": "Backend"
-    },
-    {
-      "name": "Tailwind CSS",
-      "count": 2,
-      "category": "Frontend"
-    },
-    {
-      "name": "LiteLLM",
-      "count": 1,
-      "category": "AI/Agent"
-    },
-    {
-      "name": "aiohttp",
-      "count": 1,
-      "category": "Other"
-    },
-    {
-      "name": "Django",
-      "count": 1,
-      "category": "Backend"
-    },
-    {
-      "name": "Celery",
-      "count": 1,
       "category": "Scheduler"
     },
     {
-      "name": "Phaser",
-      "count": 1,
-      "category": "Game"
+      "name": "Python",
+      "count": 3,
+      "category": "Language"
     },
     {
-      "name": "Vercel AI SDK",
+      "name": "MCP SDK",
+      "count": 1,
+      "category": "AI/Agent"
+    },
+    {
+      "name": "OpenAI SDK",
       "count": 1,
       "category": "AI/Agent"
     },
@@ -2716,267 +3344,272 @@
       "category": "Frontend"
     },
     {
-      "name": "Electron",
+      "name": "React",
       "count": 1,
-      "category": "Desktop"
+      "category": "Frontend"
     },
     {
-      "name": "OpenAI SDK",
+      "name": "Tailwind CSS",
       "count": 1,
-      "category": "AI/Agent"
+      "category": "Frontend"
+    },
+    {
+      "name": "TypeScript",
+      "count": 1,
+      "category": "Language"
     }
   ],
   "timeline": [
     {
-      "date": "2026-02-27",
-      "message": "feat: sync all skills with local, major optimization pass",
+      "date": "2026-05-02",
+      "message": "Initialize Pine quant lab",
+      "project": "pine-quant-lab"
+    },
+    {
+      "date": "2026-04-27",
+      "message": "feat: add wechat moments operator skill",
       "project": "cursor-skills"
     },
     {
-      "date": "2026-02-27",
-      "message": "feat: 新增 Skill 注入倒 U 型增益法则判断力卡片 + 增强 2 张已有卡片",
-      "project": "engineering-playbook"
+      "date": "2026-04-27",
+      "message": "chore: initialize wechat moments ops workspace",
+      "project": "wechat-moments-ops"
     },
     {
-      "date": "2026-02-27",
-      "message": "feat(pattern): 新增安全漏洞修复全系统扫描思维 pattern",
-      "project": "engineering-playbook"
+      "date": "2026-04-21",
+      "message": "feat: add agent workflow skills",
+      "project": "cursor-skills"
     },
     {
-      "date": "2026-02-27",
-      "message": "feat: 更新 judgment-index - 新增 Skill 注入倒 U 型增益法则卡片索引",
+      "date": "2026-04-20",
+      "message": "feat: add web design spec skill",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-04-16",
+      "message": "feat: add reusable workflow skills",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-04-16",
+      "message": "docs: add seedance ai short film sop note",
       "project": "learning-notes"
     },
     {
-      "date": "2026-02-27",
-      "message": "docs: reflexion update SkillsBench 笔记 - 补充架构对比图和实验矩阵",
+      "date": "2026-04-16",
+      "message": "docs: add software engineering 3 digital employees note",
       "project": "learning-notes"
     },
     {
-      "date": "2026-02-27",
-      "message": "docs: add SkillsBench 论文精读笔记 - 首个量化测试 Agent Skills 工程价值的基准框架",
+      "date": "2026-04-16",
+      "message": "docs: add vibeflow governed ai rd harness note",
       "project": "learning-notes"
     },
     {
-      "date": "2026-02-27",
-      "message": "enrich: 融合 awesome-openclaw-usecases 和 awesome-openclaw-skills 数据",
-      "project": "openclaw-playbook"
+      "date": "2026-04-15",
+      "message": "docs: add gbrain second brain note",
+      "project": "learning-notes"
     },
     {
-      "date": "2026-02-27",
-      "message": "init: OpenClaw 高价值使用场景与落地方案调研",
-      "project": "openclaw-playbook"
+      "date": "2026-04-15",
+      "message": "docs: add gsd workflow note",
+      "project": "learning-notes"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: implement Phase 4 — backtest parser, strategy evaluation, experience store",
-      "project": "alpha-radar"
+      "date": "2026-04-15",
+      "message": "Rename public brand to YINGLITECH",
+      "project": "yinglit-ev"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: implement Phase 3 — TradingView Pine Scripts + signal-to-agent loop",
-      "project": "alpha-radar"
+      "date": "2026-04-10",
+      "message": "docs: add seedance video prompt note",
+      "project": "learning-notes"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: implement Phase 2 — Agent team, orchestrator, and Feishu push",
-      "project": "alpha-radar"
+      "date": "2026-04-10",
+      "message": "docs: add mempalace harness engineering note",
+      "project": "learning-notes"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: initialize AlphaRadar project skeleton (Phase 1 foundation)",
-      "project": "alpha-radar"
+      "date": "2026-04-07",
+      "message": "docs: add claude usage limit deep reading",
+      "project": "learning-notes"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat(pattern): 新增 Token 效率优先的工具选择 pattern",
-      "project": "engineering-playbook"
+      "date": "2026-04-07",
+      "message": "docs: add awesome design md deep reading",
+      "project": "learning-notes"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: 新增 5 张判断力卡片，总计 8 张",
-      "project": "engineering-playbook"
+      "date": "2026-04-07",
+      "message": "docs: add khazix writer deep reading",
+      "project": "learning-notes"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: 新增判断力锻造 Skill + 判断力卡片精华库",
-      "project": "engineering-playbook"
+      "date": "2026-04-07",
+      "message": "refactor: extract work page helper block",
+      "project": "trade-radar"
     },
     {
-      "date": "2026-02-26",
-      "message": "fix: 修复飞书推送榜单固定不变的三个关联问题",
+      "date": "2026-04-07",
+      "message": "docs: align repo truth with current stop line",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-06",
+      "message": "docs: demote evolution loop to workspace prototype adapter",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-06",
+      "message": "docs: add evolution repo loop",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-05",
+      "message": "docs: record phase42a follow-through review",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-05",
+      "message": "refactor: ship phase42a operating narrative compression",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-05",
+      "message": "docs: add scaffold deletion checks to product workflows",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-04",
+      "message": "fix: quiet product acceptance residuals",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-04",
+      "message": "feat: add repo-local product acceptance loop",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-04",
+      "message": "fix: preserve approval status in packet copy",
+      "project": "trade-radar"
+    },
+    {
+      "date": "2026-04-03",
+      "message": "feat: add decision framing loop skill",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-04-01",
+      "message": "feat(okr-assistant): add YAML frontmatter for registry compatibility",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-04-01",
+      "message": "feat: add okr-assistant skill for personal OKR writing",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-04-01",
+      "message": "fix(sync-skills): bash 3.2 compatibility for macOS",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-04-01",
+      "message": "feat: add sync-skills.sh for cross-tool skill synchronization",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-04-01",
+      "message": "feat(content-publisher): add cover image fallback chain and WeChat API dual-path",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "fix: correct Kling API endpoints and add compatibility patches",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "fix: strip n8n X-Frame-Options header for iframe embedding",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "fix: portal hosts guide uses real IP, MinIO iframe unblocked",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "fix: portal uses Traefik subdomains for iframes, removes broken subpath proxy",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "feat: portal reverse proxy + professional UI redesign",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "feat: unified portal dashboard at vm.dev.local",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "fix: add required id fields to n8n workflow JSON for CLI import",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "fix: disable n8n secure cookie for HTTP dev environment",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-31",
+      "message": "fix: runtime dependency fixes found during live boot test",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-30",
+      "message": "feat: Traefik gateway integration + test harness",
+      "project": "ai-video-matrix"
+    },
+    {
+      "date": "2026-03-15",
+      "message": "feat: add decision boards and rolling comparison reports",
       "project": "github-sentinel"
     },
     {
-      "date": "2026-02-26",
-      "message": "docs: reflexion update EvoMap - 补充 TTT 理论基础和 Recipes & Organisms",
-      "project": "learning-notes"
+      "date": "2026-03-15",
+      "message": "fix: harden visual evidence review",
+      "project": "yinglit-ev"
     },
     {
-      "date": "2026-02-26",
-      "message": "docs: add EvoMap - AI 自进化基础设施",
-      "project": "learning-notes"
+      "date": "2026-03-15",
+      "message": "fix: refine visual evidence presentation",
+      "project": "yinglit-ev"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: 新增判断力自进化索引 (judgment-index.md)",
-      "project": "learning-notes"
+      "date": "2026-03-14",
+      "message": "fix: strengthen product and trust visuals",
+      "project": "yinglit-ev"
     },
     {
-      "date": "2026-02-26",
-      "message": "feat: init ops-dashboard - 轻量级统一运维告警面板",
-      "project": "ops-dashboard"
+      "date": "2026-03-14",
+      "message": "fix: harden image presentation",
+      "project": "yinglit-ev"
     },
     {
-      "date": "2026-02-25",
-      "message": "feat: 新增 slidev-presentation + slidev-pitch-deck Skill，更新 README 资产一览",
-      "project": "engineering-playbook"
+      "date": "2026-03-14",
+      "message": "fix: refine site imagery",
+      "project": "yinglit-ev"
     },
     {
-      "date": "2026-02-25",
-      "message": "feat: 批量经验沉淀 + 门控审核",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "fix(md2deck): 修复 compact 模式空模块 bug — 预检查子章节可见性",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "feat(md2deck): v3.0 — compact 模式 + 混合图表引擎 + PPT 评估标准",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-25",
-      "message": "feat(md2deck): v2.0 — 三套风格主题 + 完整数据呈现 + python-pptx 增强解析",
-      "project": "engineering-playbook"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "docs: update security rules with react-dom and canary fix details",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "security: fix CVE-2025-55182 — pin react-dom 19.1.4 and patch expo canary",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "fix: harden iOS rebuild scripts with verification steps",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "fix: configure Metro for pnpm monorepo module resolution",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "fix: code review 修复 - 择偶年龄范围、冗余组件声明、缓存清理、额度重置分页",
-      "project": "qinyuanqiao-miniprogram"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "docs: 更新 .context 文件索引，添加 PLAN.md",
-      "project": "qinyuanqiao-miniprogram"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "docs: 将开发计划迁移到 .context/PLAN.md",
-      "project": "qinyuanqiao-miniprogram"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "docs: 添加 README、完善 .gitignore、创建 .context 上下文记忆文件夹",
-      "project": "qinyuanqiao-miniprogram"
-    },
-    {
-      "date": "2026-02-24",
-      "message": "feat: 亲缘桥微信小程序 MVP 完整实现",
-      "project": "qinyuanqiao-miniprogram"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "fix: bcrypt compatibility and add scope/owner_id to SubscriptionResponse",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "feat: Phase 3 — dual-mode subscriptions, Expo Push, and user-level feed",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "feat: add user authentication system with JWT tokens",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "fix: allow HTTP requests on iOS via NSAppTransportSecurity",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "fix: full frontend-backend contract alignment and auth improvements",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "fix: remove reactCanary flag that conflicts with patched renderer",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "fix: patch react-native renderer for react 19.1.4 (CVE-2025-55182)",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "security: upgrade react 19.1.0 → 19.1.4 (CVE-2025-55182)",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-23",
-      "message": "chore: pin pnpm version and add lockfile merge strategy",
-      "project": "infohunter-client"
-    },
-    {
-      "date": "2026-02-22",
-      "message": "feat: paginated content list, tab filters, and robust AI JSON parsing",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "cursor: empty commit to allow worktree creation",
-      "project": "bk-sap-api-mr-1158"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "docs: update README with transcript_service and youtube-transcript-api",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "fix: resolve daily report missing AI analysis due to undefined _fix_json_value",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "fix: use hunter.dynamic_notify_schedule in /api/stats",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "fix: notify schedule display, timezone normalization, RSS SSL",
-      "project": "infohunter"
-    },
-    {
-      "date": "2026-02-21",
-      "message": "feat: three-stage decoupled architecture + AI agent prompt optimization",
-      "project": "infohunter"
+      "date": "2026-03-09",
+      "message": "feat: add scene images and replace all placeholders with real visuals",
+      "project": "yinglit-ev"
     }
   ],
-  "extractedAt": "2026-02-27T13:47:55.378Z"
+  "extractedAt": "2026-05-05T14:38:20.806Z"
 }

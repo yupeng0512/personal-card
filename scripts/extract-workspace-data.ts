@@ -11,7 +11,30 @@ const SKIP_DIRS = new Set([
   'dist', 'build', '__pycache__', '.next', '.astro',
   'node-v18.20.3-linux-x64', 'node-v20.18.1-linux-x64',
   'output', 'logs', '.openclaw', '.tapd-tracker', '.mr-review',
-  'personal-card', 'bk-sap-api', 'bk-sap-mcp',
+  'personal-card',
+  'yupeng0512', 'yupeng0512.github.io',
+]);
+
+const PRIVATE_DIR_PREFIXES = ['bk-', 'idip-', 'sec_'];
+const PRIVATE_DIR_NAMES = new Set(['bamboo-engine']);
+
+const SHOWCASE_PROJECTS = new Set([
+  'engineering-playbook',
+  'ai-auto-publisher',
+  'ai-video-matrix',
+  'infohunter',
+  'infohunter-client',
+  'github-sentinel',
+  'truthsocial-trump-monitor',
+  'cursor-skills',
+  'learning-notes',
+  'follow-builders-intel',
+  'market-radar-automation',
+  'pine-quant-lab',
+  'trade-radar',
+  'trading-system',
+  'wechat-moments-ops',
+  'yinglit-ev',
 ]);
 
 interface ProjectInfo {
@@ -69,6 +92,10 @@ function readJsonSafe(path: string): Record<string, any> | null {
   } catch {
     return null;
   }
+}
+
+function isPrivateWorkspaceDir(dirName: string): boolean {
+  return PRIVATE_DIR_NAMES.has(dirName) || PRIVATE_DIR_PREFIXES.some(prefix => dirName.startsWith(prefix));
 }
 
 function readFirstParagraph(path: string): string {
@@ -539,6 +566,8 @@ function extractRecentCommits(workspaceRoot: string, limit = 50): { date: string
 
   for (const dirName of readdirSync(workspaceRoot)) {
     if (SKIP_DIRS.has(dirName)) continue;
+    if (isPrivateWorkspaceDir(dirName)) continue;
+    if (!SHOWCASE_PROJECTS.has(dirName)) continue;
     const dirPath = join(workspaceRoot, dirName);
     const gitDir = join(dirPath, '.git');
     if (!existsSync(gitDir)) continue;
@@ -569,6 +598,8 @@ function main() {
   const projects: ProjectInfo[] = [];
   for (const dirName of readdirSync(WORKSPACE_ROOT)) {
     if (SKIP_DIRS.has(dirName) || dirName.startsWith('.')) continue;
+    if (isPrivateWorkspaceDir(dirName)) continue;
+    if (!SHOWCASE_PROJECTS.has(dirName)) continue;
     const dirPath = join(WORKSPACE_ROOT, dirName);
     const project = extractProject(dirPath, dirName);
     if (project) projects.push(project);
@@ -576,12 +607,24 @@ function main() {
 
   console.log(`Found ${projects.length} projects`);
 
-  const agents = extractAgents(join(WORKSPACE_ROOT, 'agents'));
+  const agentDirs = [
+    join(WORKSPACE_ROOT, 'agents'),
+    join(WORKSPACE_ROOT, '.codebuddy/agents'),
+    join(WORKSPACE_ROOT, 'ai-auto-publisher/agents'),
+    join(WORKSPACE_ROOT, 'trade-radar/.cursor/agents'),
+    join(WORKSPACE_ROOT, 'trading-system/config/agents'),
+    join(WORKSPACE_ROOT, 'trading-system/src/agents'),
+  ];
+  const agents = agentDirs.flatMap(extractAgents);
   console.log(`Found ${agents.length} agents`);
 
   const playbookStats = extractPlaybookStats(join(WORKSPACE_ROOT, 'engineering-playbook'));
   const totalNotes = countNotes(join(WORKSPACE_ROOT, 'learning-notes'));
-  const cursorSkills = extractCursorSkills('/data/home/archerpyu/.cursor/skills');
+  const cursorSkills = [
+    ...extractCursorSkills(join(WORKSPACE_ROOT, 'cursor-skills')),
+    ...extractCursorSkills(join(WORKSPACE_ROOT, '.codex/skills')),
+    ...extractCursorSkills(join(WORKSPACE_ROOT, '.agents/skills')),
+  ];
   const notes = extractNotes(join(WORKSPACE_ROOT, 'learning-notes'));
   console.log(`Found ${notes.length} notes`);
 

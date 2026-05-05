@@ -9,32 +9,12 @@ import ProjectCard from '../components/ProjectCard.astro';
 import SkillRadar from '../islands/SkillRadar.tsx';
 import overrides from '../data/overrides.json';
 import workspaceData from '../data/workspace-data.json';
+import { getAllProjects, getFeaturedProjects, getProjectsByCategory } from '../lib/projects';
 
 const categories = overrides.categories as Record<string, { label: string }>;
-
-const wsSlugs = new Set(workspaceData.projects.map((p: any) => p.slug));
-const overrideOnly = (overrides.projects as any[])
-  .filter((p: any) => !wsSlugs.has(p.slug))
-  .map((p: any) => ({
-    slug: p.slug,
-    name: p.name || p.slug,
-    description: p.description || '',
-    techStack: p.techStack || [],
-    category: p.category || 'uncategorized',
-    status: p.status || 'production',
-    hasDocker: p.hasDocker || false,
-    hasMCP: p.hasMCP || false,
-    languages: [],
-    dependencies: {},
-  }));
-const allProjects = [...workspaceData.projects, ...overrideOnly];
-
-const projectsByCategory: Record<string, typeof workspaceData.projects> = {};
-for (const project of allProjects) {
-  const cat = project.category || 'uncategorized';
-  if (!projectsByCategory[cat]) projectsByCategory[cat] = [];
-  projectsByCategory[cat].push(project);
-}
+const allProjects = getAllProjects();
+const featuredProjects = getFeaturedProjects();
+const projectsByCategory = getProjectsByCategory(allProjects.filter(project => !project.featured));
 
 const sortedCategories = Object.entries(projectsByCategory)
   .filter(([cat]) => cat !== 'uncategorized')
@@ -43,7 +23,10 @@ const sortedCategories = Object.entries(projectsByCategory)
 const uncategorized = projectsByCategory['uncategorized'] || [];
 ---
 
-<BaseLayout title="Archer Yu - 个人价值名片">
+<BaseLayout
+  title="Archer Yu - 后端开发工程师"
+  description="于鹏的个人主页：平台后端、批量链路、AI 工程化、公开项目和工程知识库。"
+>
   <Hero />
   <StatsPanel />
 
@@ -58,6 +41,21 @@ const uncategorized = projectsByCategory['uncategorized'] || [];
     <SkillRadar data={overrides.skillRadar} client:load />
   </section>
 
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div class="mb-8">
+      <p class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2">Selected Projects</p>
+      <h2 class="text-3xl font-bold text-surface-900 dark:text-white mb-3">核心公开项目</h2>
+      <p class="text-surface-500 dark:text-surface-400 max-w-2xl">
+        这些项目用于展示我在 AI Native 研发、自动化系统、信息监控和个人知识库上的长期实践。
+      </p>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {featuredProjects.map(project => (
+        <ProjectCard {...project} />
+      ))}
+    </div>
+  </section>
+
   <ValueStory />
   <AgentEcosystem />
 
@@ -68,7 +66,7 @@ const uncategorized = projectsByCategory['uncategorized'] || [];
         <span class="gradient-text">项目矩阵</span>
       </h2>
       <p class="text-surface-500 dark:text-surface-400 max-w-lg mx-auto">
-        {workspaceData.stats.totalProjects} 个项目，覆盖 AI Agent、信息监控、量化交易等多个领域
+        {allProjects.length} 个项目，覆盖 AI 工程化、信息监控、自动化工具和知识管理等方向
       </p>
     </div>
 

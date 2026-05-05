@@ -35,7 +35,7 @@ const sortedTypes = Object.entries(agentsByType).sort((a, b) => b[1].length - a[
     {sortedTypes.map(([type, agents]) => {
       const meta = typeLabels[type] || typeLabels.other;
       return (
-        <div class="glass rounded-2xl p-5">
+        <div class="glass rounded-lg p-5">
           <div class="flex items-center gap-2 mb-3">
             <span class={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${meta.color}`}>
               {meta.label}

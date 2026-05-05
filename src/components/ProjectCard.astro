@@ -27,7 +27,7 @@ const statusLabels: Record<string, string> = {
 };
 ---
 
-<a href={`/projects/${slug}`} class="block glass rounded-2xl p-5 card-hover group">
+<a href={`/projects/${slug}`} class="block glass rounded-lg p-5 card-hover group">
   <div class="flex items-start justify-between mb-3">
     <h3 class="font-bold text-surface-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
       {name}
@@ -56,10 +56,10 @@ const statusLabels: Record<string, string> = {
 
   <div class="flex items-center gap-2 mt-3">
     {hasDocker && (
-      <span class="text-xs text-surface-400" title="Docker 部署">🐳</span>
+      <span class="text-xs text-surface-400" title="Docker 部署">Docker</span>
     )}
     {hasMCP && (
-      <span class="text-xs text-surface-400" title="MCP 服务">🔌</span>
+      <span class="text-xs text-surface-400" title="MCP 服务">MCP</span>
     )}
   </div>
 </a>

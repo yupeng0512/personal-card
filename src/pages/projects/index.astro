@@ -1,34 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import workspaceData from '../../data/workspace-data.json';
 import overrides from '../../data/overrides.json';
+import { getAllProjects, getProjectsByCategory } from '../../lib/projects';
 
 const categories = overrides.categories as Record<string, { label: string }>;
-const wsProjects = workspaceData.projects;
-const wsSlugs = new Set(wsProjects.map((p: any) => p.slug));
-const overrideOnly = (overrides.projects as any[])
-  .filter((p: any) => !wsSlugs.has(p.slug))
-  .map((p: any) => ({
-    slug: p.slug,
-    name: p.name || p.slug,
-    description: p.description || '',
-    techStack: p.techStack || [],
-    category: p.category || 'uncategorized',
-    status: p.status || 'production',
-    hasDocker: p.hasDocker || false,
-    hasMCP: p.hasMCP || false,
-    languages: [],
-    dependencies: {},
-  }));
-const projects = [...wsProjects, ...overrideOnly];
-
-const projectsByCategory: Record<string, typeof projects> = {};
-for (const project of projects) {
-  const cat = project.category || 'uncategorized';
-  if (!projectsByCategory[cat]) projectsByCategory[cat] = [];
-  projectsByCategory[cat].push(project);
-}
+const projects = getAllProjects();
+const projectsByCategory = getProjectsByCategory(projects);
 
 const sortedCategories = Object.entries(projectsByCategory)
   .filter(([cat]) => cat !== 'uncategorized')
@@ -37,13 +15,13 @@ const sortedCategories = Object.entries(projectsByCategory)
 const uncategorized = projectsByCategory['uncategorized'] || [];
 ---
 
-<BaseLayout title="项目列表 - Archer Yu" description="全部项目一览">
+<BaseLayout title="项目列表 - Archer Yu" description="公开项目、自动化系统和 AI 工程化实践一览">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
     <h1 class="text-4xl font-bold mb-2">
       <span class="gradient-text">全部项目</span>
     </h1>
     <p class="text-surface-500 dark:text-surface-400 mb-10">
-      共 {projects.length} 个项目，{projects.filter(p => p.status === 'production').length} 个生产级系统
+      共 {projects.length} 个项目，{projects.filter(p => p.status === 'production').length} 个生产级系统。核心项目已优先排序，便于快速了解主线能力。
     </p>
 
     {sortedCategories.map(([cat, catProjects]) => {

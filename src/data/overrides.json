@@ -1,27 +1,29 @@
 {
   "profile": {
     "name": "Archer Yu",
-    "title": "AI Agent 工程化实践者 | 全栈独立开发者",
-    "tagline": "32 个项目 · 23 个生产级系统 · 22 个 AI Agent · 126 篇学习笔记",
-    "bio": "专注于 AI Agent 工程化落地，构建了从信息监控、量化交易到知识管理的完整技术体系。擅长将 AI 能力系统化、工程化，形成可复用的工具链和方法论。",
+    "title": "后端开发工程师 | 平台后端 / 批量链路 / AI 工程化",
+    "tagline": "平台后端 · 高数据量批量链路 · AI Native 研发工作流",
+    "bio": "现从事腾讯 IEG 业务受理平台后端开发，关注高数据量业务受理、批量执行、日志查询、可观测和 Agent 落地。工作之外持续沉淀 AI 辅助研发方法论，将项目级知识库、工程规则、Review 工作流和自动化工具链纳入日常交付。",
     "contact": {
       "github": "https://github.com/yupeng0512",
-      "email": ""
+      "email": "yp13775738821@gmail.com"
     }
   },
   "projects": [
     {
       "slug": "infohunter",
       "name": "InfoHunter",
-      "description": "AI 驱动的社交媒体智能订阅监控系统，支持 Twitter、YouTube、RSS 等多平台内容抓取、AI 分析和智能推送。",
+      "description": "AI 驱动的信息监控与情报分析系统，支持多源抓取、异步分析、趋势报告、飞书推送和 MCP 集成。",
       "category": "info-monitoring",
       "status": "production",
+      "featured": true,
+      "featuredOrder": 3,
       "techStack": ["Python", "FastAPI", "MySQL", "SQLAlchemy", "APScheduler", "httpx", "Docker"],
-      "highlights": ["三阶段解耦架构（抓取→AI分析→推送）", "AG-UI 协议集成", "多平台内容源支持"],
+      "highlights": ["抓取、存储、AI 分析、摘要推送分层解耦", "支持多内容源订阅与趋势报告生成", "集成 Feishu、MCP 和 Web Dashboard"],
       "valueStory": {
-        "problem": "社交媒体信息分散，手动跟踪效率低，错过关键信息",
-        "solution": "三阶段解耦架构自动抓取、AI 分析、智能推送，支持 Twitter/YouTube/RSS",
-        "result": "实现信息零遗漏，节省 90% 手动筛选时间"
+        "problem": "技术趋势、社媒内容和行业信号分散在多个平台，人工跟踪容易遗漏关键变化。",
+        "solution": "构建多源采集、异步分析、结构化摘要和主动推送链路，让信息监控变成可配置的后台系统。",
+        "result": "把信息获取从人工刷新转为自动订阅和摘要消费，适合作为个人研发情报中枢。"
       }
     },
     {
@@ -64,10 +66,18 @@
     {
       "slug": "github-sentinel",
       "name": "GitHub Sentinel",
-      "description": "GitHub 热门项目监控与订阅系统，追踪开源项目热度变化。",
+      "description": "GitHub 趋势项目监控与订阅系统，追踪 Star 增长、项目热度和开源技术机会。",
       "category": "info-monitoring",
       "status": "production",
-      "techStack": ["Python", "FastAPI", "MySQL", "SQLAlchemy", "React", "Tailwind CSS", "Docker"]
+      "featured": true,
+      "featuredOrder": 5,
+      "techStack": ["Python", "FastAPI", "MySQL", "SQLAlchemy", "React", "Tailwind CSS", "Docker"],
+      "highlights": ["按时间窗口追踪开源项目增长趋势", "FastAPI 后端 + React Dashboard", "支持调度任务、订阅配置和 MCP 集成"],
+      "valueStory": {
+        "problem": "高价值开源项目出现早期信号时容易被动错过，人工筛选 Trending 噪音较大。",
+        "solution": "通过定时抓取、增长指标和订阅规则把项目发现流程系统化。",
+        "result": "沉淀为 AI Native 研发中的开源雷达，辅助技术选型和趋势判断。"
+      }
     },
     {
       "slug": "digital-twin",
@@ -81,10 +91,34 @@
     {
       "slug": "engineering-playbook",
       "name": "Engineering Playbook",
-      "description": "个人工程经验知识库，结构化、可检索、跨项目复用。包含 10 个经验档案、8 个 Pattern、25 个 Skills。",
+      "description": "个人工程经验知识库，沉淀项目复盘、可复用 Pattern、Skills、Rules、检查清单和技术决策记录。",
       "category": "knowledge",
       "status": "production",
-      "techStack": ["Markdown", "Shell"]
+      "featured": true,
+      "featuredOrder": 1,
+      "techStack": ["Markdown", "Shell"],
+      "highlights": ["项目经验归档与跨项目复用", "工程规则、Review 清单和 Prompt 模板沉淀", "面向 Codex / CodeBuddy 的项目级知识库"],
+      "valueStory": {
+        "problem": "AI 辅助研发容易丢上下文、重复踩坑、浪费 token，历史经验难以在新项目中复用。",
+        "solution": "把项目复盘、技术决策、常见问题和工作流固化成可检索、可复用的工程知识库。",
+        "result": "在新任务中快速复用历史判断，降低幻觉风险，让 AI 协作从临场对话变成可积累系统。"
+      }
+    },
+    {
+      "slug": "personal-card",
+      "name": "Personal Card",
+      "description": "基于 Astro 的个人作品集，将工作经历、公开项目、AI Agent 生态、技术栈和工程资产可视化展示。",
+      "category": "knowledge",
+      "status": "production",
+      "featured": true,
+      "featuredOrder": 6,
+      "techStack": ["Astro", "React", "Tailwind CSS", "TypeScript"],
+      "highlights": ["从 Workspace 半自动抽取项目数据", "双模式浏览：快速概览与项目深挖", "用于承接 GitHub Profile 和个人主页"],
+      "valueStory": {
+        "problem": "GitHub 仓库列表无法解释项目之间的关系，也难以呈现个人工程方法论。",
+        "solution": "把项目、Agent、笔记和工程资产结构化成可浏览的个人主页。",
+        "result": "让公开作品从零散仓库变成完整的候选人展示面。"
+      }
     },
     {
       "slug": "agentstudio-study",
@@ -203,15 +237,33 @@
     {
       "slug": "ai-auto-publisher",
       "name": "AI Auto Publisher",
-      "description": "轻量级多平台发布中间件，AI for Marketing 执行层，支持微信公众号、知乎、掘金、Twitter、小红书等 17+ 平台自动化内容分发。",
+      "description": "多平台内容发布中间件，提供 REST/MCP 接口、任务状态、去重、重试和 API/Playwright 发布适配。",
       "category": "tooling",
       "status": "production",
-      "techStack": ["Python", "Playwright", "Docker"],
-      "highlights": ["17+ 平台一键分发", "AI 内容适配与格式转换", "发布状态追踪与重试"],
+      "featured": true,
+      "featuredOrder": 2,
+      "techStack": ["Python", "FastAPI", "MCP", "Playwright", "Docker"],
+      "highlights": ["REST + MCP 双入口", "统一任务状态、去重、重试和发布历史", "通过 API / Playwright 适配多平台发布链路"],
       "valueStory": {
-        "problem": "内容创作者需要在 17+ 平台重复发布，格式适配耗时",
-        "solution": "AI 自动适配各平台格式要求，一键完成多平台分发",
-        "result": "内容发布效率提升 10 倍以上，实现写一次发布到全网"
+        "problem": "多平台发布链路重复、状态分散、失败重试和格式适配成本高。",
+        "solution": "抽象统一发布任务模型，把平台差异封装在适配层，并对外暴露 REST/MCP 能力。",
+        "result": "形成可接入 AI 工作流的发布执行层，支撑内容生产后的自动分发。"
+      }
+    },
+    {
+      "slug": "ai-video-matrix",
+      "name": "AI Video Matrix",
+      "description": "AI 视频矩阵运营自动化管线，覆盖内容规划、视频生成、素材变体、队列调度和多账号发布。",
+      "category": "tooling",
+      "status": "production",
+      "featured": true,
+      "featuredOrder": 4,
+      "techStack": ["Python", "Redis", "PostgreSQL", "FFmpeg", "Playwright", "Docker"],
+      "highlights": ["n8n 编排到发布 Worker 的异步管线", "FFmpeg 素材变体与多账号任务路由", "Redis Queue + 状态库管理发布任务"],
+      "valueStory": {
+        "problem": "视频矩阵运营需要跨内容生成、素材处理、账号路由和发布执行多个环节，人工操作链路长。",
+        "solution": "用队列化、任务化的方式串联规划、生成、处理和发布执行。",
+        "result": "把分散操作收敛为可监控的自动化流水线。"
       }
     },
     {
@@ -314,24 +366,24 @@
     "game": { "label": "游戏", "icon": "gamepad", "color": "red" }
   },
   "skillRadar": [
-    { "axis": "AI Agent", "value": 92 },
-    { "axis": "全栈开发", "value": 88 },
-    { "axis": "知识管理", "value": 85 },
-    { "axis": "架构设计", "value": 82 },
-    { "axis": "产品思维", "value": 75 }
+    { "axis": "平台后端", "value": 90 },
+    { "axis": "批量链路", "value": 88 },
+    { "axis": "AI 工程化", "value": 86 },
+    { "axis": "可观测性", "value": 82 },
+    { "axis": "知识沉淀", "value": 84 }
   ],
   "career": [
     {
       "company": "腾讯",
       "department": "IEG 互娱事业群 · 技术运营部",
-      "role": "应用开发工程师",
+      "role": "后端开发工程师",
       "period": "2024.05 - 至今",
-      "description": "负责蓝鲸业务受理平台（BK-SAP）的后端架构与核心模块开发，服务于《王者荣耀》《和平精英》等头部游戏的运营场景。",
+      "description": "从实习转正至正式后端开发，参与 IEG 业务受理平台建设，支撑游戏运营、客服和玩家问题排查相关场景。",
       "highlights": [
-        "批量执行引擎 QPS 从 100 优化至 2000，性能提升 20 倍；架构从串行重构为并行，支持横向扩容",
-        "百万级批量单处理耗时从 10min 优化至 1min，性能提升 10 倍；解决 Redis 缓存击穿/穿透/雪崩",
-        "TLOG 对外服务日峰值 200 万+ 请求，设计永不过期全量缓存 + 原子覆盖更新策略保障高可用",
-        "主导全链路可观测性建设，核心链路埋点覆盖率 95%，故障定位时间缩短 70%"
+        "参与批量执行链路和 V3 长流程架构改造，链路压测稳定 QPS 从 100 提升至 2000",
+        "负责批量安全校验性能治理，百万级安全校验阶段耗时从 10min 降至 1min",
+        "建设 TLOG 查询支撑能力，通过配置预热、定时刷新和专用 Redis 缓存支撑约 1000 QPS 查询场景",
+        "参与可观测和 Agent 落地探索，补齐核心链路埋点并探索自然语言查询、候选召回和确认执行能力"
       ]
     },
     {
@@ -354,7 +406,7 @@
       "description": "维护和迭代百度智能云平台，提供数据库层面的支持和优化服务。",
       "highlights": [
         "参与 BAF 异步任务处理框架研发，应对大量多阶段任务处理场景",
-        "治理分布式 Redis 大 Key/热 Key 及 DRDS 慢 SQL，问题处理满意度 95+ 分"
+        "参与集团云 Redis 大 Key / 热 Key、DRDS 慢 SQL 治理，支撑数据库问题排查与优化"
       ]
     }
   ]

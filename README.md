@@ -1,38 +1,38 @@
 # Personal Card
 
-个人价值名片 — AI Agent 工程化实践者的可视化展示平台。
+个人主页与作品集，定位为后端开发工程师的公开展示面，聚焦平台后端、批量链路、AI 工程化、公开项目和工程知识库。
 
-向投资人和技术合作伙伴展示全方位技术价值：27 个项目、12 个生产级系统、22 个 AI Agent、124 篇学习笔记。
+线上地址：[personal-card.vercel.app](https://personal-card.vercel.app)
 
-## 特性
+## What It Shows
 
-- **双模式浏览**：30 秒快速概览仪表盘 + 5-10 分钟深度项目探索
-- **投资人视角**：核心项目价值叙事（痛点 → 方案 → 成果）
-- **AI Agent 生态展示**：22 个 Agent 分类矩阵
-- **数据驱动**：半自动从 Workspace 抽取项目数据，一处更新全站同步
-- **极致性能**：Astro Islands 架构，静态内容零 JS，Lighthouse 98+
+- 工作主线：平台后端、高数据量批量链路、TLOG 查询、可观测和 Agent 落地
+- AI Native 研发资产：项目级知识库、Skills / Rules、Review 检查清单、自动化工作流
+- 公开项目矩阵：信息监控、多平台发布、视频矩阵、GitHub 趋势监控、个人知识库
+- 工程证据链：项目介绍、技术栈、价值叙事、亮点和学习笔记
 
-## 技术栈
+## Tech Stack
 
-- Astro 5 + React 19 (Islands Architecture)
+- Astro 5 + React 19 Islands
 - Tailwind CSS v4
-- Recharts (雷达图/统计图表)
-- Vercel 部署
+- Recharts
+- Workspace data extraction script
+- Vercel deployment
 
-## 开发
+## Development
 
 ```bash
 npm install
-npm run dev       # 启动开发服务器
-npm run extract   # 从 Workspace 抽取数据
-npm run build     # 构建（自动先 extract）
-npm run preview   # 预览构建产物
+npm run dev
+npm run extract
+npm run build
+npm run preview
 ```
 
-## 数据更新
+## Data Flow
 
-项目数据来自 Workspace 自动扫描 + 手动覆盖：
+Project data is generated from local workspace scanning plus curated overrides:
 
-1. 运行 `npm run extract` 扫描项目目录
-2. 编辑 `src/data/overrides.json` 补充分类、叙事文案等
-3. 运行 `npm run build` 重新构建
+1. `npm run extract` scans workspace repositories and writes `src/data/workspace-data.json`.
+2. `src/data/overrides.json` provides curated descriptions, featured order, value stories and career content.
+3. Astro builds the static site from the merged project model.

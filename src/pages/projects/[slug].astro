@@ -1,28 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import workspaceData from '../../data/workspace-data.json';
 import overrides from '../../data/overrides.json';
 import fs from 'node:fs';
+import { getAllProjects } from '../../lib/projects';
 
 export function getStaticPaths() {
-  const wsProjects = workspaceData.projects;
-  const wsSlugs = new Set(wsProjects.map((p: any) => p.slug));
-  const overrideOnly = (overrides.projects as any[])
-    .filter((p: any) => !wsSlugs.has(p.slug))
-    .map((p: any) => ({
-      slug: p.slug,
-      name: p.name || p.slug,
-      description: p.description || '',
-      techStack: p.techStack || [],
-      category: p.category || 'uncategorized',
-      status: p.status || 'production',
-      hasDocker: p.hasDocker || false,
-      hasMCP: p.hasMCP || false,
-      languages: [],
-      dependencies: {},
-    }));
-  const allProjects = [...wsProjects, ...overrideOnly];
-  return allProjects.map(project => ({
+  return getAllProjects().map(project => ({
     params: { slug: project.slug },
     props: { project },
   }));
@@ -32,14 +15,13 @@ const { project } = Astro.props;
 const categories = overrides.categories as Record<string, { label: string; color: string }>;
 const catMeta = categories[project.category];
 
-const override = overrides.projects.find((p: any) => p.slug === project.slug) as any;
-const highlights = override?.highlights || [];
-const valueStory = override?.valueStory;
+const highlights = project.highlights || [];
+const valueStory = project.valueStory;
 
 const screenshotPath = `/screenshots/${project.slug}.png`;
 const hasScreenshot = fs.existsSync(`public/screenshots/${project.slug}.png`);
 
-const relatedProjects = workspaceData.projects
+const relatedProjects = getAllProjects()
   .filter(p => p.slug !== project.slug && p.category === project.category)
   .slice(0, 3);
 
@@ -88,7 +70,7 @@ const statusColors: Record<string, string> = {
     </p>
 
     {hasScreenshot && (
-      <div class="mb-8 rounded-2xl overflow-hidden border border-surface-200 dark:border-surface-700/50 shadow-lg">
+      <div class="mb-8 rounded-lg overflow-hidden border border-surface-200 dark:border-surface-700/50 shadow-lg">
         <img src={screenshotPath} alt={`${project.name} 项目预览`} class="w-full h-auto" loading="lazy" />
       </div>
     )}
@@ -124,7 +106,7 @@ const statusColors: Record<string, string> = {
 
     <!-- 价值叙事 -->
     {valueStory && (
-      <div class="glass rounded-2xl p-6 mb-8">
+      <div class="glass rounded-lg p-6 mb-8">
         <h2 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">价值创造</h2>
         <div class="space-y-4">
           <div>
@@ -147,12 +129,12 @@ const statusColors: Record<string, string> = {
     <div class="flex items-center gap-3 mb-8">
       {project.hasDocker && (
         <span class="inline-flex items-center gap-1 px-3 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 rounded-lg text-sm">
-          🐳 Docker 部署
+          Docker 部署
         </span>
       )}
       {project.hasMCP && (
         <span class="inline-flex items-center gap-1 px-3 py-1 bg-purple-50 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300 rounded-lg text-sm">
-          🔌 MCP 服务
+          MCP 服务
         </span>
       )}
     </div>
@@ -163,7 +145,7 @@ const statusColors: Record<string, string> = {
         <h2 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">相关项目</h2>
         <div class="grid gap-4 sm:grid-cols-3">
           {relatedProjects.map(rp => (
-            <a href={`/projects/${rp.slug}`} class="glass rounded-xl p-4 card-hover block">
+            <a href={`/projects/${rp.slug}`} class="glass rounded-lg p-4 card-hover block">
               <h3 class="font-bold text-sm text-surface-800 dark:text-surface-200 mb-1">{rp.name}</h3>
               <p class="text-xs text-surface-500 dark:text-surface-400 line-clamp-2">{rp.description}</p>
             </a>
