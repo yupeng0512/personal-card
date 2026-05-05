@@ -21,7 +21,7 @@ const uncategorized = projectsByCategory['uncategorized'] || [];
       <span class="gradient-text">全部项目</span>
     </h1>
     <p class="text-surface-500 dark:text-surface-400 mb-10">
-      共 {projects.length} 个项目，{projects.filter(p => p.status === 'production').length} 个生产级系统。核心项目已优先排序，便于快速了解主线能力。
+      共 {projects.length} 个项目，{projects.filter(p => p.status === 'production').length} 个可运行项目。核心项目已优先排序，便于快速了解主线能力。
     </p>
 
     {sortedCategories.map(([cat, catProjects]) => {

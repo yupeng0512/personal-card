@@ -1,16 +1,17 @@
 ---
 import overrides from '../data/overrides.json';
 
-const valueProjects = overrides.projects.filter((p: any) => p.valueStory);
+const valueProjects = overrides.projects
+  .filter((p: any) => p.valueStory && p.featured)
+  .sort((a: any, b: any) => (a.featuredOrder || 999) - (b.featuredOrder || 999));
 ---
 
 <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-  <div class="text-center mb-12">
-    <h2 class="text-3xl font-bold mb-3">
-      <span class="gradient-text">工程价值</span>
-    </h2>
-    <p class="text-surface-500 dark:text-surface-400 max-w-lg mx-auto">
-      从问题、方案到结果，展示项目背后的工程判断
+  <div class="mb-10">
+    <p class="mb-2 text-sm font-semibold text-primary-600 dark:text-primary-400">Proof Stories</p>
+    <h2 class="text-3xl font-bold text-surface-900 dark:text-white">项目背后的工程判断</h2>
+    <p class="mt-3 max-w-2xl text-surface-500 dark:text-surface-400">
+      不按仓库数量堆叠，只保留能说明问题、方案和结果的精选项目。
     </p>
   </div>
 

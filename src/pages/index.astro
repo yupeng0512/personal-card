@@ -2,25 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import StatsPanel from '../components/StatsPanel.astro';
+import StartHere from '../components/StartHere.astro';
 import ValueStory from '../components/ValueStory.astro';
 import AgentEcosystem from '../components/AgentEcosystem.astro';
 import TechStackCloud from '../components/TechStackCloud.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import SkillRadar from '../islands/SkillRadar.tsx';
-import overrides from '../data/overrides.json';
-import workspaceData from '../data/workspace-data.json';
-import { getAllProjects, getFeaturedProjects, getProjectsByCategory } from '../lib/projects';
+import { getAllProjects, getFeaturedProjects } from '../lib/projects';
 
-const categories = overrides.categories as Record<string, { label: string }>;
-const allProjects = getAllProjects();
 const featuredProjects = getFeaturedProjects();
-const projectsByCategory = getProjectsByCategory(allProjects.filter(project => !project.featured));
-
-const sortedCategories = Object.entries(projectsByCategory)
-  .filter(([cat]) => cat !== 'uncategorized')
-  .sort((a, b) => b[1].length - a[1].length);
-
-const uncategorized = projectsByCategory['uncategorized'] || [];
+const totalProjects = getAllProjects().length;
 ---
 
 <BaseLayout
@@ -29,24 +19,14 @@ const uncategorized = projectsByCategory['uncategorized'] || [];
 >
   <Hero />
   <StatsPanel />
-
-  <!-- 技能雷达图 -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-    <div class="text-center mb-8">
-      <h2 class="text-3xl font-bold mb-3">
-        <span class="gradient-text">能力画像</span>
-      </h2>
-      <p class="text-surface-500 dark:text-surface-400">五维能力模型</p>
-    </div>
-    <SkillRadar data={overrides.skillRadar} client:load />
-  </section>
+  <StartHere />
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
     <div class="mb-8">
-      <p class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2">Selected Projects</p>
-      <h2 class="text-3xl font-bold text-surface-900 dark:text-white mb-3">核心公开项目</h2>
+      <p class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-2">Selected Evidence</p>
+      <h2 class="text-3xl font-bold text-surface-900 dark:text-white mb-3">精选证据项目</h2>
       <p class="text-surface-500 dark:text-surface-400 max-w-2xl">
-        这些项目用于展示我在 AI Native 研发、自动化系统、信息监控和个人知识库上的长期实践。
+        从公开项目中筛出最能说明主线的作品：方法论、执行层、信息监控、内容管线和展示面。
       </p>
     </div>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -54,53 +34,17 @@ const uncategorized = projectsByCategory['uncategorized'] || [];
         <ProjectCard {...project} />
       ))}
     </div>
+    <div class="mt-8">
+      <a href="/projects" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 dark:text-primary-400">
+        查看全部 {totalProjects} 个项目
+        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
   </section>
 
   <ValueStory />
   <AgentEcosystem />
-
-  <!-- 项目矩阵 -->
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold mb-3">
-        <span class="gradient-text">项目矩阵</span>
-      </h2>
-      <p class="text-surface-500 dark:text-surface-400 max-w-lg mx-auto">
-        {allProjects.length} 个项目，覆盖 AI 工程化、信息监控、自动化工具和知识管理等方向
-      </p>
-    </div>
-
-    {sortedCategories.map(([cat, projects]) => {
-      const catMeta = categories[cat];
-      return (
-        <div class="mb-10">
-          <h3 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">
-            {catMeta?.label || cat}
-            <span class="text-sm font-normal text-surface-400 ml-2">({projects.length})</span>
-          </h3>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map(project => (
-              <ProjectCard {...project} />
-            ))}
-          </div>
-        </div>
-      );
-    })}
-
-    {uncategorized.length > 0 && (
-      <div class="mb-10">
-        <h3 class="text-lg font-bold text-surface-800 dark:text-surface-200 mb-4">
-          其他
-          <span class="text-sm font-normal text-surface-400 ml-2">({uncategorized.length})</span>
-        </h3>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {uncategorized.map(project => (
-            <ProjectCard {...project} />
-          ))}
-        </div>
-      </div>
-    )}
-  </section>
-
   <TechStackCloud />
 </BaseLayout>

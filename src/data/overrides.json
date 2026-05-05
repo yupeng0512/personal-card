@@ -1,9 +1,9 @@
 {
   "profile": {
     "name": "Archer Yu",
-    "title": "后端开发工程师 | 平台后端 / 批量链路 / AI 工程化",
+    "title": "后端开发工程师 | 平台后端 / 批量链路 / AI Native",
     "tagline": "平台后端 · 高数据量批量链路 · AI Native 研发工作流",
-    "bio": "现从事腾讯 IEG 业务受理平台后端开发，关注高数据量业务受理、批量执行、日志查询、可观测和 Agent 落地。工作之外持续沉淀 AI 辅助研发方法论，将项目级知识库、工程规则、Review 工作流和自动化工具链纳入日常交付。",
+    "bio": "从事平台后端开发，关注高数据量业务受理、批量执行、日志查询、可观测和 Agent 落地。工作之外持续沉淀 AI 辅助研发方法论，将项目级知识库、工程规则、Review 工作流和自动化工具链纳入日常交付。",
     "contact": {
       "github": "https://github.com/yupeng0512",
       "email": "yp13775738821@gmail.com"
@@ -17,7 +17,7 @@
       "category": "info-monitoring",
       "status": "production",
       "featured": true,
-      "featuredOrder": 3,
+      "featuredOrder": 4,
       "techStack": ["Python", "FastAPI", "MySQL", "SQLAlchemy", "APScheduler", "httpx", "Docker"],
       "highlights": ["抓取、存储、AI 分析、摘要推送分层解耦", "支持多内容源订阅与趋势报告生成", "集成 Feishu、MCP 和 Web Dashboard"],
       "valueStory": {
@@ -46,7 +46,7 @@
       "valueStory": {
         "problem": "热点信息分散在 11+ 平台，人工跟踪耗时且延迟",
         "solution": "全网热点自动聚合 + AI 分析 + 多渠道推送，支持 MCP 服务",
-        "result": "v6.0 生产级系统，GitHub Actions 自动化部署，热点零延迟感知"
+        "result": "沉淀为自动化监控与摘要链路，通过 GitHub Actions 维护定时运行。"
       }
     },
     {
@@ -60,7 +60,7 @@
       "valueStory": {
         "problem": "Trump 社交媒体发言对金融市场有即时影响，需要实时监控和分析",
         "solution": "AI 驱动的实时监控 + 宏观分析 + 投资洞察推送",
-        "result": "实现发言秒级推送，AI 自动生成市场影响分析"
+        "result": "实现自动抓取与推送，AI 生成市场影响摘要。"
       }
     },
     {
@@ -70,7 +70,7 @@
       "category": "info-monitoring",
       "status": "production",
       "featured": true,
-      "featuredOrder": 5,
+      "featuredOrder": 3,
       "techStack": ["Python", "FastAPI", "MySQL", "SQLAlchemy", "React", "Tailwind CSS", "Docker"],
       "highlights": ["按时间窗口追踪开源项目增长趋势", "FastAPI 后端 + React Dashboard", "支持调度任务、订阅配置和 MCP 集成"],
       "valueStory": {
@@ -257,7 +257,7 @@
       "category": "tooling",
       "status": "production",
       "featured": true,
-      "featuredOrder": 4,
+      "featuredOrder": 5,
       "techStack": ["Python", "Redis", "PostgreSQL", "FFmpeg", "Playwright", "Docker"],
       "highlights": ["n8n 编排到发布 Worker 的异步管线", "FFmpeg 素材变体与多账号任务路由", "Redis Queue + 状态库管理发布任务"],
       "valueStory": {
@@ -269,7 +269,7 @@
     {
       "slug": "voice-agui-client",
       "name": "Voice-AGUI",
-      "description": "全球首个多 Agent 语音协作会议室系统，通过语音播报和实时通信让多个 AI Agent 像人类团队一样开会协作。",
+      "description": "多 Agent 语音协作会议室原型，通过语音播报和实时通信探索多个 AI Agent 的协作方式。",
       "category": "ai-agent",
       "status": "production",
       "techStack": ["React", "TypeScript", "Node.js", "Socket.io", "Azure TTS", "Webpack"],
@@ -277,7 +277,7 @@
       "valueStory": {
         "problem": "AI Agent 多数是单轮对话，缺乏多 Agent 实时协作场景",
         "solution": "构建会议室概念，多 Agent 语音协作 + 实时通信 + AGUI 协议",
-        "result": "实现软件开发、内容创作、咨询服务等多场景 Agent 团队协作"
+        "result": "验证软件开发、内容创作、咨询服务等多场景 Agent 协作体验。"
       }
     },
     {
@@ -307,13 +307,13 @@
     {
       "slug": "openclaw-playbook",
       "name": "OpenClaw Playbook",
-      "description": "OpenClaw AI Agent 框架高价值使用场景与商业化落地方案手册，基于 Discord 922 位开发者实战数据 + ClawHub 5705 个技能生态调研，覆盖 12 大场景分类与优先级矩阵。",
+      "description": "OpenClaw AI Agent 框架高价值使用场景与商业化落地方案手册，基于社区讨论和 Skill 生态调研，覆盖 12 大场景分类与优先级矩阵。",
       "category": "ai-agent",
       "status": "production",
       "techStack": ["Markdown"],
-      "highlights": ["12 大落地场景分类 + 优先级矩阵", "5705 个 Skill 生态安全审计（48.2% 过滤率）", "P0-P3 四级优先级落地指南"],
+      "highlights": ["12 大落地场景分类 + 优先级矩阵", "Skill 生态安全审计与场景筛选", "P0-P3 四级优先级落地指南"],
       "valueStory": {
-        "problem": "OpenClaw 234k+ Stars 但缺少系统化的商业落地方案参考",
+        "problem": "热门 Agent 框架生态增长较快，但缺少系统化的商业落地方案参考",
         "solution": "基于 Discord 社区 + ClawHub 技能市场 + 技术博客等多源数据，输出标准化调研报告",
         "result": "12 大场景分类，覆盖个人助理、开发者工作流、企业自动化等核心赛道"
       }
@@ -343,7 +343,7 @@
       "valueStory": {
         "problem": "多个 Docker 项目的告警分散，需要逐个检查容器日志才能发现问题",
         "solution": "统一告警面板 + SDK 主动上报 + 定时健康探测，收敛所有告警至单一界面",
-        "result": "一目了然掌握所有项目运行状态，critical 事件秒级推送"
+        "result": "统一掌握多个项目运行状态，critical 事件集中推送。"
       }
     },
     {

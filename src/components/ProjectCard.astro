@@ -20,10 +20,10 @@ const statusColors: Record<string, string> = {
 };
 
 const statusLabels: Record<string, string> = {
-  production: '生产级',
-  learning: '学习中',
+  production: '可运行',
+  learning: '实验',
   tool: '工具',
-  docs: '文档',
+  docs: '知识库',
 };
 ---
 
@@ -56,10 +56,10 @@ const statusLabels: Record<string, string> = {
 
   <div class="flex items-center gap-2 mt-3">
     {hasDocker && (
-      <span class="text-xs text-surface-400" title="Docker 部署">Docker</span>
+      <span class="rounded bg-surface-100 px-2 py-0.5 text-xs text-surface-500 dark:bg-surface-800 dark:text-surface-400" title="Docker 部署">Docker</span>
     )}
     {hasMCP && (
-      <span class="text-xs text-surface-400" title="MCP 服务">MCP</span>
+      <span class="rounded bg-surface-100 px-2 py-0.5 text-xs text-surface-500 dark:bg-surface-800 dark:text-surface-400" title="MCP 服务">MCP</span>
     )}
   </div>
 </a>

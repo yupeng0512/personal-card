@@ -49,7 +49,7 @@
       "languages": [],
       "dependencies": {},
       "featured": true,
-      "featuredOrder": 4,
+      "featuredOrder": 5,
       "highlights": [
         "n8n 编排到发布 Worker 的异步管线",
         "FFmpeg 素材变体与多账号任务路由",
@@ -137,7 +137,7 @@
       ],
       "dependencies": {},
       "featured": true,
-      "featuredOrder": 5,
+      "featuredOrder": 3,
       "highlights": [
         "按时间窗口追踪开源项目增长趋势",
         "FastAPI 后端 + React Dashboard",
@@ -171,7 +171,7 @@
       ],
       "dependencies": {},
       "featured": true,
-      "featuredOrder": 3,
+      "featuredOrder": 4,
       "highlights": [
         "抓取、存储、AI 分析、摘要推送分层解耦",
         "支持多内容源订阅与趋势报告生成",
@@ -292,7 +292,7 @@
       "valueStory": {
         "problem": "Trump 社交媒体发言对金融市场有即时影响，需要实时监控和分析",
         "solution": "AI 驱动的实时监控 + 宏观分析 + 投资洞察推送",
-        "result": "实现发言秒级推送，AI 自动生成市场影响分析"
+        "result": "实现自动抓取与推送，AI 生成市场影响摘要。"
       }
     },
     {
