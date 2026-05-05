@@ -2,7 +2,7 @@
 
 个人主页与作品集，定位为后端开发工程师的公开展示面，聚焦平台后端、批量链路、AI 工程化、公开项目和工程知识库。
 
-线上地址：[personal-card.vercel.app](https://personal-card.vercel.app)
+线上地址：[yupeng0512.github.io](https://yupeng0512.github.io)
 
 ## What It Shows
 

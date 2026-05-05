@@ -9,7 +9,7 @@ interface Props {
   ogImage?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://personal-card.vercel.app');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://yupeng0512.github.io');
 const { title, description = '后端开发工程师的个人主页，聚焦平台后端、批量链路和 AI 工程化实践。', ogImage = '/og-image.png' } = Astro.props;
 const ogImageURL = new URL(ogImage, canonicalURL.origin).href;
 ---

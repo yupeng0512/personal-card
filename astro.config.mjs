@@ -7,7 +7,7 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://personal-card.vercel.app',
+  site: 'https://yupeng0512.github.io',
   integrations: [react(), mdx()],
 
   vite: {
