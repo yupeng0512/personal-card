@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import workspaceData from '../../data/workspace-data.json';
+
+type SkillRecord = {
+  name: string;
+  title?: string;
+  description: string;
+  category?: string;
+  tags?: string[];
+  sourcePath?: string;
+  hasScripts?: boolean;
+  hasReferences?: boolean;
+  installTargets?: string[];
+  agentInterface?: {
+    invocation?: string;
+    safeToAutoInstall?: boolean;
+  };
+  validation?: {
+    frontmatter?: string;
+    lineCount?: number;
+    tokenTier?: string;
+    issues?: string[];
+  };
+};
+
+export function getStaticPaths() {
+  return (workspaceData.skills as SkillRecord[]).map(skill => ({
+    params: { slug: skill.name },
+    props: { skill },
+  }));
+}
+
+const { skill } = Astro.props as { skill: SkillRecord };
+const title = skill.title || skill.name;
+const targets = skill.installTargets?.length ? skill.installTargets : ['cursor', 'codex', 'claude'];
+const repoUrl = 'https://github.com/yupeng0512/cursor-skills.git';
+---
+
+<BaseLayout
+  title={`${title} - Agent Skill Hub`}
+  description={skill.description}
+>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <a href="/skills" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 dark:text-primary-400 mb-8">
+      <span aria-hidden="true">←</span>
+      返回 Skill Hub
+    </a>
+
+    <header class="mb-8">
+      <div class="flex flex-wrap items-center gap-2 mb-4">
+        <span class="rounded-full bg-primary-50 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300 px-3 py-1 text-xs font-semibold">
+          {skill.category || 'other'}
+        </span>
+        <span class="rounded-full bg-surface-100 text-surface-600 dark:bg-surface-800 dark:text-surface-300 px-3 py-1 text-xs font-semibold">
+          {skill.validation?.tokenTier || 'token n/a'}
+        </span>
+        {skill.hasScripts && (
+          <span class="rounded-full bg-accent-500/10 text-accent-600 dark:text-accent-400 px-3 py-1 text-xs font-semibold">scripts</span>
+        )}
+        {skill.hasReferences && (
+          <span class="rounded-full bg-surface-100 text-surface-600 dark:bg-surface-800 dark:text-surface-300 px-3 py-1 text-xs font-semibold">references</span>
+        )}
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-bold text-surface-900 dark:text-white mb-4">
+        {title}
+      </h1>
+      <p class="text-lg text-surface-500 dark:text-surface-400 max-w-3xl">
+        {skill.description}
+      </p>
+    </header>
+
+    <div class="grid gap-5 lg:grid-cols-[1fr_0.8fr]">
+      <section class="glass min-w-0 rounded-lg p-5">
+        <h2 class="text-lg font-bold text-surface-900 dark:text-white mb-4">Agent 安装命令</h2>
+        <p class="mb-4 text-sm text-surface-500 dark:text-surface-400">
+          先 dry-run 再安装；仓库需已公开，或 Agent 需具备访问权限。
+        </p>
+        <pre class="max-w-full overflow-x-auto whitespace-pre rounded-lg bg-surface-900 text-surface-50 p-4 text-xs"><code>{`git clone ${repoUrl} ~/.skillhub/yupeng-cursor-skills
+cd ~/.skillhub/yupeng-cursor-skills
+./install.sh --target codex --skill ${skill.name} --dry-run
+./install.sh --target codex --skill ${skill.name}
+~/.local/bin/skillhub-yupeng doctor --target codex --json`}</code></pre>
+
+        <div class="mt-5 grid gap-3 sm:grid-cols-3">
+          {targets.map(target => (
+            <div class="rounded-lg border border-surface-200 dark:border-surface-700 p-3">
+              <div class="text-sm font-semibold text-surface-900 dark:text-white">{target}</div>
+              <code class="mt-1 block text-xs text-surface-500 dark:text-surface-400">--target {target}</code>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <aside class="glass min-w-0 rounded-lg p-5">
+        <h2 class="text-lg font-bold text-surface-900 dark:text-white mb-4">Registry 信息</h2>
+        <dl class="space-y-3 text-sm">
+          <div class="flex justify-between gap-4">
+            <dt class="text-surface-500 dark:text-surface-400">Invocation</dt>
+            <dd class="font-mono text-surface-800 dark:text-surface-200">{skill.agentInterface?.invocation || `/${skill.name}`}</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-surface-500 dark:text-surface-400">Source</dt>
+            <dd class="font-mono text-right text-surface-800 dark:text-surface-200">{skill.sourcePath || `${skill.name}/SKILL.md`}</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-surface-500 dark:text-surface-400">Line Count</dt>
+            <dd class="font-mono text-surface-800 dark:text-surface-200">{skill.validation?.lineCount || 'n/a'}</dd>
+          </div>
+          <div class="flex justify-between gap-4">
+            <dt class="text-surface-500 dark:text-surface-400">Frontmatter</dt>
+            <dd class="font-mono text-surface-800 dark:text-surface-200">{skill.validation?.frontmatter || 'n/a'}</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+
+    <section class="mt-8 glass rounded-lg p-5">
+      <h2 class="text-lg font-bold text-surface-900 dark:text-white mb-4">标签</h2>
+      <div class="flex flex-wrap gap-2">
+        {(skill.tags || []).map(tag => (
+          <span class="rounded-full bg-surface-100 text-surface-600 dark:bg-surface-800 dark:text-surface-300 px-3 py-1 text-sm">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </section>
+  </article>
+</BaseLayout>

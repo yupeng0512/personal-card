@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SkillExplorer from '../../islands/SkillExplorer.tsx';
+import workspaceData from '../../data/workspace-data.json';
+
+type SkillRecord = {
+  name: string;
+  title?: string;
+  description: string;
+  category?: string;
+  tags?: string[];
+  sourcePath?: string;
+  hasScripts?: boolean;
+  hasReferences?: boolean;
+  installTargets?: string[];
+  validation?: {
+    lineCount?: number;
+    tokenTier?: string;
+    issues?: string[];
+  };
+};
+
+const skills = (workspaceData.skills as SkillRecord[]).slice().sort((a, b) => a.name.localeCompare(b.name));
+const categoryLabels: Record<string, string> = {
+  engineering: '工程研发',
+  'product-design': '产品与设计',
+  content: '内容生产',
+  'research-intel': '研究情报',
+  media: '多媒体',
+  planning: '规划决策',
+  knowledge: '知识管理',
+  other: '其他',
+};
+
+const scriptCount = skills.filter(skill => skill.hasScripts).length;
+const referenceCount = skills.filter(skill => skill.hasReferences).length;
+const optimizedCount = skills.filter(skill => ['excellent', 'good'].includes(skill.validation?.tokenTier || '')).length;
+---
+
+<BaseLayout
+  title="Agent Skill Hub - Archer Yu"
+  description="于鹏的 Agent Skill Hub：可视化展示、CLI 安装、跨 Cursor/Codex/Claude 迁移的可复用 Skill 集合。"
+>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+      <div>
+        <p class="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-3">Agent Skill Hub</p>
+        <h1 class="text-4xl sm:text-5xl font-bold text-surface-900 dark:text-white mb-4">
+          可安装、可迁移、可贡献的 Agent Skill 集合
+        </h1>
+        <p class="text-lg text-surface-500 dark:text-surface-400 max-w-3xl">
+          从个人 Skill authoring repo 生成 public-safe registry，把常用研发、设计、内容、投研和自动化工作流整理成 Agent 能直接检索和安装的能力目录。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-3">
+        <div class="glass rounded-lg p-4">
+          <div class="text-2xl font-bold text-surface-900 dark:text-white">{skills.length}</div>
+          <div class="text-xs text-surface-500 dark:text-surface-400 mt-1">Public Skills</div>
+        </div>
+        <div class="glass rounded-lg p-4">
+          <div class="text-2xl font-bold text-surface-900 dark:text-white">{scriptCount}</div>
+          <div class="text-xs text-surface-500 dark:text-surface-400 mt-1">带脚本</div>
+        </div>
+        <div class="glass rounded-lg p-4">
+          <div class="text-2xl font-bold text-surface-900 dark:text-white">{optimizedCount}</div>
+          <div class="text-xs text-surface-500 dark:text-surface-400 mt-1">Token 良好</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
+      <div class="glass min-w-0 rounded-lg p-5">
+        <h2 class="text-lg font-bold text-surface-900 dark:text-white mb-3">Agent 安装入口</h2>
+        <p class="text-sm text-surface-500 dark:text-surface-400 mb-4">
+          CLI 输出面向 Agent 设计，支持 `--json`、`--dry-run`、安装状态诊断和幂等同步。当前命令要求仓库已公开或 Agent 具备仓库访问权限。
+        </p>
+        <pre class="max-w-full overflow-x-auto whitespace-pre rounded-lg bg-surface-900 text-surface-50 p-4 text-xs"><code>git clone https://github.com/yupeng0512/cursor-skills.git ~/.skillhub/yupeng-cursor-skills
+cd ~/.skillhub/yupeng-cursor-skills
+./install.sh --target codex --dry-run
+./install.sh --target codex
+~/.local/bin/skillhub-yupeng doctor --target codex --json</code></pre>
+      </div>
+
+      <div class="glass min-w-0 rounded-lg p-5">
+        <h2 class="text-lg font-bold text-surface-900 dark:text-white mb-3">能力边界</h2>
+        <div class="grid gap-3 sm:grid-cols-3">
+          <div>
+            <div class="text-sm font-semibold text-surface-800 dark:text-surface-200">Public Registry</div>
+            <p class="mt-1 text-sm text-surface-500 dark:text-surface-400">只展示源仓库中可公开 Skill，避免误发布本机和第三方能力。</p>
+          </div>
+          <div>
+            <div class="text-sm font-semibold text-surface-800 dark:text-surface-200">Cross-Agent</div>
+            <p class="mt-1 text-sm text-surface-500 dark:text-surface-400">同步到 Cursor、Codex、Claude，保持同一套工作流资产。</p>
+          </div>
+          <div>
+            <div class="text-sm font-semibold text-surface-800 dark:text-surface-200">Reusable Workflow</div>
+            <p class="mt-1 text-sm text-surface-500 dark:text-surface-400">Skill 不只是 prompt，还包含流程、脚本、模板和验收标准。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+    <div class="mb-4 text-xs text-surface-400">
+      {referenceCount} 个 Skill 带 references/templates，{scriptCount} 个 Skill 带可执行脚本。
+    </div>
+    <SkillExplorer skills={skills} categoryLabels={categoryLabels} client:load />
+  </section>
+</BaseLayout>

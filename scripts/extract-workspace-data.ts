@@ -37,6 +37,18 @@ const SHOWCASE_PROJECTS = new Set([
   'yinglit-ev',
 ]);
 
+const LOCAL_ONLY_SKILLS = new Set([
+  'gongfeng-mr',
+]);
+
+const PUBLIC_SKILL_BLOCKED_PATTERNS = [
+  /\/Users\/[A-Za-z0-9._-]+/,
+  /\b[a-zA-Z0-9.-]*woa\.com\b/i,
+  /\bdevcloud\b/i,
+  /\btencent\.iOA\b/i,
+  /工蜂/,
+];
+
 interface ProjectInfo {
   slug: string;
   name: string;
@@ -56,6 +68,26 @@ interface AgentInfo {
   type: string;
 }
 
+interface SkillInfo {
+  name: string;
+  title?: string;
+  description: string;
+  path?: string;
+  sourcePath?: string;
+  category?: string;
+  tags?: string[];
+  visibility?: string;
+  hasScripts?: boolean;
+  hasReferences?: boolean;
+  installTargets?: string[];
+  validation?: {
+    frontmatter?: string;
+    lineCount?: number;
+    tokenTier?: string;
+    issues?: string[];
+  };
+}
+
 interface NoteInfo {
   title: string;
   date: string;
@@ -70,7 +102,7 @@ interface NoteInfo {
 interface WorkspaceData {
   projects: ProjectInfo[];
   agents: AgentInfo[];
-  skills: { name: string; description: string; path: string }[];
+  skills: SkillInfo[];
   notes: NoteInfo[];
   stats: {
     totalProjects: number;
@@ -339,7 +371,7 @@ function countNotes(notesDir: string): number {
 }
 
 function extractCursorSkills(skillsDir: string) {
-  const skills: { name: string; description: string; path: string }[] = [];
+  const skills: SkillInfo[] = [];
   if (!existsSync(skillsDir)) return skills;
 
   for (const entry of readdirSync(skillsDir, { withFileTypes: true })) {
@@ -347,15 +379,46 @@ function extractCursorSkills(skillsDir: string) {
     const skillFile = join(skillsDir, entry.name, 'SKILL.md');
     if (existsSync(skillFile)) {
       const content = readFileSync(skillFile, 'utf-8');
-      const firstLine = content.split('\n').find(l => l.trim() && !l.startsWith('#') && !l.startsWith('---'));
+      const descriptionMatch = content.match(/^description:\s*(.+)$/m);
+      const description = descriptionMatch?.[1]?.trim().replace(/^["']|["']$/g, '') || entry.name;
       skills.push({
         name: entry.name,
-        description: firstLine?.trim().slice(0, 200) || entry.name,
+        description,
         path: skillFile,
+        sourcePath: `${entry.name}/SKILL.md`,
+        visibility: 'public',
       });
     }
   }
   return skills;
+}
+
+function loadSkillHubRegistry(registryPath: string): SkillInfo[] {
+  const registry = readJsonSafe(registryPath);
+  if (!registry || !Array.isArray(registry.skills)) return [];
+
+  return registry.skills
+    .filter((skill: any) => skill && isPublicSkill(skill))
+    .map((skill: any) => ({
+      ...skill,
+      path: skill.sourcePath || skill.path || `${skill.name}/SKILL.md`,
+    }));
+}
+
+function isPublicSkill(skill: any): boolean {
+  if (!skill || skill.visibility === 'private') return false;
+  if (LOCAL_ONLY_SKILLS.has(skill.name)) return false;
+
+  const publicText = [
+    skill.name,
+    skill.title,
+    skill.description,
+    skill.sourcePath,
+    skill.path,
+    ...(Array.isArray(skill.tags) ? skill.tags : []),
+  ].filter(Boolean).join('\n');
+
+  return !PUBLIC_SKILL_BLOCKED_PATTERNS.some(pattern => pattern.test(publicText));
 }
 
 function aggregateTechStack(projects: ProjectInfo[]): { name: string; count: number; category: string }[] {
@@ -620,11 +683,10 @@ function main() {
 
   const playbookStats = extractPlaybookStats(join(WORKSPACE_ROOT, 'engineering-playbook'));
   const totalNotes = countNotes(join(WORKSPACE_ROOT, 'learning-notes'));
-  const cursorSkills = [
-    ...extractCursorSkills(join(WORKSPACE_ROOT, 'cursor-skills')),
-    ...extractCursorSkills(join(WORKSPACE_ROOT, '.codex/skills')),
-    ...extractCursorSkills(join(WORKSPACE_ROOT, '.agents/skills')),
-  ];
+  const skillHubRegistry = loadSkillHubRegistry(join(WORKSPACE_ROOT, 'cursor-skills/registry/skills.generated.json'));
+  const publicSkills = skillHubRegistry.length
+    ? skillHubRegistry
+    : extractCursorSkills(join(WORKSPACE_ROOT, 'cursor-skills'));
   const notes = extractNotes(join(WORKSPACE_ROOT, 'learning-notes'));
   console.log(`Found ${notes.length} notes`);
 
@@ -650,7 +712,7 @@ function main() {
   const data: WorkspaceData = {
     projects,
     agents,
-    skills: cursorSkills,
+    skills: publicSkills,
     notes,
     stats: {
       totalProjects: projects.length,
@@ -658,7 +720,7 @@ function main() {
       totalAgents: agents.length,
       totalNotes,
       totalPatterns: playbookStats.patterns,
-      totalSkills: playbookStats.skills + cursorSkills.length,
+      totalSkills: publicSkills.length,
       totalExperienceArchives: playbookStats.archives,
     },
     techStack,

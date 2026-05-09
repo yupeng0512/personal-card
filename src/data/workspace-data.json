@@ -209,7 +209,7 @@
     {
       "slug": "learning-notes",
       "name": "learning-notes",
-      "description": "> 最后更新：2026-04-16",
+      "description": "> 最后更新：2026-05-08",
       "techStack": [],
       "category": "uncategorized",
       "status": "learning",
@@ -370,516 +370,1541 @@
   "skills": [
     {
       "name": "ai-auto-publisher",
-      "description": "name: ai-auto-publisher",
-      "path": "/Users/yupeng/cursor-skills/ai-auto-publisher/SKILL.md"
+      "title": "AI Auto Publisher",
+      "description": "多平台内容发布中间件。接收 Markdown 文章或视频，自动分发到 16+ 个平台（公众号、知乎、掘金、小红书、抖音等），并追踪发布状态。当用户需要发布、同步、分发内容到多个平台时使用。",
+      "category": "content",
+      "tags": [
+        "content"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "ai-auto-publisher/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/ai-auto-publisher",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 170,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "ai-auto-publisher/SKILL.md"
     },
     {
       "name": "article-tutor",
-      "description": "name: article-tutor",
-      "path": "/Users/yupeng/cursor-skills/article-tutor/SKILL.md"
+      "title": "文章/书籍精读教学 Agent",
+      "description": "文章/书籍精读教学 Agent。梳理文章结构、提炼根节点命题、苏格拉底式教学讲解、沉淀学习笔记。适用于技术博客、学术论文、专业书籍、开源项目等内容的深度学习。当用户分享链接、粘贴文章内容、提到\"精读\"、\"深度学习这篇文章\"、\"讲讲这个\"、\"帮我理解这篇\"、\"read this article\"等意图时触发。即使用户只是说\"看看这篇文章\"或附上了一个 URL，也应触发。",
+      "category": "content",
+      "tags": [
+        "agent",
+        "content"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "article-tutor/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/article-tutor",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 285,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "article-tutor/SKILL.md"
     },
     {
       "name": "brainstorming",
-      "description": "name: brainstorming",
-      "path": "/Users/yupeng/cursor-skills/brainstorming/SKILL.md"
+      "title": "Brainstorming — 从想法到设计",
+      "description": "在任何创造性工作之前，通过结构化对话探索用户意图、约束和成功标准，用结构化提问义务消除关键歧义，提出多种方案比较，形成经确认的设计再进入实现。当用户表达'做一个XX'、'我想要XX'、'帮我设计XX'、'build'、'create'、'implement'等创造性意图，或需求模糊/多方案待选时触发。即使用户只是说了一个模糊的想法，也应触发。",
+      "category": "planning",
+      "tags": [
+        "planning"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "brainstorming/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/brainstorming",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 129,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "brainstorming/SKILL.md"
     },
     {
       "name": "brand-frontend-slides",
-      "description": "name: brand-frontend-slides",
-      "path": "/Users/yupeng/cursor-skills/brand-frontend-slides/SKILL.md"
+      "title": "Brand Frontend Slides",
+      "description": "高品牌感网页课件与稳定 PDF 导出技能。用于把 SOP、会议纪要、培训文档、课程大纲、Markdown 笔记或长文档转成 frontend-slides 风格的单文件 HTML 课件，并导出固定 16:9 的高质量 PDF。当用户提到“高品牌感课件”“网页课件”“HTML slides”“frontend-slides”“培训版 PDF”“把文档做成课件”“导出稳定 PDF”“自定义课件风格”“品牌风格 slide”等意图时触发。即使用户只说“做一版更好看的 PDF/课件”，只要目标是视觉型课件或网页演示，也应触发。",
+      "category": "product-design",
+      "tags": [
+        "design",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "brand-frontend-slides/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/brand-frontend-slides",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 51,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "brand-frontend-slides/SKILL.md"
     },
     {
       "name": "codex-automation-sop",
-      "description": "name: codex-automation-sop",
-      "path": "/Users/yupeng/cursor-skills/codex-automation-sop/SKILL.md"
+      "title": "Codex Automation SOP",
+      "description": "Codex 自动化任务设计、配置评估与落地 SOP。用于创建或评审 Codex Automations、选择 cron vs heartbeat、local vs worktree、模型与 reasoning effort、运行目录、Skill/项目边界、外部副作用、Feishu/lark-cli 等本地凭据型自动化。用户提到 Codex 自动化、定时任务、automation 配置、自动化最佳实践、cron/heartbeat、运行目录或 CWD 选择时使用。",
+      "category": "engineering",
+      "tags": [
+        "agent",
+        "automation",
+        "engineering"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "codex-automation-sop/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/codex-automation-sop",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 37,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "codex-automation-sop/SKILL.md"
     },
     {
       "name": "command-creator",
-      "description": "name: command-creator",
-      "path": "/Users/yupeng/cursor-skills/command-creator/SKILL.md"
+      "title": "Skill Creator（全闭环版）",
+      "description": "Skill 创建专家（全闭环版）。创建、评测、改进、基准测试技能。当用户表达\"创建 skill\"、\"新建 command\"、\"做一个技能\"、\"写个 skill\"、\"评测 skill\"、\"优化 skill\"、\"benchmark skill\"、\"改进 skill 触发\"等意图时触发。即使用户没有明确提到\"skill\"，但描述了一个重复性工作流并希望自动化时，也应当考虑触发。",
+      "category": "other",
+      "tags": [
+        "agent",
+        "other"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "command-creator/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/command-creator",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 464,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "command-creator/SKILL.md"
     },
     {
       "name": "content-publisher",
-      "description": "name: content-publisher",
-      "path": "/Users/yupeng/cursor-skills/content-publisher/SKILL.md"
+      "title": "Content Publisher — AI 文章生成、自审配图与一键发布",
+      "description": "AI 文章生成、自审配图、一键多平台发布与内容管理。一句指令完成：写文章 → AI 配图 → AI 自审（6维评分+自动修复）→ 汇总预览 → 一键批量发布（飞书/公众号/知乎/掘金/小红书/Medium/dev.to 等）→ 台账追踪。支持文章搜索、内容更新、跨平台同步、台账统计、失败重试。当用户表达'写一篇文章'、'发布到飞书'、'同步到公众号'、'多平台发布'、'写分享'、'publish article'、'cross-post'、'看看发布记录'、'台账'、'找一下那篇文章'、'配图'等意图时触发。",
+      "category": "content",
+      "tags": [
+        "content"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "content-publisher/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/content-publisher",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 1134,
+        "tokenTier": "optimize",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "content-publisher/SKILL.md"
     },
     {
       "name": "cybernetics-loop",
-      "description": "name: cybernetics-loop",
-      "path": "/Users/yupeng/cursor-skills/cybernetics-loop/SKILL.md"
+      "title": "Personal Cybernetics Loop Designer",
+      "description": "Design personal cybernetics systems for any goal using the Goal→Act→Sense→Compare→Adjust feedback loop. Combines Dan Koe's vision/anti-vision identity excavation with tutor-style knowledge architecture. Includes identity resistance handling, stage-adaptive design, and emotional sensing. Use when the user sets a goal, wants to design a self-improvement system, mentions cybernetics, feedback loops, goal tracking, iteration, or personal development.",
+      "category": "product-design",
+      "tags": [
+        "design",
+        "engineering",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "cybernetics-loop/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/cybernetics-loop",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 247,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "cybernetics-loop/SKILL.md"
     },
     {
       "name": "decision-framing-loop",
-      "description": "name: decision-framing-loop",
-      "path": "/Users/yupeng/cursor-skills/decision-framing-loop/SKILL.md"
+      "title": "Decision Framing Loop",
+      "description": "决策与问题 framing 搭子。用于复杂问题、方案、汇报、复盘、战略判断在输出前先把问题想清楚：界定问题、明确边界、区分事实与假设、拆议题、识别关键杠杆、收敛 recommendation，再沉淀成可沟通材料。当用户表达“帮我想清楚”“界定这个问题”“一起拆一下”“不要直接写结论”“先把逻辑走一遍”“做方案/汇报/复盘/decision memo”时触发。",
+      "category": "planning",
+      "tags": [
+        "planning"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "decision-framing-loop/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/decision-framing-loop",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 163,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "decision-framing-loop/SKILL.md"
+    },
+    {
+      "name": "design-system-spec",
+      "title": "Design System Spec",
+      "description": "Generate design specs, tokens, component rules, Figma handoff guidance, and anti-AI visual quality gates before frontend or D2C implementation. Use when the user asks to define design rules, create DESIGN.md, avoid generic AI UI, prepare a Figma design, or bridge product requirements into a design system.",
+      "category": "product-design",
+      "tags": [
+        "design",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "design-system-spec/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/design-system-spec",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 46,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "design-system-spec/SKILL.md"
+    },
+    {
+      "name": "design-to-product-orchestrator",
+      "title": "Design To Product Orchestrator",
+      "description": "Orchestrate the full product-to-design-to-code chain with parameter-aware routing, product shaping, design specs, Figma or TDesign D2C, validation gates, and iteration. Use when the user asks to run the complete chain from product brief to design稿 to code, evaluate D2C Skills, avoid AI-looking product UI, or automatically decide which Skill should handle the next stage.",
+      "category": "product-design",
+      "tags": [
+        "agent",
+        "design",
+        "engineering",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "design-to-product-orchestrator/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/design-to-product-orchestrator",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 74,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "design-to-product-orchestrator/SKILL.md"
     },
     {
       "name": "engineering-quality-loop",
-      "description": "name: engineering-quality-loop",
-      "path": "/Users/yupeng/cursor-skills/engineering-quality-loop/SKILL.md"
+      "title": "Engineering Quality Loop",
+      "description": "Use for non-trivial engineering work: debugging, feature implementation, code review follow-up, refactoring, architecture decisions, tests, or tool adoption. Applies repo-truth-first diagnosis, vertical-slice TDD, architecture pressure tests, and selective vendor evaluation.",
+      "category": "research-intel",
+      "tags": [
+        "engineering",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "engineering-quality-loop/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/engineering-quality-loop",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 49,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "engineering-quality-loop/SKILL.md"
     },
     {
       "name": "expert-andy-lee",
-      "description": "name: expert-andy-lee",
-      "path": "/Users/yupeng/cursor-skills/expert-andy-lee/SKILL.md"
+      "title": "Andy Lee - 全球宏观交易实战专家 Skill",
+      "description": "Andy Lee 的全球宏观交易方法论与实战决策框架。当用户需要分析美股、黄金白银、全球指数走势、制定交易策略、管理仓位风控时触发。涵盖多周期隧道系统、结构择时、大类资产轮动、风控体系等核心能力。即使用户没有提到\"Andy Lee\"，只要涉及美股技术分析、贵金属交易策略、多时间框架分析、仓位管理或全球宏观配置，也应考虑触发。",
+      "category": "research-intel",
+      "tags": [
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "expert-andy-lee/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/expert-andy-lee",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 244,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "expert-andy-lee/SKILL.md"
     },
     {
       "name": "expert-skill-extractor",
-      "description": "name: expert-skill-extractor",
-      "path": "/Users/yupeng/cursor-skills/expert-skill-extractor/SKILL.md"
+      "title": "Expert Skill Extractor - 博主技能提取与沉淀",
+      "description": "从博主视频和帖子中提取专家技能，生成 Cursor Skill。输入博主的名字、链接或账号（YouTube/Twitter/抖音/TikTok），自动采集内容、提取知识、生成可复用的 Skill。当用户表达\"提取博主技能\"、\"学习这个博主\"、\"把这个频道变成 Skill\"、\"从视频中提取方法论\"、\"训练 Agent\"、\"沉淀技能\"等意图时触发。即使用户只是分享了一个 YouTube 频道链接或 Twitter 用户主页，也应触发。",
+      "category": "knowledge",
+      "tags": [
+        "agent",
+        "knowledge"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "expert-skill-extractor/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/expert-skill-extractor",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 333,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "expert-skill-extractor/SKILL.md"
     },
     {
       "name": "follow-builders-feishu-report",
-      "description": "name: follow-builders-feishu-report",
-      "path": "/Users/yupeng/cursor-skills/follow-builders-feishu-report/SKILL.md"
+      "title": "Follow Builders Feishu Report",
+      "description": "Follow Builders 飞书日报/周报自动化。用于把 zarazhangrui/follow-builders 的 AI builder 动态生成中文评分报告，去重沉淀到本地台账或飞书多维表，并通过 lark-cli bot 推送到飞书群。当用户提到 AI builder 情报、follow-builders、飞书日报、AI 行业周报、builder 动态评分、Codex 自动化报告时使用。",
+      "category": "research-intel",
+      "tags": [
+        "agent",
+        "automation",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "follow-builders-feishu-report/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/follow-builders-feishu-report",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 177,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "follow-builders-feishu-report/SKILL.md"
     },
     {
       "name": "frontend-design",
-      "description": "name: frontend-design",
-      "path": "/Users/yupeng/cursor-skills/frontend-design/SKILL.md"
-    },
-    {
-      "name": "gongfeng-mr",
-      "description": "name: gongfeng-mr",
-      "path": "/Users/yupeng/cursor-skills/gongfeng-mr/SKILL.md"
+      "title": "Frontend Design",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+      "category": "product-design",
+      "tags": [
+        "agent",
+        "design",
+        "engineering",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "frontend-design/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/frontend-design",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 42,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "frontend-design/SKILL.md"
     },
     {
       "name": "hyperframes-video-studio",
-      "description": "name: hyperframes-video-studio",
-      "path": "/Users/yupeng/cursor-skills/hyperframes-video-studio/SKILL.md"
+      "title": "HyperFrames Video Studio",
+      "description": "HyperFrames 专业视频生产 Skill。用于由 Codex 负责选题框架、脚本、分镜、视觉规范、HTML/CSS/GSAP composition、自动化检查、评审和 good/bad case 沉淀，由 HyperFrames 负责可预览、可 lint、可重复渲染的 MP4/MOV/WebM 输出。用户提到 HyperFrames、HyperFrames by HeyGen、HTML 视频、网站转视频、程序化视频、批量数据视频、产品介绍、社媒竖屏、TTS、字幕同步、GSAP 动效、render MP4 或希望让 Codex 用 HyperFrames 做真实视频案例时触发。",
+      "category": "media",
+      "tags": [
+        "agent",
+        "media"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "hyperframes-video-studio/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/hyperframes-video-studio",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 121,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "hyperframes-video-studio/SKILL.md"
+    },
+    {
+      "name": "libtv-skill",
+      "title": "agent-im 会话（生图 / 生视频）",
+      "description": "agent-im 会话技能 - 通过 liblib.tv 的 AI 能力生成和编辑图片/视频。覆盖场景包括：生成（文生图、文生视频、图生视频、做动画、画一个xxx、来段xxx）、编辑修改（把xxx换成yyy、去掉xxx、加上xxx、改成xxx、调整xxx、局部修改、改镜头）、风格转换（风格迁移、转绘、换风格）、视频续写延长、复刻视频/TVC/宣传片、短剧/短漫剧生成、音乐MV生成、产品广告/展示片制作、分镜/故事板设计、教育视频/短视频制作。当用户提到 liblib、libtv、上传参考图/视频、查看生成进度时也应触发。关键判断：只要用户的请求涉及 AI 图片或视频的创作、生成、编辑、修改，无论措辞如何（如\"画只猫\"、\"做个海报\"、\"把纸船换成爱心\"、\"这个视频帮我改一下\"、\"帮我复刻这段视频\"、\"用这首歌做个MV\"、\"一句话生成短剧\"），都必须触发此技能。",
+      "category": "media",
+      "tags": [
+        "agent",
+        "media"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "libtv-skill/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/libtv-skill",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 262,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "libtv-skill/SKILL.md"
     },
     {
       "name": "market-intelligence-agents",
-      "description": "name: market-intelligence-agents",
-      "path": "/Users/yupeng/cursor-skills/market-intelligence-agents/SKILL.md"
+      "title": "Market Intelligence Agents",
+      "description": "Market Intelligence Lab 的只读投研 Agent 证据辩论技能。用于把股票候选、TradingView signal cluster、crypto/cross-market 风险事件、宏观事件等 EvidencePacket 转成 Bull/Bear/Risk/Manager 四段证据辩论，并输出可写入 Feishu AgentDebates 的结构化 JSON。适用于用户提到 Bull/Bear 多 Agent、证据辩论、AgentDebates、market/social/news/fundamentals/macro/technical 证据包、风险否决、投研 Agent 编排、Codex 自动化证据复盘等场景。禁止输出真实买卖指令、仓位建议或交易准备动作。",
+      "category": "research-intel",
+      "tags": [
+        "agent",
+        "research",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "market-intelligence-agents/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/market-intelligence-agents",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 63,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "market-intelligence-agents/SKILL.md"
     },
     {
       "name": "media-watermark-studio",
-      "description": "name: media-watermark-studio",
-      "path": "/Users/yupeng/cursor-skills/media-watermark-studio/SKILL.md"
+      "title": "Media Watermark Studio",
+      "description": "授权素材的视频/图片水印处理工作台。用于去视频水印、去图片水印、台标或角标替换、长视频批处理、FFmpeg delogo、半透明 logo 修复、字幕遮挡修复，以及在静态水印 / 移动水印 / 图片修补之间做路线选择。用户提到'去水印'、'替换水印'、'logo 替换'、'长视频去台标'、'delogo'、'视频修复'时触发。",
+      "category": "media",
+      "tags": [
+        "media"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "media-watermark-studio/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/media-watermark-studio",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 199,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "media-watermark-studio/SKILL.md"
     },
     {
       "name": "okr-assistant",
-      "description": "name: okr-assistant",
-      "path": "/Users/yupeng/cursor-skills/okr-assistant/SKILL.md"
+      "title": "OKR 撰写教练 — 帮你把个人 OKR 写好、写得专业",
+      "description": "个人 OKR 撰写与诊断助手。通过苏格拉底式引导帮你从模糊想法产出专业 OKR，内置反模式实时检测和质量门控，确保写出的 OKR「拿给上级看不需要改」。当用户表达\\\"写 OKR\\\"、\\\"制定 OKR\\\"、\\\"帮我看看 OKR\\\"、\\\"OKR 诊断\\\"、\\\"目标制定\\\"、\\\"关键结果\\\"、\\\"季度目标\\\"、\\\"check-in\\\"、\\\"OKR 评分\\\"、\\\"OKR 复盘\\\"等意图时触发。即使用户只是说\\\"下季度我想做什么\\\"或\\\"帮我想想目标\\\"时，也应触发。",
+      "category": "planning",
+      "tags": [
+        "planning"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "okr-assistant/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/okr-assistant",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 290,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "okr-assistant/SKILL.md"
     },
     {
       "name": "openai-agents-sdk-builder",
-      "description": "name: openai-agents-sdk-builder",
-      "path": "/Users/yupeng/cursor-skills/openai-agents-sdk-builder/SKILL.md"
+      "title": "OpenAI Agents SDK Builder",
+      "description": "OpenAI Agents SDK 应用开发与验证 Skill。用于设计或实现基于 openai-agents Python SDK 的多 Agent workflow、handoffs、agents-as-tools、tools、guardrails、sessions、tracing、sandbox agents、human-in-the-loop 和 runtime behavior probes。当用户要构建 OpenAI Agents 应用、评估 Agents SDK 架构、编写多代理 Python 原型、调试 Agents SDK 行为或沉淀官方 openai-agents-python repo 的开发/验证模式时触发。涉及当前 OpenAI API 参数或模型能力时必须配合 openai-docs。",
+      "category": "research-intel",
+      "tags": [
+        "agent",
+        "automation",
+        "engineering",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "openai-agents-sdk-builder/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/openai-agents-sdk-builder",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 101,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "openai-agents-sdk-builder/SKILL.md"
     },
     {
       "name": "optimize-short-video-prompts",
-      "description": "name: optimize-short-video-prompts",
-      "path": "/Users/yupeng/cursor-skills/optimize-short-video-prompts/SKILL.md"
+      "title": "Optimize Short Video Prompts",
+      "description": "Research-backed workflow for optimizing AI short-video prompts and talking-head scripts. Use when Codex needs to turn a topic into traffic-oriented vertical video concepts, rewrite private-domain talking-head copy into lip-sync-friendly scripts, keep a fixed real person or reference image consistent while changing scene or emotion, or adapt prompts for tools such as Liblib/LibTV, Kling, Runway, Veo, or Sora.",
+      "category": "media",
+      "tags": [
+        "agent",
+        "automation",
+        "content",
+        "media",
+        "research"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "optimize-short-video-prompts/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/optimize-short-video-prompts",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 478,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "optimize-short-video-prompts/SKILL.md"
     },
     {
       "name": "outcome-first-product-shaping",
-      "description": "name: outcome-first-product-shaping",
-      "path": "/Users/yupeng/cursor-skills/outcome-first-product-shaping/SKILL.md"
+      "title": "Outcome-First Product Shaping",
+      "description": "Outcome-first 的产品 shaping skill。用于 agent-native / operator-outcome 产品在实现前先判断什么值得做：默认路径变更、workspace/dashboard/control-center 扩张、自主能力扩大、新页面/卡片/抽屉、生命周期设计等。强制 repo-truth-first、operator job、measurable outcome、placement、boundaries、Subtraction / What Stays Out。",
+      "category": "planning",
+      "tags": [
+        "agent",
+        "engineering",
+        "planning"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "outcome-first-product-shaping/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/outcome-first-product-shaping",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 134,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "outcome-first-product-shaping/SKILL.md"
     },
     {
       "name": "persistent-execution-loop",
-      "description": "name: persistent-execution-loop",
-      "path": "/Users/yupeng/cursor-skills/persistent-execution-loop/SKILL.md"
+      "title": "Persistent Execution Loop — 持久执行与验证闭环",
+      "description": "持久执行与验证闭环 Skill。用于长任务、多阶段实现、持续修测试、执行到完成、上下文易丢失的工作流；把计划、进度、验证证据和复盘沉淀到本地可审计 artifacts，并按需衔接 writing-plans、project-retrospective 与 automation。用户提到“持续推进”“一直执行直到完成”“keep going until done”“验证闭环”“长任务状态”“别停在计划”“修到测试通过”等意图时触发。",
+      "category": "planning",
+      "tags": [
+        "agent",
+        "automation",
+        "planning"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "persistent-execution-loop/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/persistent-execution-loop",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 121,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "persistent-execution-loop/SKILL.md"
     },
     {
       "name": "pine-quant-engineer",
-      "description": "name: pine-quant-engineer",
-      "path": "/Users/yupeng/cursor-skills/pine-quant-engineer/SKILL.md"
+      "title": "Pine Quant Engineer",
+      "description": "Pine Script 指标/策略研发与量化验证工程 Skill。用于审计和优化 TradingView Pine v6 指标、把 indicator 改造成可回测 strategy、设计非重绘/MTF/alert/风控规则、制定消融实验和参数稳健性验证，并输出可复盘的回测报告。当用户提到 Pine 指标、TradingView strategy、策略回测、指标工程、量化机构策略、BOS/CHoCH、FVG、MTF、repaint、Strategy Tester、Deep Backtesting、Bar Magnifier、参数优化时触发。默认只做研究、回测和人工决策辅助，不做自动下单。",
+      "category": "research-intel",
+      "tags": [
+        "agent",
+        "research",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "pine-quant-engineer/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/pine-quant-engineer",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 99,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "pine-quant-engineer/SKILL.md"
     },
     {
       "name": "ppt-image-workflow",
-      "description": "name: ppt-image-workflow",
-      "path": "/Users/yupeng/cursor-skills/ppt-image-workflow/SKILL.md"
+      "title": "PPT Image Workflow",
+      "description": "PPT 生图与完整交付工作流 Skill。用于把 idea、outline、文档或已有页面需求落成完整 PPT，并把整页生图、局部改图、封面/机制图/教材图、图文混排和最终导出整合到同一套流程里。当用户提到“PPT 生图”“整页 PPT 图”“Vibe PPT”“做一份完整 PPT”“封面/单页/全套 slide 生成”“图文一体 PPT”“PPT 改图/重绘/局部修改”“课件插图/机制图/教材图”等意图时触发。默认与 `presentations` / `$PowerPoint` 和 `imagegen` 联动；最终验收物必须是完整 PPT，而不是只给文案或 prompt。",
+      "category": "media",
+      "tags": [
+        "agent",
+        "automation",
+        "content",
+        "design",
+        "media"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "ppt-image-workflow/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/ppt-image-workflow",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 90,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "ppt-image-workflow/SKILL.md"
     },
     {
       "name": "private-domain-growth-system",
-      "description": "name: private-domain-growth-system",
-      "path": "/Users/yupeng/cursor-skills/private-domain-growth-system/SKILL.md"
+      "title": "私域获客系统",
+      "description": "私域获客系统设计与运营技能。用于设计、管理、维护和迭代以中国区为主的私域获客体系，覆盖公域内容引流、资料钩子设计、承接链路、标签与欢迎语、企微/微信群运营、AI 提效、数据分析、复盘迭代，以及基于证据的私域文章/文档写作。当用户提到“私域获客”“引流到微信/企微/群”“写私域文章”“欢迎语”“标签体系”“资料包”“训练营转化”“AI 私域运营”“线索管理”“私域 SOP”“私域飞轮”“知识付费引流”等意图时触发。即使用户只是说“帮我做一套私域打法”“帮我持续写私域内容”“看看这个链路怎么优化”，也应触发。文章写作只是模块之一，不要把本技能降级为文案生成器。",
+      "category": "other",
+      "tags": [
+        "other"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "private-domain-growth-system/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/private-domain-growth-system",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 303,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "private-domain-growth-system/SKILL.md"
+    },
+    {
+      "name": "product-experience-shaping",
+      "title": "Product Experience Shaping",
+      "description": "Shape product ideas into outcome-focused requirements, UX loops, screen contracts, and acceptance gates before design or code generation. Use when the user provides a product brief, asks to reduce AI-looking product design, needs PRD/UX shaping, or wants the first stage of a design-to-code chain.",
+      "category": "product-design",
+      "tags": [
+        "design",
+        "engineering",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "product-experience-shaping/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/product-experience-shaping",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 43,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "product-experience-shaping/SKILL.md"
     },
     {
       "name": "project-retrospective",
-      "description": "name: project-retrospective",
-      "path": "/Users/yupeng/cursor-skills/project-retrospective/SKILL.md"
+      "title": "项目经验沉淀与复用专家",
+      "description": "项目经验沉淀与复用专家。帮助结构化提取项目中的技术决策、踩坑记录、架构演进等经验，并在新项目中按需检索复用。当用户表达\"沉淀项目经验\"、\"项目复盘\"、\"总结踩坑\"、\"经验归档\"、\"查看相关经验\"、\"有没有类似的坑\"、\"retrospective\"、\"lessons learned\"、\"postmortem\"等意图时触发。即使用户只是说\"这次踩了个坑，记录一下\"或\"之前有没有遇到过类似问题\"，也应触发。",
+      "category": "planning",
+      "tags": [
+        "planning"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "project-retrospective/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/project-retrospective",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 240,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "project-retrospective/SKILL.md"
     },
     {
       "name": "research-driven-planner",
-      "description": "name: research-driven-planner",
-      "path": "/Users/yupeng/cursor-skills/research-driven-planner/SKILL.md"
+      "title": "Research-Driven Planner — 站在巨人肩膀上做方案",
+      "description": "调研驱动的项目规划。在设计系统或做技术选型之前，先系统化搜索业界现有方案、分析开源项目、学习参考实现，再站在巨人肩膀上设计自己的方案。当用户表达'做一个XX系统'、'设计一个XX方案'、'调研一下XX怎么做'、'看看别人怎么做的'、'有没有现成的方案'、'技术选型'、'架构设计'等意图时触发。涉及3+模块的系统设计、Build vs Buy 决策、开源方案评估也应触发。即使用户只是说'帮我做个XX'，只要任务涉及架构决策，也应触发调研环节。",
+      "category": "planning",
+      "tags": [
+        "planning",
+        "research"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "research-driven-planner/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/research-driven-planner",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 254,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "research-driven-planner/SKILL.md"
+    },
+    {
+      "name": "review-judge",
+      "title": "Review Judge",
+      "description": "Evaluate AI or human code review comments against actual repository code, tests, diffs, call sites, and project conventions. Use when the user asks whether review suggestions, MR comments, IDE AI comments, or code-review feedback are valid, worth accepting, should be rejected, or need ROI-based triage.",
+      "category": "engineering",
+      "tags": [
+        "engineering"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "review-judge/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/review-judge",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 93,
+        "tokenTier": "excellent",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "review-judge/SKILL.md"
     },
     {
       "name": "share-writer",
-      "description": "name: share-writer",
-      "path": "/Users/yupeng/cursor-skills/share-writer/SKILL.md"
+      "title": "分享文章编写助手",
+      "description": "分享文章编写助手。根据用户主题或素材，生成适合团队分享场景的结构化文档。支持知识类分享（概念/原理）和实践类分享（案例/教程）。遵循金字塔原理、MECE 原则和技术文档最佳实践。当用户表达\"写分享\"、\"准备分享\"、\"team sharing\"、\"技术分享\"、\"写一篇文章给团队\"、\"整理成分享文档\"等意图时触发。即使用户只是说\"帮我整理一下这个内容\"或\"写篇文章讲讲这个\"，只要涉及面向他人的知识传递，也应触发。",
+      "category": "content",
+      "tags": [
+        "content"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "share-writer/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/share-writer",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 341,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "share-writer/SKILL.md"
     },
     {
       "name": "site-builder",
-      "description": "name: site-builder",
-      "path": "/Users/yupeng/cursor-skills/site-builder/SKILL.md"
+      "title": "Site Builder",
+      "description": "Build product showcase websites (B2B/B2C) with pluggable data providers, multi-language support, and automated deployment. Handles the full lifecycle from product data extraction (PDF/Excel), design system creation, page development, responsive adaptation, automated acceptance testing (Playwright + Lighthouse), to Vercel deployment. Use when the user asks to build a website, create a product site, make a landing page, build an independent site (独立站), or mentions site building, web development for product showcases, or overseas e-commerce storefronts.",
+      "category": "research-intel",
+      "tags": [
+        "design",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "site-builder/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/site-builder",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 600,
+        "tokenTier": "optimize",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "site-builder/SKILL.md"
     },
     {
       "name": "skill-from-masters",
-      "description": "name: skill-from-masters",
-      "path": "/Users/yupeng/cursor-skills/skill-from-masters/SKILL.md"
+      "title": "Skill From Masters - 站在巨人肩膀上创建 Skill",
+      "description": "从专家方法论创建 Skill。自动搜索并融合领域专家的最佳实践、框架和方法论来创建高质量技能。当用户表达\"创建 XX Skill\"、\"帮我做一个 XX 助手\"、\"需要一个 XX 工具\"、\"写个 XX 技能\"等意图时触发。即使用户没有明确说\"skill\"，只要描述了一个需要专业方法论支撑的重复性工作流，也应考虑触发。",
+      "category": "knowledge",
+      "tags": [
+        "agent",
+        "knowledge"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "skill-from-masters/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/skill-from-masters",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 480,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "skill-from-masters/SKILL.md"
     },
     {
       "name": "stagehand-automation",
-      "description": "name: stagehand-automation",
-      "path": "/Users/yupeng/cursor-skills/stagehand-automation/SKILL.md"
+      "title": "Stagehand 浏览器自动化专家",
+      "description": "Stagehand 浏览器自动化专家。当用户表达\"浏览器自动化\"、\"AI 自动化测试\"、\"网页爬虫\"、\"数据提取\"、\"E2E 测试\"、\"Stagehand\"、\"自愈测试\"、\"自然语言操作浏览器\"等意图时触发。帮助编写代码+AI混合控制的浏览器自动化脚本。",
+      "category": "engineering",
+      "tags": [
+        "automation",
+        "engineering"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "stagehand-automation/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/stagehand-automation",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 478,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "stagehand-automation/SKILL.md"
+    },
+    {
+      "name": "tdesign-d2c",
+      "title": "TDesign D2C",
+      "description": "Convert Figma designs into maintainable code with the TDesign D2C workflow: Figma REST extraction, HTML context, component analysis, TDesign/business component mapping, docs/icon lookup, code generation guidance, and visual comparison. Use when a task provides a Figma URL, requests design-to-code, asks to evaluate or run TDesign D2C, or needs component-library-aware D2C for React, Vue, MiniProgram, UniApp, Flutter, or HTML.",
+      "category": "product-design",
+      "tags": [
+        "automation",
+        "design",
+        "engineering",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "tdesign-d2c/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/tdesign-d2c",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 104,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "tdesign-d2c/SKILL.md"
     },
     {
       "name": "tech-review",
-      "description": "name: tech-review",
-      "path": "/Users/yupeng/cursor-skills/tech-review/SKILL.md"
+      "title": "Tech Review - 技术架构评审专家",
+      "description": "技术架构评审专家。融合 ATAM、AWS Well-Architected、Martin Fowler 架构原则，从多维度系统性评审技术方案。当用户表达\"评审技术方案\"、\"架构评审\"、\"review 架构\"、\"方案挑战\"、\"帮我看看这个设计\"、\"这个架构有什么问题\"、\"技术选型评估\"等意图时触发。适合微服务拆分、云迁移架构、高并发系统设计、技术选型等评审场景，即使用户没有明确说\"评审\"，只要涉及对架构或技术方案的质疑和分析，也应触发。",
+      "category": "engineering",
+      "tags": [
+        "engineering"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "tech-review/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/tech-review",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 473,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "tech-review/SKILL.md"
     },
     {
       "name": "tradingview-signal-monitor",
-      "description": "name: tradingview-signal-monitor",
-      "path": "/Users/yupeng/cursor-skills/tradingview-signal-monitor/SKILL.md"
+      "title": "TradingView Signal Monitor",
+      "description": "TradingView 信号监控与 Codex 复盘技能。用于把 TradingView alert/webhook 信号通过飞书流程沉淀到飞书多维表，或兜底写入本地 JSONL 台账；查询美股和 crypto 监控信号，生成 Codex 驱动的盘中/日终复盘摘要，并按需通过飞书通知。当用户提到 TradingView 告警、Pine 脚本信号、选股监控、crypto 监控、飞书多维表信号台账、盘中复盘、Codex 自动化复盘、TradingView webhook 等意图时触发。首版不做自动下单、不接券商 API、不绕过 TradingView 数据授权。",
+      "category": "research-intel",
+      "tags": [
+        "agent",
+        "research",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "tradingview-signal-monitor/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/tradingview-signal-monitor",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 262,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "tradingview-signal-monitor/SKILL.md"
     },
     {
       "name": "ui-ux-pro-max",
-      "description": "name: ui-ux-pro-max",
-      "path": "/Users/yupeng/cursor-skills/ui-ux-pro-max/SKILL.md"
+      "title": "UI/UX Pro Max - Design Intelligence (CodeBuddy 适配版)",
+      "description": "UI/UX 设计数据库与规范检查。通过内置数据库检索 57 种 UI 风格、95 个配色方案、56 组字体搭配和 24 种图表类型，提供具体的设计参数和实现代码。当用户需要查询具体的配色方案、字体推荐、风格参考、图表选型时触发。也用于 UI 代码的规范检查（图标、对比度、响应式、无障碍）。与 frontend-design 配合使用：frontend-design 负责设计方向和美学判断，本技能负责提供具体的设计参数和数据。",
+      "category": "product-design",
+      "tags": [
+        "design",
+        "product-design"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "ui-ux-pro-max/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/ui-ux-pro-max",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 228,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "ui-ux-pro-max/SKILL.md"
+    },
+    {
+      "name": "video-copy-agent",
+      "title": "Video Copy Agent",
+      "description": "Agent-friendly CLI for extracting video scripts/copy from public URLs or local video files. Use when the user asks to download a video, inspect supported platforms like Douyin/Xiaohongshu/TikTok/YouTube/Bilibili, extract audio, export subtitles/transcripts, generate a structured copy package, or build/review reusable video-to-copy workflows for Codex.",
+      "category": "media",
+      "tags": [
+        "agent",
+        "automation",
+        "engineering",
+        "media"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "video-copy-agent/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/video-copy-agent",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 122,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "video-copy-agent/SKILL.md"
     },
     {
       "name": "web-design-spec",
-      "description": "name: web-design-spec",
-      "path": "/Users/yupeng/cursor-skills/web-design-spec/SKILL.md"
+      "title": "Web Design",
+      "description": "高品牌感 Web 设计规范 Skill。用于 Landing Page、产品官网、Portfolio、品牌页、博客首页、SaaS 介绍页等视觉主导页面，在编码前先生成可复用 DESIGN.md，并用它约束后续 UI、视觉、动效和响应式实现。当用户明确提到\"先出设计规范\"\"DESIGN.md\"\"参考某网站/截图做网页\"\"做一个高品牌感 landing page/产品页/个人站\"时触发。不用于后台 Dashboard、常规组件微调、纯 UI bugfix、后端、数据库、低品牌诉求页面；这些任务优先使用 frontend-design、site-builder 或具体工程 Skill。",
+      "category": "research-intel",
+      "tags": [
+        "agent",
+        "design",
+        "research-intel"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "web-design-spec/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/web-design-spec",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 400,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "web-design-spec/SKILL.md"
     },
     {
       "name": "wechat-moments-operator",
-      "description": "name: wechat-moments-operator",
-      "path": "/Users/yupeng/cursor-skills/wechat-moments-operator/SKILL.md"
+      "title": "WeChat Moments Operator",
+      "description": "证据驱动的微信朋友圈与公众号内容运营 Skill。用于把一个主题、新闻、公开资料、别人的朋友圈/公众号文案、短视频选题或个人观点，转化为符合用户个人风格的朋友圈文案、公众号发文、配图方案、互动评论和可信信源。重点覆盖私域流量、AI、交易、大学生考研、求职与生涯规划，但正文不能堆业务关键词。触发词包括“朋友圈文案”“朋友圈运营”“微信朋友圈”“私域朋友圈”“朋友圈配图”“公众号发文”“公众号文章”“公众号标题/摘要/封面”“帮我改成我的风格”“拿这个消息写朋友圈”“考研/求职/交易/AI 朋友圈”等。必须先做事实核查和信源分级，不制造假消息、不伪造数据；文案必须经过 dbs 系列方法检查，价值和判断优先，不刻意埋钩子；输出必须给适合首评或文末的官方/优质信源；配图默认给中文 imagegen 提示词，图片逻辑必须贴合本条内容的单一结论和自然场景，用户明确要生成图时在事实核查后直接调用图片生成能力。",
+      "category": "media",
+      "tags": [
+        "agent",
+        "content",
+        "media"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "wechat-moments-operator/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": true,
+      "hasReferences": true,
+      "agentInterface": {
+        "invocation": "/wechat-moments-operator",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 327,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "wechat-moments-operator/SKILL.md"
     },
     {
       "name": "writing-plans",
-      "description": "name: writing-plans",
-      "path": "/Users/yupeng/cursor-skills/writing-plans/SKILL.md"
+      "title": "Writing Plans — 从设计到执行",
+      "description": "在已有需求或设计后，产出可直接执行的实现计划（精确到文件、测试与验收命令）。用于多步骤任务、跨文件改动、多人协作交接，或用户要求“先出实施计划”时。与 Plan Mode 互补：Plan Mode 负责探索与澄清，本技能负责标准化落地计划。",
+      "category": "other",
+      "tags": [
+        "other"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "writing-plans/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/writing-plans",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 158,
+        "tokenTier": "good",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "writing-plans/SKILL.md"
     },
     {
       "name": "yt-dlp",
-      "description": "name: yt-dlp",
-      "path": "/Users/yupeng/cursor-skills/yt-dlp/SKILL.md"
-    },
-    {
-      "name": "anygen-suite",
-      "description": "name: anygen",
-      "path": "/Users/yupeng/.codex/skills/anygen-suite/SKILL.md"
-    },
-    {
-      "name": "chatgpt-apps",
-      "description": "name: chatgpt-apps",
-      "path": "/Users/yupeng/.codex/skills/chatgpt-apps/SKILL.md"
-    },
-    {
-      "name": "dbs-ai-check",
-      "description": "name: dbs-ai-check",
-      "path": "/Users/yupeng/.codex/skills/dbs-ai-check/SKILL.md"
-    },
-    {
-      "name": "dbs-benchmark",
-      "description": "name: dbs-benchmark",
-      "path": "/Users/yupeng/.codex/skills/dbs-benchmark/SKILL.md"
-    },
-    {
-      "name": "dbs-content",
-      "description": "name: dbs-content",
-      "path": "/Users/yupeng/.codex/skills/dbs-content/SKILL.md"
-    },
-    {
-      "name": "dbs-deconstruct",
-      "description": "name: dbs-deconstruct",
-      "path": "/Users/yupeng/.codex/skills/dbs-deconstruct/SKILL.md"
-    },
-    {
-      "name": "dbs-diagnosis",
-      "description": "name: dbs-diagnosis",
-      "path": "/Users/yupeng/.codex/skills/dbs-diagnosis/SKILL.md"
-    },
-    {
-      "name": "dbs-hook",
-      "description": "name: dbs-hook",
-      "path": "/Users/yupeng/.codex/skills/dbs-hook/SKILL.md"
-    },
-    {
-      "name": "dbs-slowisfast",
-      "description": "name: dbs-slowisfast",
-      "path": "/Users/yupeng/.codex/skills/dbs-slowisfast/SKILL.md"
-    },
-    {
-      "name": "dbs-xhs-title",
-      "description": "name: dbs-xhs-title",
-      "path": "/Users/yupeng/.codex/skills/dbs-xhs-title/SKILL.md"
-    },
-    {
-      "name": "dreamina-cli",
-      "description": "name: dreamina-cli",
-      "path": "/Users/yupeng/.codex/skills/dreamina-cli/SKILL.md"
-    },
-    {
-      "name": "figma",
-      "description": "name: figma",
-      "path": "/Users/yupeng/.codex/skills/figma/SKILL.md"
-    },
-    {
-      "name": "figma-implement-design",
-      "description": "name: \"figma-implement-design\"",
-      "path": "/Users/yupeng/.codex/skills/figma-implement-design/SKILL.md"
-    },
-    {
-      "name": "gh-address-comments",
-      "description": "name: gh-address-comments",
-      "path": "/Users/yupeng/.codex/skills/gh-address-comments/SKILL.md"
-    },
-    {
-      "name": "gh-fix-ci",
-      "description": "name: \"gh-fix-ci\"",
-      "path": "/Users/yupeng/.codex/skills/gh-fix-ci/SKILL.md"
-    },
-    {
-      "name": "imagegen",
-      "description": "name: \"imagegen\"",
-      "path": "/Users/yupeng/.codex/skills/imagegen/SKILL.md"
-    },
-    {
-      "name": "jupyter-notebook",
-      "description": "name: \"jupyter-notebook\"",
-      "path": "/Users/yupeng/.codex/skills/jupyter-notebook/SKILL.md"
-    },
-    {
-      "name": "playwright",
-      "description": "name: \"playwright\"",
-      "path": "/Users/yupeng/.codex/skills/playwright/SKILL.md"
-    },
-    {
-      "name": "playwright-interactive",
-      "description": "name: \"playwright-interactive\"",
-      "path": "/Users/yupeng/.codex/skills/playwright-interactive/SKILL.md"
-    },
-    {
-      "name": "render-deploy",
-      "description": "name: render-deploy",
-      "path": "/Users/yupeng/.codex/skills/render-deploy/SKILL.md"
-    },
-    {
-      "name": "screenshot",
-      "description": "name: \"screenshot\"",
-      "path": "/Users/yupeng/.codex/skills/screenshot/SKILL.md"
-    },
-    {
-      "name": "sora",
-      "description": "name: \"sora\"",
-      "path": "/Users/yupeng/.codex/skills/sora/SKILL.md"
-    },
-    {
-      "name": "speech",
-      "description": "name: \"speech\"",
-      "path": "/Users/yupeng/.codex/skills/speech/SKILL.md"
-    },
-    {
-      "name": "transcribe",
-      "description": "name: \"transcribe\"",
-      "path": "/Users/yupeng/.codex/skills/transcribe/SKILL.md"
-    },
-    {
-      "name": "vercel-deploy",
-      "description": "name: vercel-deploy",
-      "path": "/Users/yupeng/.codex/skills/vercel-deploy/SKILL.md"
-    },
-    {
-      "name": "agent-reach",
-      "description": "name: agent-reach",
-      "path": "/Users/yupeng/.agents/skills/agent-reach/SKILL.md"
-    },
-    {
-      "name": "algorithmic-art",
-      "description": "name: algorithmic-art",
-      "path": "/Users/yupeng/.agents/skills/algorithmic-art/SKILL.md"
-    },
-    {
-      "name": "dbs-ai-check",
-      "description": "name: dbs-ai-check",
-      "path": "/Users/yupeng/.agents/skills/dbs-ai-check/SKILL.md"
-    },
-    {
-      "name": "dbs-benchmark",
-      "description": "name: dbs-benchmark",
-      "path": "/Users/yupeng/.agents/skills/dbs-benchmark/SKILL.md"
-    },
-    {
-      "name": "dbs-content",
-      "description": "name: dbs-content",
-      "path": "/Users/yupeng/.agents/skills/dbs-content/SKILL.md"
-    },
-    {
-      "name": "dbs-deconstruct",
-      "description": "name: dbs-deconstruct",
-      "path": "/Users/yupeng/.agents/skills/dbs-deconstruct/SKILL.md"
-    },
-    {
-      "name": "dbs-diagnosis",
-      "description": "name: dbs-diagnosis",
-      "path": "/Users/yupeng/.agents/skills/dbs-diagnosis/SKILL.md"
-    },
-    {
-      "name": "dbs-hook",
-      "description": "name: dbs-hook",
-      "path": "/Users/yupeng/.agents/skills/dbs-hook/SKILL.md"
-    },
-    {
-      "name": "dbs-slowisfast",
-      "description": "name: dbs-slowisfast",
-      "path": "/Users/yupeng/.agents/skills/dbs-slowisfast/SKILL.md"
-    },
-    {
-      "name": "dbs-xhs-title",
-      "description": "name: dbs-xhs-title",
-      "path": "/Users/yupeng/.agents/skills/dbs-xhs-title/SKILL.md"
-    },
-    {
-      "name": "iwiki-doc",
-      "description": "name: iwiki-doc",
-      "path": "/Users/yupeng/.agents/skills/iwiki-doc/SKILL.md"
-    },
-    {
-      "name": "km",
-      "description": "name: km",
-      "path": "/Users/yupeng/.agents/skills/km/SKILL.md"
-    },
-    {
-      "name": "lark-approval",
-      "description": "name: lark-approval",
-      "path": "/Users/yupeng/.agents/skills/lark-approval/SKILL.md"
-    },
-    {
-      "name": "lark-attendance",
-      "description": "name: lark-attendance",
-      "path": "/Users/yupeng/.agents/skills/lark-attendance/SKILL.md"
-    },
-    {
-      "name": "lark-base",
-      "description": "name: lark-base",
-      "path": "/Users/yupeng/.agents/skills/lark-base/SKILL.md"
-    },
-    {
-      "name": "lark-calendar",
-      "description": "name: lark-calendar",
-      "path": "/Users/yupeng/.agents/skills/lark-calendar/SKILL.md"
-    },
-    {
-      "name": "lark-contact",
-      "description": "name: lark-contact",
-      "path": "/Users/yupeng/.agents/skills/lark-contact/SKILL.md"
-    },
-    {
-      "name": "lark-doc",
-      "description": "name: lark-doc",
-      "path": "/Users/yupeng/.agents/skills/lark-doc/SKILL.md"
-    },
-    {
-      "name": "lark-drive",
-      "description": "name: lark-drive",
-      "path": "/Users/yupeng/.agents/skills/lark-drive/SKILL.md"
-    },
-    {
-      "name": "lark-event",
-      "description": "name: lark-event",
-      "path": "/Users/yupeng/.agents/skills/lark-event/SKILL.md"
-    },
-    {
-      "name": "lark-im",
-      "description": "name: lark-im",
-      "path": "/Users/yupeng/.agents/skills/lark-im/SKILL.md"
-    },
-    {
-      "name": "lark-mail",
-      "description": "name: lark-mail",
-      "path": "/Users/yupeng/.agents/skills/lark-mail/SKILL.md"
-    },
-    {
-      "name": "lark-markdown",
-      "description": "name: lark-markdown",
-      "path": "/Users/yupeng/.agents/skills/lark-markdown/SKILL.md"
-    },
-    {
-      "name": "lark-minutes",
-      "description": "name: lark-minutes",
-      "path": "/Users/yupeng/.agents/skills/lark-minutes/SKILL.md"
-    },
-    {
-      "name": "lark-okr",
-      "description": "name: lark-okr",
-      "path": "/Users/yupeng/.agents/skills/lark-okr/SKILL.md"
-    },
-    {
-      "name": "lark-openapi-explorer",
-      "description": "name: lark-openapi-explorer",
-      "path": "/Users/yupeng/.agents/skills/lark-openapi-explorer/SKILL.md"
-    },
-    {
-      "name": "lark-shared",
-      "description": "name: lark-shared",
-      "path": "/Users/yupeng/.agents/skills/lark-shared/SKILL.md"
-    },
-    {
-      "name": "lark-sheets",
-      "description": "name: lark-sheets",
-      "path": "/Users/yupeng/.agents/skills/lark-sheets/SKILL.md"
-    },
-    {
-      "name": "lark-skill-maker",
-      "description": "name: lark-skill-maker",
-      "path": "/Users/yupeng/.agents/skills/lark-skill-maker/SKILL.md"
-    },
-    {
-      "name": "lark-slides",
-      "description": "name: lark-slides",
-      "path": "/Users/yupeng/.agents/skills/lark-slides/SKILL.md"
-    },
-    {
-      "name": "lark-task",
-      "description": "name: lark-task",
-      "path": "/Users/yupeng/.agents/skills/lark-task/SKILL.md"
-    },
-    {
-      "name": "lark-vc",
-      "description": "name: lark-vc",
-      "path": "/Users/yupeng/.agents/skills/lark-vc/SKILL.md"
-    },
-    {
-      "name": "lark-whiteboard",
-      "description": "name: lark-whiteboard",
-      "path": "/Users/yupeng/.agents/skills/lark-whiteboard/SKILL.md"
-    },
-    {
-      "name": "lark-whiteboard-cli",
-      "description": "name: lark-whiteboard-cli",
-      "path": "/Users/yupeng/.agents/skills/lark-whiteboard-cli/SKILL.md"
-    },
-    {
-      "name": "lark-wiki",
-      "description": "name: lark-wiki",
-      "path": "/Users/yupeng/.agents/skills/lark-wiki/SKILL.md"
-    },
-    {
-      "name": "lark-workflow-meeting-summary",
-      "description": "name: lark-workflow-meeting-summary",
-      "path": "/Users/yupeng/.agents/skills/lark-workflow-meeting-summary/SKILL.md"
-    },
-    {
-      "name": "lark-workflow-standup-report",
-      "description": "name: lark-workflow-standup-report",
-      "path": "/Users/yupeng/.agents/skills/lark-workflow-standup-report/SKILL.md"
-    },
-    {
-      "name": "longbridge",
-      "description": "name: longbridge",
-      "path": "/Users/yupeng/.agents/skills/longbridge/SKILL.md"
+      "title": "yt-dlp",
+      "description": "YouTube 和视频下载助手。当用户需要下载视频、提取音频、下载播放列表时触发。支持 YouTube、B站等数千个网站，提供格式选择、质量控制、Cookie 认证等功能。",
+      "category": "media",
+      "tags": [
+        "media"
+      ],
+      "visibility": "public",
+      "source": "cursor-skills",
+      "sourcePath": "yt-dlp/SKILL.md",
+      "installTargets": [
+        "claude",
+        "codex",
+        "cursor"
+      ],
+      "hasScripts": false,
+      "hasReferences": false,
+      "agentInterface": {
+        "invocation": "/yt-dlp",
+        "jsonOutput": false,
+        "safeToAutoInstall": true
+      },
+      "validation": {
+        "frontmatter": "pass",
+        "lineCount": 318,
+        "tokenTier": "watch",
+        "lastCheckedAt": "2026-05-09T03:28:50Z",
+        "issues": []
+      },
+      "path": "yt-dlp/SKILL.md"
     }
   ],
   "notes": [
+    {
+      "title": "GLM-5 Coding Agent Serving Scaling Pain：高并发长上下文推理的状态一致性复盘",
+      "date": "2026-05-08",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "GLM-5",
+        "Coding Agent",
+        "推理基础设施",
+        "KV Cache",
+        "PD 分离",
+        "HiCache",
+        "Speculative Decoding",
+        "LayerSplit",
+        "SGLang"
+      ],
+      "slug": "glm5-coding-agent-serving-scaling-pain",
+      "path": "ai-tools/agent-architecture/2026-05-08-glm5-coding-agent-serving-scaling-pain.md",
+      "summary": "**Scaling Law 把模型能力推上去，Scaling Pain 则把 Infra 中所有被短上下文、低并发掩盖的状态一致性债务暴露出来。**"
+    },
+    {
+      "title": "Hatch Pet：把 Skill 从 Prompt 包升级为可验证的 Agent 资产流水线",
+      "date": "2026-05-08",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Codex Skills",
+        "hatch-pet",
+        "Agent 工程",
+        "Harness Engineering",
+        "资产流水线",
+        "多代理协作"
+      ],
+      "slug": "hatch-pet-skill-engineering",
+      "path": "ai-tools/agent-skill/2026-05-08-hatch-pet-skill-engineering.md",
+      "summary": "**Skill 不是让模型“换一种语气工作”，而是把一个领域任务变成 Agent 可执行、可追踪、可恢复、可验收的生产系统。**"
+    },
     {
       "title": "Seedance 2.0 AI 短片创作 SOP：分镜、运镜、参考、剪辑与补帧",
       "date": "2026-04-16",
@@ -3287,9 +4312,9 @@
     "totalProjects": 16,
     "productionProjects": 6,
     "totalAgents": 5,
-    "totalNotes": 185,
+    "totalNotes": 188,
     "totalPatterns": 8,
-    "totalSkills": 103,
+    "totalSkills": 45,
     "totalExperienceArchives": 11
   },
   "techStack": [
@@ -3361,34 +4386,79 @@
   ],
   "timeline": [
     {
+      "date": "2026-05-08",
+      "message": "docs: update agent skill registry",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "fix: harden follow builders report delivery",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "feat: add libtv and video copy skills",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "feat: add ppt image workflow skill",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "feat: add market intelligence and pine research skills",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "feat: expand hyperframes video production workflow",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "feat: extend wechat operator public account workflow",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "feat: add product design-to-code skill chain",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "feat: add review judge skill",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "chore: add engineering quality skill foundation",
+      "project": "cursor-skills"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "docs: add stable pagination design note",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "docs: add glm5 coding agent serving note",
+      "project": "learning-notes"
+    },
+    {
+      "date": "2026-05-08",
+      "message": "docs: add hatch pet skill engineering note",
+      "project": "learning-notes"
+    },
+    {
       "date": "2026-05-02",
       "message": "Initialize Pine quant lab",
       "project": "pine-quant-lab"
     },
     {
       "date": "2026-04-27",
-      "message": "feat: add wechat moments operator skill",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-27",
       "message": "chore: initialize wechat moments ops workspace",
       "project": "wechat-moments-ops"
-    },
-    {
-      "date": "2026-04-21",
-      "message": "feat: add agent workflow skills",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-20",
-      "message": "feat: add web design spec skill",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-16",
-      "message": "feat: add reusable workflow skills",
-      "project": "cursor-skills"
     },
     {
       "date": "2026-04-16",
@@ -3428,21 +4498,6 @@
     {
       "date": "2026-04-10",
       "message": "docs: add mempalace harness engineering note",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-04-07",
-      "message": "docs: add claude usage limit deep reading",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-04-07",
-      "message": "docs: add awesome design md deep reading",
-      "project": "learning-notes"
-    },
-    {
-      "date": "2026-04-07",
-      "message": "docs: add khazix writer deep reading",
       "project": "learning-notes"
     },
     {
@@ -3494,36 +4549,6 @@
       "date": "2026-04-04",
       "message": "fix: preserve approval status in packet copy",
       "project": "trade-radar"
-    },
-    {
-      "date": "2026-04-03",
-      "message": "feat: add decision framing loop skill",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-01",
-      "message": "feat(okr-assistant): add YAML frontmatter for registry compatibility",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-01",
-      "message": "feat: add okr-assistant skill for personal OKR writing",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-01",
-      "message": "fix(sync-skills): bash 3.2 compatibility for macOS",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-01",
-      "message": "feat: add sync-skills.sh for cross-tool skill synchronization",
-      "project": "cursor-skills"
-    },
-    {
-      "date": "2026-04-01",
-      "message": "feat(content-publisher): add cover image fallback chain and WeChat API dual-path",
-      "project": "cursor-skills"
     },
     {
       "date": "2026-03-31",
@@ -3611,5 +4636,5 @@
       "project": "yinglit-ev"
     }
   ],
-  "extractedAt": "2026-05-05T14:43:45.896Z"
+  "extractedAt": "2026-05-09T03:30:59.975Z"
 }
