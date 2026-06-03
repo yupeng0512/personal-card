@@ -14,16 +14,18 @@ interface NoteInfo {
   summary: string;
 }
 
+interface SourceInfo {
+  repository: string;
+  ref: string;
+  commit: string;
+}
+
 interface NotesData {
   notes: NoteInfo[];
   stats: {
     totalNotes: number;
   };
-  source: {
-    repository: string;
-    ref: string;
-    commit: string;
-  };
+  source: SourceInfo;
   extractedAt: string;
 }
 
@@ -301,17 +303,28 @@ function assertDropGuard(previous: NotesData | null, nextCount: number) {
   }
 }
 
-function hasSameGeneratedContent(previous: NotesData | null, next: Omit<NotesData, 'extractedAt'>): boolean {
+function hasSameNotesContent(previous: NotesData | null, next: Pick<NotesData, 'notes' | 'stats'>): boolean {
   if (!previous) return false;
   return JSON.stringify({
     notes: previous.notes,
     stats: previous.stats,
-    source: previous.source,
   }) === JSON.stringify(next);
 }
 
-function buildSummary(data: NotesData, changed: boolean): string {
+function buildSummary(data: NotesData, changed: boolean, checkedSource: SourceInfo): string {
   const latest = data.notes.slice(0, 5);
+  const sourceLines = [
+    `- Source checked: ${checkedSource.repository}@${checkedSource.commit}`,
+    `- Ref checked: ${checkedSource.ref}`,
+  ];
+
+  if (JSON.stringify(data.source) !== JSON.stringify(checkedSource)) {
+    sourceLines.push(
+      `- Snapshot source: ${data.source.repository}@${data.source.commit}`,
+      `- Snapshot ref: ${data.source.ref}`
+    );
+  }
+
   const skipLines = [...skippedByReason.entries()]
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([reason, count]) => {
@@ -324,8 +337,7 @@ function buildSummary(data: NotesData, changed: boolean): string {
   return [
     '### Learning Notes Sync',
     '',
-    `- Source: ${data.source.repository}@${data.source.commit}`,
-    `- Ref: ${data.source.ref}`,
+    ...sourceLines,
     `- Notes: ${data.stats.totalNotes}`,
     `- Changed: ${changed ? 'yes' : 'no'}`,
     '',
@@ -346,7 +358,7 @@ function main() {
   console.log('Syncing learning notes from:', LEARNING_NOTES_DIR);
   const previous = readJsonSafe<NotesData>(OUTPUT_PATH);
   const notes = extractNotes();
-  const source = {
+  const checkedSource = {
     repository: process.env.LEARNING_NOTES_REPOSITORY || 'yupeng0512/learning-notes',
     ref: process.env.LEARNING_NOTES_REF || runGit(['rev-parse', '--abbrev-ref', 'HEAD']),
     commit: runGit(['rev-parse', 'HEAD']),
@@ -354,23 +366,23 @@ function main() {
 
   assertDropGuard(previous, notes.length);
 
-  const nextWithoutExtractedAt = {
+  const nextNotesContent = {
     notes,
     stats: {
       totalNotes: notes.length,
     },
-    source,
   };
 
-  const unchanged = hasSameGeneratedContent(previous, nextWithoutExtractedAt);
+  const unchanged = hasSameNotesContent(previous, nextNotesContent);
   const data: NotesData = {
-    ...nextWithoutExtractedAt,
+    ...nextNotesContent,
+    source: unchanged && previous?.source ? previous.source : checkedSource,
     extractedAt: unchanged && previous?.extractedAt ? previous.extractedAt : new Date().toISOString(),
   };
 
   writeFileSync(OUTPUT_PATH, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
 
-  const summary = buildSummary(data, !unchanged);
+  const summary = buildSummary(data, !unchanged, checkedSource);
   console.log(summary);
   if (process.env.GITHUB_STEP_SUMMARY) {
     appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`, 'utf-8');
