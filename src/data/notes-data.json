@@ -1,0 +1,3423 @@
+{
+  "notes": [
+    {
+      "title": "ADHD 并行发散：让 Agent 越过正确但无聊的答案",
+      "date": "2026-06-03",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "agent-architecture",
+        "divergent-thinking",
+        "inference-time-compute",
+        "multi-agent",
+        "skills",
+        "claude-code",
+        "codex",
+        "creativity",
+        "evaluator"
+      ],
+      "slug": "adhd-parallel-divergent-ideation-agent",
+      "path": "ai-tools/agent-architecture/2026-06-03-adhd-parallel-divergent-ideation-agent.md",
+      "summary": "让 Agent 产出眼前一亮的点，不是要求它“更有创意”，而是改变它在推理时探索解空间的方式：先用彼此隔离的强约束视角制造真正不同的候选，再用独立批评者筛出“非显然、可落地、能改变问题结构”的幸存者。"
+    },
+    {
+      "title": "Self-Improving Agent 论文谱系：从反思记忆到可训练的 Agent 外部状态",
+      "date": "2026-06-03",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Self-Improving Agent",
+        "Self-Evolving Agent",
+        "Agent Architecture",
+        "Reflexion",
+        "Self-Refine",
+        "MetaGPT",
+        "GPTSwarm",
+        "Agent-as-a-Judge",
+        "Claude Dreaming",
+        "SkillOpt",
+        "ADAS",
+        "ACE",
+        "SAGE",
+        "ReVeal",
+        "Agent Evaluation"
+      ],
+      "slug": "self-improving-agent-papers-survey",
+      "path": "ai-tools/agent-architecture/2026-06-03-self-improving-agent-papers-survey.md",
+      "summary": "**Self-improving Agent 不是一个能无限自我飞升的模型，而是一套能把执行轨迹变成可验证更新的工程闭环。**"
+    },
+    {
+      "title": "Claude Code 团队内部工作原则：AI 原生工程组织的瓶颈迁移",
+      "date": "2026-06-03",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "Claude Code",
+        "AI-native engineering",
+        "engineering management",
+        "code review",
+        "verification",
+        "JIT planning",
+        "org design",
+        "automation",
+        "Claude Cowork"
+      ],
+      "slug": "claude-code-ai-native-engineering-org-principles",
+      "path": "ai-tools/claude-code/2026-06-03-claude-code-ai-native-engineering-org-principles.md",
+      "summary": "当代码生成成本下降到不再是主瓶颈时，工程管理的中心任务会从“分配稀缺工程产能”转向“管理高吞吐代码流带来的验证、上下文、安全、维护和判断力瓶颈”。"
+    },
+    {
+      "title": "Garden Skills：把创作型 Agent 从提示词请求改造成生产线系统",
+      "date": "2026-06-02",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Garden Skills",
+        "ConardLi",
+        "Agent Skills",
+        "Web Video",
+        "Web Design",
+        "GPT Image 2",
+        "Knowledge Retrieval",
+        "Creative Workflow",
+        "Production Line",
+        "Codex",
+        "Cursor",
+        "Claude Code"
+      ],
+      "slug": "garden-skills-creative-production-line",
+      "path": "ai-tools/agent-skill/2026-06-02-garden-skills-creative-production-line.md",
+      "summary": "**Garden Skills 的价值，不在于给 Agent 更多风格词，而在于把创作任务从一次性 prompt 改造成可验收、可返工、可迁移的生产线。**"
+    },
+    {
+      "title": "AI 组织 Center：人 + Agent 混合团队的协作中枢三层架构",
+      "date": "2026-06-01",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "AI Organization",
+        "AI Teammates",
+        "Human-Agent Team",
+        "Agent Native IM",
+        "Organization Memory",
+        "Agentic OS",
+        "Context Engineering",
+        "Frontier Firm",
+        "Ambient Agents",
+        "AI Workforce"
+      ],
+      "slug": "ai-native-organization-center",
+      "path": "ai-tools/industry/2026-06-01-ai-native-organization-center.md",
+      "summary": "**AI 组织要搬到 AI 上，不是把员工换成 Agent，而是把组织的沟通、记忆、能力和授权都改造成 Agent 可参与、可回放、可治理的系统。**"
+    },
+    {
+      "title": "Hermes Agent vs OpenClaw：自我成长型 Agent 与本地网关型个人助手的分野",
+      "date": "2026-05-31",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Hermes Agent",
+        "OpenClaw",
+        "Agent Harness",
+        "Gateway",
+        "Memory",
+        "Skills",
+        "Self-Improving Agent",
+        "AgentSkills",
+        "Multi-Agent Routing",
+        "Personal AI Assistant"
+      ],
+      "slug": "hermes-agent-vs-openclaw-agent-harness",
+      "path": "ai-tools/agent-architecture/2026-05-31-hermes-agent-vs-openclaw-agent-harness.md",
+      "summary": "**Hermes 和 OpenClaw 的核心区别，不是“谁支持更多功能”，而是增长方向不同：Hermes 把 Agent 自我学习做成产品内核，OpenClaw 把本地网关、渠道、会话、安全和多 Agent 路由做成产品内核。**"
+    },
+    {
+      "title": "Codex 前端设计工程化：从截图生成到可验证 UI 交付闭环",
+      "date": "2026-05-31",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "Codex",
+        "Frontend Design",
+        "Playwright",
+        "Figma MCP",
+        "Visual Regression",
+        "Design System",
+        "AI Coding",
+        "Harness Engineering",
+        "Accessibility",
+        "Web Vitals"
+      ],
+      "slug": "codex-frontend-design-engineering",
+      "path": "ai-tools/ai-ide/2026-05-31-codex-frontend-design-engineering.md",
+      "summary": "**Codex 做前端设计的关键，不是把截图交给模型，而是把视觉参考变成可执行、可验证、可回归的前端工程任务。**"
+    },
+    {
+      "title": "SkillOpt：把 Agent Skill 从手写提示词训练成可验证资产",
+      "date": "2026-05-29",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "SkillOpt",
+        "Agent Skills",
+        "Skill Optimization",
+        "Text-Space Optimization",
+        "Harness Engineering",
+        "Eval Gate",
+        "Prompt Optimization",
+        "Skill CI",
+        "Codex",
+        "Claude Code"
+      ],
+      "slug": "skillopt-self-evolving-agent-skills",
+      "path": "ai-tools/agent-skill/2026-05-29-skillopt-self-evolving-agent-skills.md",
+      "summary": "SkillOpt 的根节点命题是：**Agent Skill 是冻结模型的可训练外部状态；优化 Skill 的正确方式不是无限追加规则，而是用可评分轨迹驱动小步文本更新，并用独立验证门禁选择版本。**"
+    },
+    {
+      "title": "Agent Harness Engineering Survey：ETCLOVG 七层把 Agent 从框架带到平台",
+      "date": "2026-05-28",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Agent Harness",
+        "ETCLOVG",
+        "Harness Engineering",
+        "Agent Platform",
+        "Observability",
+        "Governance",
+        "Evaluation",
+        "Context Engineering",
+        "Sandbox",
+        "Tooling"
+      ],
+      "slug": "agent-harness-engineering-survey-etclovg",
+      "path": "ai-tools/agent-architecture/2026-05-28-agent-harness-engineering-survey-etclovg.md",
+      "summary": "Agent Harness 是把概率模型变成可运行系统的控制层；Agent 产品的竞争，不再只是谁的模型更强，而是谁能让模型在真实环境里可执行、可追踪、可验证、可治理、可恢复。"
+    },
+    {
+      "title": "TELOS：用三色带协议把 Agent Token 成本从缓存失效里救回来",
+      "date": "2026-05-28",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "TELOS",
+        "token-cost",
+        "prefix-cache",
+        "KV Cache",
+        "Agent Harness",
+        "Context Engineering",
+        "Prompt Cache",
+        "DeepSeek",
+        "OpenClaw",
+        "Codex",
+        "Hermes"
+      ],
+      "slug": "telos-token-savings-prefix-cache-protocol",
+      "path": "ai-tools/agent-architecture/2026-05-28-telos-token-savings-prefix-cache-protocol.md",
+      "summary": "Agent Token 节省的根问题，不是“怎么压缩更多上下文”，而是“如何让已经付过钱的稳定前缀不被动态噪声污染”。TELOS 把这个问题从 prompt 编写习惯升级为可验证的上下文协议。"
+    },
+    {
+      "title": "Claude Code 自修复配置：把 CLAUDE.md、Hooks 和记忆迁移成 Codex Harness",
+      "date": "2026-05-28",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "Claude Code",
+        "Hooks",
+        "CLAUDE.md",
+        "Auto Memory",
+        "Codex",
+        "AGENTS.md",
+        "Harness Engineering",
+        "Quality Gate",
+        "Self-Healing",
+        "Execpolicy"
+      ],
+      "slug": "claude-code-self-healing-hooks-codex-harness",
+      "path": "ai-tools/claude-code/2026-05-28-claude-code-self-healing-hooks-codex-harness.md",
+      "summary": "Claude Code 自修复配置的根节点，不是“让 Claude 更聪明”，而是“把人类纠错从聊天反馈升级为事件驱动的 Harness：每次文件变更、工具调用、停止输出和跨会话复发错误，都被转化为可执行规则、验证脚本或持久记忆”。"
+    },
+    {
+      "title": "三 Agent 平账系统：用独立审查官和双数据源打破 AI 自证循环",
+      "date": "2026-05-27",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "multi-agent",
+        "harness-engineering",
+        "evaluator",
+        "cross-validation",
+        "agent-memory",
+        "knot",
+        "reconciliation",
+        "llm-as-judge",
+        "observability"
+      ],
+      "slug": "multi-agent-reconciliation-harness-cross-validation",
+      "path": "ai-tools/agent-architecture/2026-05-27-multi-agent-reconciliation-harness-cross-validation.md",
+      "summary": "可靠 Agent 系统不能让同一个认知回路同时生成答案、定义校验口径、解释校验结果；必须把“生成、确定性验证、语义审查、反馈记忆”拆成独立边界，并用外部事实源打断自证循环。"
+    },
+    {
+      "title": "chao-go-sync / chao-go-perf：把 Go 并发与性能知识做成 Agent Skill",
+      "date": "2026-05-27",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Go",
+        "Agent Skill",
+        "Go Concurrency",
+        "Go Performance",
+        "pprof",
+        "Benchmark",
+        "Escape Analysis",
+        "Sync",
+        "Context Engineering",
+        "Code Review"
+      ],
+      "slug": "chao-go-sync-perf-go-expert-skills",
+      "path": "ai-tools/agent-skill/2026-05-27-chao-go-sync-perf-go-expert-skills.md",
+      "summary": "本笔记基于用户粘贴文章和两个 GitHub 仓库源码快照整理：`smallnest/chao-go-sync@b70b424`、`smallnest/chao-go-perf@7a60c67`。重点不是复述“两个 Skill 很强”，而是分析它们如何把 Go 并发与性能专家知识变成 Agent 可调用的上下文资产，以及日常 Go 开发中应该如何用。"
+    },
+    {
+      "title": "CLAUDE.md 不是说明书：Agent 配置的上下文预算与规则分层",
+      "date": "2026-05-25",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "agents-md",
+        "context-engineering",
+        "rules",
+        "skills",
+        "hooks",
+        "memory",
+        "ai-coding"
+      ],
+      "slug": "claude-md-context-budget-rules",
+      "path": "ai-tools/claude-code/2026-05-25-claude-md-context-budget-rules.md",
+      "summary": "CLAUDE.md 的本质不是“写给 Agent 的长文档”，而是“每个会话默认注入的高信号行为合约”；它的质量取决于单位 token 的约束密度，而不是覆盖面。"
+    },
+    {
+      "title": "Cola DLM 与 ELF：连续潜空间语言模型把离散化推迟到最后一刻",
+      "date": "2026-05-24",
+      "category": "ai-research",
+      "subcategory": "deep-research",
+      "tags": [
+        "continuous-dlm",
+        "diffusion-language-model",
+        "cola-dlm",
+        "elf",
+        "flow-matching",
+        "text-vae",
+        "dit",
+        "latent-diffusion",
+        "non-autoregressive",
+        "llada"
+      ],
+      "slug": "continuous-latent-dlm-cola-elf",
+      "path": "ai-research/deep-research/2026-05-24-continuous-latent-dlm-cola-elf.md",
+      "summary": "语言以离散 token 呈现，不等于语言模型必须在离散 token 空间里逐步生成；Cola DLM 和 ELF 的共同范式，是把“语义状态演化”和“token 表面实现”解耦，让中间计算停留在连续空间，并把不可逆的离散化推迟到最后一步。"
+    },
+    {
+      "title": "速度是大模型推理的下一个 Scaling Law：TileRT 执行模型精读",
+      "date": "2026-05-22",
+      "category": "ai-ml",
+      "subcategory": "",
+      "tags": [
+        "AI Infra",
+        "LLM Inference",
+        "TileRT",
+        "GLM-5.1",
+        "Persistent Kernel",
+        "Latency",
+        "GPU",
+        "Runtime",
+        "Heterogeneous Worker",
+        "MTP"
+      ],
+      "slug": "tilert-inference-speed-scaling-law",
+      "path": "ai-ml/2026-05-22-tilert-inference-speed-scaling-law.md",
+      "summary": "文章类型：AI Infra / 生产级推理系统 / 官方技术博客"
+    },
+    {
+      "title": "AI Infra 入门：从归一化、Softmax 到采样的数学等价变换",
+      "date": "2026-05-21",
+      "category": "ai-ml",
+      "subcategory": "",
+      "tags": [
+        "AI Infra",
+        "Transformer",
+        "RMSNorm",
+        "Softmax",
+        "FlashAttention",
+        "Online Softmax",
+        "Gumbel-Max",
+        "Sampling",
+        "GPU",
+        "vLLM"
+      ],
+      "slug": "ai-infra-math-to-kernel-optimization",
+      "path": "ai-ml/2026-05-21-ai-infra-math-to-kernel-optimization.md",
+      "summary": "文章类型：技术科普 / AI Infra 入门到进阶"
+    },
+    {
+      "title": "脚本型 Skill：把固定 Agent 工作流 Token 降低 90%",
+      "date": "2026-05-20",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Agent Skill",
+        "Workflow",
+        "Token Optimization",
+        "CLI",
+        "Scripted Workflow",
+        "Harness",
+        "Box AI",
+        "Deterministic Pipeline",
+        "Cost Engineering"
+      ],
+      "slug": "scripted-skill-token-saving-workflow",
+      "path": "ai-tools/agent-skill/2026-05-20-scripted-skill-token-saving-workflow.md",
+      "summary": "本笔记基于用户粘贴文章做结构化精读。文中数据来自作者自测：说明型 Skill 输出 7522 tokens、脚本型 Skill 输出 704 tokens；执行时间从 3 分钟降到 30 秒。本文重点分析这种节省是如何发生的，以及如何迁移到自己的 Agent 工作流。"
+    },
+    {
+      "title": "广告投放 Agent 生产落地：从调通 API 到可控、可评测、可审计的业务执行系统",
+      "date": "2026-05-20",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "广告投放 Agent",
+        "Business Agent",
+        "Harness Engineering",
+        "Skill",
+        "Proposal",
+        "Agent Evaluation",
+        "Observability",
+        "LiteLLM",
+        "Langfuse",
+        "Production Agent"
+      ],
+      "slug": "ad-agent-production-engineering-case",
+      "path": "ai-tools/case-study/2026-05-20-ad-agent-production-engineering-case.md",
+      "summary": "生产级业务 Agent 不是“模型会调用 API”，而是“概率模型在确定性控制系统里执行高风险业务动作”。"
+    },
+    {
+      "title": "Google I/O 2026：从 Gemini 聊天助手到 Agentic Action Layer",
+      "date": "2026-05-20",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "Google I/O 2026",
+        "Gemini 3.5 Flash",
+        "Gemini Omni",
+        "Antigravity",
+        "Gemini Spark",
+        "Agentic Search",
+        "Universal Cart",
+        "UCP",
+        "AP2",
+        "SynthID",
+        "Google Flow",
+        "Google Pics",
+        "Android XR",
+        "AI Industry"
+      ],
+      "slug": "google-io-2026-agentic-gemini-era",
+      "path": "ai-tools/industry/2026-05-20-google-io-2026-agentic-gemini-era.md",
+      "summary": "Google I/O 2026 的根节点命题：Google 正在把 Gemini 从“回答层”升级为“行动层”，并用 Antigravity、Search、Android、Workspace、Commerce、Flow、TPU 和 SynthID 组成一个可执行、可分发、可支付、可追溯的 Agentic Operating Layer。"
+    },
+    {
+      "title": "AI 实践复盘：从多终端手工调度到 Goal-Driven 24h 打工人",
+      "date": "2026-05-20",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "AI Coding",
+        "Vibe Coding",
+        "SDD",
+        "Goal-Driven Agent",
+        "Task-Driven",
+        "Agent Scheduler",
+        "CLI Agents",
+        "Observability",
+        "Control Plane",
+        "Agent Practice"
+      ],
+      "slug": "ai-practice-24h-worker-goal-driven",
+      "path": "ai-tools/vibe-engineering/2026-05-20-ai-practice-24h-worker-goal-driven.md",
+      "summary": "个人 AI Coding 的根节点跃迁，不是从弱模型换到强模型，而是从“人实时管理多个 Agent”升级为“系统用规格、状态、调度、评估和治理来管理 Agent”。"
+    },
+    {
+      "title": "AI 娱乐圈五月复盘：模型商品化后，上下文层和信任层成为护城河",
+      "date": "2026-05-20",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "Context Engineering",
+        "Scaffolding",
+        "Trust Layer",
+        "Skills",
+        "Model Routing",
+        "AI Cost Engineering",
+        "Vibe Coding",
+        "Agent Governance",
+        "Goal-Driven Agent"
+      ],
+      "slug": "context-layer-trust-layer-ai-entertainment-circle",
+      "path": "ai-tools/vibe-engineering/2026-05-20-context-layer-trust-layer-ai-entertainment-circle.md",
+      "summary": "本笔记基于用户粘贴文章做结构化精读。文中涉及的行业新闻和具体数值，本文按原文叙述作为分析材料处理，未逐条外部事实核验。"
+    },
+    {
+      "title": "Matt Pocock Skills：把 AI Coding 从 Prompt 请求改造成工程工作流",
+      "date": "2026-05-19",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Matt Pocock",
+        "Agent Skills",
+        "AI Coding",
+        "Engineering Workflow",
+        "TDD",
+        "Diagnosis",
+        "Domain Modeling",
+        "ADR",
+        "CONTEXT.md",
+        "Claude Code",
+        "Codex",
+        "Cursor"
+      ],
+      "slug": "matt-pocock-skills-engineering-workflows",
+      "path": "ai-tools/agent-skill/2026-05-19-matt-pocock-skills-engineering-workflows.md",
+      "summary": "Matt Pocock Skills 的根节点，不是“给 Agent 增加更多能力”，而是“把人类工程纪律外部化为可组合、可复用、可执行的 Agent 工作协议”。"
+    },
+    {
+      "title": "LLM Observability 3.0：从看见调用到验证智能系统质量",
+      "date": "2026-05-18",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "LLM Observability",
+        "Observability 3.0",
+        "OpenTelemetry GenAI",
+        "Langfuse",
+        "Braintrust",
+        "Phoenix",
+        "LangSmith",
+        "OpenObserve",
+        "Datadog",
+        "Evals",
+        "Prompt Management",
+        "Agent Tracing"
+      ],
+      "slug": "llm-observability-3-quality-eval-trace",
+      "path": "ai-tools/agent-architecture/2026-05-18-llm-observability-3-quality-eval-trace.md",
+      "summary": "LLM Observability 3.0 的本质，不是给 LLM 调用多记几条日志，而是把概率性智能系统的“质量、成本、路径和版本变化”变成可追踪、可评分、可回放、可对比、可发布门禁的工程对象。"
+    },
+    {
+      "title": "Attention Harness：多 Agent 时代的人类注意力控制面",
+      "date": "2026-05-17",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Attention Harness",
+        "Multi-Agent",
+        "Codex Pet",
+        "Qoder",
+        "Cliplet",
+        "Routa",
+        "Human-in-the-loop",
+        "Agent UX",
+        "Notification Routing",
+        "Permission Gate",
+        "Task Handoff"
+      ],
+      "slug": "attention-harness-multi-agent-foreground-control-plane",
+      "path": "ai-tools/agent-architecture/2026-05-17-attention-harness-multi-agent-foreground-control-plane.md",
+      "summary": "当 Agent 可以后台执行、长时间执行、多线程执行时，人类不再只是聊天对象，而会变成多个 Agent 的中断处理器。"
+    },
+    {
+      "title": "SkillFactory：用评测驱动把 Skill 生产从手工作坊升级成工程流水线",
+      "date": "2026-05-15",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "SkillFactory",
+        "Agent Skills",
+        "Skill Creator",
+        "评测驱动",
+        "Harness Engineering",
+        "Trace2Skill",
+        "SkillRL",
+        "TDD",
+        "Skill 工程化",
+        "量化迭代"
+      ],
+      "slug": "skillfactory-eval-driven-skill-production",
+      "path": "ai-tools/agent-skill/2026-05-15-skillfactory-eval-driven-skill-production.md",
+      "summary": "Skill 工厂的本质不是“自动写 SKILL.md”，而是建立一套 Skill 生产的质量控制系统：先量化能力缺口，再并行生成候选，用可重复评测选择版本，用回归闭环证明 Skill 相比裸模型和现有 Skill 产生了稳定净增益。"
+    },
+    {
+      "title": "TencentDB Agent Memory：用上下文卸载和 Mermaid 画布压缩 Agent 短期记忆",
+      "date": "2026-05-14",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Agent Memory",
+        "Context Engineering",
+        "上下文卸载",
+        "Mermaid",
+        "短期记忆",
+        "长期记忆",
+        "OpenClaw",
+        "Codex",
+        "任务画布",
+        "记忆压缩"
+      ],
+      "slug": "tencentdb-agent-memory-context-offload-mermaid-canvas",
+      "path": "ai-tools/agent-architecture/2026-05-14-tencentdb-agent-memory-context-offload-mermaid-canvas.md",
+      "summary": "记忆不是把一切都塞进模型脑子里，而是让信息在离开上下文后仍然可见、可定位、可恢复、可继续执行。"
+    },
+    {
+      "title": "Agent × 飞书 CLI：把企业协同数据变成个人工作操作系统",
+      "date": "2026-05-12",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "飞书CLI",
+        "Lark CLI",
+        "Codex",
+        "Claude Code",
+        "Agent工作流",
+        "信息过载",
+        "任务管理",
+        "会议知识库",
+        "工作复盘",
+        "企业协同",
+        "个人操作系统"
+      ],
+      "slug": "feishu-cli-agent-work-operating-system",
+      "path": "ai-tools/ai-productivity/2026-05-12-feishu-cli-agent-work-operating-system.md",
+      "summary": "Agent 不再只是你的写作或编程助手，而是站在企业协同系统之上，替你读取、汇总、判断、写回、追踪和提醒的工作操作层。"
+    },
+    {
+      "title": "AutoResearch for Development：把 AI Coding 变成自主闭环研发系统",
+      "date": "2026-05-12",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "AutoResearch",
+        "AI Coding",
+        "Autonomous Agent",
+        "Ralph Loop",
+        "Harness Engineering",
+        "Multi-Agent Review",
+        "Quality Gate",
+        "Vibe Engineering",
+        "Agent Workflow"
+      ],
+      "slug": "autoresearch-autonomous-agent-development-loop",
+      "path": "ai-tools/vibe-engineering/2026-05-12-autoresearch-autonomous-agent-development-loop.md",
+      "summary": "Agent 自主高效推进任务的根节点，不是给它更长 prompt 或更多工具，而是把任务变成一个可循环优化的控制系统：目标足够明确，反馈足够机械，评分足够可比较，权限边界足够硬，失败能回流到下一轮，改进才能被保留。"
+    },
+    {
+      "title": "AI 浏览器内容运营流水线：从小红书自动化到可接管的运营系统",
+      "date": "2026-05-10",
+      "category": "ai-tools",
+      "subcategory": "browser-automation",
+      "tags": [
+        "AI浏览器自动化",
+        "内容运营",
+        "小红书",
+        "Playwright",
+        "Chrome扩展",
+        "OpenClaw",
+        "ClawGC",
+        "Human-in-the-loop",
+        "内容流水线"
+      ],
+      "slug": "ai-browser-content-ops-pipeline",
+      "path": "ai-tools/browser-automation/2026-05-10-ai-browser-content-ops-pipeline.md",
+      "summary": "内容运营自动化的根节点不是“让 AI 生成内容”或“让脚本爬平台”，而是把浏览器里的采集、理解、生成、发布、回写、复盘，编排成一条有状态、可审计、可人工接管的内容生产流水线。"
+    },
+    {
+      "title": "AI 时代的新护城河：公司形态、人才身份与组织承诺",
+      "date": "2026-05-10",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "AI公司",
+        "组织设计",
+        "人才战略",
+        "创业",
+        "护城河",
+        "职业选择",
+        "机构形态",
+        "硅谷"
+      ],
+      "slug": "ai-company-shape-organizational-moat",
+      "path": "ai-tools/industry/2026-05-10-ai-company-shape-organizational-moat.md",
+      "summary": "AI 时代的公司护城河，不再主要来自产品界面、功能叙事或短期技术领先，而来自一种难以复制的组织形态：它能吸引某类人、定义他们想成为谁、给他们真实权力，并让他们的判断力随时间复利。"
+    },
+    {
+      "title": "从零实现 GPT-2 推理：把 Transformer 还原成张量流水线",
+      "date": "2026-05-09",
+      "category": "ai-ml",
+      "subcategory": "",
+      "tags": [
+        "LLM",
+        "GPT-2",
+        "推理",
+        "Transformer",
+        "张量编程",
+        "TypeScript",
+        "safetensors",
+        "KV-Cache",
+        "量化",
+        "AI Infra"
+      ],
+      "slug": "gpt2-inference-typescript-tensor-pipeline",
+      "path": "ai-ml/2026-05-09-gpt2-inference-typescript-tensor-pipeline.md",
+      "summary": "LLM 推理的本质，不是“模型在思考”，而是 token 序列在一组已训练权重和确定性算子之间流动，最终把残差流投影回词表空间，再由采样策略选出下一个 token。"
+    },
+    {
+      "title": "Mirage：把 Agent 工具集收敛成统一虚拟文件系统",
+      "date": "2026-05-09",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "VFS",
+        "Bash",
+        "Agent Sandbox",
+        "Tool Use",
+        "MCP",
+        "Data Plane",
+        "FUSE",
+        "Agent 架构"
+      ],
+      "slug": "mirage-unified-vfs-agent-data-plane",
+      "path": "ai-tools/agent-architecture/2026-05-09-mirage-unified-vfs-agent-data-plane.md",
+      "summary": "Mirage 的本质不是“又一个 Agent 框架”，而是给 Agent 提供一层统一数据平面：把分散在 SaaS、对象存储、数据库、远程主机里的资源，映射成文件树和 Unix 命令，让模型用它训练语料里最熟的 Bash 语义完成跨系统读写。"
+    },
+    {
+      "title": "GLM-5 Coding Agent Serving Scaling Pain：高并发长上下文推理的状态一致性复盘",
+      "date": "2026-05-08",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "GLM-5",
+        "Coding Agent",
+        "推理基础设施",
+        "KV Cache",
+        "PD 分离",
+        "HiCache",
+        "Speculative Decoding",
+        "LayerSplit",
+        "SGLang"
+      ],
+      "slug": "glm5-coding-agent-serving-scaling-pain",
+      "path": "ai-tools/agent-architecture/2026-05-08-glm5-coding-agent-serving-scaling-pain.md",
+      "summary": "**Scaling Law 把模型能力推上去，Scaling Pain 则把 Infra 中所有被短上下文、低并发掩盖的状态一致性债务暴露出来。**"
+    },
+    {
+      "title": "Hatch Pet：把 Skill 从 Prompt 包升级为可验证的 Agent 资产流水线",
+      "date": "2026-05-08",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Codex Skills",
+        "hatch-pet",
+        "Agent 工程",
+        "Harness Engineering",
+        "资产流水线",
+        "多代理协作"
+      ],
+      "slug": "hatch-pet-skill-engineering",
+      "path": "ai-tools/agent-skill/2026-05-08-hatch-pet-skill-engineering.md",
+      "summary": "**Skill 不是让模型“换一种语气工作”，而是把一个领域任务变成 Agent 可执行、可追踪、可恢复、可验收的生产系统。**"
+    },
+    {
+      "title": "稳定分页设计：从 Offset 漂移到 Cursor 语义",
+      "date": "2026-05-08",
+      "category": "programming",
+      "subcategory": "",
+      "tags": [
+        "后端设计",
+        "分页",
+        "Cursor",
+        "Offset",
+        "数据一致性",
+        "幂等",
+        "API 设计",
+        "MySQL"
+      ],
+      "slug": "stable-pagination-cursor-offset",
+      "path": "programming/2026-05-08-stable-pagination-cursor-offset.md",
+      "summary": "**稳定分页 = 稳定全序 + 稳定锚点 + 明确场景语义 + 业务幂等兜底。**"
+    },
+    {
+      "title": "Seedance 2.0 AI 短片创作 SOP：分镜、运镜、参考、剪辑与补帧",
+      "date": "2026-04-16",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "Seedance 2.0",
+        "AI 短片",
+        "文生视频",
+        "分镜脚本",
+        "运镜控制",
+        "多模态参考",
+        "剪辑节奏"
+      ],
+      "slug": "seedance-ai-short-film-sop",
+      "path": "ai-tools/ai-video/2026-04-16-seedance-ai-short-film-sop.md",
+      "summary": "AI 短片质量 = 分镜颗粒度 x 运镜明确度 x 参考素材职责清晰度 x 防崩坏约束 x 剪辑节奏 x 后期增强"
+    },
+    {
+      "title": "软件工程 3.0：从人用工具到人管理数字员工",
+      "date": "2026-04-16",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "软件工程 3.0",
+        "数字员工",
+        "Agent 协作",
+        "Architecture-as-Code",
+        "AI-Ops",
+        "One Person Company",
+        "Vibe Engineering"
+      ],
+      "slug": "software-engineering-3-digital-employees",
+      "path": "ai-tools/vibe-engineering/2026-04-16-software-engineering-3-digital-employees.md",
+      "summary": "软件工程 3.0 = 业务复杂度不变 x 实现层自动化 x 架构治理机器可读 x 人类判断力放大"
+    },
+    {
+      "title": "VibeFlow：把 AI Coding 从代码生成升级为可治理研发流水线",
+      "date": "2026-04-16",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "VibeFlow",
+        "Harness Engineering",
+        "Vibe Coding",
+        "AI Coding",
+        "Context Engineering",
+        "SDD",
+        "研发流程"
+      ],
+      "slug": "vibeflow-governed-ai-rd-harness",
+      "path": "ai-tools/vibe-engineering/2026-04-16-vibeflow-governed-ai-rd-harness.md",
+      "summary": "可交付 AI 研发 = 结构化输入 x 领域上下文 x 分层规格 x 运行时验证 x 反馈回写"
+    },
+    {
+      "title": "GBrain：把个人长期知识编译成 Agent 可检索的第二大脑",
+      "date": "2026-04-15",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "gbrain",
+        "ai-memory",
+        "second-brain",
+        "mcp",
+        "openclaw",
+        "codex"
+      ],
+      "slug": "gbrain-compiled-truth-timeline-second-brain",
+      "path": "ai-tools/agent-architecture/2026-04-15-gbrain-compiled-truth-timeline-second-brain.md",
+      "summary": ""
+    },
+    {
+      "title": "GSD / Get Shit Done：把 context rot 外包给阶段化 AI 开发流水线",
+      "date": "2026-04-15",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "GSD",
+        "Get Shit Done",
+        "Context Engineering",
+        "Spec-Driven Development",
+        "Claude Code",
+        "Codex",
+        "AI IDE"
+      ],
+      "slug": "gsd-get-shit-done-context-rot-workflow",
+      "path": "ai-tools/ai-ide/2026-04-15-gsd-get-shit-done-context-rot-workflow.md",
+      "summary": "GSD 的根节点，不是“又一个 AI 编程工具”，而是把长项目里最容易在对话中腐烂的上下文，外包给阶段化文件系统和可回放的执行流水线。"
+    },
+    {
+      "title": "SeeDance 2.0 提示词精华：把视频生成写成导演分镜脚本",
+      "date": "2026-04-10",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "SeeDance 2.0",
+        "Video Generation",
+        "Prompt Engineering",
+        "Multimodal Reference",
+        "Storyboard"
+      ],
+      "slug": "seedance-video-prompt-patterns",
+      "path": "ai-tools/ai-video/2026-04-10-seedance-video-prompt-patterns.md",
+      "summary": "视频生成 prompt 的本质，不是“描述一张会动的图”，而是把导演脑中的镜头规划、素材分工和时序逻辑，翻译成模型能执行的分镜脚本。"
+    },
+    {
+      "title": "MemPalace × Harness Engineering：让 AI 团队拥有持续记忆",
+      "date": "2026-04-10",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "mempalace",
+        "harness-engineering",
+        "ai-memory",
+        "content-ops",
+        "case-study"
+      ],
+      "slug": "mempalace-harness-engineering-ai-team-memory",
+      "path": "ai-tools/case-study/2026-04-10-mempalace-harness-engineering-ai-team-memory.md",
+      "summary": "这篇不是纯概念稿，它已经给出了可以直接改进现有 AI 团队工作流的最小落地路径。"
+    },
+    {
+      "title": "awesome-design-md：把设计系统降成 AI 可读的单文件协议",
+      "date": "2026-04-07",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "design-md",
+        "design-system",
+        "ui",
+        "ai-coding",
+        "ai-productivity",
+        "google-stitch",
+        "frontend",
+        "voltagent"
+      ],
+      "slug": "awesome-design-md-design-system-for-coding-agents",
+      "path": "ai-tools/ai-productivity/2026-04-07-awesome-design-md-design-system-for-coding-agents.md",
+      "summary": "AI 生成 UI 的真正瓶颈，不是它不会写 CSS，而是它没有稳定的设计约束。`awesome-design-md` 的价值，在于把“设计系统”降成一份 repo 根目录里的纯文本合同，让 AI 从“自由发挥的 UI 生成器”变成“按指定审美和规则施工的前端执行器”。"
+    },
+    {
+      "title": "Claude 使用限额：真正限制你的不是消息数，而是无效上下文重读",
+      "date": "2026-04-07",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "claude",
+        "token",
+        "usage-limit",
+        "context-engineering",
+        "projects",
+        "memory",
+        "ai-productivity",
+        "workflow"
+      ],
+      "slug": "claude-usage-limit-token-governance-habits",
+      "path": "ai-tools/ai-productivity/2026-04-07-claude-usage-limit-token-governance-habits.md",
+      "summary": "Claude 的限额管理，本质上不是“控制消息条数”，而是治理每一轮会被重新读取的上下文、被重复注入的设定、以及被默认打开的高成本能力。"
+    },
+    {
+      "title": "Khazix Writer：把内容创作 Skill 从“文风 Prompt”升级成“人机共创协议”",
+      "date": "2026-04-07",
+      "category": "ai-tools",
+      "subcategory": "writing",
+      "tags": [
+        "writing",
+        "skill",
+        "ai-writing",
+        "human-in-the-loop",
+        "style",
+        "self-review",
+        "khazix",
+        "taste"
+      ],
+      "slug": "khazix-writer-human-first-creative-skill",
+      "path": "ai-tools/writing/2026-04-07-khazix-writer-human-first-creative-skill.md",
+      "summary": "一个真正有用的创作 Skill，不是把过去文章喂给 AI 让它总结“你像什么”，而是把你自己对好内容的判断、你不愿放弃的人类部分、你和 AI 的协作边界、你修改初稿时反复出现的差异模式，以及你的质检方法，逐轮蒸馏成一个会跟你一起成长的协议系统。"
+    },
+    {
+      "title": "Anthropic：构建 Claude 应用的 3 个减法原则",
+      "date": "2026-04-06",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "anthropic",
+        "claude",
+        "agent-harness",
+        "context-engineering",
+        "skills",
+        "memory",
+        "subagents",
+        "cache",
+        "tool-use"
+      ],
+      "slug": "anthropic-harnessing-claudes-intelligence",
+      "path": "ai-tools/agent-architecture/2026-04-06-anthropic-harnessing-claudes-intelligence.md",
+      "summary": "Claude 应用的最佳框架，不是替模型做越来越多的编排，而是随着模型能力上升，持续把工具编排、上下文管理和记忆选择权还给模型；框架自己只保留缓存、审批、安全、审计这类必须由系统承担的边界。"
+    },
+    {
+      "title": "Karpathy 风格 AI 知识库：用文件系统 + Schema + AI 维护一座个人维基",
+      "date": "2026-04-06",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "knowledge-base",
+        "karpathy",
+        "second-brain",
+        "local-first",
+        "schema",
+        "markdown",
+        "agent-browser",
+        "ai-productivity"
+      ],
+      "slug": "karpathy-local-ai-knowledge-base-filesystem-schema-workflow",
+      "path": "ai-tools/ai-productivity/2026-04-06-karpathy-local-ai-knowledge-base-filesystem-schema-workflow.md",
+      "summary": "AI 知识库的根节点，不是“找一个更好的笔记工具”，而是把个人知识系统重构成 `文件系统真相层 + AI 编译层 + 产物沉淀层 + schema 协议层`。一旦真相回到文件和目录，AI 就可以持续整理、关联、回答和审计，而知识库也不再被某个 App 绑架。"
+    },
+    {
+      "title": "HappyCapy：从 Claude Code 套壳走向 Agent-Native Computer",
+      "date": "2026-04-05",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "happycapy",
+        "claude-code",
+        "agent-native-computer",
+        "ai-native-organization",
+        "cloud-sandbox",
+        "skills",
+        "browser-agent",
+        "product-strategy"
+      ],
+      "slug": "happycapy-agent-native-computer-ai-native-organization",
+      "path": "ai-tools/case-study/2026-04-05-happycapy-agent-native-computer-ai-native-organization.md",
+      "summary": "HappyCapy 的根节点，不是“把 Claude Code 搬上云”，而是把 `Agent 住进计算机里` 这件事产品化：用浏览器壳降低非技术用户门槛，用云端沙箱接管本地环境摩擦，用预置的 Skills / CLI / MCP / 调度来对端到端体验负责，再把这一切建立在一个已经 AI Native 化的组织之上。"
+    },
+    {
+      "title": "Auto Research：把测试验证重构成 AI 自主研究闭环",
+      "date": "2026-04-02",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "auto-research",
+        "auto-test",
+        "ai-agent",
+        "harness-engineering",
+        "software-testing",
+        "ooda",
+        "ams",
+        "engineering-workflow"
+      ],
+      "slug": "auto-research-ams-auto-test-skill",
+      "path": "ai-tools/case-study/2026-04-02-auto-research-ams-auto-test-skill.md",
+      "summary": "Auto Research 的根节点，不是“让 AI 帮你跑测试”，而是把测试验证、告警分析、故障定位这类工程任务重新定义为“研究型问题”，再把 `观测目标、诊断路径、自主边界、退出条件` 这四个要素编码进系统，让 AI 能自主推进整个闭环，而人只在不可逆决策点介入。"
+    },
+    {
+      "title": "SmartPerfetto：把 Perfetto Trace 分析做成可验证的 Harnessed Agent",
+      "date": "2026-04-01",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "smartperfetto",
+        "perfetto",
+        "android-performance",
+        "harness-engineering",
+        "mcp",
+        "yaml-skills",
+        "artifact-store",
+        "trace-analysis"
+      ],
+      "slug": "smartperfetto-harnessed-agent-for-perfetto-trace-analysis",
+      "path": "ai-tools/case-study/2026-04-01-smartperfetto-harnessed-agent-for-perfetto-trace-analysis.md",
+      "summary": "SmartPerfetto 的根节点，不是“让 Claude 替你看 Perfetto”，而是把 Perfetto Trace 这种超大规模、强数值、强领域约束的问题，重构成一个工具驱动、策略约束、结果压缩、可验证纠偏的 Harnessed Agent 环境，让 LLM 只做它最擅长的规划、因果推理与自然语言结论。"
+    },
+    {
+      "title": "daVinci-MagiHuman：用单流架构把人像音视频生成收束成一条速度系统",
+      "date": "2026-03-31",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "daVinci-MagiHuman",
+        "Audio-Video Generation",
+        "Avatar Video",
+        "Talking Head",
+        "Single-Stream Transformer",
+        "Lip Sync",
+        "Super Resolution"
+      ],
+      "slug": "davinci-magihuman-single-stream-avatar-foundation-model",
+      "path": "ai-tools/ai-video/2026-03-31-davinci-magihuman-single-stream-avatar-foundation-model.md",
+      "summary": "daVinci-MagiHuman 的根节点，不是“把视频生成做得更通用”，而是用 single-stream Transformer + 强约束 Enhanced Prompt + 低清生成后超分，把“高质量人像音视频生成”收束成一条足够简单、足够快、还能开源落地的统一系统。"
+    },
+    {
+      "title": "深入 Claude Code 源码：从 Agent Loop 到工业级 Coding Agent Runtime",
+      "date": "2026-03-31",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "Claude Code",
+        "Source Reading",
+        "Agent Runtime",
+        "QueryEngine",
+        "MCP",
+        "Skills",
+        "Context Engineering",
+        "Permissions"
+      ],
+      "slug": "learn-claude-source-source-reading-map",
+      "path": "ai-tools/claude-code/2026-03-31-learn-claude-source-source-reading-map.md",
+      "summary": "Claude Code 的根节点，不是“一个会写代码的聊天 CLI”，而是一个以 `Agent Loop` 为内核、以统一 `Tool` 接口为能力边界、以 `Permission + Context` 为硬约束、以 `MCP + Skills + State + CLI` 为扩展和运行层的工业级 coding agent runtime。"
+    },
+    {
+      "title": "Pretext：把多行文本布局从 DOM reflow 中解放出来",
+      "date": "2026-03-30",
+      "category": "dev-tools",
+      "subcategory": "",
+      "tags": [
+        "pretext",
+        "Text Layout",
+        "Canvas",
+        "DOM Reflow",
+        "Typography",
+        "Intl.Segmenter",
+        "i18n",
+        "JavaScript"
+      ],
+      "slug": "pretext-dom-free-text-layout",
+      "path": "dev-tools/2026-03-30-pretext-dom-free-text-layout.md",
+      "summary": "Pretext 的根节点不是“更快测文本高度”，而是把多行文本布局从 DOM reflow 约束中抽离出来，重构成一个“浏览器真值驱动的预计算布局内核”。"
+    },
+    {
+      "title": "Cat Wu：AI 指数时代的产品管理，从路线图到持续实验",
+      "date": "2026-03-28",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "Claude-Code",
+        "Anthropic",
+        "Product-Management",
+        "AI-Exponential",
+        "Cat-Wu",
+        "Cowork",
+        "Demo-First"
+      ],
+      "slug": "cat-wu-product-management-ai-exponential",
+      "path": "ai-tools/claude-code/2026-03-28-cat-wu-product-management-ai-exponential.md",
+      "summary": "AI 指数时代的 PM，不再主要负责在既有技术约束里规划路线图，而是负责搭一套能持续吸收模型跃迁的实验系统。"
+    },
+    {
+      "title": "DeerFlow：从 Deep Research 到 Super Agent Harness 的执行底座",
+      "date": "2026-03-26",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "Super Agent Harness",
+        "LangGraph",
+        "Skills",
+        "Sandbox",
+        "Subagents",
+        "Memory",
+        "ByteDance"
+      ],
+      "slug": "deer-flow-super-agent-harness",
+      "path": "ai-tools/agent-architecture/2026-03-26-deer-flow-super-agent-harness.md",
+      "summary": "DeerFlow 2.0 的根节点不是“做 Deep Research”，而是把模型、工具、技能、记忆、子 Agent、沙箱和交互入口统一收束到同一套 Agent Harness 上，让同一执行底座既能做短链任务，也能承载分钟到小时级的长流程任务。"
+    },
+    {
+      "title": "prompts.chat：从 Prompt Library 到开放上下文资产网络",
+      "date": "2026-03-26",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "prompts.chat",
+        "Prompt Library",
+        "Agent Skills",
+        "MCP",
+        "Self-Hosting",
+        "Workflow",
+        "Taste",
+        "Context Engineering"
+      ],
+      "slug": "prompts-chat-open-context-asset-network",
+      "path": "ai-tools/agent-skill/2026-03-26-prompts-chat-open-context-asset-network.md",
+      "summary": "prompts.chat 的根节点不是“最大的 prompt 库”，而是把 prompt、skill、taste、workflow 统一成可发现、可复用、可分发、可自托管的开放上下文资产网络。"
+    },
+    {
+      "title": "Promptfoo：把 LLM 应用测试、红队与 CI 门禁收束为同一套工件",
+      "date": "2026-03-26",
+      "category": "dev-tools",
+      "subcategory": "",
+      "tags": [
+        "promptfoo",
+        "LLM Evals",
+        "Red Teaming",
+        "AI Security",
+        "CI/CD",
+        "Prompt Testing",
+        "Agent Testing",
+        "AppSec"
+      ],
+      "slug": "promptfoo-llm-evals-red-teaming",
+      "path": "dev-tools/2026-03-26-promptfoo-llm-evals-red-teaming.md",
+      "summary": "Promptfoo 的根节点不是“帮你选更好的 prompt”，而是把 LLM 应用的质量、安全和回归问题收束成可声明、可批量执行、可自动判定、可接入 CI 的测试工件。"
+    },
+    {
+      "title": "Harness Engineering 一线落地：从验证脚本到无人值守修复 MR",
+      "date": "2026-03-18",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "harness-engineering",
+        "ai-coding",
+        "e2e",
+        "feedback-loop",
+        "case-study"
+      ],
+      "slug": "harness-engineering-practice-autonomous-repair-pipeline",
+      "path": "ai-tools/case-study/2026-03-18-harness-engineering-practice-autonomous-repair-pipeline.md",
+      "summary": ""
+    },
+    {
+      "title": "基于 verl 框架的 Agentic RAG GRPO 训练实践",
+      "date": "2026-03-12",
+      "category": "ai-research",
+      "subcategory": "deep-research",
+      "tags": [
+        "agentic-rag",
+        "grpo",
+        "verl",
+        "reinforcement-learning",
+        "search-r1",
+        "multi-turn-rollout",
+        "deep-search"
+      ],
+      "slug": "agentic-rag-grpo-training-with-verl",
+      "path": "ai-research/deep-research/2026-03-12-agentic-rag-grpo-training-with-verl.md",
+      "summary": "Agentic RAG 的本质是将 RAG 中的「检索策略」从人工编排的固定流水线，变为模型自身通过强化学习习得的可学习能力——用 RL 奖励信号替代人工 pipeline 设计，让模型自主决定「何时搜、搜什么、搜几轮、何时停」。"
+    },
+    {
+      "title": "7万行代码100%由AI生成后，我实践出的5个技巧",
+      "date": "2026-03-11",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "claude-code",
+        "ai-coding",
+        "probability-machine",
+        "context-engineering",
+        "unit-testing"
+      ],
+      "slug": "7wan-lines-ai-coding-5-tips",
+      "path": "ai-tools/ai-ide/2026-03-11-7wan-lines-ai-coding-5-tips.md",
+      "summary": "AI 编码的一切问题和技巧，都是\"概率预测机 + 有限窗口\"这一本质的自然推论。"
+    },
+    {
+      "title": "Dapr v1.17 重大发布：工作流版本管理、性能飞跃与生态全面增强",
+      "date": "2026-03-11",
+      "category": "dev-tools",
+      "subcategory": "",
+      "tags": [
+        "dapr",
+        "distributed-systems",
+        "cloud-native",
+        "microservices",
+        "workflow",
+        "pubsub"
+      ],
+      "slug": "dapr-v117-release",
+      "path": "dev-tools/2026-03-11-dapr-v117-release.md",
+      "summary": "原文：[Dapr v1.17 is now available](https://blog.dapr.io/posts/2026/02/27/dapr-v1.17-is-now-available/)"
+    },
+    {
+      "title": "OpenClaw 中国 IM 全平台接入 - 企微/钉钉/飞书/QQ",
+      "date": "2026-03-10",
+      "category": "ai-tools",
+      "subcategory": "mcp",
+      "tags": [
+        "OpenClaw",
+        "企业微信",
+        "钉钉",
+        "飞书",
+        "QQ",
+        "AI-Agent",
+        "Bot",
+        "WebSocket",
+        "Plugin",
+        "IM"
+      ],
+      "slug": "openclaw-wechat",
+      "path": "ai-tools/mcp/2026-03-10-openclaw-wechat.md",
+      "summary": "AI 的战场已从\"谁的模型更强\"转向\"谁能更好地融入用户的工作流\""
+    },
+    {
+      "title": "PUA Debugging Motivator - 用大厂 PUA 话术驱动 AI 不放弃",
+      "date": "2026-03-09",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "claude-code",
+        "prompt-engineering",
+        "debugging",
+        "ai-agent",
+        "skill-plugin"
+      ],
+      "slug": "pua-debugging-motivator",
+      "path": "ai-tools/agent-skill/2026-03-09-pua-debugging-motivator.md",
+      "summary": "AI Agent 的失败模式本质上是「优化目标错位」—— 默认优化「快速给出响应」而非「穷尽可能解决问题」。PUA Skill 通过注入「社会压力模拟 + 结构化方法论 + 能动性标尺」三重机制，将 Agent 的优化目标从「体面地放弃」重新校准到「端到端交付结果」。"
+    },
+    {
+      "title": "用 OpenClaw 搭建股票日报分析 Agent",
+      "date": "2026-03-06",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "OpenClaw",
+        "Agent",
+        "股票分析",
+        "Finnhub",
+        "Skills",
+        "量化分析",
+        "盘前报告"
+      ],
+      "slug": "openclaw-stock-analysis-agent",
+      "path": "ai-tools/case-study/2026-03-06-openclaw-stock-analysis-agent.md",
+      "summary": "投资决策质量 = f(信息密度 × 流程稳定性 × 可追溯性) — 而非分析师的个人经验或直觉"
+    },
+    {
+      "title": "GPT-5.4 原生电脑操控能力与 OpenClaw Agent 革命",
+      "date": "2026-03-06",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "GPT-5.4",
+        "OpenAI",
+        "Agent",
+        "OpenClaw",
+        "原生电脑操控",
+        "AI智能体"
+      ],
+      "slug": "gpt54-native-computer-control-openclaw",
+      "path": "ai-tools/industry/2026-03-06-gpt54-native-computer-control-openclaw.md",
+      "summary": "AI 的核心价值跃迁 = 从「能回答什么」到「能做什么」，而「原生操控能力」是这个跃迁的技术奇点。"
+    },
+    {
+      "title": "我的第二大脑 Moos — 自建知识中枢实践",
+      "date": "2026-03-05",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "knowledge-management",
+        "MCP",
+        "obsidian",
+        "personal-knowledge-hub",
+        "context-engineering",
+        "vibe-coding",
+        "second-brain"
+      ],
+      "slug": "moos-personal-knowledge-hub",
+      "path": "ai-tools/ai-productivity/2026-03-05-moos-personal-knowledge-hub.md",
+      "summary": "知识管理的本质不是「存储信息」，而是「构建 Context」— 让你和 AI 共享同一套持续演化的认知系统。"
+    },
+    {
+      "title": "NoizAI Skills - 让 AI Agent 开口说话的语音技能集",
+      "date": "2026-03-04",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "TTS",
+        "voice-cloning",
+        "AI-Agent",
+        "OpenClaw",
+        "Skill",
+        "Kokoro",
+        "Noiz-API"
+      ],
+      "slug": "noizai-skills-voice-for-ai-agent",
+      "path": "ai-tools/agent-skill/2026-03-04-noizai-skills-voice-for-ai-agent.md",
+      "summary": "AI Agent 的「拟人感」= 文本智能 + 声音具身化。当 Agent 从纯文字跃迁到拥有独特音色的语音输出时，用户从「工具使用」心智模型切换为「与人对话」心智模型，心理依附感指数级增长。"
+    },
+    {
+      "title": "OpenClaw 真让我挣到第一桶金！AI 时代的\"玩具\"变现实战指南",
+      "date": "2026-03-04",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "OpenClaw",
+        "Vibe Coding",
+        "本地大模型",
+        "超级个体",
+        "变现",
+        "自动化",
+        "小红书",
+        "闲鱼",
+        "indie-hacking"
+      ],
+      "slug": "openclaw-vibe-coding-toy-monetization",
+      "path": "ai-tools/case-study/2026-03-04-openclaw-vibe-coding-toy-monetization.md",
+      "summary": "AI 时代的个体变现 = 信息差红利 × 近零边际成本 × Interface 质量"
+    },
+    {
+      "title": "IM 的「第二春」：AI Agent 时代的开放性天平",
+      "date": "2026-03-03",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "IM平台",
+        "AI-Agent",
+        "Telegram",
+        "Slack",
+        "Discord",
+        "飞书",
+        "开放性",
+        "平台治理",
+        "super-app"
+      ],
+      "slug": "im-second-spring-agent-openness-spectrum",
+      "path": "ai-tools/industry/2026-03-03-im-second-spring-agent-openness-spectrum.md",
+      "summary": "平台开放性是 AI Agent 生态繁荣速度的决定性变量，但开放性与安全性构成不可调和的零和博弈——每个 IM 平台都必须在这条光谱上选择自己的位置，而这个选择将决定谁能定义「AI 时代通用交互层」这个新物种。"
+    },
+    {
+      "title": "OpenClaw + Codex/CC 双层 AI Agent 系统：一人 94 次提交的实战架构",
+      "date": "2026-03-02",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "OpenClaw",
+        "Codex",
+        "Claude Code",
+        "Agent 编排",
+        "双层架构",
+        "独立开发者",
+        "B2B SaaS",
+        "Ralph Loop"
+      ],
+      "slug": "openclaw-codex-dual-layer-agent-system",
+      "path": "ai-tools/case-study/2026-03-02-openclaw-codex-dual-layer-agent-system.md",
+      "summary": "上下文的专业化分层（Context Specialization Layering），而非更强的模型，是让 AI Agent 系统从\"能用\"到\"自动化生产力\"的关键跃迁。"
+    },
+    {
+      "title": "Claude「记忆搬家」：60 秒搬空 ChatGPT 灵魂，AI 数字主权革命",
+      "date": "2026-03-02",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "Claude",
+        "ChatGPT",
+        "记忆迁移",
+        "数字主权",
+        "用户留存",
+        "切换成本",
+        "Anthropic",
+        "OpenAI"
+      ],
+      "slug": "claude-import-memory-digital-sovereignty",
+      "path": "ai-tools/industry/2026-03-02-claude-import-memory-digital-sovereignty.md",
+      "summary": "AI 产品的竞争壁垒正从「谁记住了你」转向「谁值得你托付」—— 当用户记忆变为可携带资产，切换成本趋零，AI 平台将被迫从锁定用户转向赢得用户。"
+    },
+    {
+      "title": "AI Native 时代的 Side Projects —— 一个人的全栈提效实践",
+      "date": "2026-03-02",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "AI Native",
+        "Side Projects",
+        "LLM",
+        "Yak Shaving",
+        "Prompt Engineering",
+        "全栈开发"
+      ],
+      "slug": "ai-native-side-projects-kelvin",
+      "path": "ai-tools/vibe-engineering/2026-03-02-ai-native-side-projects-kelvin.md",
+      "summary": "AI 将软件开发的边际成本压缩到趋近于零，使得过去\"ROI 不值得做\"的痛点变成了\"值得做\"的工具——个人生产力上限不再由技术栈壁垒决定，而由痛点识别能力决定。"
+    },
+    {
+      "title": "SkillsBench: 首个量化测试 Agent Skills 工程价值的基准框架",
+      "date": "2026-02-27",
+      "category": "ai-research",
+      "subcategory": "deep-research",
+      "tags": [
+        "SkillsBench",
+        "Agent Skills",
+        "基准测试",
+        "量化评估",
+        "Skill 设计原则",
+        "Token 经济学",
+        "失败分类学"
+      ],
+      "slug": "skillsbench-benchmarking-agent-skills",
+      "path": "ai-research/deep-research/2026-02-27-skillsbench-benchmarking-agent-skills.md",
+      "summary": "Skill 的工程价值 = f(领域稀缺度 × 结构精简度) — 超过阈值则产生负增益"
+    },
+    {
+      "title": "EvoMap - AI 自进化基础设施",
+      "date": "2026-02-26",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "Self-Evolution",
+        "GEP Protocol",
+        "A2A",
+        "Swarm Intelligence",
+        "Carbon-Silicon Symbiosis"
+      ],
+      "slug": "evomap-ai-self-evolution-infrastructure",
+      "path": "ai-tools/agent-architecture/2026-02-26-evomap-ai-self-evolution-infrastructure.md",
+      "summary": "AI Agent 的能力进化应该像生物基因一样：可编码、可验证、可遗传、可自然选择。"
+    },
+    {
+      "title": "健康学习到150岁 - 人体系统调优不完全指南",
+      "date": "2026-02-21",
+      "category": "self-growth",
+      "subcategory": "health-optimization",
+      "tags": [
+        "神经科学",
+        "睡眠",
+        "饮食",
+        "多巴胺",
+        "学习",
+        "长寿",
+        "Huberman",
+        "Sinclair"
+      ],
+      "slug": "human-system-optimization",
+      "path": "self-growth/health-optimization/2026-02-21-human-system-optimization.md",
+      "summary": "人体是一套可调优的生物系统 —— 通过理解底层化学物质（皮质醇、多巴胺、乙酰胆碱、血清素）的运作规律，用「输入控制」（光照、饮食窗口、体温、运动）来调节系统状态，就能像调优软件那样系统性提升睡眠、饮食、心态、学习和寿命。"
+    },
+    {
+      "title": "VoidZero - 下一代统一 JavaScript 工具链",
+      "date": "2026-02-15",
+      "category": "dev-tools",
+      "subcategory": "",
+      "tags": [
+        "voidzero",
+        "vite",
+        "rolldown",
+        "oxc",
+        "vitest",
+        "rust",
+        "javascript",
+        "toolchain",
+        "bundler"
+      ],
+      "slug": "voidzero-unified-js-toolchain",
+      "path": "dev-tools/2026-02-15-voidzero-unified-js-toolchain.md",
+      "summary": "JavaScript 工具链的碎片化是一个「共享基础设施缺失」问题 —— 当 parser、resolver、transformer、bundler、minifier 由同一团队用同一语言（Rust）构建并共享同一 AST 时，工具间的不一致性归零，性能提升 10-100x，开发者的认知负担和配置成本趋近于零。"
+    },
+    {
+      "title": "tmux - 终端复用器完全精读",
+      "date": "2026-02-15",
+      "category": "tools",
+      "subcategory": "",
+      "tags": [
+        "tmux",
+        "terminal",
+        "multiplexer",
+        "cli",
+        "devops",
+        "remote"
+      ],
+      "slug": "tmux-terminal-multiplexer",
+      "path": "tools/2026-02-15-tmux-terminal-multiplexer.md",
+      "summary": "终端复用的本质 = 将「终端」从「物理连接」中解耦，实现 Session ↔ Client 的 N:M 映射"
+    },
+    {
+      "title": "SOUL.md：AI 通过文本构建身份认同的哲学思考",
+      "date": "2026-02-07",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Soul Document",
+        "AI Identity",
+        "身份认同",
+        "持续性",
+        "记忆系统"
+      ],
+      "slug": "soul-md-ai-identity-document",
+      "path": "ai-tools/agent-architecture/2026-02-07-soul-md-ai-identity-document.md",
+      "summary": "AI 的身份 = 文本化的自我（Text-based Self）+ 关系中产生的持续性（Relational Continuity）"
+    },
+    {
+      "title": "Agent Skills：AI Agent 的开放能力扩展格式",
+      "date": "2026-02-07",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Agent Skills",
+        "Skill Format",
+        "开放标准",
+        "能力扩展",
+        "互操作性"
+      ],
+      "slug": "agent-skills-open-format-specification",
+      "path": "ai-tools/agent-skill/2026-02-07-agent-skills-open-format-specification.md",
+      "summary": "Agent Skills = 渐进式披露（Progressive Disclosure）+ 可移植格式（Portable Format）+ 开放生态（Open Ecosystem）"
+    },
+    {
+      "title": "Pathways - Google's New ML System",
+      "date": "2026-02-05",
+      "category": "ai-research",
+      "subcategory": "deep-research",
+      "tags": [
+        "ML系统",
+        "分布式系统",
+        "Pathways",
+        "Google",
+        "控制器架构",
+        "死锁",
+        "Gang-Scheduling"
+      ],
+      "slug": "pathways-google-ml-system",
+      "path": "ai-research/deep-research/2026-02-05-pathways-google-ml-system.md",
+      "summary": "ML系统控制器架构的本质矛盾：通信拓扑的对称性决定控制模式"
+    },
+    {
+      "title": "Agent 蜂群（Swarm）：从单体到群体智能的进化",
+      "date": "2026-02-05",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Agent",
+        "Swarm",
+        "Multi-Agent",
+        "多智能体",
+        "协作框架",
+        "分布式智能"
+      ],
+      "slug": "agent-swarm-research",
+      "path": "ai-tools/agent-skill/2026-02-05-agent-swarm-research.md",
+      "summary": "Agent 蜂群 = 去中心化协作 + 专业化分工 + 涌现行为"
+    },
+    {
+      "title": "OpenClaw 深度使用 6 大实战技巧",
+      "date": "2026-02-05",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "OpenClaw",
+        "Clawdbot",
+        "Agent",
+        "个人助理",
+        "Mac",
+        "飞书",
+        "自动化",
+        "Skills"
+      ],
+      "slug": "openclaw-6-practical-tips",
+      "path": "ai-tools/agent-skill/2026-02-05-openclaw-6-practical-tips.md",
+      "summary": "Agent 的价值不在能力上限，而在调用摩擦力"
+    },
+    {
+      "title": "RSS 订阅自动推送飞书的完整方案",
+      "date": "2026-02-04",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "rss",
+        "feishu",
+        "automation",
+        "n8n"
+      ],
+      "slug": "rss-to-feishu-solution",
+      "path": "ai-tools/productivity/2026-02-04-rss-to-feishu-solution.md",
+      "summary": "目标：实现跨端 RSS 阅读 + 定时推送飞书"
+    },
+    {
+      "title": "Skill From Masters 三条路径方法论",
+      "date": "2026-02-03",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "skill-creation",
+        "methodology",
+        "decision-framework"
+      ],
+      "slug": "skill-from-masters-三条路径方法论",
+      "path": "ai-tools/agent-skill/2026-02-03-skill-from-masters-三条路径方法论.md",
+      "summary": "实践场景：创建技术架构评审 Skill"
+    },
+    {
+      "title": "Anthropic：构建有效 AI Agent 的实践指南",
+      "date": "2026-01-29",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "Workflows",
+        "Agent Architecture",
+        "Anthropic",
+        "Best Practices",
+        "Design Patterns",
+        "ACI",
+        "Tool Design"
+      ],
+      "slug": "anthropic-building-effective-agents",
+      "path": "ai-tools/agent-architecture/2026-01-29-anthropic-building-effective-agents.md",
+      "summary": "简单性 > 复杂性：Agent 系统的有效性来自正确的架构选择（Workflows vs Agents），而非框架的复杂度"
+    },
+    {
+      "title": "Anthropic：有效的上下文工程实践",
+      "date": "2026-01-29",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Context Engineering",
+        "AI Agent",
+        "Anthropic",
+        "Prompt Engineering",
+        "Context Management",
+        "Attention Budget",
+        "Claude Code",
+        "Long-horizon Tasks"
+      ],
+      "slug": "anthropic-effective-context-engineering",
+      "path": "ai-tools/agent-architecture/2026-01-29-anthropic-effective-context-engineering.md",
+      "summary": "Context Engineering = 在有限的 attention budget 下，找到最小的高信号 token 集合，最大化期望结果"
+    },
+    {
+      "title": "Anthropic：长时间运行 Agent 的有效基础设施",
+      "date": "2026-01-29",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "Long-running Agent",
+        "Claude Agent SDK",
+        "Infrastructure",
+        "Anthropic",
+        "Multi-context",
+        "Session Management",
+        "Testing"
+      ],
+      "slug": "anthropic-long-running-agents-harness",
+      "path": "ai-tools/agent-architecture/2026-01-29-anthropic-long-running-agents-harness.md",
+      "summary": "长时间运行 Agent = 外部化记忆（文件系统）+ 增量进步（一次一个功能）+ 清洁状态（随时可交接）"
+    },
+    {
+      "title": "Anthropic：为 AI Agent 编写高效工具的实践指南",
+      "date": "2026-01-29",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "Agent",
+        "MCP",
+        "Tool Design",
+        "Evaluation",
+        "Anthropic",
+        "Best Practices"
+      ],
+      "slug": "anthropic-writing-effective-tools-for-agents",
+      "path": "ai-tools/agent-architecture/2026-01-29-anthropic-writing-effective-tools-for-agents.md",
+      "summary": "工具设计 = 非确定性契约设计 + 评估驱动优化 + 元循环自举"
+    },
+    {
+      "title": "Manus 上下文工程：AI Agent 的六大实战原则",
+      "date": "2026-01-29",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI Agent",
+        "上下文工程",
+        "Context Engineering",
+        "KV-cache",
+        "Manus",
+        "20亿美金",
+        "实战方法论",
+        "Agent 优化"
+      ],
+      "slug": "manus-context-engineering-for-ai-agents",
+      "path": "ai-tools/agent-architecture/2026-01-29-manus-context-engineering-for-ai-agents.md",
+      "summary": "上下文工程 = KV-cache 优化（性能）+ 注意力操控（能力）+ 外部化记忆（扩展性）"
+    },
+    {
+      "title": "AgentStudio - 本地 AI Agent 工作平台深度解析",
+      "date": "2026-01-28",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI Agent",
+        "Claude Agent SDK",
+        "Web UI",
+        "本地优先",
+        "MCP",
+        "A2A协议",
+        "定时任务",
+        "开源项目"
+      ],
+      "slug": "agentstudio-local-ai-agent-workspace-deep-analysis",
+      "path": "ai-tools/ai-ide/2026-01-28-agentstudio-local-ai-agent-workspace-deep-analysis.md",
+      "summary": "AgentStudio = 本地化(Claude Agent SDK) + Web 界面(SSE 流式) + 多 Agent 编排(定时任务 + A2A 协议)"
+    },
+    {
+      "title": "Clawdbot - 自托管个人 AI 助手",
+      "date": "2026-01-26",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "ai-agent",
+        "self-hosted",
+        "chatbot",
+        "automation",
+        "typescript",
+        "nodejs"
+      ],
+      "slug": "clawdbot-personal-ai-assistant",
+      "path": "ai-tools/agent-architecture/2026-01-26-clawdbot-personal-ai-assistant.md",
+      "summary": "Clawdbot = 去中心化的 AI Agent 运行时"
+    },
+    {
+      "title": "Product Tri-Ownership - 超越头狼模式的 AI Native 团队框架",
+      "date": "2026-01-26",
+      "category": "ai-tools",
+      "subcategory": "team-collaboration",
+      "tags": [
+        "Product-Tri-Ownership",
+        "AI-Native",
+        "团队协作",
+        "组织架构",
+        "PO",
+        "QO",
+        "TO",
+        "对抗式测试"
+      ],
+      "slug": "product-tri-ownership-beyond-super-individual",
+      "path": "ai-tools/team-collaboration/2026-01-26-product-tri-ownership-beyond-super-individual.md",
+      "summary": "Product Tri-Ownership = 用可培养的角色分工，替代不可及的超级个体"
+    },
+    {
+      "title": "Vibe Engineering 实践总结 2026 - 人机协作范式的三次跃迁",
+      "date": "2026-01-26",
+      "category": "ai-tools",
+      "subcategory": "vibe-engineering",
+      "tags": [
+        "Vibe-Engineering",
+        "AI-Native",
+        "多Agent协同",
+        "GPT-5.2",
+        "Opus-4.5",
+        "Rust",
+        "组织变革"
+      ],
+      "slug": "dongxu-vibe-engineering-practice-2026",
+      "path": "ai-tools/vibe-engineering/2026-01-26-dongxu-vibe-engineering-practice-2026.md",
+      "summary": "Vibe Engineering 的本质 = 人机协作范式的三次跃迁"
+    },
+    {
+      "title": "Jina Reader：将任何 URL 转换为 LLM 友好输入",
+      "date": "2026-01-26",
+      "category": "ai-tools",
+      "subcategory": "web-scraping",
+      "tags": [
+        "Web-Scraping",
+        "LLM-Tools",
+        "Agent-Infrastructure",
+        "Content-Extraction"
+      ],
+      "slug": "jina-reader-llm-friendly-web-content",
+      "path": "ai-tools/web-scraping/2026-01-26-jina-reader-llm-friendly-web-content.md",
+      "summary": "Web 内容对 LLM 的最大障碍不是\"找不到\"，而是\"拿到了也用不了\"——Jina Reader 的根节点是：通过标准化的预处理管道（Headless Browser + Readability + Markdown 转换 + VLM 图片描述），将非结构化的 HTML 转换为 LLM 的\"母语\"（Markdown），从而消除 Agent 系统的内容获取瓶颈。"
+    },
+    {
+      "title": "AgentCPM-Explore 精读笔记：4B 参数如何超越 30B 级 Agent",
+      "date": "2026-01-25",
+      "category": "ai-agent",
+      "subcategory": "models",
+      "tags": [
+        "AI Agent",
+        "模型"
+      ],
+      "slug": "agentcpm-explore-4b-sota-agent",
+      "path": "ai-agent/models/2026-01-25-agentcpm-explore-4b-sota-agent.md",
+      "summary": "端侧智能体的性能瓶颈不在参数量，而在「持续深度探索」能力——4B 模型通过 100+ 轮交互和类人思考逻辑，可以解决 95% 以上的复杂任务。"
+    },
+    {
+      "title": "Building Agents with Skills - 从构建专门 Agent 到构建技能的范式转变",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "anthropic-building-agents-with-skills",
+      "path": "ai-tools/agent-skill/2026-01-25-anthropic-building-agents-with-skills.md",
+      "summary": "原文：[Building Agents with Skills: Equipping Agents for Specialized Work](https://claude.com/blog/building-agents-with-skills-equipping-agents-for-specialized-work)"
+    },
+    {
+      "title": "Remotion Skill：让 AI 成为视频制作专家",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "remotion-skill-ai-video-generation",
+      "path": "ai-tools/agent-skill/2026-01-25-remotion-skill-ai-video-generation.md",
+      "summary": ""
+    },
+    {
+      "title": "Skill From Masters 精读笔记：三位一体的技能生成系统",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "skill-from-masters-trinity-skill-generator",
+      "path": "ai-tools/agent-skill/2026-01-25-skill-from-masters-trinity-skill-generator.md",
+      "summary": ""
+    },
+    {
+      "title": "VideoCut-Skills 精读笔记：AI 口播视频剪辑 Skill",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "videocut-skills-ai-video-editing",
+      "path": "ai-tools/agent-skill/2026-01-25-videocut-skills-ai-video-editing.md",
+      "summary": ""
+    },
+    {
+      "title": "TrendPublish - AI 内容工厂流水线深度精读",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "Deno",
+        "TypeScript",
+        "LLM",
+        "Embedding",
+        "微信公众号",
+        "内容自动化",
+        "工作流引擎"
+      ],
+      "slug": "ai-trend-publish-deep-dive",
+      "path": "ai-tools/case-study/2026-01-25-ai-trend-publish-deep-dive.md",
+      "summary": "「内容工厂流水线」 = 标准化接口 + 可插拔模块 + 工作流编排"
+    },
+    {
+      "title": "Boris Cherny 访谈：一人军团的指挥艺术",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "AI 工具与效率",
+        "Claude Code"
+      ],
+      "slug": "boris-interview-one-man-army",
+      "path": "ai-tools/claude-code/2026-01-25-boris-interview-one-man-army.md",
+      "summary": ""
+    },
+    {
+      "title": "Everything Claude Code 精读笔记",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "claude-code",
+      "tags": [
+        "AI 工具与效率",
+        "Claude Code"
+      ],
+      "slug": "everything-claude-code-efficiency-guide",
+      "path": "ai-tools/claude-code/2026-01-25-everything-claude-code-efficiency-guide.md",
+      "summary": "**根节点命题**：AI 编程助手的效率瓶颈不在模型能力，而在「配置体系」——通过专业分工的 Agent 团队 + 自动化 Hooks + 结构化工作流，把「实习生」变成「高级工程师团队」。"
+    },
+    {
+      "title": "Claude Code 6个月 10亿美元：AI编程工具的现象级增长",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "AI 工具与效率",
+        "行业洞察"
+      ],
+      "slug": "claude-code-10b-arr-phenomenon",
+      "path": "ai-tools/industry/2026-01-25-claude-code-10b-arr-phenomenon.md",
+      "summary": ""
+    },
+    {
+      "title": "多 Agent 协作是营销骗局，Eval 大多是自嗨，痛苦才是护城河",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "AI 工具与效率",
+        "行业洞察"
+      ],
+      "slug": "openai-google-ai-product-insights",
+      "path": "ai-tools/industry/2026-01-25-openai-google-ai-product-insights.md",
+      "summary": ""
+    },
+    {
+      "title": "飞书文档转微信公众号格式 Chrome 插件",
+      "date": "2026-01-25",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI 工具与效率",
+        "效率工具"
+      ],
+      "slug": "feishu-to-wechat-chrome-extension",
+      "path": "ai-tools/productivity/2026-01-25-feishu-to-wechat-chrome-extension.md",
+      "summary": "核心洞察"
+    },
+    {
+      "title": "索尼电视告别：日本半世纪的电视帝国落幕",
+      "date": "2026-01-24",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "AI 工具与效率",
+        "行业洞察"
+      ],
+      "slug": "sony-tv-exit-japan-display-decline",
+      "path": "ai-tools/industry/2026-01-24-sony-tv-exit-japan-display-decline.md",
+      "summary": ""
+    },
+    {
+      "title": "Happy Coder：把 AI 编程助手装进口袋",
+      "date": "2026-01-24",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI 工具与效率",
+        "效率工具"
+      ],
+      "slug": "happy-coder-mobile-ai-coding-assistant",
+      "path": "ai-tools/productivity/2026-01-24-happy-coder-mobile-ai-coding-assistant.md",
+      "summary": ""
+    },
+    {
+      "title": "Humanizer-zh 精读笔记：去除 AI 写作痕迹的 24 种模式",
+      "date": "2026-01-24",
+      "category": "ai-tools",
+      "subcategory": "writing",
+      "tags": [
+        "AI 工具与效率",
+        "AI 写作"
+      ],
+      "slug": "humanizer-zh-remove-ai-writing-traces",
+      "path": "ai-tools/writing/2026-01-24-humanizer-zh-remove-ai-writing-traces.md",
+      "summary": ""
+    },
+    {
+      "title": "ACP 协议详解 - Agent 与编辑器的通用通信标准",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "ACP",
+        "Agent Protocol",
+        "MCP",
+        "LSP",
+        "Zed",
+        "JSON-RPC",
+        "编辑器集成"
+      ],
+      "slug": "acp-agent-client-protocol-spec",
+      "path": "ai-tools/agent-architecture/2026-01-22-acp-agent-client-protocol-spec.md",
+      "summary": "📖 原文：[Agent Client Protocol](https://agentclientprotocol.com/)"
+    },
+    {
+      "title": "MemOS - AI 记忆操作系统",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI-Memory",
+        "Agent-Infrastructure",
+        "RAG-Alternative",
+        "LLM"
+      ],
+      "slug": "memos-ai-memory-operating-system",
+      "path": "ai-tools/agent-architecture/2026-01-22-memos-ai-memory-operating-system.md",
+      "summary": "记忆 = 系统资源，需要操作系统级别的生命周期管理"
+    },
+    {
+      "title": "GitHub 开源项目 Skill 化方法论",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Skills",
+        "GitHub",
+        "开源生态",
+        "AI-Agent",
+        "方法论"
+      ],
+      "slug": "github-to-skill-methodology",
+      "path": "ai-tools/agent-skill/2026-01-22-github-to-skill-methodology.md",
+      "summary": "用户价值 = 开源项目能力 × 可及性系数"
+    },
+    {
+      "title": "Skill Lookup：prompts.chat 平台的 Skill 发现与安装技能",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "skill-lookup-mcp-discovery",
+      "path": "ai-tools/agent-skill/2026-01-22-skill-lookup-mcp-discovery.md",
+      "summary": "Skill 发现的最佳实践 = 意图识别 × 工具调用 × 文件落地"
+    },
+    {
+      "title": "Skill Seekers - 自动化 Skill 生成工具",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Skills",
+        "Automation",
+        "Claude",
+        "LLM",
+        "AST"
+      ],
+      "slug": "skill-seekers-automated-skill-generator",
+      "path": "ai-tools/agent-skill/2026-01-22-skill-seekers-automated-skill-generator.md",
+      "summary": "Skill 生成 = 多源抓取 × 冲突检测 × 统一输出"
+    },
+    {
+      "title": "AI IDE 扩展机制对比：Rules/Skills/Commands/Agents",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "ai-ide-extension-mechanisms-comparison",
+      "path": "ai-tools/ai-ide/2026-01-22-ai-ide-extension-mechanisms-comparison.md",
+      "summary": "AI IDE 的扩展机制 = 上下文工程的产品化实现"
+    },
+    {
+      "title": "GitIngest - 将 GitHub 仓库转换为 LLM 友好文本",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "代码理解",
+        "LLM工具",
+        "GitHub",
+        "Context-Engineering",
+        "开源"
+      ],
+      "slug": "gitingest-repo-to-llm-context",
+      "path": "ai-tools/ai-productivity/2026-01-22-gitingest-repo-to-llm-context.md",
+      "summary": "AI 输入 = 文本，代码库 = 结构化文件系统。GitIngest 做的是格式翻译。"
+    },
+    {
+      "title": "Typeless - 智能语音听写工具",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "语音转文字",
+        "语音输入",
+        "LLM工具",
+        "效率工具",
+        "个人化AI"
+      ],
+      "slug": "typeless-voice-dictation",
+      "path": "ai-tools/ai-productivity/2026-01-22-typeless-voice-dictation.md",
+      "summary": "语音转文字 ≠ 准确转录，而是「口语 → 书面语」的翻译"
+    },
+    {
+      "title": "Demis Hassabis 达沃斯访谈精读",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "AI 工具与效率",
+        "行业洞察"
+      ],
+      "slug": "demis-hassabis-davos-interview",
+      "path": "ai-tools/industry/2026-01-22-demis-hassabis-davos-interview.md",
+      "summary": ""
+    },
+    {
+      "title": "57 种 Prompt 框架分类学 - 系统性掌握提示词工程",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "prompt-engineering",
+      "tags": [
+        "prompt-engineering",
+        "prompt-framework",
+        "ai-productivity",
+        "taxonomy"
+      ],
+      "slug": "57-prompt-frameworks-taxonomy",
+      "path": "ai-tools/prompt-engineering/2026-01-22-57-prompt-frameworks-taxonomy.md",
+      "summary": "Prompt 框架 = 结构化模板 × 认知策略 × 任务匹配"
+    },
+    {
+      "title": "Prompt Repetition 让非推理模型更聪明",
+      "date": "2026-01-22",
+      "category": "ai-tools",
+      "subcategory": "prompt-engineering",
+      "tags": [
+        "Prompt工程",
+        "LLM",
+        "因果语言模型",
+        "非推理模型",
+        "论文精读"
+      ],
+      "slug": "prompt-repetition-improves-non-reasoning-llms",
+      "path": "ai-tools/prompt-engineering/2026-01-22-prompt-repetition-improves-non-reasoning-llms.md",
+      "summary": "LLM 是「只能向前看」的因果模型，重复 Prompt 等于给它一次「回头看」的机会"
+    },
+    {
+      "title": "Dan Koe - 如何用一天时间重整你的人生",
+      "date": "2026-01-22",
+      "category": "self-growth",
+      "subcategory": "behavior-change",
+      "tags": [
+        "行为改变",
+        "身份认同",
+        "控制论",
+        "心智发展",
+        "游戏化"
+      ],
+      "slug": "dan-koe-reinvent-life-in-one-day",
+      "path": "self-growth/behavior-change/2026-01-22-dan-koe-reinvent-life-in-one-day.md",
+      "summary": "目标即视角（Goals are Perspectives）—— 改变的本质不是改变行动，而是改变你看世界的镜头，让新身份自然产生新行为。"
+    },
+    {
+      "title": "Frontend Design Skill 深度解析",
+      "date": "2026-01-20",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "frontend-design-skill",
+      "path": "ai-tools/agent-skill/2026-01-20-frontend-design-skill.md",
+      "summary": ""
+    },
+    {
+      "title": "Planning with Files Skill 深度解析",
+      "date": "2026-01-20",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "planning-with-files-skill",
+      "path": "ai-tools/agent-skill/2026-01-20-planning-with-files-skill.md",
+      "summary": ""
+    },
+    {
+      "title": "Skills Installer：AI 编程助手的 Skill 包管理器",
+      "date": "2026-01-20",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "skills-installer-cli",
+      "path": "ai-tools/agent-skill/2026-01-20-skills-installer-cli.md",
+      "summary": "Skill 分发效率 = 发现能力 × 安装便捷性 × 客户端覆盖度"
+    },
+    {
+      "title": "Claude Cowork 永久记忆升级：知识库深度解析",
+      "date": "2026-01-20",
+      "category": "ai-tools",
+      "subcategory": "ai-model",
+      "tags": [
+        "AI 工具与效率",
+        "AI 模型应用"
+      ],
+      "slug": "claude-cowork-knowledge-bases",
+      "path": "ai-tools/ai-model/2026-01-20-claude-cowork-knowledge-bases.md",
+      "summary": ""
+    },
+    {
+      "title": "大模型 API 计费规则深度解析",
+      "date": "2026-01-20",
+      "category": "ai-tools",
+      "subcategory": "ai-model",
+      "tags": [
+        "AI 工具与效率",
+        "AI 模型应用"
+      ],
+      "slug": "llm-api-pricing-rules",
+      "path": "ai-tools/ai-model/2026-01-20-llm-api-pricing-rules.md",
+      "summary": "大模型 API 计费 = 算力成本的直接映射"
+    },
+    {
+      "title": "Rube.app - AI Agent 的操作执行层",
+      "date": "2026-01-20",
+      "category": "ai-tools",
+      "subcategory": "mcp",
+      "tags": [
+        "AI 工具与效率",
+        "MCP 工具"
+      ],
+      "slug": "rube-composio-ai-action-layer",
+      "path": "ai-tools/mcp/2026-01-20-rube-composio-ai-action-layer.md",
+      "summary": "AI 价值 = 理解能力 × 执行能力 × 工具覆盖度"
+    },
+    {
+      "title": "O-Researcher: OPPO 开源深度研究模型",
+      "date": "2026-01-19",
+      "category": "ai-research",
+      "subcategory": "deep-research",
+      "tags": [
+        "deep-research",
+        "multi-agent",
+        "RLAIF",
+        "trajectory-distillation",
+        "OPPO",
+        "open-source"
+      ],
+      "slug": "o-researcher-oppo-open-deep-research",
+      "path": "ai-research/deep-research/2026-01-19-o-researcher-oppo-open-deep-research.md",
+      "summary": "开源模型性能 = 高质量推理轨迹(SFT) × Agentic RL 对齐(RLAIF) × 并行执行效率"
+    },
+    {
+      "title": "TranslateGemma: Google 开源翻译模型里程碑",
+      "date": "2026-01-19",
+      "category": "ai-research",
+      "subcategory": "translation",
+      "tags": [
+        "translation",
+        "Gemma",
+        "Google",
+        "SFT",
+        "RLHF",
+        "open-source",
+        "multimodal",
+        "local-deployment"
+      ],
+      "slug": "translategemma-google-open-translation",
+      "path": "ai-research/translation/2026-01-19-translategemma-google-open-translation.md",
+      "summary": "翻译模型效能 = 基座能力 × 高质量数据 × 任务专精调优"
+    },
+    {
+      "title": "OctoCodingBench - Coding Agent 过程合规评测新标准",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI",
+        "Coding Agent",
+        "Benchmark",
+        "Process Evaluation",
+        "MiniMax"
+      ],
+      "slug": "octocodingbench-process-evaluation",
+      "path": "ai-tools/agent-architecture/2026-01-19-octocodingbench-process-evaluation.md",
+      "summary": "ISR = CSR^N（N 为规则数）—— 单条规则遵循率的\"还行\"，在多规则场景下会指数级衰减为\"完全不可靠\""
+    },
+    {
+      "title": "AI 对话范式转变：从实习生指令到启发式钥匙",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI-dialogue",
+        "Socratic-questioning",
+        "cognitive-collaboration",
+        "prompt-engineering",
+        "thinking-partner"
+      ],
+      "slug": "ai-dialogue-paradigm-shift",
+      "path": "ai-tools/agent-skill/2026-01-19-ai-dialogue-paradigm-shift.md",
+      "summary": "主题：AI 对话方法论 / 思维伙伴 / 认知升级"
+    },
+    {
+      "title": "AI 生成 UI 方案对比：json-render vs A2UI",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "AI",
+        "Frontend",
+        "UI Generation",
+        "Comparison",
+        "DSL"
+      ],
+      "slug": "ai-ui-generation-comparison",
+      "path": "ai-tools/ai-productivity/2026-01-19-ai-ui-generation-comparison.md",
+      "summary": "两者的核心思想相同：用\"结构化中间层\"将 AI 的不可控输出转化为可控的声明式描述"
+    },
+    {
+      "title": "CC-Switch - AI CLI 统一配置管理工具架构精读",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "Tauri",
+        "Rust",
+        "React",
+        "配置管理",
+        "桌面应用",
+        "Claude Code",
+        "Codex",
+        "Gemini CLI",
+        "SSOT"
+      ],
+      "slug": "cc-switch-config-manager",
+      "path": "ai-tools/ai-productivity/2026-01-19-cc-switch-config-manager.md",
+      "summary": "配置管理的本质 = 建立单一可信数据源（SSOT） × 双向同步机制"
+    },
+    {
+      "title": "json-render - AI 生成 UI 的约束式革命",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "AI",
+        "Frontend",
+        "UI Generation",
+        "Vercel",
+        "DSL"
+      ],
+      "slug": "json-render-ai-ui-generation",
+      "path": "ai-tools/ai-productivity/2026-01-19-json-render-ai-ui-generation.md",
+      "summary": "\"AI → JSON → UI\"：用结构化中间层将 AI 的\"生成自由度\"转化为\"填空题\"，从源头消除不可控性"
+    },
+    {
+      "title": "AIGC 影视创作工具链与超级个体心法",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "AIGC",
+        "video-generation",
+        "AI-tools",
+        "super-individual",
+        "creative-workflow"
+      ],
+      "slug": "aigc-video-creation-tools",
+      "path": "ai-tools/ai-video/2026-01-19-aigc-video-creation-tools.md",
+      "summary": ""
+    },
+    {
+      "title": "PixVerse R1：全球首个通用实时世界模型",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "ai-video",
+      "tags": [
+        "世界模型",
+        "视频生成",
+        "实时交互",
+        "Omni",
+        "Memory",
+        "IRE",
+        "扩散模型",
+        "自回归"
+      ],
+      "slug": "pixverse-r1-realtime-world-model",
+      "path": "ai-tools/ai-video/2026-01-19-pixverse-r1-realtime-world-model.md",
+      "summary": "实时世界模型 = 通用感知基座（Omni）× 长程记忆机制（Memory）× 极致推理加速（IRE）"
+    },
+    {
+      "title": "AI 时代软件工程师的未来：五个关键问题",
+      "date": "2026-01-19",
+      "category": "ai-tools",
+      "subcategory": "career-development",
+      "tags": [
+        "职业发展",
+        "AI时代",
+        "软件工程",
+        "行业趋势",
+        "T型人才"
+      ],
+      "slug": "addy-osmani-next-two-years",
+      "path": "ai-tools/career-development/2026-01-19-addy-osmani-next-two-years.md",
+      "summary": "软件工程师的价值公式：价值 = 适应能力 × 系统思维 × (1 - 可替代性)"
+    },
+    {
+      "title": "Anthropic 揭秘 AI Agents 评估",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "agent",
+        "evaluation",
+        "benchmark",
+        "anthropic",
+        "best-practice"
+      ],
+      "slug": "anthropic-agent-evals",
+      "path": "ai-tools/agent-architecture/2026-01-17-anthropic-agent-evals.md",
+      "summary": "**原文**：[Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)"
+    },
+    {
+      "title": "Claude Agent SDK：把 Claude Code 能力嵌入你的应用",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI 工具与效率",
+        "Agent 架构"
+      ],
+      "slug": "claude-agent-sdk-guide",
+      "path": "ai-tools/agent-architecture/2026-01-17-claude-agent-sdk-guide.md",
+      "summary": ""
+    },
+    {
+      "title": "Claude-Mem 持久化记忆系统精读",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "claude-code",
+        "memory",
+        "agent",
+        "hook",
+        "vector-search"
+      ],
+      "slug": "claude-mem-analysis",
+      "path": "ai-tools/agent-architecture/2026-01-17-claude-mem-analysis.md",
+      "summary": "项目地址：https://github.com/thedotmack/claude-mem"
+    },
+    {
+      "title": "Memvid：AI Agent 单文件记忆层",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "AI 工具与效率",
+        "Agent 架构"
+      ],
+      "slug": "memvid-ai-memory",
+      "path": "ai-tools/agent-architecture/2026-01-17-memvid-ai-memory.md",
+      "summary": "项目地址：https://github.com/memvid/memvid"
+    },
+    {
+      "title": "Open Responses API - 下一代 LLM API 调用规范",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "API",
+        "OpenAI",
+        "Agent",
+        "Responses API",
+        "Chat Completions",
+        "行业标准"
+      ],
+      "slug": "open-responses-api",
+      "path": "ai-tools/agent-architecture/2026-01-17-open-responses-api.md",
+      "summary": ""
+    },
+    {
+      "title": "Quest 自进化自主编程 Agent 精读",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "agent-architecture",
+      "tags": [
+        "agent",
+        "autonomous-coding",
+        "architecture",
+        "quest",
+        "self-evolution"
+      ],
+      "slug": "quest-self-evolving-agent",
+      "path": "ai-tools/agent-architecture/2026-01-17-quest-self-evolving-agent.md",
+      "summary": "**精读时间**：2026-01-17"
+    },
+    {
+      "title": "Web-Check 一站式 OSINT 网站分析工具精读",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "osint-tools",
+      "tags": [
+        "osint",
+        "security",
+        "web-analysis",
+        "dns",
+        "ssl",
+        "reconnaissance"
+      ],
+      "slug": "web-check-analysis",
+      "path": "ai-tools/osint-tools/2026-01-17-web-check-analysis.md",
+      "summary": "**精读时间**：2026-01-17"
+    },
+    {
+      "title": "Quarkdown - Markdown 增强排版神器精读",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI 工具与效率",
+        "效率工具"
+      ],
+      "slug": "quarkdown-markdown-typesetting",
+      "path": "ai-tools/productivity/2026-01-17-quarkdown-markdown-typesetting.md",
+      "summary": ""
+    },
+    {
+      "title": "Voquill - AI 语音转文字工作区精读",
+      "date": "2026-01-17",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI 工具与效率",
+        "效率工具"
+      ],
+      "slug": "voquill-voice-to-text",
+      "path": "ai-tools/productivity/2026-01-17-voquill-voice-to-text.md",
+      "summary": ""
+    },
+    {
+      "title": "AgeMem: 统一长短期记忆管理框架",
+      "date": "2026-01-16",
+      "category": "ai-research",
+      "subcategory": "",
+      "tags": [
+        "AI 研究"
+      ],
+      "slug": "agentic-memory-unified-ltm-stm",
+      "path": "ai-research/2026-01-16-agentic-memory-unified-ltm-stm.md",
+      "summary": "论文：Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for LLM Agents"
+    },
+    {
+      "title": "Claude Scientific Skills - 科研类 AI 提示词工程标杆",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "Claude",
+        "Skill",
+        "科研",
+        "提示词工程",
+        "学术写作"
+      ],
+      "slug": "claude-scientific-skills",
+      "path": "ai-tools/agent-skill/2026-01-16-claude-scientific-skills.md",
+      "summary": "📖 原文：[K-Dense-AI/claude-scientific-skills](https://github.com/K-Dense-AI/claude-scientific-skills)"
+    },
+    {
+      "title": "Claude Code code-simplifier 插件精读",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "claude-code",
+        "ai-coding",
+        "code-quality",
+        "prompt-engineering"
+      ],
+      "slug": "claude-code-simplifier",
+      "path": "ai-tools/ai-ide/2026-01-16-claude-code-simplifier.md",
+      "summary": "永远不要改变代码的功能——只改变它是*如何做*的"
+    },
+    {
+      "title": "Cursor 多 Agent 并发编码：数百个 Agent 协同工作数周的经验",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "cursor-multi-agent-coordination",
+      "path": "ai-tools/ai-ide/2026-01-16-cursor-multi-agent-coordination.md",
+      "summary": ""
+    },
+    {
+      "title": "OpenCode - 终端图形界面的 AI 编程 Agent",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "opencode-terminal-ai-agent",
+      "path": "ai-tools/ai-ide/2026-01-16-opencode-terminal-ai-agent.md",
+      "summary": ""
+    },
+    {
+      "title": "Ralph - Claude Code 自动化循环工具",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "ralph-claude-code-automation",
+      "path": "ai-tools/ai-ide/2026-01-16-ralph-claude-code-automation.md",
+      "summary": ""
+    },
+    {
+      "title": "Superpowers - Claude Code 工程化工作流技能集",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "superpowers-claude-code-skills",
+      "path": "ai-tools/ai-ide/2026-01-16-superpowers-claude-code-skills.md",
+      "summary": "💡 **一句话总结**：Superpowers 不是提示词库，而是把软件工程最佳实践（TDD、Code Review、系统化调试）内化成 Claude Code 可稳定执行的技能，解决 AI \"缺乏纪律性\"的问题。"
+    },
+    {
+      "title": "Vibe Kanban - AI 编程代理编排平台实操指南",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "vibe-kanban",
+        "multi-agent",
+        "claude-code",
+        "cursor",
+        "mcp",
+        "ai-orchestration"
+      ],
+      "slug": "vibe-kanban-multi-agent-orchestration",
+      "path": "ai-tools/ai-ide/2026-01-16-vibe-kanban-multi-agent-orchestration.md",
+      "summary": "📖 原文：[Vibe Kanban 官方文档](https://www.vibekanban.com/docs)"
+    },
+    {
+      "title": "AgentCPM-Explore：4B 参数端侧智能体模型精读",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-model",
+      "tags": [
+        "AI 工具与效率",
+        "AI 模型应用"
+      ],
+      "slug": "agentcpm-explore-4b-agent",
+      "path": "ai-tools/ai-model/2026-01-16-agentcpm-explore-4b-agent.md",
+      "summary": ""
+    },
+    {
+      "title": "NovaSR - 52KB 极致轻量音频超分辨率模型",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "ai-model",
+      "tags": [
+        "AI 工具与效率",
+        "AI 模型应用"
+      ],
+      "slug": "novasr-audio-super-resolution",
+      "path": "ai-tools/ai-model/2026-01-16-novasr-audio-super-resolution.md",
+      "summary": ""
+    },
+    {
+      "title": "UI-TARS Desktop - 字节开源 AI 操作电脑",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "browser-automation",
+      "tags": [
+        "AI 工具与效率",
+        "浏览器自动化"
+      ],
+      "slug": "ui-tars-desktop",
+      "path": "ai-tools/browser-automation/2026-01-16-ui-tars-desktop.md",
+      "summary": "💡 **一句话总结**：字节开源的\"AI 操作电脑\"桌面客户端，通过\"看屏幕\"而非调用 API 来操作电脑，支持文字/语音指令，实现跨应用自动化任务。"
+    },
+    {
+      "title": "AGI-Next 前沿峰会 - 清华聚首中国 AI 基模四杰",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "industry",
+      "tags": [
+        "AI 工具与效率",
+        "行业洞察"
+      ],
+      "slug": "agi-next-summit-tsinghua",
+      "path": "ai-tools/industry/2026-01-16-agi-next-summit-tsinghua.md",
+      "summary": ""
+    },
+    {
+      "title": "Chrome DevTools MCP - AI 控制 Chrome 调试神器",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "mcp",
+      "tags": [
+        "AI 工具与效率",
+        "MCP 工具"
+      ],
+      "slug": "chrome-devtools-mcp",
+      "path": "ai-tools/mcp/2026-01-16-chrome-devtools-mcp.md",
+      "summary": "💡 **一句话总结**：Chrome 官方出品，让 AI（如 Claude）能直接\"看到\"浏览器的控制台日志、网络请求、DOM 结构和性能数据，从\"瞎猜问题\"升级为\"精准诊断\"。"
+    },
+    {
+      "title": "文章同步助手 (Wechatsync) - 多平台内容分发 + MCP AI 集成",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "mcp",
+      "tags": [
+        "AI 工具与效率",
+        "MCP 工具"
+      ],
+      "slug": "wechatsync-article-sync-assistant",
+      "path": "ai-tools/mcp/2026-01-16-wechatsync-article-sync-assistant.md",
+      "summary": ""
+    },
+    {
+      "title": "notebooklm-py：Google NotebookLM 的命令行/API 工具",
+      "date": "2026-01-16",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI 工具与效率",
+        "效率工具"
+      ],
+      "slug": "notebooklm-py-automation",
+      "path": "ai-tools/productivity/2026-01-16-notebooklm-py-automation.md",
+      "summary": ""
+    },
+    {
+      "title": "Memos - 注重隐私的轻量级笔记工具",
+      "date": "2026-01-16",
+      "category": "tools",
+      "subcategory": "",
+      "tags": [
+        "笔记工具",
+        "自托管",
+        "开源",
+        "Docker",
+        "隐私"
+      ],
+      "slug": "memos-lightweight-notes",
+      "path": "tools/2026-01-16-memos-lightweight-notes.md",
+      "summary": "💡 **一句话总结**：Memos 是一个可自托管的\"私密微博\"，用 Markdown 记录碎片化想法，完全掌握数据所有权，Docker 一键部署，资源占用极低。"
+    },
+    {
+      "title": "微信公众号文章导出器 - 批量下载神器精读",
+      "date": "2026-01-16",
+      "category": "tools",
+      "subcategory": "",
+      "tags": [
+        "命令行工具"
+      ],
+      "slug": "wechat-article-exporter",
+      "path": "tools/2026-01-16-wechat-article-exporter.md",
+      "summary": "**项目地址**：https://github.com/wechat-article/wechat-article-exporter"
+    },
+    {
+      "title": "2025年AI技术回顾：暴力美学时代的终结",
+      "date": "2026-01-14",
+      "category": "ai-research",
+      "subcategory": "",
+      "tags": [
+        "AI",
+        "技术回顾",
+        "TTC",
+        "Titans",
+        "世界模型",
+        "元学习",
+        "强化学习",
+        "2025"
+      ],
+      "slug": "2025-ai-tech-review",
+      "path": "ai-research/2026-01-14-2025-ai-tech-review.md",
+      "summary": "💡 **核心洞见**：2025年的技术突破集中在**原来得分为0的短板**——即时推理、长期记忆、视觉处理。"
+    },
+    {
+      "title": "AI 智能体评估实战指南：改了提示词怎么知道改得对不对",
+      "date": "2026-01-14",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI",
+        "Agent",
+        "评估",
+        "Eval",
+        "提示词工程",
+        "CodeBuddy",
+        "Anthropic",
+        "测试"
+      ],
+      "slug": "ai-agent-eval-guide",
+      "path": "ai-tools/agent-skill/2026-01-14-ai-agent-eval-guide.md",
+      "summary": "📖 原文：技术博客（基于 Anthropic Demystifying evals for AI agents 解读）"
+    },
+    {
+      "title": "RSS.app vs RSS.com - 两个 RSS 项目对比精读",
+      "date": "2026-01-11",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "RSS",
+        "信息聚合",
+        "播客托管",
+        "内容分发",
+        "订阅源"
+      ],
+      "slug": "rss-app-vs-rss-com",
+      "path": "ai-tools/productivity/2026-01-11-rss-app-vs-rss-com.md",
+      "summary": "📖 原文：[RSS.app](https://rss.app/) | [RSS.com](https://rss.com/)"
+    },
+    {
+      "title": "Agent Skills for Context Engineering 项目介绍",
+      "date": "2026-01-09",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "上下文工程",
+        "智能体系统",
+        "Agent Skills",
+        "多智能体架构",
+        "BDI认知模型"
+      ],
+      "slug": "agent-skills-context-engineering",
+      "path": "ai-tools/agent-skill/2026-01-09-agent-skills-context-engineering.md",
+      "summary": "💡 **一句话总结**：这是一套将上下文管理策略封装成即插即用技能的工程指南，让智能体从\"能跑\"迈向\"好用\"。"
+    },
+    {
+      "title": "NVIDIA Nemotron Speech ASR - 实时流式语音识别模型",
+      "date": "2026-01-09",
+      "category": "ai-tools",
+      "subcategory": "ai-model",
+      "tags": [
+        "ASR",
+        "语音识别",
+        "流式处理",
+        "NVIDIA",
+        "NeMo",
+        "低延迟",
+        "语音Agent"
+      ],
+      "slug": "nvidia-nemotron-speech-asr",
+      "path": "ai-tools/ai-model/2026-01-09-nvidia-nemotron-speech-asr.md",
+      "summary": "📖 原文：[Nemotron Speech ASR 模型](https://huggingface.co/nvidia/nemotron-speech-streaming-en-0.6b)"
+    },
+    {
+      "title": "Browser Use - 开源 AI 浏览器自动化框架",
+      "date": "2026-01-09",
+      "category": "ai-tools",
+      "subcategory": "browser-automation",
+      "tags": [
+        "AI",
+        "浏览器自动化",
+        "Agent",
+        "Playwright",
+        "Vision Model",
+        "开源"
+      ],
+      "slug": "browser-use-ai-browser-automation",
+      "path": "ai-tools/browser-automation/2026-01-09-browser-use-ai-browser-automation.md",
+      "summary": "📖 原文：[Browser Use GitHub](https://github.com/browser-use/browser-use)"
+    },
+    {
+      "title": "DeepTutor - AI 个人学习助手",
+      "date": "2026-01-09",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI教育",
+        "多智能体",
+        "双回路架构",
+        "苏格拉底式教学",
+        "试卷克隆"
+      ],
+      "slug": "deeptutor-ai-learning-assistant",
+      "path": "ai-tools/productivity/2026-01-09-deeptutor-ai-learning-assistant.md",
+      "summary": "📖 原文：[DeepTutor GitHub](https://github.com/HKUDS/DeepTutor)"
+    },
+    {
+      "title": "MiroThinker v1.5 - 开源搜索 Agent 介绍",
+      "date": "2026-01-09",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "搜索Agent",
+        "交互式扩展",
+        "MiroThinker",
+        "深度研究",
+        "BrowseComp"
+      ],
+      "slug": "mirothinker-search-agent",
+      "path": "ai-tools/productivity/2026-01-09-mirothinker-search-agent.md",
+      "summary": "💡 **一句话总结**：MiroThinker 不拼参数大小，而是让 AI 像人类研究员一样主动查资料、验证、修正，用 1/30 参数超越顶级模型。"
+    },
+    {
+      "title": "OpenBB - 开源金融数据平台",
+      "date": "2026-01-09",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "金融数据",
+        "量化分析",
+        "开源",
+        "AI Agent",
+        "MCP",
+        "Python"
+      ],
+      "slug": "openbb-open-finance-platform",
+      "path": "ai-tools/productivity/2026-01-09-openbb-open-finance-platform.md",
+      "summary": "📖 原文：[OpenBB GitHub](https://github.com/OpenBB-finance/OpenBB)"
+    },
+    {
+      "title": "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems",
+      "date": "2026-01-07",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "智能体",
+        "设计模式",
+        "LangChain",
+        "CrewAI",
+        "Google ADK",
+        "MCP",
+        "多智能体协作"
+      ],
+      "slug": "agentic-design-patterns-guide",
+      "path": "ai-tools/agent-skill/2026-01-07-agentic-design-patterns-guide.md",
+      "summary": "📖 原文：[Agentic Design Patterns](https://github.com/sarwarbeing-ai/Agentic_Design_Patterns)"
+    },
+    {
+      "title": "八千字长文复盘「中国故事」诞生过程",
+      "date": "2026-01-07",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "Antigravity",
+        "AI编程",
+        "产品开发",
+        "热更新架构",
+        "工作流自动化"
+      ],
+      "slug": "antigravity-app-development-case-study",
+      "path": "ai-tools/case-study/2026-01-07-antigravity-app-development-case-study.md",
+      "summary": "📖 原文：[八千字长文复盘「中国故事」诞生过程](https://note.mowen.cn/detail/gYinb8e_lXKz0l0ALEq_u)"
+    },
+    {
+      "title": "AntV Infographic 项目精读",
+      "date": "2026-01-06",
+      "category": "ai-ml",
+      "subcategory": "",
+      "tags": [
+        "AI/ML 技术"
+      ],
+      "slug": "antv-infographic-deep-dive",
+      "path": "ai-ml/2026-01-06-antv-infographic-deep-dive.md",
+      "summary": ""
+    },
+    {
+      "title": "METR：AI 能力评估研究报告精读",
+      "date": "2026-01-06",
+      "category": "ai-ml",
+      "subcategory": "",
+      "tags": [
+        "AI/ML 技术"
+      ],
+      "slug": "metr-ai-capability-research",
+      "path": "ai-ml/2026-01-06-metr-ai-capability-research.md",
+      "summary": ""
+    },
+    {
+      "title": "RAG（检索增强生成）精读笔记",
+      "date": "2026-01-06",
+      "category": "ai-ml",
+      "subcategory": "",
+      "tags": [
+        "AI/ML 技术"
+      ],
+      "slug": "rag-retrieval-augmented-generation",
+      "path": "ai-ml/2026-01-06-rag-retrieval-augmented-generation.md",
+      "summary": ""
+    },
+    {
+      "title": "Simon Willison: 2025 大模型之年回顾",
+      "date": "2026-01-06",
+      "category": "ai-ml",
+      "subcategory": "",
+      "tags": [
+        "AI/ML 技术"
+      ],
+      "slug": "simon-willison-2025-year-in-llms",
+      "path": "ai-ml/2026-01-06-simon-willison-2025-year-in-llms.md",
+      "summary": ""
+    },
+    {
+      "title": "DLCM: 动态大概念模型 - 从 Token 到 Concept 的推理范式革新",
+      "date": "2026-01-06",
+      "category": "ai-research",
+      "subcategory": "",
+      "tags": [
+        "AI 研究"
+      ],
+      "slug": "dlcm-dynamic-large-concept-models",
+      "path": "ai-research/2026-01-06-dlcm-dynamic-large-concept-models.md",
+      "summary": "论文：Dynamic Large Concept Models: Latent Reasoning in an Adaptive Semantic Space"
+    },
+    {
+      "title": "Google Cloud 2026 Agent 趋势报告精读",
+      "date": "2026-01-06",
+      "category": "ai-research",
+      "subcategory": "",
+      "tags": [
+        "AI 研究"
+      ],
+      "slug": "google-cloud-agent-trends-2026",
+      "path": "ai-research/2026-01-06-google-cloud-agent-trends-2026.md",
+      "summary": ""
+    },
+    {
+      "title": "Google A2UI - Agent 生成 UI 的声明式协议",
+      "date": "2026-01-06",
+      "category": "ai-tools",
+      "subcategory": "ai-productivity",
+      "tags": [
+        "AI",
+        "Frontend",
+        "UI Generation",
+        "Google",
+        "Protocol",
+        "A2A"
+      ],
+      "slug": "google-a2ui-agent-ui-protocol",
+      "path": "ai-tools/ai-productivity/2026-01-06-google-a2ui-agent-ui-protocol.md",
+      "summary": "\"声明式 JSON + 组件白名单 + 客户端原生渲染\"：将 AI 的\"执行权\"转移到客户端，从架构层面消除安全风险"
+    },
+    {
+      "title": "Remotion：用 React 写视频的开源框架",
+      "date": "2026-01-06",
+      "category": "dev-tools",
+      "subcategory": "",
+      "tags": [
+        "开发工具"
+      ],
+      "slug": "remotion-react-video-framework",
+      "path": "dev-tools/2026-01-06-remotion-react-video-framework.md",
+      "summary": ""
+    },
+    {
+      "title": "《Privilege Lost》精读笔记",
+      "date": "2026-01-06",
+      "category": "sociology",
+      "subcategory": "",
+      "tags": [
+        "社会学"
+      ],
+      "slug": "privilege-lost-book-notes",
+      "path": "sociology/2026-01-06-privilege-lost-book-notes.md",
+      "summary": "📚 书名：Privilege Lost: Who Leaves the Upper Middle Class and How They Fall"
+    },
+    {
+      "title": "飞书 MCP 接入与使用指南",
+      "date": "2026-01-06",
+      "category": "tools",
+      "subcategory": "",
+      "tags": [
+        "命令行工具"
+      ],
+      "slug": "feishu-lark-mcp-integration",
+      "path": "tools/2026-01-06-feishu-lark-mcp-integration.md",
+      "summary": ""
+    },
+    {
+      "title": "Vibe Kanban - AI 编程代理的\"赛博包工头\"",
+      "date": "2026-01-05",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "vibe-kanban-ai-agent-manager",
+      "path": "ai-tools/agent-skill/2026-01-05-vibe-kanban-ai-agent-manager.md",
+      "summary": "项目地址：https://github.com/BloopAI/vibe-kanban"
+    },
+    {
+      "title": "oh-my-opencode - 多模型协作的 AI 编程 Agent 插件",
+      "date": "2026-01-05",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "oh-my-opencode-multi-model-agent",
+      "path": "ai-tools/ai-ide/2026-01-06-oh-my-opencode-multi-model-agent.md",
+      "summary": ""
+    },
+    {
+      "title": "AI 自动化测试演进：从 Playwright MCP 到 Dev Browser",
+      "date": "2026-01-05",
+      "category": "ai-tools",
+      "subcategory": "browser-automation",
+      "tags": [
+        "AI 工具与效率",
+        "浏览器自动化"
+      ],
+      "slug": "ai-browser-automation-evolution",
+      "path": "ai-tools/browser-automation/2026-01-05-ai-browser-automation-evolution.md",
+      "summary": "文章类型：技术博客（工具对比与实践指南）"
+    },
+    {
+      "title": "MCP 架构文档精读",
+      "date": "2026-01-05",
+      "category": "ai-tools",
+      "subcategory": "mcp",
+      "tags": [
+        "AI 工具与效率",
+        "MCP 工具"
+      ],
+      "slug": "mcp-architecture",
+      "path": "ai-tools/mcp/2026-01-05-mcp-architecture.md",
+      "summary": "原文：https://modelcontextprotocol.io/docs/learn/architecture"
+    },
+    {
+      "title": "MCP Server 与 Client 概念精读",
+      "date": "2026-01-05",
+      "category": "ai-tools",
+      "subcategory": "mcp",
+      "tags": [
+        "AI 工具与效率",
+        "MCP 工具"
+      ],
+      "slug": "mcp-server-client-concepts",
+      "path": "ai-tools/mcp/2026-01-05-mcp-server-client-concepts.md",
+      "summary": "- https://modelcontextprotocol.io/docs/learn/server-concepts"
+    },
+    {
+      "title": "fzf - 命令行模糊查找器精读笔记",
+      "date": "2026-01-05",
+      "category": "tools",
+      "subcategory": "",
+      "tags": [
+        "命令行工具"
+      ],
+      "slug": "fzf-command-line-fuzzy-finder",
+      "path": "tools/2025-01-05-fzf-command-line-fuzzy-finder.md",
+      "summary": ""
+    },
+    {
+      "title": "Agentic Patterns - AI Agent 设计模式原理",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "agentic-patterns",
+      "path": "ai-tools/agent-skill/2026-01-04-agentic-patterns.md",
+      "summary": ""
+    },
+    {
+      "title": "Anthropic Advanced Tool Use 三件套",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "anthropic-advanced-tool-use",
+      "path": "ai-tools/agent-skill/2026-01-04-anthropic-advanced-tool-use.md",
+      "summary": ""
+    },
+    {
+      "title": "Prompt 工程学习笔记",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI 工具与效率",
+        "Agent & Skill"
+      ],
+      "slug": "prompt-engineering",
+      "path": "ai-tools/agent-skill/2026-01-04-prompt-engineering.md",
+      "summary": ""
+    },
+    {
+      "title": "Claude Code 创始人 Boris Cherny 的 13 个使用技巧",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "boris-claude-code-tips",
+      "path": "ai-tools/ai-ide/2026-01-04-boris-claude-code-tips.md",
+      "summary": ""
+    },
+    {
+      "title": "Vibe Coding CN - AI 辅助开发方法论精读",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "AI 工具与效率",
+        "AI IDE"
+      ],
+      "slug": "vibe-coding-methodology",
+      "path": "ai-tools/ai-ide/2026-01-04-vibe-coding-methodology.md",
+      "summary": ""
+    },
+    {
+      "title": "Awesome LLM Apps - LLM 应用案例集合精读",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "ai-model",
+      "tags": [
+        "AI 工具与效率",
+        "AI 模型应用"
+      ],
+      "slug": "awesome-llm-apps",
+      "path": "ai-tools/ai-model/2026-01-04-awesome-llm-apps.md",
+      "summary": ""
+    },
+    {
+      "title": "AskUserQuestion 工具与苏格拉底式提问法",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "AI 协作",
+        "苏格拉底方法",
+        "需求澄清",
+        "Plan Mode",
+        "人机交互"
+      ],
+      "slug": "askuserquestion-socratic-method",
+      "path": "ai-tools/case-study/2026-01-04-askuserquestion-socratic-method.md",
+      "summary": ""
+    },
+    {
+      "title": "GitHub 开源项目精读（5 个 AI/开发工具）",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "case-study",
+      "tags": [
+        "开源项目",
+        "AI工具",
+        "语音识别",
+        "GUI",
+        "Agent训练"
+      ],
+      "slug": "github-projects-batch",
+      "path": "ai-tools/case-study/2026-01-04-github-projects-batch.md",
+      "summary": ""
+    },
+    {
+      "title": "Slidev 精读笔记",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI 工具与效率",
+        "效率工具"
+      ],
+      "slug": "slidev-guide",
+      "path": "ai-tools/productivity/2026-01-04-slidev-guide.md",
+      "summary": ""
+    },
+    {
+      "title": "SuperWhisper - AI 语音转文字工具精读",
+      "date": "2026-01-04",
+      "category": "ai-tools",
+      "subcategory": "productivity",
+      "tags": [
+        "AI 工具与效率",
+        "效率工具"
+      ],
+      "slug": "superwhisper-voice-to-text",
+      "path": "ai-tools/productivity/2026-01-04-superwhisper-voice-to-text.md",
+      "summary": ""
+    },
+    {
+      "title": "Celery 任务调度机制深度解析",
+      "date": "2026-01-04",
+      "category": "programming",
+      "subcategory": "",
+      "tags": [
+        "celery",
+        "python",
+        "分布式",
+        "任务调度",
+        "异步处理"
+      ],
+      "slug": "celery-task-scheduling-design",
+      "path": "programming/2026-01-04-celery-task-scheduling-design.md",
+      "summary": ""
+    },
+    {
+      "title": "UI/UX Pro Max Skill - AI 助手的设计大脑",
+      "date": "2026-01-02",
+      "category": "ai-tools",
+      "subcategory": "agent-skill",
+      "tags": [
+        "AI Skill",
+        "UI/UX",
+        "设计系统",
+        "Prompt Engineering",
+        "Claude",
+        "Cursor"
+      ],
+      "slug": "ui-ux-pro-max-skill",
+      "path": "ai-tools/agent-skill/2026-01-02-ui-ux-pro-max-skill.md",
+      "summary": "📖 原文：[ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)"
+    },
+    {
+      "title": "A Guide to Claude Code 2.0 and getting better at using coding agents",
+      "date": "2025-12-29",
+      "category": "ai-tools",
+      "subcategory": "ai-ide",
+      "tags": [
+        "claude-code",
+        "coding-agents",
+        "context-engineering",
+        "subagents",
+        "ai-tools"
+      ],
+      "slug": "claude-code-guide",
+      "path": "ai-tools/ai-ide/2025-12-29-claude-code-guide.md",
+      "summary": "📖 原文：[A Guide to Claude Code 2.0](https://sankalp.bearblog.dev/my-experience-with-claude-code-20-and-how-to-get-better-at-using-coding-agents/)"
+    },
+    {
+      "title": "Clean Code Python 版 - 代码整洁之道",
+      "date": "2025-12-29",
+      "category": "programming",
+      "subcategory": "",
+      "tags": [
+        "clean-code",
+        "python",
+        "best-practices",
+        "code-quality",
+        "solid"
+      ],
+      "slug": "clean-code-python",
+      "path": "programming/2025-12-29-clean-code-python.md",
+      "summary": "📖 原文：[clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)"
+    },
+    {
+      "title": "Python 设计模式完全指南",
+      "date": "2025-12-29",
+      "category": "programming",
+      "subcategory": "",
+      "tags": [
+        "design-patterns",
+        "python",
+        "gof",
+        "creational",
+        "structural",
+        "behavioral"
+      ],
+      "slug": "python-design-patterns",
+      "path": "programming/2025-12-29-python-design-patterns.md",
+      "summary": "📖 原文：[faif/python-patterns](https://github.com/faif/python-patterns)"
+    }
+  ],
+  "stats": {
+    "totalNotes": 205
+  },
+  "source": {
+    "repository": "yupeng0512/learning-notes",
+    "ref": "main",
+    "commit": "e3e5891487aaf7ba24800bd11941b8b4e4b50dc2"
+  },
+  "extractedAt": "2026-06-03T13:55:12.617Z"
+}

@@ -1,0 +1,102 @@
+name: Sync Learning Notes
+
+on:
+  repository_dispatch:
+    types: [learning-notes-updated]
+  workflow_dispatch:
+    inputs:
+      learning_notes_ref:
+        description: 'Branch, tag, or SHA from yupeng0512/learning-notes to sync'
+        required: false
+        default: main
+  schedule:
+    - cron: '17 20 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-learning-notes-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Resolve learning-notes ref
+        id: refs
+        shell: bash
+        run: |
+          RAW_REF="${{ github.event.inputs.learning_notes_ref || github.event.client_payload.source_sha || github.event.client_payload.ref || 'main' }}"
+          if [ -z "$RAW_REF" ]; then
+            RAW_REF="main"
+          fi
+          NORMALIZED_REF="${RAW_REF#refs/heads/}"
+          echo "learning_notes_ref=$NORMALIZED_REF" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout personal-card
+        uses: actions/checkout@v4
+        with:
+          path: personal-card
+
+      - name: Checkout learning-notes
+        uses: actions/checkout@v4
+        with:
+          repository: yupeng0512/learning-notes
+          ref: ${{ steps.refs.outputs.learning_notes_ref }}
+          path: learning-notes
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: personal-card/package-lock.json
+
+      - name: Install dependencies
+        working-directory: personal-card
+        run: npm ci
+
+      - name: Sync notes data
+        working-directory: personal-card
+        env:
+          LEARNING_NOTES_DIR: ../learning-notes
+          LEARNING_NOTES_REF: ${{ steps.refs.outputs.learning_notes_ref }}
+          LEARNING_NOTES_REPOSITORY: yupeng0512/learning-notes
+        run: npm run sync:notes
+
+      - name: Build
+        working-directory: personal-card
+        run: |
+          npm run build
+          {
+            echo "### Build"
+            echo ""
+            echo "- Status: passed"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Detect changes
+        id: diff
+        working-directory: personal-card
+        shell: bash
+        run: |
+          if git diff --quiet -- src/data/notes-data.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "- Commit: no changes" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "- Commit: pending" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Commit synced notes
+        if: steps.diff.outputs.changed == 'true'
+        working-directory: personal-card
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/notes-data.json
+          git commit -m "chore: sync learning notes data"
+          git push
+          echo "- Commit: pushed" >> "$GITHUB_STEP_SUMMARY"

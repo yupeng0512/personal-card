@@ -2,9 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import overrides from '../data/overrides.json';
 import workspaceData from '../data/workspace-data.json';
+import notesData from '../data/notes-data.json';
 
 const { profile, career } = overrides as any;
 const { stats } = workspaceData;
+const totalNotes = (notesData as any).stats?.totalNotes ?? stats.totalNotes;
 ---
 
 <BaseLayout title="关于 - Archer Yu" description="个人简介与职业经历">
@@ -34,7 +36,7 @@ const { stats } = workspaceData;
           驱动我的不是技术标签本身，而是一个更具体的问题：<em class="text-surface-800 dark:text-surface-200">如何让 AI 能力进入真实研发和业务链路，
           并且可控、可复用、可验证？</em> 我的答案是工程化：把 AI 能力拆解为知识库、规则、工具调用、确认执行和验收闭环。
           截至目前，我保持着 <a href="/blog" class="text-primary-600 dark:text-primary-400 hover:underline">持续学习</a> 的习惯，
-          写了 {stats.totalNotes} 篇精读笔记，涵盖 AI Agent 架构、MCP 协议、Prompt 工程等前沿领域。
+          写了 {totalNotes} 篇精读笔记，涵盖 AI Agent 架构、MCP 协议、Prompt 工程等前沿领域。
         </p>
       </div>
     </section>
@@ -107,7 +109,7 @@ const { stats } = workspaceData;
       <h2 class="text-2xl font-bold text-surface-800 dark:text-surface-200 mb-4">持续学习</h2>
       <div class="glass rounded-lg p-6">
         <div class="flex items-baseline gap-3 mb-3">
-          <span class="text-4xl font-bold text-surface-900 dark:text-white">{stats.totalNotes}</span>
+          <span class="text-4xl font-bold text-surface-900 dark:text-white">{totalNotes}</span>
           <span class="text-surface-500 dark:text-surface-400">篇结构化学习笔记</span>
         </div>
         <p class="text-surface-500 dark:text-surface-400 text-sm mb-4">

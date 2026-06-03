@@ -25,7 +25,9 @@
 npm install
 npm run dev
 npm run extract
+npm run sync:notes
 npm run build
+npm run build:workspace
 npm run preview
 ```
 
@@ -35,4 +37,5 @@ Project data is generated from local workspace scanning plus curated overrides:
 
 1. `npm run extract` scans workspace repositories and writes `src/data/workspace-data.json`.
 2. `src/data/overrides.json` provides curated descriptions, featured order, value stories and career content.
-3. Astro builds the static site from the merged project model.
+3. `npm run sync:notes` scans a checked-out `learning-notes` repository and writes `src/data/notes-data.json`.
+4. Astro builds the static site from the merged project model and notes snapshot.

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import workspaceData from '../../data/workspace-data.json';
+import notesData from '../../data/notes-data.json';
 
 const CATEGORY_LABELS: Record<string, string> = {
   'ai-tools': 'AI 工具',
@@ -54,7 +54,7 @@ interface Note {
   summary: string;
 }
 
-const notes: Note[] = (workspaceData as any).notes || [];
+const notes: Note[] = (notesData as any).notes || [];
 
 const notesByYear: Record<string, Note[]> = {};
 for (const note of notes) {
