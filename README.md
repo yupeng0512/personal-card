@@ -39,3 +39,12 @@ Project data is generated from local workspace scanning plus curated overrides:
 2. `src/data/overrides.json` provides curated descriptions, featured order, value stories and career content.
 3. `npm run sync:notes` scans a checked-out `learning-notes` repository and writes `src/data/notes-data.json`.
 4. Astro builds the static site from the merged project model and notes snapshot.
+
+## Learning Notes Sync
+
+`learning-notes` pushes trigger `personal-card` through repository dispatch. Configure these GitHub secrets before relying on the end-to-end workflow:
+
+- In `learning-notes`: `PERSONAL_CARD_DISPATCH_TOKEN`, a fine-grained PAT or GitHub App token that can dispatch workflows in `yupeng0512/personal-card`.
+- In `personal-card`: `LEARNING_NOTES_READ_TOKEN`, required when `yupeng0512/learning-notes` is private. It only needs contents read access to `learning-notes`.
+
+Without `LEARNING_NOTES_READ_TOKEN`, the sync workflow can still run for a public `learning-notes` repository, but private checkout will fail with `Repository not found`.

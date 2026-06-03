@@ -46,6 +46,7 @@ jobs:
           repository: yupeng0512/learning-notes
           ref: ${{ steps.refs.outputs.learning_notes_ref }}
           path: learning-notes
+          token: ${{ secrets.LEARNING_NOTES_READ_TOKEN || github.token }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
