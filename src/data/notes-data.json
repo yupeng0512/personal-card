@@ -1,6 +1,27 @@
 {
   "notes": [
     {
+      "title": "Prompt 的本质：长尾条件、贝叶斯视角与 Prefix Cache 的上下文工程",
+      "date": "2026-06-06",
+      "category": "ai-tools",
+      "subcategory": "prompt-engineering",
+      "tags": [
+        "Prompt工程",
+        "Context Engineering",
+        "Bayesian Inference",
+        "In-Context Learning",
+        "Prompt Caching",
+        "KV Cache",
+        "Prefix Tree",
+        "RadixAttention",
+        "Chain-of-Thought",
+        "Lost in the Middle"
+      ],
+      "slug": "prompt-long-tail-bayesian-prefix-cache",
+      "path": "ai-tools/prompt-engineering/2026-06-06-prompt-long-tail-bayesian-prefix-cache.md",
+      "summary": "Prompt 的本质是给条件语言模型提供高信息量证据，让模型从更窄、更正确的语义分布中生成答案；在工程系统里，Prompt 的本质进一步变成上下文布局问题：哪些 token 该出现、按什么顺序出现、能否被缓存、能否被评测。"
+    },
+    {
       "title": "ADHD 并行发散：让 Agent 越过正确但无聊的答案",
       "date": "2026-06-03",
       "category": "ai-tools",
@@ -3412,12 +3433,12 @@
     }
   ],
   "stats": {
-    "totalNotes": 205
+    "totalNotes": 206
   },
   "source": {
     "repository": "yupeng0512/learning-notes",
-    "ref": "main",
-    "commit": "3ce22295cbf27d50018d936760cb22db9a9fc6e5"
+    "ref": "7d4897a3db63817d6fa538a020ee0594a5b2d561",
+    "commit": "7d4897a3db63817d6fa538a020ee0594a5b2d561"
   },
-  "extractedAt": "2026-06-03T14:08:21.894Z"
+  "extractedAt": "2026-06-06T09:55:09.637Z"
 }
