@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "个人价值名片 - AI Agent 工程化实践者的可视化展示平台",
   "engines": {
-    "node": ">=22.12.0"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
