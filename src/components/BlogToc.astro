@@ -1,0 +1,196 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  labelledBy?: string;
+  hideTitle?: boolean;
+}
+
+const { headings, labelledBy = 'blog-toc-title', hideTitle = false } = Astro.props;
+const tocHeadings = headings.filter(heading => (
+  heading.slug &&
+  heading.text &&
+  heading.depth >= 2 &&
+  heading.depth <= 3
+));
+---
+
+{tocHeadings.length > 0 && (
+  <nav class="blog-toc" aria-labelledby={labelledBy}>
+    <div id={labelledBy} class:list={['toc-title', hideTitle && 'toc-title-hidden']}>目录</div>
+    <ol class="toc-list">
+      {tocHeadings.map(heading => (
+        <li class:list={['toc-item', heading.depth === 3 && 'toc-item-nested']}>
+          <a href={`#${heading.slug}`} class="toc-link" data-blog-toc-link>
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<script>
+  function decodeHashValue(raw: string) {
+    try {
+      return decodeURIComponent(raw);
+    } catch {
+      return raw;
+    }
+  }
+
+  function decodeHash(link: HTMLAnchorElement) {
+    return decodeHashValue(link.hash.slice(1));
+  }
+
+  function decodeCurrentHash() {
+    return window.location.hash ? decodeHashValue(window.location.hash.slice(1)) : '';
+  }
+
+  function setActiveTocLink(tocLinks: HTMLAnchorElement[], id: string) {
+    for (const link of tocLinks) {
+      link.dataset.active = decodeHash(link) === id ? 'true' : 'false';
+    }
+  }
+
+  function initBlogToc() {
+    const tocLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-blog-toc-link]'));
+    if (tocLinks.length === 0) return;
+
+    const headingsById = new Map<string, HTMLElement>();
+    for (const link of tocLinks) {
+      const id = decodeHash(link);
+      const heading = document.getElementById(id);
+      if (heading) headingsById.set(id, heading);
+    }
+
+    const initialId = decodeCurrentHash();
+    if (initialId) setActiveTocLink(tocLinks, initialId);
+
+    window.addEventListener('hashchange', () => {
+      const id = decodeCurrentHash();
+      if (id) setActiveTocLink(tocLinks, id);
+    });
+
+    const observedHeadings = Array.from(headingsById.entries());
+    if (observedHeadings.length > 0) {
+      let frameId = 0;
+
+      const updateActiveHeading = () => {
+        frameId = 0;
+        const activationTop = 112;
+        let activeId = observedHeadings[0][0];
+
+        for (const [id, heading] of observedHeadings) {
+          if (heading.getBoundingClientRect().top <= activationTop) {
+            activeId = id;
+          } else {
+            break;
+          }
+        }
+
+        setActiveTocLink(tocLinks, activeId);
+      };
+
+      const scheduleActiveHeadingUpdate = () => {
+        if (frameId) return;
+        frameId = window.requestAnimationFrame(updateActiveHeading);
+      };
+
+      window.addEventListener('scroll', scheduleActiveHeadingUpdate, { passive: true });
+      window.addEventListener('resize', scheduleActiveHeadingUpdate);
+      scheduleActiveHeadingUpdate();
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBlogToc, { once: true });
+  } else {
+    initBlogToc();
+  }
+</script>
+
+<style>
+  .blog-toc {
+    border-left: 1px solid rgb(233 236 239);
+    padding-left: 1rem;
+  }
+
+  :global(.dark) .blog-toc {
+    border-left-color: rgb(52 58 64);
+  }
+
+  .toc-title {
+    color: rgb(52 58 64);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .toc-title-hidden {
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  :global(.dark) .toc-title {
+    color: rgb(222 226 230);
+  }
+
+  .toc-list {
+    display: grid;
+    gap: 0.15rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toc-item-nested {
+    padding-left: 0.75rem;
+  }
+
+  .toc-link {
+    border-left: 2px solid transparent;
+    color: rgb(134 142 150);
+    display: block;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin-left: -1rem;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    padding: 0.28rem 0 0.28rem 0.85rem;
+    text-decoration: none;
+    transition: border-color 150ms ease, color 150ms ease;
+  }
+
+  .toc-link:hover,
+  .toc-link[data-active="true"] {
+    border-left-color: rgb(76 110 245);
+    color: rgb(76 110 245);
+  }
+
+  .toc-link[data-active="true"] {
+    font-weight: 600;
+  }
+
+  :global(.dark) .toc-link {
+    color: rgb(173 181 189);
+  }
+
+  :global(.dark) .toc-link:hover,
+  :global(.dark) .toc-link[data-active="true"] {
+    border-left-color: rgb(145 167 255);
+    color: rgb(145 167 255);
+  }
+</style>

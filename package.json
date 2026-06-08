@@ -20,6 +20,7 @@
     "@astrojs/markdown-satteri": "^0.2.2",
     "@astrojs/mdx": "^6.0.2",
     "@astrojs/react": "^5.0.7",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
