@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.1.0",
   "description": "个人价值名片 - AI Agent 工程化实践者的可视化展示平台",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
@@ -13,12 +16,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/react": "^4.4.2",
+    "@astrojs/markdown-remark": "^7.2.0",
+    "@astrojs/markdown-satteri": "^0.2.2",
+    "@astrojs/mdx": "^6.0.2",
+    "@astrojs/react": "^5.0.7",
     "@tailwindcss/vite": "^4.2.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.17.1",
+    "astro": "^6.4.4",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-force-graph-2d": "^1.29.1",

@@ -12,6 +12,7 @@ interface NoteInfo {
   slug: string;
   path: string;
   summary: string;
+  content: string;
 }
 
 interface SourceInfo {
@@ -234,6 +235,12 @@ function extractNoteSummary(content: string): string {
   return '';
 }
 
+function stripFrontmatter(content: string): string {
+  const frontmatterMatch = content.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/);
+  if (!frontmatterMatch) return content.trimStart();
+  return content.slice(frontmatterMatch[0].length).trimStart();
+}
+
 function isPrivateNote(frontmatter: ParsedFrontmatter): boolean {
   return frontmatter.public === false || frontmatter.visibility === 'private';
 }
@@ -264,12 +271,13 @@ function extractNote(relPath: string): NoteInfo | null {
   const subcategory = pathParts.length > 2 ? pathParts[1] : '';
   const slug = fileName.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
   const summary = extractNoteSummary(content) || inline.summary || '';
+  const noteContent = stripFrontmatter(content);
   const tags = fm.tags?.length ? fm.tags : [
     CATEGORY_LABELS[category],
     SUBCATEGORY_LABELS[subcategory],
   ].filter((tag): tag is string => Boolean(tag));
 
-  return { title, date, category, subcategory, tags, slug, path: relPath, summary };
+  return { title, date, category, subcategory, tags, slug, path: relPath, summary, content: noteContent };
 }
 
 function extractNotes(): NoteInfo[] {

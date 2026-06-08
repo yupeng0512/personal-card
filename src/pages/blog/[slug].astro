@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { renderNoteMarkdown } from '../../lib/markdown';
+import {
+  formatNoteDate,
+  getAllNotes,
+  getCategoryLabel,
+  getNoteSourceUrl,
+  getNoteUrl,
+  getRenderableNoteContent,
+  getSubcategoryLabel,
+  type Note,
+} from '../../lib/notes';
+
+export function getStaticPaths() {
+  return getAllNotes().map(note => ({
+    params: { slug: note.slug },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props as { note: Note };
+const allNotes = getAllNotes();
+const noteIndex = allNotes.findIndex(item => item.slug === note.slug);
+const newerNote = noteIndex > 0 ? allNotes[noteIndex - 1] : null;
+const olderNote = noteIndex >= 0 ? allNotes[noteIndex + 1] : null;
+
+const markdown = getRenderableNoteContent(note);
+const rendered = markdown ? await renderNoteMarkdown(note, markdown) : null;
+---
+
+<BaseLayout title={`${note.title} - Archer Yu`} description={note.summary || note.title}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+    <a href="/blog" class="inline-flex items-center gap-1 text-sm text-surface-500 dark:text-surface-400 hover:text-primary-600 dark:hover:text-primary-400 mb-8">
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      返回笔记列表
+    </a>
+
+    <header class="mb-10">
+      <div class="mb-4 flex flex-wrap items-center gap-2 text-sm text-surface-500 dark:text-surface-400">
+        <time>{note.date}</time>
+        <span class="text-surface-300 dark:text-surface-600">/</span>
+        <span>{getCategoryLabel(note.category)}</span>
+        {note.subcategory && (
+          <>
+            <span class="text-surface-300 dark:text-surface-600">/</span>
+            <span>{getSubcategoryLabel(note.subcategory)}</span>
+          </>
+        )}
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold leading-tight text-surface-900 dark:text-white">
+        {note.title}
+      </h1>
+      {note.summary && (
+        <p class="mt-5 text-lg leading-relaxed text-surface-500 dark:text-surface-400">
+          {note.summary}
+        </p>
+      )}
+      <div class="mt-5 flex flex-wrap gap-2">
+        {note.tags.slice(0, 8).map(tag => (
+          <span class="rounded-full bg-surface-100 px-3 py-1 text-xs font-medium text-surface-500 dark:bg-surface-800 dark:text-surface-400">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </header>
+
+    {rendered ? (
+      <div class="markdown-content" set:html={rendered.code} />
+    ) : (
+      <div class="rounded-lg border border-surface-200 bg-surface-50 p-5 text-sm text-surface-500 dark:border-surface-700 dark:bg-surface-900 dark:text-surface-400">
+        这篇笔记还没有同步正文。运行 <code>npm run sync:notes</code> 后会生成完整内容。
+      </div>
+    )}
+
+    <footer class="mt-12 border-t border-surface-200 pt-6 dark:border-surface-800">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <a
+          href={getNoteSourceUrl(note)}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400"
+        >
+          查看 Markdown 源文件
+        </a>
+        <div class="text-sm text-surface-400 dark:text-surface-500">
+          {formatNoteDate(note.date)}
+        </div>
+      </div>
+
+      <nav class="mt-8 grid gap-3 sm:grid-cols-2">
+        {olderNote && (
+          <a href={getNoteUrl(olderNote)} class="rounded-lg border border-surface-200 p-4 transition-colors hover:border-primary-300 hover:bg-surface-50 dark:border-surface-700 dark:hover:border-primary-700 dark:hover:bg-surface-900">
+            <div class="mb-1 text-xs text-surface-400 dark:text-surface-500">上一篇</div>
+            <div class="line-clamp-2 text-sm font-medium text-surface-700 dark:text-surface-200">{olderNote.title}</div>
+          </a>
+        )}
+        {newerNote && (
+          <a href={getNoteUrl(newerNote)} class="rounded-lg border border-surface-200 p-4 text-left transition-colors hover:border-primary-300 hover:bg-surface-50 dark:border-surface-700 dark:hover:border-primary-700 dark:hover:bg-surface-900 sm:text-right">
+            <div class="mb-1 text-xs text-surface-400 dark:text-surface-500">下一篇</div>
+            <div class="line-clamp-2 text-sm font-medium text-surface-700 dark:text-surface-200">{newerNote.title}</div>
+          </a>
+        )}
+      </nav>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .markdown-content {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgb(73 80 87);
+  }
+
+  :global(.dark) .markdown-content {
+    color: rgb(222 226 230);
+  }
+
+  .markdown-content :global(h1),
+  .markdown-content :global(h2),
+  .markdown-content :global(h3),
+  .markdown-content :global(h4) {
+    color: rgb(22 27 34);
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 2.2rem 0 0.9rem;
+  }
+
+  :global(.dark) .markdown-content :global(h1),
+  :global(.dark) .markdown-content :global(h2),
+  :global(.dark) .markdown-content :global(h3),
+  :global(.dark) .markdown-content :global(h4) {
+    color: white;
+  }
+
+  .markdown-content :global(h1) {
+    font-size: 1.9rem;
+  }
+
+  .markdown-content :global(h2) {
+    font-size: 1.55rem;
+    border-bottom: 1px solid rgb(233 236 239);
+    padding-bottom: 0.45rem;
+  }
+
+  :global(.dark) .markdown-content :global(h2) {
+    border-bottom-color: rgb(52 58 64);
+  }
+
+  .markdown-content :global(h3) {
+    font-size: 1.25rem;
+  }
+
+  .markdown-content :global(p),
+  .markdown-content :global(ul),
+  .markdown-content :global(ol),
+  .markdown-content :global(blockquote),
+  .markdown-content :global(table),
+  .markdown-content :global(pre) {
+    margin: 1rem 0;
+  }
+
+  .markdown-content :global(a) {
+    color: rgb(76 110 245);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .markdown-content :global(strong) {
+    color: rgb(22 27 34);
+    font-weight: 700;
+  }
+
+  :global(.dark) .markdown-content :global(strong) {
+    color: white;
+  }
+
+  .markdown-content :global(ul),
+  .markdown-content :global(ol) {
+    padding-left: 1.35rem;
+  }
+
+  .markdown-content :global(ul) {
+    list-style: disc;
+  }
+
+  .markdown-content :global(ol) {
+    list-style: decimal;
+  }
+
+  .markdown-content :global(li + li) {
+    margin-top: 0.35rem;
+  }
+
+  .markdown-content :global(blockquote) {
+    border-left: 3px solid rgb(186 200 255);
+    color: rgb(73 80 87);
+    padding-left: 1rem;
+  }
+
+  :global(.dark) .markdown-content :global(blockquote) {
+    border-left-color: rgb(66 99 235);
+    color: rgb(173 181 189);
+  }
+
+  .markdown-content :global(code) {
+    border-radius: 0.25rem;
+    background: rgb(241 243 245);
+    color: rgb(59 91 219);
+    font-size: 0.92em;
+    padding: 0.12rem 0.28rem;
+  }
+
+  :global(.dark) .markdown-content :global(code) {
+    background: rgb(30 34 40);
+    color: rgb(145 167 255);
+  }
+
+  .markdown-content :global(pre) {
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    background: rgb(13 17 23);
+    padding: 1rem;
+  }
+
+  .markdown-content :global(pre code) {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+  }
+
+  .markdown-content :global(table) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+  }
+
+  .markdown-content :global(th),
+  .markdown-content :global(td) {
+    border: 1px solid rgb(222 226 230);
+    padding: 0.55rem 0.7rem;
+    vertical-align: top;
+  }
+
+  :global(.dark) .markdown-content :global(th),
+  :global(.dark) .markdown-content :global(td) {
+    border-color: rgb(52 58 64);
+  }
+
+  .markdown-content :global(th) {
+    background: rgb(248 249 250);
+    color: rgb(52 58 64);
+    font-weight: 700;
+  }
+
+  :global(.dark) .markdown-content :global(th) {
+    background: rgb(22 27 34);
+    color: rgb(222 226 230);
+  }
+
+  .markdown-content :global(img) {
+    max-width: 100%;
+    border-radius: 0.5rem;
+  }
+</style>
