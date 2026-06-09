@@ -41,7 +41,7 @@ const headings = ((rendered?.metadata?.headings || []) as MarkdownHeading[])
 <BaseLayout title={`${note.title} - Archer Yu`} description={note.summary || note.title}>
   <div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,48rem)_16rem] xl:grid-cols-[minmax(0,48rem)_18rem]">
     <article class="min-w-0 max-w-3xl">
-      <a href="/blog" class="mb-8 inline-flex items-center gap-1 text-sm text-surface-500 transition-colors hover:text-primary-600 dark:text-surface-400 dark:hover:text-primary-400">
+      <a href="/blog" class="mb-8 -ml-2 inline-flex min-h-11 items-center gap-1 rounded-lg px-2 text-sm text-surface-500 transition-colors hover:bg-surface-50 hover:text-primary-600 dark:text-surface-400 dark:hover:bg-surface-900 dark:hover:text-primary-400">
         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
@@ -79,7 +79,7 @@ const headings = ((rendered?.metadata?.headings || []) as MarkdownHeading[])
 
       {headings.length > 0 && (
         <details class="mb-8 rounded-lg border border-surface-200 bg-surface-50/70 p-4 dark:border-surface-700 dark:bg-surface-900/70 lg:hidden">
-          <summary class="cursor-pointer text-sm font-semibold text-surface-700 dark:text-surface-200">
+          <summary class="flex min-h-11 cursor-pointer items-center text-sm font-semibold text-surface-700 dark:text-surface-200">
             目录
           </summary>
           <div class="mt-4">
@@ -105,7 +105,7 @@ const headings = ((rendered?.metadata?.headings || []) as MarkdownHeading[])
             href={getNoteSourceUrl(note)}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400"
+            class="inline-flex min-h-11 items-center rounded-lg px-2 text-sm font-medium text-primary-600 hover:bg-primary-50 hover:text-primary-700 dark:text-primary-400 dark:hover:bg-surface-900"
           >
             查看 Markdown 源文件
           </a>
@@ -157,6 +157,12 @@ const headings = ((rendered?.metadata?.headings || []) as MarkdownHeading[])
   .markdown-content :global(pre code) {
     background: transparent;
     padding: 0;
+  }
+
+  .markdown-content :global(:not(pre) > code),
+  .markdown-content :global(a) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .markdown-content :global(table) {
