@@ -3,6 +3,10 @@ dist/
 # generated types
 .astro/
 
+# local verification artifacts
+.playwright-cli/
+output/playwright/
+
 # dependencies
 node_modules/
 
