@@ -65,6 +65,7 @@ const data = notesData as {
   source?: NotesSource;
 };
 
+const IMAGE_PATH_PATTERN = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
 const notes = data.notes || [];
 const notePathToSlug = new Map(notes.map(note => [normalizeRepoPath(note.path), note.slug]));
 const notePathToNote = new Map(notes.map(note => [normalizeRepoPath(note.path), note]));
@@ -113,7 +114,7 @@ export function getRenderableNoteContent(note: Note): string {
 }
 
 export function resolveNoteHref(currentNote: Note, href: string): string {
-  if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+  if (isSpecialHref(href)) {
     return href;
   }
 
@@ -134,6 +135,27 @@ export function resolveNoteHref(currentNote: Note, href: string): string {
   return slug ? `/blog/${slug}${suffix}` : href;
 }
 
+export function resolveNoteImageSrc(currentNote: Note, src: string): string {
+  if (isSpecialHref(src) || src.startsWith('data:')) {
+    return src;
+  }
+
+  const githubPath = extractGithubLearningNotesPath(src);
+  if (githubPath) {
+    return assetHrefForRepoPath(githubPath, src);
+  }
+
+  if (isAbsoluteHref(src)) {
+    return src;
+  }
+
+  const [srcPath, suffix = ''] = splitHrefSuffix(src);
+  const repoPath = toRepoRelativeAssetPath(currentNote, srcPath);
+  if (!repoPath) return src;
+
+  return `/notes-assets/${encodeRepoPath(repoPath)}${suffix}`;
+}
+
 export function createNoteLinkRewriter() {
   return function rehypeRewriteNoteLinks() {
     return function transformer(tree: unknown, file: unknown) {
@@ -145,7 +167,9 @@ export function createNoteLinkRewriter() {
         const propName = node.tagName === 'a' ? 'href' : 'src';
         const value = node.properties?.[propName];
         if (typeof value !== 'string') return;
-        node.properties[propName] = resolveNoteHref(currentNote, value);
+        node.properties[propName] = node.tagName === 'img'
+          ? resolveNoteImageSrc(currentNote, value)
+          : resolveNoteHref(currentNote, value);
       });
     };
   };
@@ -166,6 +190,14 @@ function splitHrefSuffix(href: string): [string, string?] {
   return [match?.[1] || href, match?.[2]];
 }
 
+function isSpecialHref(href: string): boolean {
+  return !href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:');
+}
+
+function isAbsoluteHref(href: string): boolean {
+  return /^[a-z][a-z0-9+.-]*:\/\//i.test(href) || href.startsWith('//');
+}
+
 function extractGithubLearningNotesPath(href: string): string | null {
   try {
     const url = new URL(href);
@@ -183,6 +215,12 @@ function hrefForRepoPath(repoPathWithSuffix: string, fallback: string): string {
   return slug ? `/blog/${slug}${suffix}` : fallback;
 }
 
+function assetHrefForRepoPath(repoPathWithSuffix: string, fallback: string): string {
+  const [repoPath, suffix = ''] = splitHrefSuffix(repoPathWithSuffix);
+  const normalizedPath = normalizeRepoPath(repoPath);
+  return isImagePath(normalizedPath) ? `/notes-assets/${encodeRepoPath(normalizedPath)}${suffix}` : fallback;
+}
+
 function toRepoRelativePath(currentNote: Note, hrefPath: string): string | null {
   if (!hrefPath.endsWith('.md')) return null;
 
@@ -197,6 +235,32 @@ function toRepoRelativePath(currentNote: Note, hrefPath: string): string | null 
   }
 
   return normalizeRepoPath(rawPath);
+}
+
+function toRepoRelativeAssetPath(currentNote: Note, hrefPath: string): string | null {
+  let rawPath = safeDecodeURIComponent(hrefPath.trim().replace(/^<|>$/g, ''));
+  if (!isImagePath(rawPath)) return null;
+
+  const localRoot = '/Users/yupeng/learning-notes/';
+  if (rawPath.startsWith(localRoot)) {
+    rawPath = rawPath.slice(localRoot.length);
+  } else if (rawPath.startsWith('/')) {
+    rawPath = rawPath.slice(1);
+  } else {
+    rawPath = path.join(path.dirname(currentNote.path), rawPath);
+  }
+
+  const normalizedPath = normalizeRepoPath(rawPath);
+  if (!normalizedPath || normalizedPath.startsWith('../') || normalizedPath.startsWith('/')) return null;
+  return normalizedPath;
+}
+
+function isImagePath(value: string): boolean {
+  return IMAGE_PATH_PATTERN.test(value);
+}
+
+function encodeRepoPath(value: string): string {
+  return value.split('/').map(encodeURIComponent).join('/');
 }
 
 function normalizeRepoPath(value: string): string {

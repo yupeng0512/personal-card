@@ -1,5 +1,5 @@
-import { appendFileSync, existsSync, readFileSync, writeFileSync } from 'fs';
-import { basename, dirname, resolve } from 'path';
+import { appendFileSync, copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'fs';
+import { basename, dirname, extname, relative, resolve } from 'path';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
@@ -44,6 +44,9 @@ const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_LEARNING_NOTES_DIR = resolve(SCRIPT_DIR, '../../learning-notes');
 const LEARNING_NOTES_DIR = resolve(process.env.LEARNING_NOTES_DIR || DEFAULT_LEARNING_NOTES_DIR);
 const OUTPUT_PATH = resolve(SCRIPT_DIR, '../src/data/notes-data.json');
+const NOTES_ASSETS_DIR = resolve(SCRIPT_DIR, '../public/notes-assets');
+const LOCAL_IMAGE_EXTENSIONS = new Set(['.avif', '.gif', '.jpeg', '.jpg', '.png', '.svg', '.webp']);
+const referencedAssets = new Set<string>();
 
 const EXCLUDED_BASENAMES = new Set([
   'README.md',
@@ -111,6 +114,19 @@ function readJsonSafe<T>(path: string): T | null {
     return JSON.parse(readFileSync(path, 'utf-8')) as T;
   } catch {
     return null;
+  }
+}
+
+function splitHrefSuffix(href: string): [string, string?] {
+  const match = href.match(/^([^?#]*)([?#].*)?$/);
+  return [match?.[1] || href, match?.[2]];
+}
+
+function safeDecodeURIComponent(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
   }
 }
 
@@ -241,6 +257,82 @@ function stripFrontmatter(content: string): string {
   return content.slice(frontmatterMatch[0].length).trimStart();
 }
 
+function isExternalAssetHref(href: string): boolean {
+  return (
+    !href ||
+    href.startsWith('#') ||
+    href.startsWith('//') ||
+    href.startsWith('data:') ||
+    href.startsWith('mailto:') ||
+    href.startsWith('tel:') ||
+    /^[a-z][a-z0-9+.-]*:\/\//i.test(href)
+  );
+}
+
+function resolveLocalAssetPath(currentNotePath: string, href: string): string | null {
+  const [hrefPath] = splitHrefSuffix(href.trim().replace(/^<|>$/g, ''));
+  if (isExternalAssetHref(hrefPath)) return null;
+
+  const decoded = safeDecodeURIComponent(hrefPath);
+  if (!LOCAL_IMAGE_EXTENSIONS.has(extname(decoded).toLowerCase())) return null;
+
+  const localRoot = `${LEARNING_NOTES_DIR}/`;
+  let fullPath: string;
+  if (decoded.startsWith(localRoot)) {
+    fullPath = resolve(decoded);
+  } else if (decoded.startsWith('/')) {
+    fullPath = resolve(LEARNING_NOTES_DIR, decoded.slice(1));
+  } else {
+    fullPath = resolve(LEARNING_NOTES_DIR, dirname(currentNotePath), decoded);
+  }
+
+  const relPath = relative(LEARNING_NOTES_DIR, fullPath).split('\\').join('/');
+  if (!relPath || relPath.startsWith('..') || relPath.startsWith('/')) return null;
+  return relPath;
+}
+
+function collectReferencedAssets(relPath: string, content: string) {
+  const markdownImagePattern = /!\[[^\]]*\]\(([^)\s]+)(?:\s+["'][^"']*["'])?\)/g;
+  let markdownMatch: RegExpExecArray | null;
+  while ((markdownMatch = markdownImagePattern.exec(content))) {
+    const assetPath = resolveLocalAssetPath(relPath, markdownMatch[1]);
+    if (assetPath) referencedAssets.add(assetPath);
+  }
+
+  const htmlImagePattern = /<img\b[^>]*\bsrc=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/gi;
+  let htmlMatch: RegExpExecArray | null;
+  while ((htmlMatch = htmlImagePattern.exec(content))) {
+    const assetPath = resolveLocalAssetPath(relPath, htmlMatch[1] || htmlMatch[2] || htmlMatch[3] || '');
+    if (assetPath) referencedAssets.add(assetPath);
+  }
+}
+
+function syncReferencedAssets(): number {
+  rmSync(NOTES_ASSETS_DIR, { recursive: true, force: true });
+
+  let copied = 0;
+  for (const relPath of [...referencedAssets].sort()) {
+    const sourcePath = resolve(LEARNING_NOTES_DIR, relPath);
+    if (!existsSync(sourcePath) || !statSync(sourcePath).isFile()) {
+      bumpSkip('missing-asset', relPath);
+      continue;
+    }
+
+    const targetPath = resolve(NOTES_ASSETS_DIR, relPath);
+    const targetRel = relative(NOTES_ASSETS_DIR, targetPath);
+    if (!targetRel || targetRel.startsWith('..') || targetRel.startsWith('/')) {
+      bumpSkip('invalid-asset-target', relPath);
+      continue;
+    }
+
+    mkdirSync(dirname(targetPath), { recursive: true });
+    copyFileSync(sourcePath, targetPath);
+    copied += 1;
+  }
+
+  return copied;
+}
+
 function isPrivateNote(frontmatter: ParsedFrontmatter): boolean {
   return frontmatter.public === false || frontmatter.visibility === 'private';
 }
@@ -272,6 +364,7 @@ function extractNote(relPath: string): NoteInfo | null {
   const slug = fileName.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
   const summary = extractNoteSummary(content) || inline.summary || '';
   const noteContent = stripFrontmatter(content);
+  collectReferencedAssets(relPath, content);
   const tags = fm.tags?.length ? fm.tags : [
     CATEGORY_LABELS[category],
     SUBCATEGORY_LABELS[subcategory],
@@ -319,7 +412,7 @@ function hasSameNotesContent(previous: NotesData | null, next: Pick<NotesData, '
   }) === JSON.stringify(next);
 }
 
-function buildSummary(data: NotesData, changed: boolean, checkedSource: SourceInfo): string {
+function buildSummary(data: NotesData, changed: boolean, checkedSource: SourceInfo, assetCount: number): string {
   const latest = data.notes.slice(0, 5);
   const sourceLines = [
     `- Source checked: ${checkedSource.repository}@${checkedSource.commit}`,
@@ -347,6 +440,7 @@ function buildSummary(data: NotesData, changed: boolean, checkedSource: SourceIn
     '',
     ...sourceLines,
     `- Notes: ${data.stats.totalNotes}`,
+    `- Assets: ${assetCount}`,
     `- Changed: ${changed ? 'yes' : 'no'}`,
     '',
     'Latest notes:',
@@ -366,6 +460,7 @@ function main() {
   console.log('Syncing learning notes from:', LEARNING_NOTES_DIR);
   const previous = readJsonSafe<NotesData>(OUTPUT_PATH);
   const notes = extractNotes();
+  const assetCount = syncReferencedAssets();
   const checkedSource = {
     repository: process.env.LEARNING_NOTES_REPOSITORY || 'yupeng0512/learning-notes',
     ref: process.env.LEARNING_NOTES_REF || runGit(['rev-parse', '--abbrev-ref', 'HEAD']),
@@ -390,7 +485,7 @@ function main() {
 
   writeFileSync(OUTPUT_PATH, `${JSON.stringify(data, null, 2)}\n`, 'utf-8');
 
-  const summary = buildSummary(data, !unchanged, checkedSource);
+  const summary = buildSummary(data, !unchanged, checkedSource, assetCount);
   console.log(summary);
   if (process.env.GITHUB_STEP_SUMMARY) {
     appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`, 'utf-8');

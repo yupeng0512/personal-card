@@ -172,7 +172,14 @@ const headings = ((rendered?.metadata?.headings || []) as MarkdownHeading[])
   }
 
   .markdown-content :global(img) {
+    display: block;
     max-width: 100%;
+    height: auto;
+    margin-inline: auto;
     border-radius: 0.5rem;
+  }
+
+  .markdown-content :global(p > img:only-child) {
+    margin-block: 1.5rem;
   }
 </style>

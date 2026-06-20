@@ -82,7 +82,7 @@ jobs:
         working-directory: personal-card
         shell: bash
         run: |
-          if git diff --quiet -- src/data/notes-data.json; then
+          if [ -z "$(git status --porcelain -- src/data/notes-data.json public/notes-assets)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "- Commit: no changes" >> "$GITHUB_STEP_SUMMARY"
           else
@@ -98,6 +98,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/notes-data.json
+          if [ -d public/notes-assets ]; then
+            git add public/notes-assets
+          fi
+          git add -u public/notes-assets || true
           git commit -m "chore: sync learning notes data"
           git push
           echo "- Commit: pushed" >> "$GITHUB_STEP_SUMMARY"
